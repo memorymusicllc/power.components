@@ -1,0 +1,158 @@
+
+{
+  "name": "power-components",
+  "version": "1.0.0",
+  "description": "A comprehensive suite of powerful Obsidian plugins for enhanced note-taking and knowledge management",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "power-redact",
+    "power-canvas"
+  ],
+  "scripts": {
+    "install-all": "npm install && npm run install-plugins",
+    "install-plugins": "cd power-redact && npm install && cd ../power-canvas && npm install",
+    "build-all": "npm run build-redact && npm run build-canvas",
+    "build-redact": "cd power-redact && npm run build",
+    "build-canvas": "cd power-canvas && npm run build",
+    "dev": "concurrently \"npm run dev-redact\" \"npm run dev-canvas\"",
+    "dev-redact": "cd power-redact && npm run dev",
+    "dev-canvas": "cd power-canvas && npm run dev",
+    "test": "npm run test-redact && npm run test-canvas",
+    "test-redact": "cd power-redact && npm test",
+    "test-canvas": "cd power-canvas && npm test",
+    "lint": "npm run lint-redact && npm run lint-canvas",
+    "lint-redact": "cd power-redact && npm run lint",
+    "lint-canvas": "cd power-canvas && npm run lint",
+    "lint-fix": "npm run lint-fix-redact && npm run lint-fix-canvas",
+    "lint-fix-redact": "cd power-redact && npm run lint:fix",
+    "lint-fix-canvas": "cd power-canvas && npm run lint:fix",
+    "clean": "npm run clean-redact && npm run clean-canvas",
+    "clean-redact": "cd power-redact && npm run clean",
+    "clean-canvas": "cd power-canvas && npm run clean",
+    "link-vault": "node scripts/link-vault.js",
+    "unlink-vault": "node scripts/unlink-vault.js",
+    "release": "npm run build-all && npm run test && npm run package",
+    "package": "node scripts/package.js",
+    "docs": "npm run docs-build",
+    "docs-build": "node scripts/build-docs.js",
+    "docs-serve": "node scripts/serve-docs.js",
+    "version-bump": "node scripts/version-bump.js",
+    "changelog": "node scripts/generate-changelog.js",
+    "security-audit": "npm audit && cd power-redact && npm audit && cd ../power-canvas && npm audit",
+    "outdated": "npm outdated && cd power-redact && npm outdated && cd ../power-canvas && npm outdated",
+    "update-deps": "npm update && cd power-redact && npm update && cd ../power-canvas && npm update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/memorymusicllc/power.components.git"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "redaction",
+    "canvas",
+    "privacy",
+    "drawing",
+    "note-taking",
+    "knowledge-management",
+    "text-processing",
+    "visualization"
+  ],
+  "author": {
+    "name": "Memory Music LLC",
+    "email": "dev@memorymusic.com",
+    "url": "https://memorymusic.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/memorymusicllc/power.components/issues"
+  },
+  "homepage": "https://github.com/memorymusicllc/power.components#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.50.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "obsidian": "latest"
+  },
+  "peerDependencies": {
+    "obsidian": "^1.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "node scripts/validate-commit.js"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "plugins": {
+      "power-redact": {
+        "name": "Power Redact Plugin",
+        "version": "2.0.0",
+        "description": "Advanced text redaction and privacy protection",
+        "main": "main.js",
+        "manifest": "manifest.json"
+      },
+      "power-canvas": {
+        "name": "Power Canvas Plugin",
+        "version": "1.0.0",
+        "description": "Enhanced canvas functionality with advanced drawing tools",
+        "main": "main.js",
+        "manifest": "manifest.json"
+      }
+    }
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/memorymusicllc"
+  },
+  "contributors": [
+    {
+      "name": "Memory Music LLC Development Team",
+      "email": "dev@memorymusic.com"
+    }
+  ],
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "files": [
+    "power-redact/",
+    "power-canvas/",
+    "docs/",
+    "scripts/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "volta": {
+    "node": "18.18.0",
+    "npm": "9.8.1"
+  }
+}
+

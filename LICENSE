@@ -1,0 +1,137 @@
+
+MIT License
+
+Copyright (c) 2025 Memory Music LLC
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Additional Terms and Conditions
+
+### Attribution Requirements
+
+When redistributing or using this software in derivative works, you must:
+
+1. **Preserve Copyright Notice:** Include the above copyright notice and this permission notice in all copies or substantial portions of the Software.
+
+2. **Attribution in Documentation:** If you create derivative works or distribute modified versions, include clear attribution to Memory Music LLC and the original Power Components project.
+
+3. **Link to Original:** Provide a link to the original repository: https://github.com/memorymusicllc/power.components
+
+### Commercial Use
+
+This software is free for both personal and commercial use under the MIT License terms. However:
+
+1. **Trademark Notice:** "Power Components," "Power Redact," and "Power Canvas" are trademarks of Memory Music LLC. Use of these trademarks requires separate permission.
+
+2. **Support Disclaimer:** Commercial users are encouraged to contribute back to the project but are not required to do so.
+
+### Contributions
+
+By contributing to this project, you agree that:
+
+1. **License Grant:** Your contributions will be licensed under the same MIT License.
+
+2. **Copyright Assignment:** You retain copyright to your contributions while granting Memory Music LLC the right to use, modify, and distribute them.
+
+3. **Warranty Disclaimer:** You provide contributions "as is" without warranty of any kind.
+
+### Third-Party Components
+
+This software may include third-party components with their own licenses:
+
+1. **Obsidian API:** Subject to Obsidian's plugin development terms
+2. **Node.js Dependencies:** Each dependency maintains its own license
+3. **TypeScript:** Licensed under Apache License 2.0
+
+### Data Privacy and Security
+
+1. **User Data:** This software processes user data locally within Obsidian. No data is transmitted to external servers by default.
+
+2. **Sensitive Information:** The redaction functionality is designed to protect sensitive information. Users are responsible for verifying the effectiveness of redaction for their specific use cases.
+
+3. **Security Vulnerabilities:** Report security issues to security@memorymusic.com rather than public issue trackers.
+
+### Disclaimer of Warranties
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+
+IN PARTICULAR:
+
+1. **Redaction Effectiveness:** While the Power Redact plugin is designed to identify and redact sensitive information, users must verify its effectiveness for their specific use cases and regulatory requirements.
+
+2. **Data Loss:** Users should maintain backups of their data. The developers are not responsible for any data loss that may occur.
+
+3. **Compatibility:** The software is designed for specific versions of Obsidian. Compatibility with future versions is not guaranteed.
+
+### Limitation of Liability
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+This includes but is not limited to:
+- Data loss or corruption
+- Privacy breaches due to ineffective redaction
+- Performance issues or system crashes
+- Incompatibility with other software
+
+### Governing Law
+
+This license shall be governed by and construed in accordance with the laws of the jurisdiction where Memory Music LLC is incorporated, without regard to its conflict of law provisions.
+
+### Severability
+
+If any provision of this license is held to be unenforceable or invalid, such provision shall be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law, and the remaining provisions will continue in full force and effect.
+
+### Contact Information
+
+For questions about this license or the software:
+
+- **Email:** legal@memorymusic.com
+- **Website:** https://memorymusic.com
+- **GitHub:** https://github.com/memorymusicllc
+
+---
+
+## Open Source Acknowledgments
+
+This project builds upon the work of many open source projects and contributors:
+
+### Core Dependencies
+- **Obsidian Plugin API** - Enables plugin development for Obsidian
+- **TypeScript** - Provides type safety and modern JavaScript features
+- **Rollup** - Bundles and optimizes the plugin code
+- **Jest** - Testing framework for reliable code quality
+
+### Development Tools
+- **ESLint** - Code linting and style enforcement
+- **Prettier** - Code formatting consistency
+- **Husky** - Git hooks for quality assurance
+- **Conventional Commits** - Standardized commit messages
+
+### Runtime Libraries
+- Various npm packages that provide utility functions and enhanced capabilities
+
+We are grateful to all the maintainers and contributors of these projects that make Power Components possible.
+
+---
+
+**Last Updated:** September 16, 2025
+**License Version:** 1.0
+
