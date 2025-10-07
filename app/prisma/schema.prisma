@@ -1,0 +1,218 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/ac_selling_dashboard/app/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Platform {
+  id          String @id @default(cuid())
+  name        String @unique
+  displayName String
+  isActive    Boolean @default(true)
+  baseUrl     String?
+  description String?
+  
+  listings    Listing[]
+  templates   ListingTemplate[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ListingTemplate {
+  id          String @id @default(cuid())
+  platformId  String
+  title       String
+  description String
+  price       Decimal
+  tags        String[]
+  isActive    Boolean @default(true)
+  
+  platform Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+  listings Listing[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Listing {
+  id         String @id @default(cuid())
+  platformId String
+  templateId String?
+  title      String
+  description String
+  price      Decimal
+  location   String?
+  isActive   Boolean @default(true)
+  postDate   DateTime?
+  externalId String?
+  url        String?
+  status     ListingStatus @default(DRAFT)
+  
+  platform Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+  template ListingTemplate? @relation(fields: [templateId], references: [id])
+  leads    Lead[]
+  metrics  ListingMetrics[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lead {
+  id        String @id @default(cuid())
+  listingId String
+  name      String?
+  email     String?
+  phone     String?
+  message   String?
+  source    String?
+  status    LeadStatus @default(NEW)
+  priority  LeadPriority @default(MEDIUM)
+  
+  listing     Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  interactions Interaction[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Interaction {
+  id       String @id @default(cuid())
+  leadId   String
+  type     InteractionType
+  message  String?
+  response String?
+  isAuto   Boolean @default(false)
+  
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+}
+
+model AutoResponseTemplate {
+  id          String @id @default(cuid())
+  name        String
+  trigger     String
+  response    String
+  isActive    Boolean @default(true)
+  category    ResponseCategory
+  priority    Int @default(0)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model NegotiationTemplate {
+  id          String @id @default(cuid())
+  name        String
+  scenario    String
+  script      String
+  minPrice    Decimal?
+  maxDiscount Decimal?
+  isActive    Boolean @default(true)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PriceHistory {
+  id       String @id @default(cuid())
+  price    Decimal
+  reason   String?
+  
+  createdAt DateTime @default(now())
+}
+
+model ListingMetrics {
+  id        String @id @default(cuid())
+  listingId String
+  views     Int @default(0)
+  inquiries Int @default(0)
+  responses Int @default(0)
+  date      DateTime @default(now())
+  
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([listingId, date])
+}
+
+model CrossPost {
+  id            String @id @default(cuid())
+  sourceId      String
+  targetPlatform String
+  scheduledFor  DateTime
+  postedAt      DateTime?
+  status        CrossPostStatus @default(SCHEDULED)
+  errorMessage  String?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Settings {
+  id              String @id @default(cuid())
+  autoResponseEnabled Boolean @default(true)
+  firmPrice       Decimal @default(4200.00)
+  minPrice        Decimal @default(4000.00)
+  location        String @default("Mid-Wilshire, Los Angeles")
+  contactEmail    String?
+  contactPhone    String?
+  
+  updatedAt DateTime @updatedAt
+}
+
+enum ListingStatus {
+  DRAFT
+  ACTIVE
+  SOLD
+  EXPIRED
+  PAUSED
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  NEGOTIATING
+  SCHEDULED
+  CONVERTED
+  LOST
+}
+
+enum LeadPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum InteractionType {
+  INQUIRY
+  RESPONSE
+  FOLLOW_UP
+  PHONE_CALL
+  EMAIL
+}
+
+enum ResponseCategory {
+  AVAILABILITY
+  PRICING
+  SPECIFICATIONS
+  LOGISTICS
+  QUALIFICATION
+}
+
+enum CrossPostStatus {
+  SCHEDULED
+  POSTING
+  POSTED
+  FAILED
+}
