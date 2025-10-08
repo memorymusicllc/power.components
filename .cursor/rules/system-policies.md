@@ -61,3 +61,16 @@ Before claiming ANY system is "working":
 - VITE
 - COMPONENTS MUST SUPPORT BOTH REACT FLOW AND 3JS/REACT THREE FIBER 
 - CANNOT USE SHADCN OR NEXTJS
+
+## Default to E2E Validation: 
+All feature development, refactoring, or bug-fixing tasks must be accompanied by new or updated Playwright E2E tests that validate the core functionality of the changes. A task is not complete until the tests are written and passing.
+
+## Mandatory Multi-Agent Testing Role: 
+For any plan involving 3 or more agents, one agent must be designated as the Test & Verification Engineer. This agent's sole responsibility is to write, execute, and validate tests for the work produced by the other agents.
+
+## Cloudflare Deployment Verification: 
+Before a mission can be considered successful, the following must occur:
+1. The full Playwright E2E test suite must pass locally.
+The code must be deployed to a Cloudflare Pages preview environment.
+2. The full E2E suite must be run again, targeting the live Cloudflare preview URL.
+3. Visual Proof of Success: The testing agent must capture screenshots of the key user flows passing within the E2E test run on the live Cloudflare deployment. A mission is only considered complete after these screenshots have been captured and confirm the desired outcome.
