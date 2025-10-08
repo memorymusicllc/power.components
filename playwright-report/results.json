@@ -1,0 +1,1435 @@
+{
+  "config": {
+    "configFile": "/Users/creator/Documents/DEV/pow3r.cashout/playwright.config.ts",
+    "rootDir": "/Users/creator/Documents/DEV/pow3r.cashout/e2e",
+    "forbidOnly": true,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-report/results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/creator/Documents/DEV/pow3r.cashout/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/creator/Documents/DEV/pow3r.cashout/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "universal-search.spec.ts",
+      "file": "universal-search.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Universal Search",
+          "file": "universal-search.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display search input with placeholder",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1115,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:29:54.806Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-66bc09dfc72af3ea368f",
+              "file": "universal-search.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should show search suggestions on input",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40045,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 27
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"listing\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  25 |     // Type in search box\n  26 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 27 |     await searchInput.fill('listing')\n     |                       ^\n  28 |     \n  29 |     // Wait for suggestions to appear\n  30 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:27:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:29:56.242Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-dfcb1-search-suggestions-on-input-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40676,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 27
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"listing\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  25 |     // Type in search box\n  26 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 27 |     await searchInput.fill('listing')\n     |                       ^\n  28 |     \n  29 |     // Wait for suggestions to appear\n  30 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:27:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:30:36.934Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-dfcb1-search-suggestions-on-input-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-dfcb1-search-suggestions-on-input-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40041,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 27
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"listing\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  25 |     // Type in search box\n  26 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 27 |     await searchInput.fill('listing')\n     |                       ^\n  28 |     \n  29 |     // Wait for suggestions to appear\n  30 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:27:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:31:18.938Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-dfcb1-search-suggestions-on-input-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-00d63ee81209eae1b834",
+              "file": "universal-search.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "should support keyboard navigation",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40065,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 44
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  42 |     // Type in search box\n  43 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 44 |     await searchInput.fill('test')\n     |                       ^\n  45 |     \n  46 |     // Wait for suggestions\n  47 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:44:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:31:59.892Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-30152-support-keyboard-navigation-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 56565,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 44
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  42 |     // Type in search box\n  43 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 44 |     await searchInput.fill('test')\n     |                       ^\n  45 |     \n  46 |     // Wait for suggestions\n  47 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:44:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:32:40.951Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-30152-support-keyboard-navigation-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-30152-support-keyboard-navigation-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40065,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 44
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  42 |     // Type in search box\n  43 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 44 |     await searchInput.fill('test')\n     |                       ^\n  45 |     \n  46 |     // Wait for suggestions\n  47 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:44:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:33:39.770Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-30152-support-keyboard-navigation-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-848fe25b2df41c7138ea",
+              "file": "universal-search.spec.ts",
+              "line": 36,
+              "column": 3
+            },
+            {
+              "title": "should show search results",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40060,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 66
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"dashboard\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  64 |     // Type in search box\n  65 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 66 |     await searchInput.fill('dashboard')\n     |                       ^\n  67 |     \n  68 |     // Press Enter to search\n  69 |     await searchInput.press('Enter')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:66:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:34:21.454Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-Search-should-show-search-results-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 44018,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 66
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"dashboard\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  64 |     // Type in search box\n  65 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 66 |     await searchInput.fill('dashboard')\n     |                       ^\n  67 |     \n  68 |     // Press Enter to search\n  69 |     await searchInput.press('Enter')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:66:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:35:03.169Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-Search-should-show-search-results-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-Search-should-show-search-results-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40050,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 66
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"dashboard\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  64 |     // Type in search box\n  65 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 66 |     await searchInput.fill('dashboard')\n     |                       ^\n  67 |     \n  68 |     // Press Enter to search\n  69 |     await searchInput.press('Enter')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:66:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:35:49.756Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-Search-should-show-search-results-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-ae04366de446aeb13054",
+              "file": "universal-search.spec.ts",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "should support filter chips",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40251,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 87
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"category:listings\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  85 |     // Type in search box\n  86 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 87 |     await searchInput.fill('category:listings')\n     |                       ^\n  88 |     \n  89 |     // Wait for filter to be applied\n  90 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:87:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:36:31.863Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-417a7-should-support-filter-chips-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60068,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "message": "\u001b[31mTearing down \"context\" exceeded the test timeout of 30000ms.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 87
+                          },
+                          "message": "Error: locator.fill: Test ended.\nBrowser logs:\n\n[pid=44126][err] [1008/023819.319261:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.328401:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.335578:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.342165:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.347648:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.351446:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.357310:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.364921:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.369695:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.374976:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.380208:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.385666:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.391370:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.403635:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.410036:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.414233:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.419567:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.426204:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.432186:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.437353:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.444043:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.453922:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.456057:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.460291:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.466566:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.472584:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.482030:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.486729:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.492356:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.498723:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.506233:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.512013:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.517550:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.524419:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.531689:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.535720:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.542875:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.549109:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.568922:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.573779:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.594424:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.594498:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.602414:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.608515:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.612566:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.618370:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.623965:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.628848:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.633950:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.638726:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.647705:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.656369:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.661166:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.666733:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.677006:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.683044:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.688967:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.694541:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.703066:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.708640:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.716600:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.726204:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.732351:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.739618:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.744622:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.751249:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.762002:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.769230:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.773774:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.779199:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.785156:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.790945:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.795943:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.801670:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.807067:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.822240:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.829751:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.834743:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.839472:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.847518:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.853433:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.862229:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.867714:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.874838:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.881546:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.890484:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.899168:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.914138:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.921138:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.927366:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.933560:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.938637:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.945437:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.952220:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.958057:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.963878:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.971218:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.973856:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.978589:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.985116:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.993291:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023819.998703:INFO:CONSOLE:496] \"Dashboard updated: 2:38:19 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.010597:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.012127:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.017656:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.023104:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.028613:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.034610:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.039518:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.045128:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.051688:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.057546:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.070382:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.076630:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.081592:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.086729:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.091415:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.099142:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.101219:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.106841:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.111855:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.117431:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.126225:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.127063:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.137680:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.144040:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.150248:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.155894:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.160911:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.165827:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.170764:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.176329:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.181352:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.186913:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.192789:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.199580:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.214633:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.221124:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.226830:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.232687:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.241337:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.245377:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.251280:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.258461:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.265730:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.271433:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.276428:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.281376:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126][err] [1008/023820.292050:INFO:CONSOLE:496] \"Dashboard updated: 2:38:20 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=44126] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"category:listings\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  85 |     // Type in search box\n  86 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 87 |     await searchInput.fill('category:listings')\n     |                       ^\n  88 |     \n  89 |     // Wait for filter to be applied\n  90 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:87:23"
+                        },
+                        {
+                          "message": "Error: End of central directory record signature not found. Either not a zip file, or file is truncated."
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:37:14.141Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40212,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 87
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"category:listings\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  85 |     // Type in search box\n  86 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 87 |     await searchInput.fill('category:listings')\n     |                       ^\n  88 |     \n  89 |     // Wait for filter to be applied\n  90 |     await page.waitForTimeout(500)\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:87:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:38:35.119Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-417a7-should-support-filter-chips-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-dd2da55a840dab64eafb",
+              "file": "universal-search.spec.ts",
+              "line": 79,
+              "column": 3
+            },
+            {
+              "title": "should show advanced search options",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 48579,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 26,
+                            "line": 105
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[title=\"Advanced Search\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"Advanced Search\" class=\"absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n  103 |     // Click on settings/advanced button\n  104 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n> 105 |     await settingsButton.click()\n      |                          ^\n  106 |     \n  107 |     // Check that advanced search panel is visible\n  108 |     await expect(page.getByText('Advanced Search')).toBeVisible()\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:105:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:39:16.561Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-c57cf-how-advanced-search-options-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60070,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "message": "\u001b[31mTearing down \"context\" exceeded the test timeout of 30000ms.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 26,
+                            "line": 105
+                          },
+                          "message": "Error: locator.click: Test ended.\nBrowser logs:\n\n[pid=48570][err] [1008/024114.062917:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.067764:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.073040:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.078077:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.082926:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.087803:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.092878:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.097979:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.104089:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.108495:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.114181:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.118435:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.127750:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.132407:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.138836:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.145435:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.150859:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.156786:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.161982:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.166593:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.171148:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.175789:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.181411:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.187532:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.194361:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.200885:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.208948:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.222961:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.230926:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.238531:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.244536:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.251373:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.258363:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.263731:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.270285:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.275197:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.280760:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.289179:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.293081:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.298451:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.305470:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.312543:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.321644:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.325641:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.330981:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.336249:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.341636:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.349104:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.354640:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.360195:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.365078:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.369962:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.374943:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.380496:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.386662:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.392558:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.398215:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.406032:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.413713:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.419099:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.425001:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.430279:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.436392:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.442215:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.447282:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.452090:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.457405:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.462831:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.467994:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.473607:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.479333:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.484515:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.491943:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.497189:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.502296:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.509058:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.514442:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.523139:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.526891:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.531986:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.537242:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.542374:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.547539:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.553618:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.558450:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.564106:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.570901:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.578968:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.583533:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.588520:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.593801:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.598898:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.604264:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.609952:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.615918:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.622583:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.628763:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.635947:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.641950:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.647749:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.655188:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.660626:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.670242:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.676123:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.685817:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.689197:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.693687:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.698342:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.704370:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.710414:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.717137:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.723104:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.728735:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.733411:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.737954:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.742660:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.747384:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.756202:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.766438:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.771101:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.775825:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.780787:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.786046:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.791741:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.799029:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.808302:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.814039:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.818217:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.824217:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.829437:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.834724:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.840419:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.850082:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.856288:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.862476:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.867033:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.871687:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.876258:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.881108:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.886035:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.892264:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.897525:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.903690:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.909242:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570] <gracefully close start>\n[pid=48570][err] [1008/024114.915933:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.921022:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.926383:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.932717:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=48570][err] [1008/024114.938260:INFO:CONSOLE:496] \"Dashboard updated: 2:41:14 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\nCall log:\n\u001b[2m  - waiting for locator('[title=\"Advanced Search\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"Advanced Search\" class=\"absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n  103 |     // Click on settings/advanced button\n  104 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n> 105 |     await settingsButton.click()\n      |                          ^\n  106 |     \n  107 |     // Check that advanced search panel is visible\n  108 |     await expect(page.getByText('Advanced Search')).toBeVisible()\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:105:26"
+                        },
+                        {
+                          "message": "Error: End of central directory record signature not found. Either not a zip file, or file is truncated."
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:40:08.716Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 51926,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 26,
+                            "line": 105
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[title=\"Advanced Search\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"Advanced Search\" class=\"absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n  103 |     // Click on settings/advanced button\n  104 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n> 105 |     await settingsButton.click()\n      |                          ^\n  106 |     \n  107 |     // Check that advanced search panel is visible\n  108 |     await expect(page.getByText('Advanced Search')).toBeVisible()\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:105:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:41:18.199Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-c57cf-how-advanced-search-options-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-7e5954e7f280c78fd720",
+              "file": "universal-search.spec.ts",
+              "line": 97,
+              "column": 3
+            },
+            {
+              "title": "should support logic operators",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 40782,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1') to be visible\u001b[22m\n\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:117:16",
+                        "location": {
+                          "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                          "column": 16,
+                          "line": 117
+                        },
+                        "snippet": "  115 |     \n  116 |     // Wait for the page to load\n> 117 |     await page.waitForSelector('h1', { timeout: 10000 })\n      |                ^\n  118 |     \n  119 |     // Open advanced search\n  120 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 16,
+                            "line": 117
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1') to be visible\u001b[22m\n\n\n  115 |     \n  116 |     // Wait for the page to load\n> 117 |     await page.waitForSelector('h1', { timeout: 10000 })\n      |                ^\n  118 |     \n  119 |     // Open advanced search\n  120 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:117:16"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:42:24.462Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-ec6d3-uld-support-logic-operators-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-ec6d3-uld-support-logic-operators-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                        "column": 16,
+                        "line": 117
+                      }
+                    },
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60064,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "message": "\u001b[31mFixture \"trace recording\" timeout of 30000ms exceeded during teardown.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 26,
+                            "line": 121
+                          },
+                          "message": "Error: locator.click: Test ended.\nBrowser logs:\n\n[pid=51787][err] [1008/024451.963774:INFO:CONSOLE:496] \"Dashboard updated: 2:44:51 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024451.969280:INFO:CONSOLE:496] \"Dashboard updated: 2:44:51 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024451.975090:INFO:CONSOLE:496] \"Dashboard updated: 2:44:51 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024451.980557:INFO:CONSOLE:496] \"Dashboard updated: 2:44:51 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024451.987512:INFO:CONSOLE:496] \"Dashboard updated: 2:44:51 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024451.999085:INFO:CONSOLE:496] \"Dashboard updated: 2:44:51 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.003819:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.010475:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.028781:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.029387:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.033637:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.039456:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.044391:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.050353:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.056194:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.062121:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.070206:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.074320:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.083776:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.089327:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.095114:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.103626:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.109162:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.115437:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.120951:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.127881:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.131960:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.137697:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.145009:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.158000:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.161902:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.170557:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.173611:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.179800:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.182514:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.188756:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.195026:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.203396:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.210134:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.214844:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.220618:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.226115:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.231403:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.236789:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.244594:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.249567:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.255103:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.260699:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.277332:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.277587:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.281975:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.287366:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.294253:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.305903:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.307018:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.313901:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.319048:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.322514:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.330433:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.333000:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.339148:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.344341:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.349016:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.355124:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.360657:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.368719:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.373827:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787] <gracefully close start>\n[pid=51787][err] [1008/024452.378750:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645372:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645669:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645741:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645763:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645781:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645850:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645869:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645886:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645907:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.645924:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646059:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646083:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646099:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646122:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646140:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646156:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646172:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646188:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646204:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646220:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646385:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646447:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646576:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646656:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646729:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646763:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.646793:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.647892:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.647948:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.647968:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.670789:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.671425:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.671489:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.671520:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.674472:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.680221:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.687004:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.691306:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.696411:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.702182:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.706386:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.711249:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.716772:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.723188:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.727885:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.732967:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.746827:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.746888:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.753251:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.956914:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.956964:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.956988:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957008:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957027:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957046:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957065:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957084:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957102:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957121:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957378:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957431:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957455:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957476:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957632:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957691:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957721:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957777:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957961:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.957991:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958017:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958037:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958057:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958166:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958190:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958211:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958231:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958251:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958271:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958290:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.958683:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\n[pid=51787][err] [1008/024452.961621:INFO:CONSOLE:496] \"Dashboard updated: 2:44:52 AM\", source: https://0b1d0cc4.cashruleseverythingaroundme.pages.dev/assets/index-DAAiWtHb.js (496)\nCall log:\n\u001b[2m  - waiting for locator('[title=\"Advanced Search\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"Advanced Search\" class=\"absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n  119 |     // Open advanced search\n  120 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n> 121 |     await settingsButton.click()\n      |                          ^\n  122 |     \n  123 |     // Check that logic operators are visible\n  124 |     await expect(page.getByText('AND')).toBeVisible()\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:121:26"
+                        },
+                        {
+                          "message": "Error: End of central directory record signature not found. Either not a zip file, or file is truncated."
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:43:19.855Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-ec6d3-uld-support-logic-operators-chromium-retry1/test-failed-1.png"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60033,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 26,
+                            "line": 121
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[title=\"Advanced Search\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"Advanced Search\" class=\"absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n  119 |     // Open advanced search\n  120 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n> 121 |     await settingsButton.click()\n      |                          ^\n  122 |     \n  123 |     // Check that logic operators are visible\n  124 |     await expect(page.getByText('AND')).toBeVisible()\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:121:26"
+                        },
+                        {
+                          "message": "\u001b[31mTearing down \"context\" exceeded the test timeout of 30000ms.\u001b[39m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:45:21.926Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-0aaa86ae84fcbf535c69",
+              "file": "universal-search.spec.ts",
+              "line": 113,
+              "column": 3
+            },
+            {
+              "title": "should show search history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 44632,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 26,
+                            "line": 138
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[title=\"Advanced Search\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"Advanced Search\" class=\"absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n  136 |     // Open advanced search\n  137 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n> 138 |     await settingsButton.click()\n      |                          ^\n  139 |     \n  140 |     // Check that search history section is visible\n  141 |     await expect(page.getByText('Recent Searches')).toBeVisible()\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:138:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:46:43.170Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-Search-should-show-search-history-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60035,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 26,
+                            "line": 138
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[title=\"Advanced Search\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"Advanced Search\" class=\"absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n  136 |     // Open advanced search\n  137 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n> 138 |     await settingsButton.click()\n      |                          ^\n  139 |     \n  140 |     // Check that search history section is visible\n  141 |     await expect(page.getByText('Recent Searches')).toBeVisible()\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:138:26"
+                        },
+                        {
+                          "message": "\u001b[31mTearing down \"context\" exceeded the test timeout of 30000ms.\u001b[39m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:47:47.141Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-Search-should-show-search-history-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40327,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 26,
+                            "line": 138
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[title=\"Advanced Search\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"Advanced Search\" class=\"absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n\n  136 |     // Open advanced search\n  137 |     const settingsButton = page.locator('[title=\"Advanced Search\"]')\n> 138 |     await settingsButton.click()\n      |                          ^\n  139 |     \n  140 |     // Check that search history section is visible\n  141 |     await expect(page.getByText('Recent Searches')).toBeVisible()\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:138:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:49:00.520Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-Search-should-show-search-history-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-66f6bb9cb7adb17ab452",
+              "file": "universal-search.spec.ts",
+              "line": 130,
+              "column": 3
+            },
+            {
+              "title": "should be responsive on mobile",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40115,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 157
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  155 |     \n  156 |     // Test mobile search\n> 157 |     await searchInput.fill('test')\n      |                       ^\n  158 |     await searchInput.press('Enter')\n  159 |     \n  160 |     // Wait for results\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:157:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:49:45.264Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-46bf8-uld-be-responsive-on-mobile-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 42224,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 157
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  155 |     \n  156 |     // Test mobile search\n> 157 |     await searchInput.fill('test')\n      |                       ^\n  158 |     await searchInput.press('Enter')\n  159 |     \n  160 |     // Wait for results\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:157:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:50:26.963Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-46bf8-uld-be-responsive-on-mobile-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-46bf8-uld-be-responsive-on-mobile-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40198,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 157
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  155 |     \n  156 |     // Test mobile search\n> 157 |     await searchInput.fill('test')\n      |                       ^\n  158 |     await searchInput.press('Enter')\n  159 |     \n  160 |     // Wait for results\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:157:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:51:11.969Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-46bf8-uld-be-responsive-on-mobile-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-a14333b2df8df3ffa324",
+              "file": "universal-search.spec.ts",
+              "line": 144,
+              "column": 3
+            },
+            {
+              "title": "should clear search when clear button is clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 40074,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 172
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test search\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  170 |     // Type in search box\n  171 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 172 |     await searchInput.fill('test search')\n      |                       ^\n  173 |     \n  174 |     // Click clear button\n  175 |     const clearButton = page.locator('[class*=\"clear\"]')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:172:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:51:53.852Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-9cfb9-hen-clear-button-is-clicked-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 43458,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 172
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test search\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  170 |     // Type in search box\n  171 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 172 |     await searchInput.fill('test search')\n      |                       ^\n  173 |     \n  174 |     // Click clear button\n  175 |     const clearButton = page.locator('[class*=\"clear\"]')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:172:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:52:36.389Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-9cfb9-hen-clear-button-is-clicked-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-9cfb9-hen-clear-button-is-clicked-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 41329,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 172
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"test search\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  170 |     // Type in search box\n  171 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 172 |     await searchInput.fill('test search')\n      |                       ^\n  173 |     \n  174 |     // Click clear button\n  175 |     const clearButton = page.locator('[class*=\"clear\"]')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:172:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:53:27.689Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-9cfb9-hen-clear-button-is-clicked-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-6ce9f5a4991080e6d8c2",
+              "file": "universal-search.spec.ts",
+              "line": 164,
+              "column": 3
+            },
+            {
+              "title": "should show loading state during search",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 52193,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 190
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"complex search query\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  188 |     // Type in search box\n  189 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 190 |     await searchInput.fill('complex search query')\n      |                       ^\n  191 |     \n  192 |     // Check that loading indicator appears\n  193 |     const loadingIndicator = page.locator('[class*=\"animate-spin\"]')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:190:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T09:54:12.997Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-9c8e9-loading-state-during-search-chromium/video.webm"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60057,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "message": "\u001b[31mTearing down \"context\" exceeded the test timeout of 30000ms.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 190
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"complex search query\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  188 |     // Type in search box\n  189 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 190 |     await searchInput.fill('complex search query')\n      |                       ^\n  191 |     \n  192 |     // Check that loading indicator appears\n  193 |     const loadingIndicator = page.locator('[class*=\"animate-spin\"]')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:190:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-08T09:55:09.720Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-9c8e9-loading-state-during-search-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 41134,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts",
+                            "column": 23,
+                            "line": 190
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search listings, leads, metrics, and more...')\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" type=\"text\" placeholder=\"Search listings, leads, metrics, and more...\" class=\"w-full pl-10 pr-10 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent\"/>\u001b[22m\n\u001b[2m    - fill(\"complex search query\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  188 |     // Type in search box\n  189 |     const searchInput = page.getByPlaceholder('Search listings, leads, metrics, and more...')\n> 190 |     await searchInput.fill('complex search query')\n      |                       ^\n  191 |     \n  192 |     // Check that loading indicator appears\n  193 |     const loadingIndicator = page.locator('[class*=\"animate-spin\"]')\n    at /Users/creator/Documents/DEV/pow3r.cashout/e2e/universal-search.spec.ts:190:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-08T09:56:20.450Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/creator/Documents/DEV/pow3r.cashout/test-results/universal-search-Universal-9c8e9-loading-state-during-search-chromium-retry2/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cf42e4aabc8b569697d3-0654b29d9b03102aee73",
+              "file": "universal-search.spec.ts",
+              "line": 182,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-10-08T09:29:54.070Z",
+    "duration": 1628565.113,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  }
+}

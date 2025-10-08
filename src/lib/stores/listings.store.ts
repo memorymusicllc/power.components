@@ -32,12 +32,13 @@ export const useListingsStore = create<ListingsState>((set, get) => ({
   fetchListings: async () => {
     set({ loading: true, error: null });
     try {
-      const response = await api.getListings('seller-001');
+      const response = await api.getListings('user-001');
       
       if (response.success && response.data) {
-        set({ listings: response.data, loading: false });
+        const listingsArray = Array.isArray(response.data) ? response.data : [];
+        set({ listings: listingsArray, loading: false });
       } else {
-        throw new Error(response.error || 'Failed to fetch listings');
+        throw new Error((response as any).error || 'Failed to fetch listings');
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
@@ -49,13 +50,13 @@ export const useListingsStore = create<ListingsState>((set, get) => ({
   // Create Listing
   createListing: async (data: any): Promise<boolean> => {
     try {
-      const response = await api.createListing({ ...data, sellerId: 'seller-001' });
+      const response = await api.createListing({ ...data, userId: 'user-001' });
       
       if (response.success) {
         await get().fetchListings(); // Refresh data
         return true;
       } else {
-        throw new Error(response.error || 'Failed to create listing');
+        throw new Error((response as any).error || 'Failed to create listing');
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
@@ -73,7 +74,7 @@ export const useListingsStore = create<ListingsState>((set, get) => ({
         await get().fetchListings(); // Refresh data
         return true;
       } else {
-        throw new Error(response.error || 'Failed to update listing');
+        throw new Error((response as any).error || 'Failed to update listing');
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
@@ -91,7 +92,7 @@ export const useListingsStore = create<ListingsState>((set, get) => ({
         await get().fetchListings(); // Refresh data
         return true;
       } else {
-        throw new Error(response.error || 'Failed to delete listing');
+        throw new Error((response as any).error || 'Failed to delete listing');
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';

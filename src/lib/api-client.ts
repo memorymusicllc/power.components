@@ -173,8 +173,8 @@ class ApiClient {
   }
 }
 
-// Singleton instance
-export const apiClient = new ApiClient('', 15000, 3);
+// Singleton instance - pointing to real backend API
+export const apiClient = new ApiClient('http://localhost:3001', 15000, 3);
 
 // Specific API functions
 export const api = {
@@ -193,8 +193,8 @@ export const api = {
   },
 
   // Listing APIs
-  async getListings(sellerId: string) {
-    return apiClient.get<any[]>(`/api/listings?sellerId=${sellerId}`);
+  async getListings(userId: string) {
+    return apiClient.get<any[]>(`/api/listings?userId=${userId}`);
   },
 
   async createListing(data: any) {

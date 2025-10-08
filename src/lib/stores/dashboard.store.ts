@@ -5,6 +5,7 @@
  */
 
 import { create } from 'zustand';
+import { api } from '@/lib/api-client';
 
 interface DashboardMetrics {
   totalViews: number;
@@ -54,18 +55,21 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
   fetchMetrics: async () => {
     set({ loading: true, error: null });
     try {
-      // In real app, this would call an API
-      // For now, simulate with default data
-      await new Promise(resolve => setTimeout(resolve, 500));
+      const response = await api.getDashboardData();
       
-      set({ 
-        metrics: defaultMetrics, 
-        loading: false,
-        lastUpdated: new Date().toLocaleTimeString()
-      });
+      if (response.success && response.data) {
+        set({ 
+          metrics: response.data, 
+          loading: false,
+          lastUpdated: new Date().toLocaleTimeString()
+        });
+      } else {
+        throw new Error((response as any).error || 'Failed to fetch dashboard data');
+      }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
       set({ error: errorMessage, loading: false });
+      console.error('Dashboard fetch error:', err);
     }
   },
   

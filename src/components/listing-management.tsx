@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { DashboardCard } from '@/components/ui/dashboard-card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
@@ -37,7 +38,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useToast } from '@/hooks/use-toast';
-import { productData, listingTemplates } from '@/lib/product-data';
+import { getProductData, getListingTemplates, getCurrentProduct, setCurrentProduct, getAvailableProducts } from '@/lib/product-config';
 import { useListingsStore } from '@/lib/stores/listings.store';
 import { Listing } from '@/lib/types';
 import {
@@ -75,12 +76,19 @@ export function ListingManagement() {
   const [generatedListing, setGeneratedListing] = useState<GeneratedListing | null>(null);
   const [customTitle, setCustomTitle] = useState('');
   const [customDescription, setCustomDescription] = useState('');
-  const [customPrice, setCustomPrice] = useState(productData.pricing.askingPrice.toString());
+  const [customPrice, setCustomPrice] = useState(getProductData().pricing.askingPrice.toString());
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeTab, setActiveTab] = useState<'generator' | 'listings'>('generator');
+  const [selectedProduct, setSelectedProduct] = useState(getCurrentProduct().id);
   
   const { listings, loading, createListing, updateListing, deleteListing, refresh } = useListingsStore();
   const { toast } = useToast();
+
+  // Update price when product changes
+  useEffect(() => {
+    const productData = getProductData();
+    setCustomPrice(productData.pricing.askingPrice.toString());
+  }, [selectedProduct]);
 
   const platforms: Platform[] = [
     {
@@ -103,6 +111,15 @@ export function ListingManagement() {
     }
   ];
 
+  const handleProductChange = (productId: string) => {
+    setSelectedProduct(productId);
+    setCurrentProduct(productId);
+    // Reset generated listing when product changes
+    setGeneratedListing(null);
+    setCustomTitle('');
+    setCustomDescription('');
+  };
+
   const generateListing = async () => {
     if (selectedPlatforms.length === 0) {
       toast({
@@ -117,7 +134,9 @@ export function ListingManagement() {
 
     try {
       // Use template data or custom input
-      const template = listingTemplates[selectedTemplate as keyof typeof listingTemplates];
+      const templates = getListingTemplates();
+      const template = templates[selectedTemplate as keyof typeof templates];
+      const productData = getProductData();
       
       const generated: GeneratedListing = {
         title: customTitle || template.title,
@@ -196,7 +215,7 @@ export function ListingManagement() {
   return (
     <div className="min-h-screen p-3 sm:p-6 space-y-4 sm:space-y-8">
       {/* Header */}
-      <div className="space-y-2">
+      <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -229,6 +248,27 @@ export function ListingManagement() {
             </Button>
           </div>
         </div>
+
+        {/* Product Selector */}
+        <div className="flex items-center gap-4">
+          <label className="text-sm font-medium">Product:</label>
+          <Select value={selectedProduct} onValueChange={handleProductChange}>
+            <SelectTrigger className="w-48">
+              <SelectValue placeholder="Select product" />
+            </SelectTrigger>
+            <SelectContent>
+              {getAvailableProducts().map(productId => {
+                const product = getCurrentProduct();
+                return (
+                  <SelectItem key={productId} value={productId}>
+                    {productId === 'air-conditioner' ? 'Air Conditioner' : 
+                     productId === 'car' ? 'Car' : productId}
+                  </SelectItem>
+                );
+              })}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       {/* Product Showcase */}
@@ -237,52 +277,80 @@ export function ListingManagement() {
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-6 items-center">
             <div className="relative aspect-square bg-white/10 rounded-lg overflow-hidden">
               <img
-                src={productData.images.mainUnit}
-                alt="AC Main Unit"
+                src={getProductData().images.mainUnit}
+                alt={getProductData().fullName}
                 className="w-full h-full object-cover"
               />
             </div>
             
             <div className="sm:col-span-2 space-y-3 sm:space-y-4">
               <div>
-                <h2 className="text-lg sm:text-2xl font-bold">{productData.model}</h2>
-                <p className="text-blue-100 text-sm sm:text-base">{productData.brand}</p>
+                <h2 className="text-lg sm:text-2xl font-bold">{getProductData().model}</h2>
+                <p className="text-blue-100 text-sm sm:text-base">{getProductData().brand}</p>
               </div>
               
               <div className="grid grid-cols-3 gap-2 sm:gap-4">
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
-                  </div>
-                  <div className="text-xs sm:text-sm font-medium">{productData.specs.coolingCapacity}</div>
-                  <div className="text-xs text-blue-200">Cooling</div>
-                </div>
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Battery className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
-                  </div>
-                  <div className="text-xs sm:text-sm font-medium">{productData.specs.voltage}</div>
-                  <div className="text-xs text-blue-200">Direct DC</div>
-                </div>
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-orange-400" />
-                  </div>
-                  <div className="text-xs sm:text-sm font-medium">{productData.specs.currentDraw}</div>
-                  <div className="text-xs text-blue-200">Current</div>
-                </div>
+                {selectedProduct === 'air-conditioner' ? (
+                  <>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
+                      </div>
+                      <div className="text-xs sm:text-sm font-medium">{getProductData().specs.coolingCapacity}</div>
+                      <div className="text-xs text-blue-200">Cooling</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <Battery className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
+                      </div>
+                      <div className="text-xs sm:text-sm font-medium">{getProductData().specs.voltage}</div>
+                      <div className="text-xs text-blue-200">Direct DC</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-orange-400" />
+                      </div>
+                      <div className="text-xs sm:text-sm font-medium">{getProductData().specs.currentDraw}</div>
+                      <div className="text-xs text-blue-200">Current</div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
+                      </div>
+                      <div className="text-xs sm:text-sm font-medium">{getProductData().specs.year}</div>
+                      <div className="text-xs text-blue-200">Year</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <Battery className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
+                      </div>
+                      <div className="text-xs sm:text-sm font-medium">{getProductData().specs.mileage}</div>
+                      <div className="text-xs text-blue-200">Mileage</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-orange-400" />
+                      </div>
+                      <div className="text-xs sm:text-sm font-medium">{getProductData().specs.engine}</div>
+                      <div className="text-xs text-blue-200">Engine</div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
             
             <div className="text-center sm:text-right">
               <div className="text-xs sm:text-sm text-blue-200 line-through">
-                ${productData.pricing.totalRetailCost.toLocaleString()}
+                ${getProductData().pricing.retailPrice.toLocaleString()}
               </div>
               <div className="text-2xl sm:text-3xl font-bold text-green-400">
-                ${productData.pricing.askingPrice.toLocaleString()}
+                ${getProductData().pricing.askingPrice.toLocaleString()}
               </div>
               <div className="text-xs sm:text-sm text-green-300">
-                Save ${productData.pricing.savings}
+                Save ${getProductData().pricing.savings}
               </div>
             </div>
           </div>
@@ -432,7 +500,7 @@ export function ListingManagement() {
                       </div>
                       <div className="flex items-center space-x-2">
                         <MapPin className="w-4 h-4 text-blue-500" />
-                        <span className="text-sm">{productData.location.area}</span>
+                        <span className="text-sm">{getProductData().location.area}</span>
                       </div>
                     </div>
 
@@ -441,19 +509,19 @@ export function ListingManagement() {
                       <div className="grid grid-cols-2 gap-2 text-xs">
                         <div className="flex items-center space-x-1">
                           <Star className="w-3 h-3 text-yellow-500" />
-                          <span>{productData.specs.coolingCapacity}</span>
+                          <span>{selectedProduct === 'air-conditioner' ? getProductData().specs.coolingCapacity : getProductData().specs.year}</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Battery className="w-3 h-3 text-green-500" />
-                          <span>{productData.specs.voltage}</span>
+                          <span>{selectedProduct === 'air-conditioner' ? getProductData().specs.voltage : getProductData().specs.mileage}</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Zap className="w-3 h-3 text-orange-500" />
-                          <span>{productData.specs.currentDraw}</span>
+                          <span>{selectedProduct === 'air-conditioner' ? getProductData().specs.currentDraw : getProductData().specs.engine}</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Check className="w-3 h-3 text-green-500" />
-                          <span>{productData.condition}</span>
+                          <span>{getProductData().condition}</span>
                         </div>
                       </div>
                     </div>

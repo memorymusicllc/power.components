@@ -51,7 +51,7 @@ export const useAutoResponderStore = create<AutoResponderState>((set, get) => ({
   fetchRules: async () => {
     set({ loading: true, error: null });
     try {
-      const response = await api.getAutoResponseRules('seller-001');
+      const response = await api.getAutoResponseRules('user-001');
       
       if (response.success && response.data) {
         const rulesArray = Array.isArray(response.data) ? response.data : [];
@@ -68,7 +68,7 @@ export const useAutoResponderStore = create<AutoResponderState>((set, get) => ({
         
         set({ rules: rulesArray, isActive, stats, loading: false });
       } else {
-        throw new Error(response.error || 'Failed to fetch auto-response rules');
+        throw new Error((response as any).error || 'Failed to fetch auto-response rules');
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
@@ -80,13 +80,13 @@ export const useAutoResponderStore = create<AutoResponderState>((set, get) => ({
   // Create Rule
   createRule: async (data: any): Promise<boolean> => {
     try {
-      const response = await api.createAutoResponseRule({ ...data, sellerId: 'seller-001' });
+      const response = await api.createAutoResponseRule({ ...data, userId: 'user-001' });
       
       if (response.success) {
         await get().fetchRules();
         return true;
       } else {
-        throw new Error(response.error || 'Failed to create rule');
+        throw new Error((response as any).error || 'Failed to create rule');
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
@@ -104,7 +104,7 @@ export const useAutoResponderStore = create<AutoResponderState>((set, get) => ({
         await get().fetchRules();
         return true;
       } else {
-        throw new Error(response.error || 'Failed to update rule');
+        throw new Error((response as any).error || 'Failed to update rule');
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
@@ -122,7 +122,7 @@ export const useAutoResponderStore = create<AutoResponderState>((set, get) => ({
         await get().fetchRules();
         return true;
       } else {
-        throw new Error(response.error || 'Failed to delete rule');
+        throw new Error((response as any).error || 'Failed to delete rule');
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
