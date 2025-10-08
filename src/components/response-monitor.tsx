@@ -31,7 +31,7 @@ import { motion } from 'framer-motion';
 import { useToast } from '@/hooks/use-toast';
 import { useAutoResponder } from '@/hooks/use-auto-responder';
 import { dataGenerator } from '@/lib/utils/data-generator';
-import { useDashboardData } from '@/hooks/use-dashboard-data';
+import { useDashboardStore } from '@/lib/stores/dashboard.store';
 
 interface ResponseRule {
   id: string;
@@ -75,7 +75,7 @@ export function ResponseMonitor() {
     stats
   } = useAutoResponder();
 
-  const { data: dashboardData } = useDashboardData(true, 30000);
+  const { metrics: dashboardData } = useDashboardStore();
   
   const [newRuleName, setNewRuleName] = useState('');
   const [newRuleTrigger, setNewRuleTrigger] = useState('');

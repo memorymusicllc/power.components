@@ -68,3 +68,12 @@ export function PriceChart() {
     </div>
   );
 }
+
+// Component metadata
+PriceChart.metadata = {
+  name: "PriceChart",
+  label: "Price History Chart",
+  version: "1.0.0",
+  date: "2025-10-08",
+  description: "Line chart showing price trends over time"
+};

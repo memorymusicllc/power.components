@@ -1,6 +1,4 @@
 
-'use client';
-
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 const data = [
@@ -50,3 +48,12 @@ export function LeadsChart() {
     </div>
   );
 }
+
+// Component metadata
+LeadsChart.metadata = {
+  name: "LeadsChart",
+  label: "Lead Pipeline Chart",
+  version: "1.0.0",
+  date: "2025-10-08",
+  description: "Pie chart showing lead status distribution"
+};

@@ -38,7 +38,7 @@ import {
 import { motion } from 'framer-motion';
 import { useToast } from '@/hooks/use-toast';
 import { productData, listingTemplates } from '@/lib/product-data';
-import { useListings } from '@/hooks/use-listings';
+import { useListingsStore } from '@/lib/stores/listings.store';
 import { Listing } from '@/lib/types';
 import {
   DropdownMenu,
@@ -79,7 +79,7 @@ export function ListingManagement() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeTab, setActiveTab] = useState<'generator' | 'listings'>('generator');
   
-  const { listings, loading, createListing, updateListing, deleteListing, refresh } = useListings();
+  const { listings, loading, createListing, updateListing, deleteListing, refresh } = useListingsStore();
   const { toast } = useToast();
 
   const platforms: Platform[] = [

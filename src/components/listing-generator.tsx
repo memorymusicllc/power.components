@@ -34,7 +34,7 @@ import {
 import { motion } from 'framer-motion';
 import { useToast } from '@/hooks/use-toast';
 import { productData, listingTemplates } from '@/lib/product-data';
-import { useListings } from '@/hooks/use-listings';
+import { useListingsStore } from '@/lib/stores/listings.store';
 import { storage } from '@/lib/storage';
 import { Listing } from '@/lib/types';
 
