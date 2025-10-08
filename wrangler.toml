@@ -1,10 +1,16 @@
-name = "ac-selling-dashboard"
+name = "pow3r-cashout"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "dist"
 
-[env.production]
-vars = { ENVIRONMENT = "production" }
+# Cloudflare Pages configuration for pow3r.cashout
+# Tech Stack: React Three Fiber/Redux UI/Zustand/Vite/Tailwind CSS/Playwright/CloudFlare
+# Version Format: v.{DEV/PROD}.{YYYMMDD.HH.MM}.{CloudFlare_Deployment_ID}
 
-[env.preview]
-vars = { ENVIRONMENT = "preview" }
+[env.production.vars]
+ENVIRONMENT = "production"
+VERSION_PREFIX = "PROD"
+
+[env.preview.vars]
+ENVIRONMENT = "preview"
+VERSION_PREFIX = "DEV"
 

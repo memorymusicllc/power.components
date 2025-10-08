@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { api } from '@/lib/api-client';
 import { Listing } from '@/lib/types';
 import { useToast } from './use-toast';
-import { useSession } from 'next-auth/react';
 
 interface UseListingsReturn {
   listings: Listing[];
@@ -20,7 +19,6 @@ export function useListings(): UseListingsReturn {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
-  const { data: session } = useSession() || {};
 
   const fetchListings = useCallback(async () => {
     // Skip session check for demo purposes

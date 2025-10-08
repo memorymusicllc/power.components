@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { api } from '@/lib/api-client';
 import { AutoResponseRule } from '@/lib/types';
 import { useToast } from './use-toast';
-import { useSession } from 'next-auth/react';
 
 interface UseAutoResponderReturn {
   rules: AutoResponseRule[];
@@ -30,7 +29,6 @@ export function useAutoResponder(): UseAutoResponderReturn {
   const [error, setError] = useState<string | null>(null);
   const [isActive, setIsActive] = useState(true);
   const { toast } = useToast();
-  const { data: session } = useSession() || {};
 
   const fetchRules = useCallback(async () => {
     // Skip session check for demo purposes

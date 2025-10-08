@@ -13,6 +13,13 @@ export default defineConfig({
       '@/hooks': path.resolve(__dirname, './src/hooks'),
     },
   },
+  define: {
+    // Make Cloudflare environment variables available to the app
+    'import.meta.env.CF_PAGES': JSON.stringify(process.env.CF_PAGES),
+    'import.meta.env.CF_PAGES_COMMIT_SHA': JSON.stringify(process.env.CF_PAGES_COMMIT_SHA),
+    'import.meta.env.CF_PAGES_BRANCH': JSON.stringify(process.env.CF_PAGES_BRANCH),
+    'import.meta.env.CF_PAGES_URL': JSON.stringify(process.env.CF_PAGES_URL),
+  },
   build: {
     outDir: 'dist',
     sourcemap: true,

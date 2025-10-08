@@ -1,13 +1,10 @@
 
-'use client';
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import Image from 'next/image';
 import {
   FileText,
   Sparkles,
@@ -256,11 +253,10 @@ export function ListingGenerator() {
         <CardContent className="p-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
             <div className="relative aspect-square bg-white/10 rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={productData.images.mainUnit}
                 alt="AC Main Unit"
-                fill
-                className="object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
             

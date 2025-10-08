@@ -1,11 +1,8 @@
 
-'use client';
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import {
   Activity,
   TrendingUp,
@@ -264,12 +261,10 @@ export function DashboardOverview() {
           <CardContent className="px-3 sm:px-6 pb-3 sm:pb-6 space-y-3 sm:space-y-4">
             {/* Product Image */}
             <div className="relative aspect-video bg-slate-700 rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={productData.images.systemOverview}
                 alt={productData.fullName}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="w-full h-full object-cover"
                 onError={() => console.log('Image failed to load')}
               />
             </div>
@@ -338,7 +333,7 @@ export function DashboardOverview() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
               >
-                <Link href={action.href}>
+                <Link to={action.href}>
                   <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-0 bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 hover:shadow-xl">
                     <CardContent className="p-3 sm:p-4">
                       <div className="flex items-start space-x-3">

@@ -1,6 +1,9 @@
-# AC Selling Dashboard
+# pow3r.cashout
 
 A modern, automated dashboard for managing marketplace listings built with Vite, React, and Cloudflare Pages.
+
+**Tech Stack**: React Three Fiber / Redux UI / Zustand / Vite / Tailwind CSS / Playwright / CloudFlare  
+**Version Format**: `v.{DEV/PROD}.{YYYMMDD.HH.MM}.{CloudFlare_Deployment_ID}`
 
 ## Features
 
@@ -43,9 +46,9 @@ npm run preview
    ```bash
    git init
    git add .
-   git commit -m "Initial commit"
+   git commit -m "Initial commit - pow3r.cashout"
    git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/ac-selling-dashboard.git
+   git remote add origin https://github.com/YOUR_USERNAME/pow3r.cashout.git
    git push -u origin main
    ```
 
@@ -82,19 +85,23 @@ npm run pages:deploy
 ## Project Structure
 
 ```
-ac_selling_dashboard/
+pow3r.cashout/
 ├── src/
 │   ├── components/     # React components
 │   ├── pages/          # Page components
-│   ├── lib/            # Utilities and helpers
+│   ├── lib/            # Utilities and helpers (includes version.ts)
 │   ├── hooks/          # Custom React hooks
 │   ├── App.tsx         # Main app component
 │   └── main.tsx        # Entry point
 ├── functions/          # Cloudflare Pages Functions (API routes)
+├── e2e/                # Playwright E2E tests
 ├── public/             # Static assets
-├── dist/               # Build output
+├── dist/               # Build output (gitignored)
 ├── vite.config.ts      # Vite configuration
 ├── wrangler.toml       # Cloudflare configuration
+├── playwright.config.ts # Playwright E2E test configuration
+├── CLOUDFLARE_DEPLOYMENT.md # Deployment guide
+├── ENV_SETUP.md        # Environment variables documentation
 └── package.json
 ```
 

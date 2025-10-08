@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/lib/auth-context';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,6 +12,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
   const { toast } = useToast();
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -18,21 +20,15 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (!response.ok) {
+      const success = await login(email, password);
+      
+      if (!success) {
         toast({
           title: 'Login Failed',
           description: 'Invalid credentials',
           variant: 'destructive',
         });
       } else {
-        const data = await response.json();
-        localStorage.setItem('auth_token', data.token);
         toast({
           title: 'Login Successful',
           description: 'Welcome back!',

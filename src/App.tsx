@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@/components/theme-provider';
+import { AuthProvider } from '@/lib/auth-context';
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as SonnerToaster } from '@/components/ui/sonner';
 
@@ -17,22 +18,24 @@ import LoginPage from '@/pages/Login';
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="ac-dashboard-theme">
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="/listings" element={<ListingsPage />} />
-        <Route path="/leads" element={<LeadsPage />} />
-        <Route path="/auto-responder" element={<AutoResponderPage />} />
-        <Route path="/cross-posting" element={<CrossPostingPage />} />
-        <Route path="/negotiation" element={<NegotiationPage />} />
-        <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/performance" element={<PerformancePage />} />
-        <Route path="/settings" element={<SettingsPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-      <Toaster />
-      <SonnerToaster />
+    <ThemeProvider defaultTheme="dark" storageKey="pow3r-cashout-theme" attribute="class">
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="/listings" element={<ListingsPage />} />
+          <Route path="/leads" element={<LeadsPage />} />
+          <Route path="/auto-responder" element={<AutoResponderPage />} />
+          <Route path="/cross-posting" element={<CrossPostingPage />} />
+          <Route path="/negotiation" element={<NegotiationPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/performance" element={<PerformancePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+        <Toaster />
+        <SonnerToaster />
+      </AuthProvider>
     </ThemeProvider>
   );
 }

@@ -1,7 +1,4 @@
 
-'use client';
-
-import dynamic from 'next/dynamic';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 const data = [

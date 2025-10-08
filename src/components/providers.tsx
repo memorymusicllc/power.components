@@ -1,5 +1,6 @@
 
 import { ThemeProvider } from '@/components/theme-provider';
+import { AuthProvider } from '@/lib/auth-context';
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -10,10 +11,11 @@ export function Providers({ children }: ProvidersProps) {
     <ThemeProvider
       attribute="class"
       defaultTheme="dark"
-      enableSystem
-      disableTransitionOnChange
+      storageKey="pow3r-cashout-theme"
     >
-      {children}
+      <AuthProvider>
+        {children}
+      </AuthProvider>
     </ThemeProvider>
   );
 }

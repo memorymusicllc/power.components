@@ -1,20 +1,20 @@
 
-'use client';
-
 import { Sidebar } from './sidebar';
 import { MobileNav } from './ui/mobile-nav';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useAuth } from '@/lib/auth-context';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { storage, initializeDefaultData } from '@/lib/storage';
+import { initializeDefaultData } from '@/lib/storage';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
-  const { data: session, status } = useSession() || {};
-  const router = useRouter();
+  const { user, isAuthenticated, isLoading } = useAuth();
+  const navigate = useNavigate();
+  const status = isLoading ? 'loading' : isAuthenticated ? 'authenticated' : 'unauthenticated';
+  const session = user ? { user } : null;
 
   useEffect(() => {
     // Initialize default data when layout mounts
@@ -30,9 +30,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   useEffect(() => {
     // Redirect to login if not authenticated
     if (status === 'unauthenticated') {
-      router.push('/login');
+      navigate('/login');
     }
-  }, [status, router]);
+  }, [status, navigate]);
 
   if (status === 'loading') {
     return (
