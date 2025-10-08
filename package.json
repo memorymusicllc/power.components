@@ -10,7 +10,12 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "pages:build": "vite build",
     "pages:deploy": "wrangler pages deploy dist",
-    "pages:dev": "wrangler pages dev dist --port 8788"
+    "pages:dev": "wrangler pages dev dist --port 8788",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "@floating-ui/react": "0.26.0",
