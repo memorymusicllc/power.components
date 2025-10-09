@@ -68,28 +68,41 @@ All feature development, refactoring, or bug-fixing tasks must be accompanied by
 ## Mandatory Multi-Agent Testing Role: 
 For any plan involving 3 or more agents, one agent must be designated as the Test & Verification Engineer. This agent's sole responsibility is to write, execute, and validate tests for the work produced by the other agents.
 
+
 ## Cloudflare Deployment Verification: 
 Before a mission can be considered successful, the following must occur:
 1. The full Playwright E2E test suite must pass locally.
-The code must be deployed to a Cloudflare Pages preview environment.
-2. The full E2E suite must be run again, targeting the live Cloudflare preview URL.
-3. Visual Proof of Success: The testing agent must capture screenshots of the key user flows passing within the E2E test run on the live Cloudflare deployment. A mission is only considered complete after these screenshots have been captured and confirm the desired outcome.
+2. The code must be deployed to a Cloudflare Pages preview environment.
+3. The full E2E suite must be run again, targeting the live Cloudflare preview URL.
+4. Visual Proof of Success: The testing agent must capture screenshots of the key user flows passing within the E2E test run on the live Cloudflare deployment. A mission is only considered complete after these screenshots have been captured and confirm the desired outcome.
+
+## DEPLOYMENT
+1. Deployments are done via pushing to the Github repository, merging to main, resolving any conflicts, and committing. Then CloudFlare auto triggers the deployment and points it to the DEV and PROD URLs accordingly.
+2. If this is not done, set it up. All ACLs are provided, see AUTH section.
+
+## UI DESIGN AN DEVELOPMENT
+Pow3r Component library: `git@github.com:memorymusicllc/power.components.git`
+1. Use the component library to build the frontend UI
+2. Do NOT make components without checking the library first
+3. All components must be designed mobile first
+4. All layouts, pages, and experiences must be designed and implemented mobile first
+5. All components, pages, and layouts must support mobile
+6. Must have dark mode (default) and light mode
+
+### NEW COMPONENT DEVELOPMENT
+When creating a new component, it must be developed for a best-in-class, enterprise-ready design system that follows modern React patterns and provides maximum flexibility while maintaining robustness and accessibility. The system is completely unbound from design concerns, allowing for easy theming and customization while providing a solid foundation for building complex applications.
+1. Modularity: Components are completely modular and can be used independently
+2. Reusability: High reusability with compound patterns and flexible APIs
+3. Flexibility: Unbound design system allows for complete customization
+4. Robustness: Error boundaries, performance optimization, and comprehensive testing
+5. Accessibility: WCAG compliant with full accessibility support
+6. Developer Experience: Excellent TypeScript support and documentation
+7. Unbound from data and style
+8. Once thoroghly tested you must push it to the Pow3r Component library
 
 ## FILE ORGANIZATION AN REPORTING
 1. Before you start a job/task move any and all reports (ex. `{test/results/complete/summary/report/verified/status/fix}.md`) in the root dir to a `reports/` and do NOT believe any of them.
 2. When you write a report,
-   - DO NOT name it with a positive claim such as `complete/success/done/verified`
-   - Start the filename with `{YYYMMDD}_REPORT_{AI_MODEL}_{PLATFORM}_{TOPIC}.md` 
-   - Save it in `reports/`
-
-## UI DESIGN
-## COMPONENTS
-## DASHBOARDS
-## CONFIG
-## REACT FLOW
-## ARCHITECHTURE DIAGRAMS
-## STATUS DIAGRAM UPDATES
-## ACLS
-## DEPLOYMENT
-## WORKFLOWS
-## ENVIRONMENT
+- DO NOT name it with a positive claim such as `complete/success/done/verified`
+- Start the filename with `{YYYMMDD}_REPORT_{AI_MODEL}_{PLATFORM}_{TOPIC}.md`
+- Save it in `reports/`
