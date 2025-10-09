@@ -7,9 +7,9 @@
  */
 
 import React, { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
 import { Thermometer, Minus, Plus } from 'lucide-react'
 
 interface HeatmapData {

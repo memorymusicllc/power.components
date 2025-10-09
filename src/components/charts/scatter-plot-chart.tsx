@@ -7,9 +7,9 @@
  */
 
 import React, { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react'
 
 interface ScatterPoint {
@@ -42,6 +42,14 @@ export function ScatterPlotChart({
   showAnnotations = true,
   className = ""
 }: ScatterPlotChartProps) {
+  // Fallback data if none provided
+  const chartData = data && data.length > 0 ? data : [
+    { id: '1', x: 10, y: 20, label: 'Point 1', color: '#3b82f6' },
+    { id: '2', x: 30, y: 15, label: 'Point 2', color: '#10b981' },
+    { id: '3', x: 5, y: 5, label: 'Point 3', color: '#f59e0b' },
+    { id: '4', x: 25, y: 25, label: 'Point 4', color: '#ef4444' }
+  ];
+  
   const [selectedPoint, setSelectedPoint] = useState<ScatterPoint | null>(null)
   const [showTrendLine, setShowTrendLine] = useState(showTrend)
 
@@ -53,8 +61,8 @@ export function ScatterPlotChart({
   const chartHeight = height - margin * 2
 
   // Calculate bounds
-  const xValues = data.map(d => d.x)
-  const yValues = data.map(d => d.y)
+  const xValues = chartData.map(d => d.x)
+  const yValues = chartData.map(d => d.y)
   const xMin = Math.min(...xValues)
   const xMax = Math.max(...xValues)
   const yMin = Math.min(...yValues)
@@ -74,13 +82,13 @@ export function ScatterPlotChart({
 
   // Calculate trend line (simple linear regression)
   const calculateTrendLine = () => {
-    if (data.length < 2) return null
+    if (chartData.length < 2) return null
 
-    const n = data.length
-    const sumX = data.reduce((sum, d) => sum + d.x, 0)
-    const sumY = data.reduce((sum, d) => sum + d.y, 0)
-    const sumXY = data.reduce((sum, d) => sum + d.x * d.y, 0)
-    const sumXX = data.reduce((sum, d) => sum + d.x * d.x, 0)
+    const n = chartData.length
+    const sumX = chartData.reduce((sum, d) => sum + d.x, 0)
+    const sumY = chartData.reduce((sum, d) => sum + d.y, 0)
+    const sumXY = chartData.reduce((sum, d) => sum + d.x * d.y, 0)
+    const sumXX = chartData.reduce((sum, d) => sum + d.x * d.x, 0)
 
     const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX)
     const intercept = (sumY - slope * sumX) / n
@@ -92,14 +100,14 @@ export function ScatterPlotChart({
 
   // Calculate correlation coefficient
   const calculateCorrelation = () => {
-    if (data.length < 2) return 0
+    if (chartData.length < 2) return 0
 
-    const n = data.length
-    const sumX = data.reduce((sum, d) => sum + d.x, 0)
-    const sumY = data.reduce((sum, d) => sum + d.y, 0)
-    const sumXY = data.reduce((sum, d) => sum + d.x * d.y, 0)
-    const sumXX = data.reduce((sum, d) => sum + d.x * d.x, 0)
-    const sumYY = data.reduce((sum, d) => sum + d.y * d.y, 0)
+    const n = chartData.length
+    const sumX = chartData.reduce((sum, d) => sum + d.x, 0)
+    const sumY = chartData.reduce((sum, d) => sum + d.y, 0)
+    const sumXY = chartData.reduce((sum, d) => sum + d.x * d.y, 0)
+    const sumXX = chartData.reduce((sum, d) => sum + d.x * d.x, 0)
+    const sumYY = chartData.reduce((sum, d) => sum + d.y * d.y, 0)
 
     const numerator = n * sumXY - sumX * sumY
     const denominator = Math.sqrt((n * sumXX - sumX * sumX) * (n * sumYY - sumY * sumY))
@@ -196,7 +204,7 @@ export function ScatterPlotChart({
               )}
 
               {/* Data points */}
-              {data.map((point, index) => {
+              {chartData.map((point, index) => {
                 const x = scaleX(point.x)
                 const y = scaleY(point.y)
                 const radius = point.size ? Math.max(4, point.size) : 6
@@ -282,7 +290,7 @@ export function ScatterPlotChart({
           {/* Statistics */}
           <div className="grid grid-cols-2 gap-4 text-xs">
             <div>
-              <div className="font-medium">Data Points: {data.length}</div>
+              <div className="font-medium">Data Points: {chartData.length}</div>
               <div>X Range: {xMin.toFixed(2)} - {xMax.toFixed(2)}</div>
               <div>Y Range: {yMin.toFixed(2)} - {yMax.toFixed(2)}</div>
             </div>

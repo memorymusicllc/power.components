@@ -1,7 +1,7 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui';
+import { Button } from '@/components/redux-ui';
+import { Badge } from '@/components/redux-ui';
 import { Link } from 'react-router-dom';
 import {
   Activity,
@@ -32,7 +32,7 @@ import { motion } from 'framer-motion';
 import { productData } from '@/lib/product-data';
 import { useDashboardStore } from '@/lib/stores/dashboard.store';
 import { useDashboardRealTime } from '@/hooks/use-real-time';
-import { ConnectionStatus } from '@/components/ui/connection-status';
+import { ConnectionStatus } from '@/components/redux-ui';
 import { storage, initializeDefaultData } from '@/lib/storage';
 import { useEffect } from 'react';
 

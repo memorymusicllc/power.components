@@ -7,9 +7,9 @@
  */
 
 import React, { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
 import { Calendar, Clock, ArrowRight, ArrowLeft } from 'lucide-react'
 
 interface TimelineEvent {
@@ -38,11 +38,18 @@ export function TimelineChart({
   showImportance = true,
   className = ""
 }: TimelineChartProps) {
+  // Fallback data if none provided
+  const chartEvents = events && events.length > 0 ? events : [
+    { id: '1', title: 'Event 1', date: '2024-01-01', type: 'milestone', description: 'First milestone' },
+    { id: '2', title: 'Event 2', date: '2024-02-01', type: 'task', description: 'Important task' },
+    { id: '3', title: 'Event 3', date: '2024-03-01', type: 'milestone', description: 'Second milestone' }
+  ];
+  
   const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(null)
   const [filterCategory, setFilterCategory] = useState<string>('all')
 
   // Sort events by date
-  const sortedEvents = [...events].sort((a, b) => a.date.getTime() - b.date.getTime())
+  const sortedEvents = [...chartEvents].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   
   // Filter events by category
   const filteredEvents = filterCategory === 'all' 
@@ -50,7 +57,7 @@ export function TimelineChart({
     : sortedEvents.filter(event => event.category === filterCategory)
 
   // Get unique categories
-  const categories = Array.from(new Set(events.map(e => e.category).filter(Boolean)))
+  const categories = Array.from(new Set(chartEvents.map(e => e.category).filter(Boolean)))
 
   // Chart dimensions
   const width = 600
@@ -59,13 +66,16 @@ export function TimelineChart({
   const timelineY = height / 2
 
   // Calculate time range
-  const dates = events.map(e => e.date.getTime())
+  const dates = chartEvents.map(e => new Date(e.date).getTime())
   const minDate = Math.min(...dates)
   const maxDate = Math.max(...dates)
   const dateRange = maxDate - minDate
 
   // Scale function for x-axis
-  const scaleX = (date: Date) => margin + ((date.getTime() - minDate) / dateRange) * (width - margin * 2)
+  const scaleX = (date: string | Date) => {
+    const dateObj = typeof date === 'string' ? new Date(date) : date;
+    return margin + ((dateObj.getTime() - minDate) / dateRange) * (width - margin * 2);
+  }
 
   // Get event type styling
   const getEventTypeStyle = (type: string) => {
@@ -298,7 +308,7 @@ export function TimelineChart({
           {/* Statistics */}
           <div className="grid grid-cols-3 gap-4 text-xs">
             <div>
-              <div className="font-medium">Total Events: {events.length}</div>
+              <div className="font-medium">Total Events: {chartEvents.length}</div>
               <div>Filtered: {filteredEvents.length}</div>
             </div>
             <div>
@@ -307,7 +317,7 @@ export function TimelineChart({
             </div>
             <div>
               <div className="font-medium">Event Types:</div>
-              <div>{Array.from(new Set(events.map(e => e.type))).join(', ')}</div>
+              <div>{Array.from(new Set(chartEvents.map(e => e.type))).join(', ')}</div>
             </div>
           </div>
         </div>

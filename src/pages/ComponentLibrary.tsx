@@ -15,12 +15,12 @@
 
 import { useState, useMemo } from 'react'
 import { useTheme } from '@/components/theme-provider'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Input } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Separator } from '@/components/redux-ui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/redux-ui'
 import { 
   ArrowLeft, 
   Search, 
@@ -33,12 +33,12 @@ import {
   Grid3x3,
   Download
 } from 'lucide-react'
-import { GridProvider, ResponsiveGrid, GridSwitcher } from '@/components/ui/responsive-grid'
+import { GridProvider, ResponsiveGrid, GridSwitcher } from '@/components/redux-ui'
 
 // Import all dashboard components
 import { PriceChart } from '@/components/charts/price-chart'
 import { LeadsChart } from '@/components/charts/leads-chart'
-import { DashboardCard } from '@/components/ui/dashboard-card'
+import { DashboardCard } from '@/components/redux-ui'
 
 // Import new data visualization charts
 import { LLMPerformanceChart } from '@/components/charts/llm-performance-chart'
@@ -51,7 +51,7 @@ import { CostAnalysisChart } from '@/components/charts/cost-analysis-chart'
 import { QualityMetricsChart } from '@/components/charts/quality-metrics-chart'
 import { UsagePatternsChart } from '@/components/charts/usage-patterns-chart'
 
-// Import comprehensive data visualization charts
+// Import comprehensive data visualization charts - with default data
 import { QuadrantLeaderChart } from '@/components/charts/quadrant-leader-chart'
 import { NetworkGraphChart } from '@/components/charts/network-graph-chart'
 import { ScatterPlotChart } from '@/components/charts/scatter-plot-chart'
@@ -64,12 +64,82 @@ import { ROCCurveChart } from '@/components/charts/roc-curve-chart'
 import { SankeyDiagramChart } from '@/components/charts/sankey-diagram-chart'
 import { GanttChart } from '@/components/charts/gantt-chart'
 
+// Default data for chart components
+const defaultChartData = {
+  quadrant: [
+    { x: 10, y: 20, label: 'Product A', category: 'High Value' },
+    { x: 30, y: 15, label: 'Product B', category: 'High Volume' },
+    { x: 5, y: 5, label: 'Product C', category: 'Low Value' },
+    { x: 25, y: 25, label: 'Product D', category: 'High Value' }
+  ],
+  network: [
+    { id: 'A', x: 100, y: 100, connections: ['B', 'C'] },
+    { id: 'B', x: 200, y: 150, connections: ['A', 'D'] },
+    { id: 'C', x: 150, y: 200, connections: ['A', 'D'] },
+    { id: 'D', x: 250, y: 250, connections: ['B', 'C'] }
+  ],
+  scatter: [
+    { x: 10, y: 20, label: 'Point 1' },
+    { x: 30, y: 15, label: 'Point 2' },
+    { x: 5, y: 5, label: 'Point 3' },
+    { x: 25, y: 25, label: 'Point 4' }
+  ],
+  bloom: [
+    { id: '1', x: 100, y: 100, connections: ['2', '3'] },
+    { id: '2', x: 200, y: 150, connections: ['1', '4'] },
+    { id: '3', x: 150, y: 200, connections: ['1', '4'] },
+    { id: '4', x: 250, y: 250, connections: ['2', '3'] }
+  ],
+  timeline: [
+    { date: '2024-01-01', event: 'Event 1', type: 'milestone' },
+    { date: '2024-02-01', event: 'Event 2', type: 'task' },
+    { date: '2024-03-01', event: 'Event 3', type: 'milestone' }
+  ],
+  wordcloud: [
+    { text: 'React', value: 30 },
+    { text: 'TypeScript', value: 25 },
+    { text: 'Vite', value: 20 },
+    { text: 'Tailwind', value: 15 }
+  ],
+  heatmap: [
+    { x: 0, y: 0, value: 10 },
+    { x: 1, y: 0, value: 20 },
+    { x: 0, y: 1, value: 15 },
+    { x: 1, y: 1, value: 25 }
+  ],
+  confusion: [
+    { actual: 'Positive', predicted: 'Positive', count: 10 },
+    { actual: 'Positive', predicted: 'Negative', count: 2 },
+    { actual: 'Negative', predicted: 'Positive', count: 3 },
+    { actual: 'Negative', predicted: 'Negative', count: 15 }
+  ],
+  roc: [
+    { fpr: 0, tpr: 0 },
+    { fpr: 0.1, tpr: 0.2 },
+    { fpr: 0.2, tpr: 0.4 },
+    { fpr: 0.3, tpr: 0.6 },
+    { fpr: 1, tpr: 1 }
+  ],
+  sankey: [
+    { source: 'A', target: 'B', value: 10 },
+    { source: 'A', target: 'C', value: 20 },
+    { source: 'B', target: 'D', value: 15 },
+    { source: 'C', target: 'D', value: 25 }
+  ],
+  gantt: [
+    { id: '1', name: 'Task 1', start: '2024-01-01', end: '2024-01-10', progress: 100 },
+    { id: '2', name: 'Task 2', start: '2024-01-05', end: '2024-01-15', progress: 80 },
+    { id: '3', name: 'Task 3', start: '2024-01-10', end: '2024-01-20', progress: 60 }
+  ]
+}
+
 // Import new dashboard components
 import { LLMSwitcher } from '@/components/dashboard/LLMSwitcher'
-import { CodeEditor } from '@/components/ui/code-editor'
-import { PromptTemplatesManager } from '@/components/dashboard/PromptTemplatesManager'
-import { ResponseTemplatesManager } from '@/components/dashboard/ResponseTemplatesManager'
-import { UIElementsFilter } from '@/components/ui/ui-elements-filter'
+import { CodeEditor } from '@/components/redux-ui'
+import { UIElementsFilter } from '@/components/redux-ui'
+// Note: These components will be created for Redux UI
+// import { PromptTemplatesManager } from '@/components/dashboard/PromptTemplatesManager'
+// import { ResponseTemplatesManager } from '@/components/dashboard/ResponseTemplatesManager'
 
 // Phase 1 Components
 import { ItemDetailsCollector } from '@/components/dashboard/ItemDetailsCollector'
@@ -264,6 +334,14 @@ export default function ComponentLibrary() {
         phase: "Phase 2",
         category: "Automation",
         tags: ["phase2", "automation", "leads", "monitoring", "tracking"]
+      },
+      defaultProps: { 
+        metrics: { 
+          totalLeads: 25, 
+          activeLeads: 12, 
+          averageLeadScore: 75,
+          conversionRate: 0.15
+        }
       }
     },
     {
@@ -392,47 +470,58 @@ export default function ComponentLibrary() {
     // Comprehensive Data Visualization Charts
     {
       component: QuadrantLeaderChart,
-      metadata: QuadrantLeaderChart.metadata
+      metadata: QuadrantLeaderChart.metadata,
+      defaultProps: { data: defaultChartData.quadrant }
     },
     {
       component: NetworkGraphChart,
-      metadata: NetworkGraphChart.metadata
+      metadata: NetworkGraphChart.metadata,
+      defaultProps: { data: defaultChartData.network }
     },
     {
       component: ScatterPlotChart,
-      metadata: ScatterPlotChart.metadata
+      metadata: ScatterPlotChart.metadata,
+      defaultProps: { data: defaultChartData.scatter }
     },
     {
       component: BloomGraphChart,
-      metadata: BloomGraphChart.metadata
+      metadata: BloomGraphChart.metadata,
+      defaultProps: { data: defaultChartData.bloom }
     },
     {
       component: TimelineChart,
-      metadata: TimelineChart.metadata
+      metadata: TimelineChart.metadata,
+      defaultProps: { events: defaultChartData.timeline }
     },
     {
       component: WordCloudChart,
-      metadata: WordCloudChart.metadata
+      metadata: WordCloudChart.metadata,
+      defaultProps: { data: defaultChartData.wordcloud }
     },
     {
       component: HeatmapChart,
-      metadata: HeatmapChart.metadata
+      metadata: HeatmapChart.metadata,
+      defaultProps: { data: defaultChartData.heatmap }
     },
     {
       component: ConfusionMatrixChart,
-      metadata: ConfusionMatrixChart.metadata
+      metadata: ConfusionMatrixChart.metadata,
+      defaultProps: { data: defaultChartData.confusion }
     },
     {
       component: ROCCurveChart,
-      metadata: ROCCurveChart.metadata
+      metadata: ROCCurveChart.metadata,
+      defaultProps: { data: defaultChartData.roc }
     },
     {
       component: SankeyDiagramChart,
-      metadata: SankeyDiagramChart.metadata
+      metadata: SankeyDiagramChart.metadata,
+      defaultProps: { data: defaultChartData.sankey }
     },
     {
       component: GanttChart,
-      metadata: GanttChart.metadata
+      metadata: GanttChart.metadata,
+      defaultProps: { data: defaultChartData.gantt }
     },
 
     // New Dashboard Components
@@ -444,14 +533,15 @@ export default function ComponentLibrary() {
       component: CodeEditor,
       metadata: CodeEditor.metadata
     },
-    {
-      component: PromptTemplatesManager,
-      metadata: PromptTemplatesManager.metadata
-    },
-    {
-      component: ResponseTemplatesManager,
-      metadata: ResponseTemplatesManager.metadata
-    },
+    // Note: These components will be added back when Redux UI versions are created
+    // {
+    //   component: PromptTemplatesManager,
+    //   metadata: PromptTemplatesManager.metadata
+    // },
+    // {
+    //   component: ResponseTemplatesManager,
+    //   metadata: ResponseTemplatesManager.metadata
+    // },
     {
       component: UIElementsFilter,
       metadata: UIElementsFilter.metadata
@@ -644,7 +734,11 @@ ${Object.entries(themeData.colors)
 
               <div className="flex items-center space-x-2">
                 <Badge variant="outline">{filteredComponents.length} components</Badge>
-                <GridSwitcher />
+                <GridSwitcher>
+                  <Button variant="outline" size="sm">
+                    <Grid3x3 className="w-4 h-4" />
+                  </Button>
+                </GridSwitcher>
                 <Button
                   variant="outline"
                   size="sm"

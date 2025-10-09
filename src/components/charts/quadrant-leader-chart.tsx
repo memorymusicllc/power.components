@@ -7,8 +7,8 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
 
 interface QuadrantData {
   id: string
@@ -47,6 +47,13 @@ export function QuadrantLeaderChart({
   },
   className = ""
 }: QuadrantLeaderChartProps) {
+  // Fallback data if none provided
+  const chartData = data && data.length > 0 ? data : [
+    { id: '1', name: 'Product A', x: 10, y: 20, size: 5, color: '#3b82f6', category: 'High Value' },
+    { id: '2', name: 'Product B', x: 30, y: 15, size: 3, color: '#10b981', category: 'High Volume' },
+    { id: '3', name: 'Product C', x: 5, y: 5, size: 2, color: '#f59e0b', category: 'Low Value' },
+    { id: '4', name: 'Product D', x: 25, y: 25, size: 4, color: '#ef4444', category: 'High Value' }
+  ];
   // Calculate chart dimensions
   const width = 400
   const height = 300
@@ -55,8 +62,8 @@ export function QuadrantLeaderChart({
   const chartHeight = height - margin * 2
 
   // Find data bounds
-  const xValues = data.map(d => d.x)
-  const yValues = data.map(d => d.y)
+  const xValues = chartData.map(d => d.x)
+  const yValues = chartData.map(d => d.y)
   const xMin = Math.min(...xValues)
   const xMax = Math.max(...xValues)
   const yMin = Math.min(...yValues)
@@ -144,7 +151,7 @@ export function QuadrantLeaderChart({
               </text>
 
               {/* Data points */}
-              {data.map((point, index) => {
+              {chartData.map((point, index) => {
                 const x = scaleX(point.x)
                 const y = scaleY(point.y)
                 const radius = point.size ? Math.max(4, point.size * 2) : 6
@@ -213,7 +220,7 @@ export function QuadrantLeaderChart({
 
           {/* Legend */}
           <div className="flex flex-wrap gap-2">
-            {data.map((point, index) => (
+            {chartData.map((point, index) => (
               <Badge
                 key={point.id}
                 variant="outline"

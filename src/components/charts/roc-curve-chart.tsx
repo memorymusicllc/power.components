@@ -7,9 +7,9 @@
  */
 
 import React, { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
 import { TrendingUp, Target, BarChart3 } from 'lucide-react'
 
 interface ROCPoint {
@@ -36,6 +36,16 @@ export function ROCCurveChart({
   showOptimalPoint = true,
   className = ""
 }: ROCCurveChartProps) {
+  // Fallback data if none provided
+  const chartData = data && data.length > 0 ? data : [
+    { threshold: 0.0, tpr: 0.0, fpr: 0.0, precision: 0.8, recall: 0.0, f1Score: 0.0 },
+    { threshold: 0.2, tpr: 0.3, fpr: 0.1, precision: 0.75, recall: 0.3, f1Score: 0.43 },
+    { threshold: 0.4, tpr: 0.6, fpr: 0.2, precision: 0.75, recall: 0.6, f1Score: 0.67 },
+    { threshold: 0.6, tpr: 0.8, fpr: 0.3, precision: 0.73, recall: 0.8, f1Score: 0.76 },
+    { threshold: 0.8, tpr: 0.9, fpr: 0.4, precision: 0.69, recall: 0.9, f1Score: 0.78 },
+    { threshold: 1.0, tpr: 1.0, fpr: 1.0, precision: 0.5, recall: 1.0, f1Score: 0.67 }
+  ];
+  
   const [activeTab, setActiveTab] = useState<'roc' | 'pr'>('roc')
   const [selectedPoint, setSelectedPoint] = useState<ROCPoint | null>(null)
 
@@ -65,19 +75,23 @@ export function ROCCurveChart({
     return auc
   }
 
-  const rocAUC = calculateAUC(data)
-  const prAUC = calculateAUC(data.map(d => ({ ...d, fpr: d.recall, tpr: d.precision })))
+  const rocAUC = calculateAUC(chartData)
+  const prAUC = calculateAUC(chartData.map(d => ({ ...d, fpr: d.recall, tpr: d.precision })))
 
   // Find optimal point (closest to top-left for ROC, closest to top-right for PR)
   const findOptimalPoint = () => {
+    if (chartData.length === 0) {
+      return { tpr: 0, fpr: 0, precision: 0, recall: 0 }
+    }
+    
     if (activeTab === 'roc') {
-      return data.reduce((best, current) => {
+      return chartData.reduce((best, current) => {
         const bestDistance = Math.sqrt(best.fpr ** 2 + (1 - best.tpr) ** 2)
         const currentDistance = Math.sqrt(current.fpr ** 2 + (1 - current.tpr) ** 2)
         return currentDistance < bestDistance ? current : best
       })
     } else {
-      return data.reduce((best, current) => {
+      return chartData.reduce((best, current) => {
         const bestDistance = Math.sqrt((1 - best.recall) ** 2 + (1 - best.precision) ** 2)
         const currentDistance = Math.sqrt((1 - current.recall) ** 2 + (1 - current.precision) ** 2)
         return currentDistance < bestDistance ? current : best
@@ -101,8 +115,8 @@ export function ROCCurveChart({
     return pathData
   }
 
-  const rocPath = generateCurvePath(data, 'fpr', 'tpr')
-  const prPath = generateCurvePath(data, 'recall', 'precision')
+  const rocPath = generateCurvePath(chartData, 'fpr', 'tpr')
+  const prPath = generateCurvePath(chartData, 'recall', 'precision')
 
   return (
     <Card className={className}>
@@ -191,7 +205,7 @@ export function ROCCurveChart({
               />
 
               {/* Data points */}
-              {data.map((point, index) => {
+              {chartData.map((point, index) => {
                 const x = activeTab === 'roc' ? point.fpr : point.recall
                 const y = activeTab === 'roc' ? point.tpr : point.precision
                 const svgX = scaleX(x)

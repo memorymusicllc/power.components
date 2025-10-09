@@ -7,9 +7,9 @@
  */
 
 import React, { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
 import { ArrowRight, RotateCcw, ZoomIn, ZoomOut } from 'lucide-react'
 
 interface SankeyNode {
@@ -44,6 +44,22 @@ export function SankeyDiagramChart({
   showPercentages = true,
   className = ""
 }: SankeyDiagramChartProps) {
+  // Fallback data if none provided
+  const chartNodes = nodes && nodes.length > 0 ? nodes : [
+    { id: 'A', name: 'Source A', value: 100, level: 0, color: '#3b82f6' },
+    { id: 'B', name: 'Source B', value: 80, level: 0, color: '#10b981' },
+    { id: 'C', name: 'Intermediate', value: 120, level: 1, color: '#f59e0b' },
+    { id: 'D', name: 'Target 1', value: 90, level: 2, color: '#ef4444' },
+    { id: 'E', name: 'Target 2', value: 90, level: 2, color: '#8b5cf6' }
+  ];
+  
+  const chartLinks = links && links.length > 0 ? links : [
+    { source: 'A', target: 'C', value: 60, color: '#3b82f6' },
+    { source: 'B', target: 'C', value: 40, color: '#10b981' },
+    { source: 'C', target: 'D', value: 70, color: '#f59e0b' },
+    { source: 'C', target: 'E', value: 50, color: '#f59e0b' }
+  ];
+  
   const [selectedNode, setSelectedNode] = useState<SankeyNode | null>(null)
   const [zoom, setZoom] = useState(1)
 
@@ -55,7 +71,7 @@ export function SankeyDiagramChart({
   const levelSpacing = 120
 
   // Get levels
-  const levels = Array.from(new Set(nodes.map(n => n.level))).sort()
+  const levels = Array.from(new Set(chartNodes.map(n => n.level))).sort()
   const maxLevel = Math.max(...levels)
 
   // Calculate node positions
@@ -63,7 +79,7 @@ export function SankeyDiagramChart({
     const positions: Record<string, { x: number; y: number; width: number; height: number }> = {}
     
     levels.forEach(level => {
-      const levelNodes = nodes.filter(n => n.level === level)
+      const levelNodes = chartNodes.filter(n => n.level === level)
       const totalValue = levelNodes.reduce((sum, n) => sum + n.value, 0)
       
       let currentY = margin
@@ -86,9 +102,9 @@ export function SankeyDiagramChart({
 
   // Calculate link paths
   const calculateLinkPaths = () => {
-    return links.map(link => {
-      const sourceNode = nodes.find(n => n.id === link.source)
-      const targetNode = nodes.find(n => n.id === link.target)
+    return chartLinks.map(link => {
+      const sourceNode = chartNodes.find(n => n.id === link.source)
+      const targetNode = chartNodes.find(n => n.id === link.target)
       if (!sourceNode || !targetNode) return null
 
       const sourcePos = nodePositions[link.source]
@@ -123,7 +139,7 @@ export function SankeyDiagramChart({
   const linkPaths = calculateLinkPaths()
 
   // Calculate total flow
-  const totalFlow = links.reduce((sum, link) => sum + link.value, 0)
+  const totalFlow = chartLinks.reduce((sum, link) => sum + link.value, 0)
 
   const handleZoomIn = () => setZoom(prev => Math.min(prev * 1.2, 2))
   const handleZoomOut = () => setZoom(prev => Math.max(prev / 1.2, 0.5))
@@ -195,7 +211,7 @@ export function SankeyDiagramChart({
               ))}
 
               {/* Nodes */}
-              {nodes.map(node => {
+              {chartNodes.map(node => {
                 const pos = nodePositions[node.id]
                 if (!pos) return null
 
@@ -272,14 +288,14 @@ export function SankeyDiagramChart({
           <div className="grid grid-cols-2 gap-4 text-xs">
             <div>
               <div className="font-medium">Flow Statistics</div>
-              <div>Total Nodes: {nodes.length}</div>
-              <div>Total Links: {links.length}</div>
+              <div>Total Nodes: {chartNodes.length}</div>
+              <div>Total Links: {chartLinks.length}</div>
               <div>Total Flow: {totalFlow}</div>
             </div>
             <div>
               <div className="font-medium">Levels: {levels.length}</div>
               <div>Max Level: {maxLevel}</div>
-              <div>Avg Flow: {(totalFlow / links.length).toFixed(1)}</div>
+              <div>Avg Flow: {(totalFlow / chartLinks.length).toFixed(1)}</div>
             </div>
           </div>
 
@@ -288,7 +304,7 @@ export function SankeyDiagramChart({
             <div className="text-sm font-medium">Node Levels:</div>
             <div className="flex flex-wrap gap-2">
               {levels.map(level => {
-                const levelNodes = nodes.filter(n => n.level === level)
+                const levelNodes = chartNodes.filter(n => n.level === level)
                 const levelColor = levelNodes[0]?.color || `hsl(${(level * 60) % 360}, 70%, 50%)`
                 return (
                   <Badge

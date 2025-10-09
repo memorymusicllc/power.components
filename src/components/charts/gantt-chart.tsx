@@ -7,9 +7,9 @@
  */
 
 import React, { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
 import { Calendar, Clock, CheckCircle, AlertCircle, Play } from 'lucide-react'
 
 interface GanttTask {
@@ -42,11 +42,18 @@ export function GanttChart({
   showAssignees = true,
   className = ""
 }: GanttChartProps) {
+  // Fallback data if none provided
+  const chartTasks = tasks && tasks.length > 0 ? tasks : [
+    { id: '1', name: 'Task 1', start: new Date('2024-01-01'), end: new Date('2024-01-10'), progress: 100, status: 'completed' as const, assignee: 'John', priority: 'high' as const, color: '#10b981' },
+    { id: '2', name: 'Task 2', start: new Date('2024-01-05'), end: new Date('2024-01-15'), progress: 80, status: 'in-progress' as const, assignee: 'Jane', priority: 'medium' as const, color: '#f59e0b' },
+    { id: '3', name: 'Task 3', start: new Date('2024-01-10'), end: new Date('2024-01-20'), progress: 60, status: 'in-progress' as const, assignee: 'Bob', priority: 'low' as const, color: '#3b82f6' }
+  ];
+  
   const [selectedTask, setSelectedTask] = useState<GanttTask | null>(null)
   const [viewMode, setViewMode] = useState<'week' | 'month' | 'quarter'>('month')
 
   // Calculate date range
-  const allDates = tasks.flatMap(task => [task.start, task.end])
+  const allDates = chartTasks.flatMap(task => [task.start, task.end])
   const minDate = new Date(Math.min(...allDates.map(d => d.getTime())))
   const maxDate = new Date(Math.max(...allDates.map(d => d.getTime())))
 
@@ -56,7 +63,7 @@ export function GanttChart({
   const taskNameWidth = 200
   const chartWidth = 600
   const totalWidth = taskNameWidth + chartWidth
-  const totalHeight = headerHeight + tasks.length * rowHeight
+  const totalHeight = headerHeight + chartTasks.length * rowHeight
 
   // Calculate time scale
   const getTimeScale = () => {
@@ -130,14 +137,14 @@ export function GanttChart({
       task: GanttTask
     }> = []
 
-    tasks.forEach((task, taskIndex) => {
+    chartTasks.forEach((task, taskIndex) => {
       if (!task.dependencies) return
 
       task.dependencies.forEach(depId => {
-        const depTask = tasks.find(t => t.id === depId)
+        const depTask = chartTasks.find(t => t.id === depId)
         if (!depTask) return
 
-        const depIndex = tasks.findIndex(t => t.id === depId)
+        const depIndex = chartTasks.findIndex(t => t.id === depId)
         const fromX = timeScale(depTask.end)
         const fromY = headerHeight + depIndex * rowHeight + rowHeight / 2
         const toX = timeScale(task.start)
@@ -193,7 +200,7 @@ export function GanttChart({
               Quarter
             </Button>
             <div className="text-xs text-muted-foreground ml-2">
-              {tasks.length} tasks | {minDate.toLocaleDateString()} - {maxDate.toLocaleDateString()}
+              {chartTasks.length} tasks | {minDate.toLocaleDateString()} - {maxDate.toLocaleDateString()}
             </div>
           </div>
 
@@ -268,7 +275,7 @@ export function GanttChart({
               </defs>
 
               {/* Tasks */}
-              {tasks.map((task, index) => {
+              {chartTasks.map((task, index) => {
                 const startX = timeScale(task.start)
                 const endX = timeScale(task.end)
                 const taskWidth = endX - startX
@@ -389,9 +396,9 @@ export function GanttChart({
           {/* Statistics */}
           <div className="grid grid-cols-3 gap-4 text-xs">
             <div>
-              <div className="font-medium">Tasks: {tasks.length}</div>
-              <div>Completed: {tasks.filter(t => t.status === 'completed').length}</div>
-              <div>In Progress: {tasks.filter(t => t.status === 'in-progress').length}</div>
+              <div className="font-medium">Tasks: {chartTasks.length}</div>
+              <div>Completed: {chartTasks.filter(t => t.status === 'completed').length}</div>
+              <div>In Progress: {chartTasks.filter(t => t.status === 'in-progress').length}</div>
             </div>
             <div>
               <div className="font-medium">Duration</div>
@@ -400,7 +407,7 @@ export function GanttChart({
             </div>
             <div>
               <div className="font-medium">Progress</div>
-              <div>Avg: {Math.round(tasks.reduce((sum, t) => sum + t.progress, 0) / tasks.length)}%</div>
+              <div>Avg: {Math.round(chartTasks.reduce((sum, t) => sum + t.progress, 0) / chartTasks.length)}%</div>
               <div>Dependencies: {dependencies.length}</div>
             </div>
           </div>

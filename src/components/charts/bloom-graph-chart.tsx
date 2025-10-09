@@ -7,9 +7,9 @@
  */
 
 import React, { useState, useEffect } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
 import { RotateCcw, ZoomIn, ZoomOut, RefreshCw } from 'lucide-react'
 
 interface BloomNode {
@@ -36,6 +36,14 @@ export function BloomGraphChart({
   title = "Bloom Graph Analysis",
   className = ""
 }: BloomGraphChartProps) {
+  // Fallback data if none provided
+  const chartData = data && data.length > 0 ? data : [
+    { id: '1', label: 'Root', value: 100, color: '#3b82f6', level: 0 },
+    { id: '2', label: 'Branch A', value: 50, color: '#10b981', level: 1 },
+    { id: '3', label: 'Branch B', value: 30, color: '#f59e0b', level: 1 },
+    { id: '4', label: 'Branch C', value: 20, color: '#ef4444', level: 1 }
+  ];
+  
   const [zoom, setZoom] = useState(1)
   const [rotation, setRotation] = useState(0)
   const [selectedNode, setSelectedNode] = useState<BloomNode | null>(null)
@@ -80,12 +88,13 @@ export function BloomGraphChart({
     })
   }
 
-  const positionedNodes = calculateNodePositions(data)
+  const positionedNodes = calculateNodePositions(chartData)
 
   // Calculate connections
-  const connections = data.slice(1).map((child, index) => {
-    const parent = data[0]
+  const connections = chartData.slice(1).map((child, index) => {
+    const parent = chartData[0]
     const childNode = positionedNodes[index + 1]
+    if (!childNode) return null
     return {
       x1: centerX,
       y1: centerY,
@@ -94,7 +103,7 @@ export function BloomGraphChart({
       weight: child.value,
       color: child.color
     }
-  })
+  }).filter(Boolean)
 
   const handleZoomIn = () => setZoom(prev => Math.min(prev * 1.2, 2))
   const handleZoomOut = () => setZoom(prev => Math.max(prev / 1.2, 0.5))
@@ -219,14 +228,14 @@ export function BloomGraphChart({
           {/* Statistics */}
           <div className="grid grid-cols-2 gap-4 text-xs">
             <div>
-              <div className="font-medium">Total Nodes: {data.length}</div>
-              <div>Center Value: {data[0]?.value || 0}</div>
-              <div>Max Value: {Math.max(...data.map(d => d.value))}</div>
+              <div className="font-medium">Total Nodes: {chartData.length}</div>
+              <div>Center Value: {chartData[0]?.value || 0}</div>
+              <div>Max Value: {Math.max(...chartData.map(d => d.value))}</div>
             </div>
             <div>
-              <div className="font-medium">Levels: {Math.max(...data.map(d => d.level)) + 1}</div>
-              <div>Total Value: {data.reduce((sum, d) => sum + d.value, 0)}</div>
-              <div>Avg Value: {(data.reduce((sum, d) => sum + d.value, 0) / data.length).toFixed(1)}</div>
+              <div className="font-medium">Levels: {Math.max(...chartData.map(d => d.level)) + 1}</div>
+              <div>Total Value: {chartData.reduce((sum, d) => sum + d.value, 0)}</div>
+              <div>Avg Value: {(chartData.reduce((sum, d) => sum + d.value, 0) / chartData.length).toFixed(1)}</div>
             </div>
           </div>
 
@@ -234,8 +243,8 @@ export function BloomGraphChart({
           <div className="space-y-2">
             <div className="text-sm font-medium">Node Categories:</div>
             <div className="flex flex-wrap gap-2">
-              {Array.from(new Set(data.map(d => d.label))).map(label => {
-                const node = data.find(d => d.label === label)
+              {Array.from(new Set(chartData.map(d => d.label))).map(label => {
+                const node = chartData.find(d => d.label === label)
                 return (
                   <Badge
                     key={label}

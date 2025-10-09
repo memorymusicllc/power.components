@@ -8,11 +8,11 @@
 
 import React, { useEffect, useState } from 'react'
 import { useLeadMonitoringStore } from '@/lib/stores/lead-monitoring.store'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Progress } from '@/components/ui/progress'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/redux-ui'
+import { Progress } from '@/components/redux-ui'
 import { 
   Users, 
   Star, 
@@ -168,7 +168,7 @@ export function LeadMonitor() {
             <Star className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{Math.round(metrics.averageLeadScore)}</div>
+            <div className="text-2xl font-bold">{Math.round(metrics.averageLeadScore || 0)}</div>
             <p className="text-xs text-muted-foreground">
               Average score
             </p>

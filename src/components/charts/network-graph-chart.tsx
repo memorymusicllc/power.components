@@ -7,9 +7,9 @@
  */
 
 import React, { useState, useEffect } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
 import { RefreshCw, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react'
 
 interface Node {
@@ -45,6 +45,21 @@ export function NetworkGraphChart({
   title = "Network Analysis",
   className = ""
 }: NetworkGraphChartProps) {
+  // Fallback data if none provided
+  const chartNodes = nodes && nodes.length > 0 ? nodes : [
+    { id: 'A', label: 'Node A', x: 100, y: 100, size: 20, color: '#3b82f6', type: 'primary' },
+    { id: 'B', label: 'Node B', x: 200, y: 150, size: 15, color: '#10b981', type: 'secondary' },
+    { id: 'C', label: 'Node C', x: 150, y: 200, size: 15, color: '#f59e0b', type: 'secondary' },
+    { id: 'D', label: 'Node D', x: 250, y: 250, size: 20, color: '#ef4444', type: 'primary' }
+  ];
+  
+  const chartEdges = edges && edges.length > 0 ? edges : [
+    { id: '1', source: 'A', target: 'B', weight: 1, type: 'connection' },
+    { id: '2', source: 'A', target: 'C', weight: 1, type: 'connection' },
+    { id: '3', source: 'B', target: 'D', weight: 1, type: 'connection' },
+    { id: '4', source: 'C', target: 'D', weight: 1, type: 'connection' }
+  ];
+
   const [zoom, setZoom] = useState(1)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
@@ -57,14 +72,14 @@ export function NetworkGraphChart({
   const centerY = height / 2
 
   // Scale nodes and edges
-  const scaledNodes = nodes.map(node => ({
+  const scaledNodes = chartNodes.map(node => ({
     ...node,
     x: centerX + (node.x * zoom) + offset.x,
     y: centerY + (node.y * zoom) + offset.y,
     size: Math.max(8, node.size * zoom)
   }))
 
-  const scaledEdges = edges.map(edge => {
+  const scaledEdges = chartEdges.map(edge => {
     const sourceNode = scaledNodes.find(n => n.id === edge.source)
     const targetNode = scaledNodes.find(n => n.id === edge.target)
     return {
@@ -184,7 +199,7 @@ export function NetworkGraphChart({
           <div className="space-y-2">
             <div className="text-sm font-medium">Node Types:</div>
             <div className="flex flex-wrap gap-2">
-              {Array.from(new Set(nodes.map(n => n.type || 'default'))).map(type => (
+              {Array.from(new Set(chartNodes.map(n => n.type || 'default'))).map(type => (
                 <Badge key={type} variant="outline" className="text-xs">
                   {type}
                 </Badge>
@@ -192,10 +207,10 @@ export function NetworkGraphChart({
             </div>
             <div className="text-sm font-medium">Network Stats:</div>
             <div className="grid grid-cols-2 gap-4 text-xs">
-              <div>Nodes: {nodes.length}</div>
-              <div>Edges: {edges.length}</div>
-              <div>Density: {((edges.length * 2) / (nodes.length * (nodes.length - 1)) * 100).toFixed(1)}%</div>
-              <div>Components: {new Set(edges.map(e => e.source)).size}</div>
+              <div>Nodes: {chartNodes.length}</div>
+              <div>Edges: {chartEdges.length}</div>
+              <div>Density: {((chartEdges.length * 2) / (chartNodes.length * (chartNodes.length - 1)) * 100).toFixed(1)}%</div>
+              <div>Components: {new Set(chartEdges.map(e => e.source)).size}</div>
             </div>
           </div>
         </div>

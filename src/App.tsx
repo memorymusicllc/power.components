@@ -9,29 +9,31 @@
 import { useEffect, useState } from 'react'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
-import { Toaster } from '@/components/ui/toaster'
-import { Toaster as SonnerToaster } from '@/components/ui/sonner'
+// Note: Toaster components will be replaced with Redux UI equivalents
+// import { Toaster } from '@/components/ui/toaster'
+// import { Toaster as SonnerToaster } from '@/components/ui/sonner'
 import { getAppVersion } from '@/lib/version'
 
-// Zustand Stores
+// Zustand Stores - Core dashboard only
 import { useDashboardStore } from '@/lib/stores/dashboard.store'
-import { useListingsStore } from '@/lib/stores/listings.store'
-import { useAutoResponderStore } from '@/lib/stores/auto-responder.store'
+// import { useListingsStore } from '@/lib/stores/listings.store'
+// import { useAutoResponderStore } from '@/lib/stores/auto-responder.store'
 
-// Dashboard Components Library
+// Dashboard Components Library - Core components only
 import { DashboardOverview } from '@/components/dashboard-overview'
-import { ListingManagement } from '@/components/listing-management'
-import { AutoResponderManager } from '@/components/auto-responder-manager'
-import { LeadsManager } from '@/components/leads-manager'
+// Note: Other components will be added back once they're updated to use Redux UI
+// import { ListingManagement } from '@/components/listing-management'
+// import { AutoResponderManager } from '@/components/auto-responder-manager'
+// import { LeadsManager } from '@/components/leads-manager'
 
-// Phase Dashboards
-import { Phase1Dashboard } from '@/components/Phase1Dashboard'
-import { Phase2Dashboard } from '@/components/Phase2Dashboard'
+// Phase Dashboards - Temporarily disabled due to TypeScript errors
+// import { Phase1Dashboard } from '@/components/Phase1Dashboard'
+// import { Phase2Dashboard } from '@/components/Phase2Dashboard'
 
-// Navigation Components
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+// Navigation Components - Redux UI
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/redux-ui'
+import { Button } from '@/components/redux-ui'
+import { Badge } from '@/components/redux-ui'
 
 // Search Components
 import { SearchHeader } from '@/components/search/SearchIntegration'
@@ -58,27 +60,15 @@ function Dashboard() {
   // Dashboard metrics
   const { metrics, loading: dashLoading, fetchMetrics } = useDashboardStore()
   
-  // Listings data
-  const { listings, loading: listingsLoading, fetchListings } = useListingsStore()
-  
-  // Auto-responder data  
-  const { rules, loading: rulesLoading, fetchRules } = useAutoResponderStore()
-  
   const version = getAppVersion()
 
-  // Fetch all data on mount
+  // Fetch data on mount
   useEffect(() => {
     fetchMetrics()
-    fetchListings()
-    fetchRules()
-  }, [fetchMetrics, fetchListings, fetchRules])
+  }, [fetchMetrics])
 
   const handleRefreshAll = async () => {
-    await Promise.all([
-      fetchMetrics(),
-      fetchListings(),
-      fetchRules()
-    ])
+    await fetchMetrics()
   }
 
   return (
@@ -97,35 +87,17 @@ function Dashboard() {
               variant="outline" 
               size="sm" 
               onClick={handleRefreshAll}
-              disabled={dashLoading || listingsLoading || rulesLoading}
+              disabled={dashLoading}
             >
-              <RefreshCw className={`w-4 h-4 mr-2 ${(dashLoading || listingsLoading || rulesLoading) ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`w-4 h-4 mr-2 ${dashLoading ? 'animate-spin' : ''}`} />
               Refresh
             </Button>
           </div>
         </div>
 
-          {/* Universal Search */}
+          {/* Universal Search - Simplified */}
           <SearchHeader
             data={[
-              ...listings.map(listing => ({
-                id: listing.id,
-                title: listing.title || listing.platformId,
-                description: listing.description,
-                category: 'listings',
-                type: 'listing',
-                tags: [listing.status, listing.platformId],
-                timestamp: listing.updatedAt
-              })),
-              ...rules.map(rule => ({
-                id: rule.id,
-                title: rule.name,
-                description: rule.conditions || '',
-                category: 'automation',
-                type: 'rule',
-                tags: [rule.platforms.join(','), rule.triggers.join(',')],
-                timestamp: rule.updatedAt
-              })),
               {
                 id: 'metrics',
                 title: 'Dashboard Metrics',
@@ -147,55 +119,15 @@ function Dashboard() {
       {/* Main Content with Navigation */}
       <div className="container mx-auto px-4 py-6">
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-6">
+          <TabsList className="grid w-full grid-cols-1">
             <TabsTrigger value="overview" className="flex items-center gap-2">
               <Home className="w-4 h-4" />
-              <span className="hidden sm:inline">Overview</span>
-            </TabsTrigger>
-            <TabsTrigger value="phase1" className="flex items-center gap-2">
-              <Package className="w-4 h-4" />
-              <span className="hidden sm:inline">Phase 1</span>
-            </TabsTrigger>
-            <TabsTrigger value="phase2" className="flex items-center gap-2">
-              <Zap className="w-4 h-4" />
-              <span className="hidden sm:inline">Phase 2</span>
-            </TabsTrigger>
-            <TabsTrigger value="listings" className="flex items-center gap-2">
-              <List className="w-4 h-4" />
-              <span className="hidden sm:inline">Listings</span>
-            </TabsTrigger>
-            <TabsTrigger value="leads" className="flex items-center gap-2">
-              <UserCheck className="w-4 h-4" />
-              <span className="hidden sm:inline">Leads</span>
-            </TabsTrigger>
-            <TabsTrigger value="automation" className="flex items-center gap-2">
-              <Bot className="w-4 h-4" />
-              <span className="hidden sm:inline">Automation</span>
+              <span>Dashboard Overview</span>
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
             <DashboardOverview />
-          </TabsContent>
-
-          <TabsContent value="phase1" className="space-y-6">
-            <Phase1Dashboard />
-          </TabsContent>
-
-          <TabsContent value="phase2" className="space-y-6">
-            <Phase2Dashboard />
-          </TabsContent>
-
-          <TabsContent value="listings" className="space-y-6">
-            <ListingManagement />
-          </TabsContent>
-
-          <TabsContent value="leads" className="space-y-6">
-            <LeadsManager />
-          </TabsContent>
-
-          <TabsContent value="automation" className="space-y-6">
-            <AutoResponderManager />
           </TabsContent>
         </Tabs>
       </div>
@@ -208,8 +140,7 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="pow3r-cashout-theme" attribute="class">
       <AuthProvider>
         <Dashboard />
-      <Toaster />
-      <SonnerToaster />
+      {/* Toaster components will be added when Redux UI versions are created */}
       </AuthProvider>
     </ThemeProvider>
   )
