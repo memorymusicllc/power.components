@@ -1,5 +1,5 @@
 /**
- * Custom Theme Provider - Replacement for next-themes
+ * Custom Theme Provider for Redux UI
  * Compliant with .cursor/rules (no Next.js dependencies)
  */
 

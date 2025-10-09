@@ -49,19 +49,19 @@ export function PriceChart() {
           <Line 
             type="monotone" 
             dataKey="price" 
-            stroke="#3b82f6" 
+            stroke="hsl(var(--primary))" 
             strokeWidth={3}
             name="My Price"
-            dot={{ fill: '#3b82f6', strokeWidth: 2, r: 4 }}
+            dot={{ fill: 'hsl(var(--primary))', strokeWidth: 2, r: 4 }}
           />
           <Line 
             type="monotone" 
             dataKey="retail" 
-            stroke="#ef4444" 
+            stroke="hsl(var(--destructive))" 
             strokeWidth={2}
             strokeDasharray="5 5"
             name="Retail Price"
-            dot={{ fill: '#ef4444', strokeWidth: 2, r: 3 }}
+            dot={{ fill: 'hsl(var(--destructive))', strokeWidth: 2, r: 3 }}
           />
         </LineChart>
       </ResponsiveContainer>

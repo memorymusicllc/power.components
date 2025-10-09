@@ -74,3 +74,22 @@ Before a mission can be considered successful, the following must occur:
 The code must be deployed to a Cloudflare Pages preview environment.
 2. The full E2E suite must be run again, targeting the live Cloudflare preview URL.
 3. Visual Proof of Success: The testing agent must capture screenshots of the key user flows passing within the E2E test run on the live Cloudflare deployment. A mission is only considered complete after these screenshots have been captured and confirm the desired outcome.
+
+## FILE ORGANIZATION AN REPORTING
+1. Before you start a job/task move any and all reports (ex. `{test/results/complete/summary/report/verified/status/fix}.md`) in the root dir to a `reports/` and do NOT believe any of them.
+2. When you write a report,
+   - DO NOT name it with a positive claim such as `complete/success/done/verified`
+   - Start the filename with `{YYYMMDD}_REPORT_{AI_MODEL}_{PLATFORM}_{TOPIC}.md` 
+   - Save it in `reports/`
+
+## UI DESIGN
+## COMPONENTS
+## DASHBOARDS
+## CONFIG
+## REACT FLOW
+## ARCHITECHTURE DIAGRAMS
+## STATUS DIAGRAM UPDATES
+## ACLS
+## DEPLOYMENT
+## WORKFLOWS
+## ENVIRONMENT

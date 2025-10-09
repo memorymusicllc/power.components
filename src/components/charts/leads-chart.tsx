@@ -2,11 +2,11 @@
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 const data = [
-  { name: 'New', value: 12, color: '#60B5FF' },
-  { name: 'Contacted', value: 8, color: '#FF9149' },
-  { name: 'Qualified', value: 5, color: '#72BF78' },
-  { name: 'Negotiating', value: 3, color: '#FF90BB' },
-  { name: 'Scheduled', value: 2, color: '#A19AD3' },
+  { name: 'New', value: 12, color: 'hsl(210, 100%, 70%)' },
+  { name: 'Contacted', value: 8, color: 'hsl(25, 100%, 60%)' },
+  { name: 'Qualified', value: 5, color: 'hsl(120, 50%, 60%)' },
+  { name: 'Negotiating', value: 3, color: 'hsl(330, 100%, 70%)' },
+  { name: 'Scheduled', value: 2, color: 'hsl(250, 30%, 70%)' },
 ];
 
 export function LeadsChart() {

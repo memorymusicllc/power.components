@@ -1,5 +1,5 @@
 /**
- * Custom Auth Context - Replacement for next-auth
+ * Custom Auth Context for Redux UI
  * Compliant with .cursor/rules (no Next.js dependencies)
  */
 
@@ -44,7 +44,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    // Simple hardcoded auth for demo (matches original next-auth config)
+    // Simple hardcoded auth for demo
     if (email === 'seller@example.com' && password === 'sellerpass123') {
       const user: User = {
         id: '1',

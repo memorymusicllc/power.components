@@ -30,7 +30,8 @@ import {
   Calendar,
   Tag,
   Package,
-  Grid3x3
+  Grid3x3,
+  Download
 } from 'lucide-react'
 import { GridProvider, ResponsiveGrid, GridSwitcher } from '@/components/ui/responsive-grid'
 
@@ -49,6 +50,19 @@ import { LatencyDistributionChart } from '@/components/charts/latency-distributi
 import { CostAnalysisChart } from '@/components/charts/cost-analysis-chart'
 import { QualityMetricsChart } from '@/components/charts/quality-metrics-chart'
 import { UsagePatternsChart } from '@/components/charts/usage-patterns-chart'
+
+// Import comprehensive data visualization charts
+import { QuadrantLeaderChart } from '@/components/charts/quadrant-leader-chart'
+import { NetworkGraphChart } from '@/components/charts/network-graph-chart'
+import { ScatterPlotChart } from '@/components/charts/scatter-plot-chart'
+import { BloomGraphChart } from '@/components/charts/bloom-graph-chart'
+import { TimelineChart } from '@/components/charts/timeline-chart'
+import { WordCloudChart } from '@/components/charts/word-cloud-chart'
+import { HeatmapChart } from '@/components/charts/heatmap-chart'
+import { ConfusionMatrixChart } from '@/components/charts/confusion-matrix-chart'
+import { ROCCurveChart } from '@/components/charts/roc-curve-chart'
+import { SankeyDiagramChart } from '@/components/charts/sankey-diagram-chart'
+import { GanttChart } from '@/components/charts/gantt-chart'
 
 // Import new dashboard components
 import { LLMSwitcher } from '@/components/dashboard/LLMSwitcher'
@@ -241,7 +255,7 @@ export default function ComponentLibrary() {
     },
     {
       component: LeadMonitor,
-      metadata: LeadMonitor.metadata || {
+      metadata: {
         name: "LeadMonitor",
         label: "Lead Monitor",
         version: "1.0.0",
@@ -254,7 +268,7 @@ export default function ComponentLibrary() {
     },
     {
       component: NegotiationManager,
-      metadata: NegotiationManager.metadata || {
+      metadata: {
         name: "NegotiationManager",
         label: "Negotiation Manager",
         version: "1.0.0",
@@ -325,7 +339,7 @@ export default function ComponentLibrary() {
     // Data Visualization Components
     {
       component: AnalyticsDashboard,
-      metadata: AnalyticsDashboard.metadata || {
+      metadata: {
         name: "AnalyticsDashboard",
         label: "Analytics Dashboard",
         version: "1.0.0",
@@ -373,6 +387,52 @@ export default function ComponentLibrary() {
     {
       component: UsagePatternsChart,
       metadata: UsagePatternsChart.metadata
+    },
+
+    // Comprehensive Data Visualization Charts
+    {
+      component: QuadrantLeaderChart,
+      metadata: QuadrantLeaderChart.metadata
+    },
+    {
+      component: NetworkGraphChart,
+      metadata: NetworkGraphChart.metadata
+    },
+    {
+      component: ScatterPlotChart,
+      metadata: ScatterPlotChart.metadata
+    },
+    {
+      component: BloomGraphChart,
+      metadata: BloomGraphChart.metadata
+    },
+    {
+      component: TimelineChart,
+      metadata: TimelineChart.metadata
+    },
+    {
+      component: WordCloudChart,
+      metadata: WordCloudChart.metadata
+    },
+    {
+      component: HeatmapChart,
+      metadata: HeatmapChart.metadata
+    },
+    {
+      component: ConfusionMatrixChart,
+      metadata: ConfusionMatrixChart.metadata
+    },
+    {
+      component: ROCCurveChart,
+      metadata: ROCCurveChart.metadata
+    },
+    {
+      component: SankeyDiagramChart,
+      metadata: SankeyDiagramChart.metadata
+    },
+    {
+      component: GanttChart,
+      metadata: GanttChart.metadata
     },
 
     // New Dashboard Components
@@ -427,12 +487,147 @@ export default function ComponentLibrary() {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
+  const downloadTheme = () => {
+    // Get computed CSS variables
+    const computedStyle = getComputedStyle(document.documentElement)
+    const getCSSVariable = (varName: string) => computedStyle.getPropertyValue(varName).trim()
+    
+    const themeData = {
+      name: 'pow3r.cashout-theme',
+      version: '1.0.0',
+      buildDate: new Date().toISOString(),
+      theme: theme,
+      buildInfo: {
+        timestamp: Date.now(),
+        userAgent: navigator.userAgent,
+        viewport: {
+          width: window.innerWidth,
+          height: window.innerHeight
+        }
+      },
+      colors: {
+        // Core colors
+        primary: getCSSVariable('--primary'),
+        primaryForeground: getCSSVariable('--primary-foreground'),
+        secondary: getCSSVariable('--secondary'),
+        secondaryForeground: getCSSVariable('--secondary-foreground'),
+        background: getCSSVariable('--background'),
+        foreground: getCSSVariable('--foreground'),
+        
+        // Card colors
+        card: getCSSVariable('--card'),
+        cardForeground: getCSSVariable('--card-foreground'),
+        popover: getCSSVariable('--popover'),
+        popoverForeground: getCSSVariable('--popover-foreground'),
+        
+        // Muted colors
+        muted: getCSSVariable('--muted'),
+        mutedForeground: getCSSVariable('--muted-foreground'),
+        accent: getCSSVariable('--accent'),
+        accentForeground: getCSSVariable('--accent-foreground'),
+        
+        // Semantic colors
+        destructive: getCSSVariable('--destructive'),
+        destructiveForeground: getCSSVariable('--destructive-foreground'),
+        success: getCSSVariable('--success'),
+        successForeground: getCSSVariable('--success-foreground'),
+        warning: getCSSVariable('--warning'),
+        warningForeground: getCSSVariable('--warning-foreground'),
+        info: getCSSVariable('--info'),
+        infoForeground: getCSSVariable('--info-foreground'),
+        
+        // UI colors
+        border: getCSSVariable('--border'),
+        input: getCSSVariable('--input'),
+        ring: getCSSVariable('--ring'),
+        radius: getCSSVariable('--radius')
+      },
+      css: {
+        computed: document.documentElement.style.cssText,
+            allVariables: Object.fromEntries(
+              Array.from(document.styleSheets)
+                .flatMap(sheet => {
+                  try {
+                    return Array.from(sheet.cssRules)
+                      .filter(rule => rule.type === CSSRule.STYLE_RULE)
+                      .flatMap(rule => {
+                        const styleRule = rule as CSSStyleRule
+                        return Array.from(styleRule.style)
+                      })
+                      .filter((prop: string) => prop.startsWith('--'))
+                      .map((prop: string) => [prop, getCSSVariable(prop)])
+                  } catch (e) {
+                    return []
+                  }
+                })
+            )
+      },
+      components: {
+        total: components.length,
+        filtered: filteredComponents.length,
+        categories: Array.from(new Set(components.map(c => c.metadata.category))),
+        phases: Array.from(new Set(components.map(c => c.metadata.phase))),
+        tags: allTags
+      }
+    }
+    
+    // Create both JSON and CSS exports
+    const jsonBlob = new Blob([JSON.stringify(themeData, null, 2)], { type: 'application/json' })
+    const cssContent = `/* pow3r.cashout Theme Export - ${theme} */
+/* Generated: ${new Date().toISOString()} */
+/* Build: ${themeData.buildInfo.timestamp} */
+
+:root {
+${Object.entries(themeData.colors)
+  .filter(([key]) => !key.includes('Foreground'))
+  .map(([key, value]) => `  --${key}: ${value};`)
+  .join('\n')}
+}
+
+.dark {
+${Object.entries(themeData.colors)
+  .filter(([key]) => !key.includes('Foreground'))
+  .map(([key, value]) => `  --${key}: ${value};`)
+  .join('\n')}
+}
+
+/* Component Library Info */
+/* Total Components: ${themeData.components.total} */
+/* Filtered Components: ${themeData.components.filtered} */
+/* Categories: ${themeData.components.categories.join(', ')} */
+/* Phases: ${themeData.components.phases.join(', ')} */
+`
+    
+    const cssBlob = new Blob([cssContent], { type: 'text/css' })
+    
+    // Download JSON
+    const jsonUrl = URL.createObjectURL(jsonBlob)
+    const jsonLink = document.createElement('a')
+    jsonLink.href = jsonUrl
+    jsonLink.download = `pow3r-cashout-theme-${theme}-${new Date().toISOString().split('T')[0]}.json`
+    document.body.appendChild(jsonLink)
+    jsonLink.click()
+    document.body.removeChild(jsonLink)
+    URL.revokeObjectURL(jsonUrl)
+    
+    // Download CSS
+    const cssUrl = URL.createObjectURL(cssBlob)
+    const cssLink = document.createElement('a')
+    cssLink.href = cssUrl
+    cssLink.download = `pow3r-cashout-theme-${theme}-${new Date().toISOString().split('T')[0]}.css`
+    document.body.appendChild(cssLink)
+    cssLink.click()
+    document.body.removeChild(cssLink)
+    URL.revokeObjectURL(cssUrl)
+  }
+
   return (
     <GridProvider defaultSize="1/2">
       <div className="min-h-screen bg-background">
-        {/* Header with Theme Switcher and Grid Switcher */}
-        <div className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        {/* Fixed Header with Search, Filters, and Controls */}
+        <div className="fixed top-0 left-0 right-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="container mx-auto px-4 md:px-8">
+            {/* Main Header Row */}
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center space-x-4">
                 <Button
@@ -467,86 +662,110 @@ export default function ComponentLibrary() {
                     </>
                   )}
                 </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={downloadTheme}
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Export Theme
+                </Button>
               </div>
+            </div>
+
+            {/* Search and Filters Row */}
+            <div className="pb-4 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                {/* Search */}
+                <div className="md:col-span-2">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Input
+                      placeholder="Search components..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+
+                {/* Phase Filter */}
+                <div>
+                  <Select value={phaseFilter} onValueChange={setPhaseFilter}>
+                    <SelectTrigger>
+                      <Package className="w-4 h-4 mr-2" />
+                      <SelectValue placeholder="Phase" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Phases</SelectItem>
+                      <SelectItem value="Core">Core</SelectItem>
+                      <SelectItem value="Phase 1">Phase 1</SelectItem>
+                      <SelectItem value="Phase 2">Phase 2</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Tag Filter */}
+                <div>
+                  <Select value={tagFilter} onValueChange={setTagFilter}>
+                    <SelectTrigger>
+                      <Tag className="w-4 h-4 mr-2" />
+                      <SelectValue placeholder="Tag" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Tags</SelectItem>
+                      {allTags.map(tag => (
+                        <SelectItem key={tag} value={tag}>
+                          {tag}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              {/* Active Filters Display */}
+              {(searchQuery || phaseFilter !== 'all' || tagFilter !== 'all') && (
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-sm text-muted-foreground">Active filters:</span>
+                  {searchQuery && (
+                    <Badge variant="secondary" className="text-xs">
+                      Search: {searchQuery}
+                    </Badge>
+                  )}
+                  {phaseFilter !== 'all' && (
+                    <Badge variant="outline" className="text-xs">
+                      Phase: {phaseFilter}
+                    </Badge>
+                  )}
+                  {tagFilter !== 'all' && (
+                    <Badge variant="outline" className="text-xs">
+                      Tag: {tagFilter}
+                    </Badge>
+                  )}
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setSearchQuery('')
+                      setPhaseFilter('all')
+                      setTagFilter('all')
+                    }}
+                    className="text-xs"
+                  >
+                    Clear all
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
+
+        {/* Spacer to account for fixed header */}
+        <div className="h-32"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 py-8">
-        {/* Search and Filters */}
-        <div className="mb-8 space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {/* Search */}
-            <div className="md:col-span-2">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search components..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-            </div>
-
-            {/* Phase Filter */}
-            <div>
-              <Select value={phaseFilter} onValueChange={setPhaseFilter}>
-                <SelectTrigger>
-                  <Package className="w-4 h-4 mr-2" />
-                  <SelectValue placeholder="Phase" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Phases</SelectItem>
-                  <SelectItem value="Core">Core</SelectItem>
-                  <SelectItem value="Phase 1">Phase 1</SelectItem>
-                  <SelectItem value="Phase 2">Phase 2</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Tag Filter */}
-            <div>
-              <Select value={tagFilter} onValueChange={setTagFilter}>
-                <SelectTrigger>
-                  <Tag className="w-4 h-4 mr-2" />
-                  <SelectValue placeholder="Tag" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Tags</SelectItem>
-                  {allTags.map(tag => (
-                    <SelectItem key={tag} value={tag}>
-                      {tag}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          {/* Active Filters Display */}
-          {(searchQuery || phaseFilter !== 'all' || tagFilter !== 'all') && (
-            <div className="flex items-center space-x-2">
-              <span className="text-sm text-muted-foreground">Active filters:</span>
-              {searchQuery && (
-                <Badge variant="secondary" onClick={() => setSearchQuery('')} className="cursor-pointer">
-                  Search: {searchQuery} ×
-                </Badge>
-              )}
-              {phaseFilter !== 'all' && (
-                <Badge variant="secondary" onClick={() => setPhaseFilter('all')} className="cursor-pointer">
-                  {phaseFilter} ×
-                </Badge>
-              )}
-              {tagFilter !== 'all' && (
-                <Badge variant="secondary" onClick={() => setTagFilter('all')} className="cursor-pointer">
-                  Tag: {tagFilter} ×
-                </Badge>
-              )}
-            </div>
-          )}
-        </div>
 
         {/* Component Grid */}
         <ResponsiveGrid>

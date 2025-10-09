@@ -24,6 +24,10 @@ import { ListingManagement } from '@/components/listing-management'
 import { AutoResponderManager } from '@/components/auto-responder-manager'
 import { LeadsManager } from '@/components/leads-manager'
 
+// Phase Dashboards
+import { Phase1Dashboard } from '@/components/Phase1Dashboard'
+import { Phase2Dashboard } from '@/components/Phase2Dashboard'
+
 // Navigation Components
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
@@ -45,7 +49,9 @@ import {
   Home,
   List,
   UserCheck,
-  Bot
+  Bot,
+  Package,
+  Zap
 } from 'lucide-react'
 
 function Dashboard() {
@@ -80,25 +86,25 @@ function Dashboard() {
       {/* Header */}
       <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between mb-4">
-            <div>
+        <div className="flex items-center justify-between mb-4">
+          <div>
               <h1 className="text-3xl font-bold">pow3r.cashout</h1>
               <p className="text-muted-foreground">Multi-Platform Selling Dashboard</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="text-xs text-muted-foreground font-mono">{version}</span>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                onClick={handleRefreshAll}
-                disabled={dashLoading || listingsLoading || rulesLoading}
-              >
-                <RefreshCw className={`w-4 h-4 mr-2 ${(dashLoading || listingsLoading || rulesLoading) ? 'animate-spin' : ''}`} />
-                Refresh
-              </Button>
-            </div>
           </div>
-          
+          <div className="flex items-center gap-4">
+            <span className="text-xs text-muted-foreground font-mono">{version}</span>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={handleRefreshAll}
+              disabled={dashLoading || listingsLoading || rulesLoading}
+            >
+              <RefreshCw className={`w-4 h-4 mr-2 ${(dashLoading || listingsLoading || rulesLoading) ? 'animate-spin' : ''}`} />
+              Refresh
+            </Button>
+          </div>
+        </div>
+
           {/* Universal Search */}
           <SearchHeader
             data={[
@@ -141,27 +147,43 @@ function Dashboard() {
       {/* Main Content with Navigation */}
       <div className="container mx-auto px-4 py-6">
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-6">
             <TabsTrigger value="overview" className="flex items-center gap-2">
               <Home className="w-4 h-4" />
-              Overview
+              <span className="hidden sm:inline">Overview</span>
+            </TabsTrigger>
+            <TabsTrigger value="phase1" className="flex items-center gap-2">
+              <Package className="w-4 h-4" />
+              <span className="hidden sm:inline">Phase 1</span>
+            </TabsTrigger>
+            <TabsTrigger value="phase2" className="flex items-center gap-2">
+              <Zap className="w-4 h-4" />
+              <span className="hidden sm:inline">Phase 2</span>
             </TabsTrigger>
             <TabsTrigger value="listings" className="flex items-center gap-2">
               <List className="w-4 h-4" />
-              Listings
+              <span className="hidden sm:inline">Listings</span>
             </TabsTrigger>
             <TabsTrigger value="leads" className="flex items-center gap-2">
               <UserCheck className="w-4 h-4" />
-              Leads
+              <span className="hidden sm:inline">Leads</span>
             </TabsTrigger>
             <TabsTrigger value="automation" className="flex items-center gap-2">
               <Bot className="w-4 h-4" />
-              Automation
+              <span className="hidden sm:inline">Automation</span>
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
             <DashboardOverview />
+          </TabsContent>
+
+          <TabsContent value="phase1" className="space-y-6">
+            <Phase1Dashboard />
+          </TabsContent>
+
+          <TabsContent value="phase2" className="space-y-6">
+            <Phase2Dashboard />
           </TabsContent>
 
           <TabsContent value="listings" className="space-y-6">

@@ -4,7 +4,7 @@
 
 /*
   Theme Name: Basic Outline Theme
-  Description: A minimalist, outline-focused theme for ShadCN-like components.
+  Description: A minimalist, outline-focused theme for Redux UI components.
   Author: Gemini
 */
 
@@ -34,6 +34,15 @@
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
+    
+    --success: 120 70% 50%;
+    --success-foreground: 0 0% 98%;
+    
+    --warning: 45 70% 50%;
+    --warning-foreground: 0 0% 98%;
+    
+    --info: 200 70% 50%;
+    --info-foreground: 0 0% 98%;
     
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
@@ -67,6 +76,15 @@
     
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
+    
+    --success: 120 50% 40%;
+    --success-foreground: 0 0% 98%;
+    
+    --warning: 45 50% 40%;
+    --warning-foreground: 0 0% 98%;
+    
+    --info: 200 50% 40%;
+    --info-foreground: 0 0% 98%;
     
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;

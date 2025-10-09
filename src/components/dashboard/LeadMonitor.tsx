@@ -1,261 +1,350 @@
 /**
- * Lead Monitor Component
- * Phase 2: Automation
- * Monitor and track leads across platforms
+ * Lead Monitor Component - Phase 2 Core
+ * Real-time lead tracking, scoring, and priority management
  * 
- * @version 1.0.0
- * @date 2025-10-08
- * @type dashboard-widget
- * @tags phase2,automation,leads,monitoring
+ * @version 2.0.0
+ * @date 2025-01-08
  */
 
-import { useState, useEffect } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
-import { Button } from '../ui/button'
-import { Badge } from '../ui/badge'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
-import { MessageSquare, Users, TrendingUp, AlertCircle, CheckCircle, Clock } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
+import { useLeadMonitoringStore } from '@/lib/stores/lead-monitoring.store'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Progress } from '@/components/ui/progress'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { 
+  Users, 
+  Star, 
+  Clock, 
+  TrendingUp,
+  Bell,
+  Filter,
+  Search,
+  MessageSquare,
+  Phone,
+  Mail,
+  AlertTriangle,
+  CheckCircle,
+  XCircle
+} from 'lucide-react'
 
-interface LeadMonitorProps {
-  onLeadsChange?: (leads: any[]) => void
-  loading?: boolean
-}
+export function LeadMonitor() {
+  const {
+    leads,
+    metrics,
+    loading,
+    processing,
+    fetchLeads,
+    updateLeadPriority,
+    updateLeadStatus,
+    bulkUpdatePriority,
+    bulkUpdateStatus,
+    startRealTimeUpdates,
+    stopRealTimeUpdates,
+    refreshAll
+  } = useLeadMonitoringStore()
 
-export function LeadMonitor({ onLeadsChange, loading }: LeadMonitorProps) {
-  const [leads, setLeads] = useState<any[]>([])
-  const [filter, setFilter] = useState('all')
-  const [stats, setStats] = useState({
-    total: 0,
-    new: 0,
-    responded: 0,
-    converted: 0
-  })
+  const [activeTab, setActiveTab] = useState('all')
+  const [selectedLeads, setSelectedLeads] = useState<string[]>([])
+  const [filterPriority, setFilterPriority] = useState<string>('all')
 
-  // Mock leads data
   useEffect(() => {
-    const mockLeads = [
-      {
-        id: 1,
-        name: 'John Smith',
-        platform: 'Facebook',
-        message: 'Is this still available?',
-        status: 'new',
-        priority: 'high',
-        time: '5 minutes ago',
-        responseTime: null
-      },
-      {
-        id: 2,
-        name: 'Sarah Johnson',
-        platform: 'eBay',
-        message: 'What is the condition?',
-        status: 'responded',
-        priority: 'medium',
-        time: '2 hours ago',
-        responseTime: '1 hour ago'
-      },
-      {
-        id: 3,
-        name: 'Mike Wilson',
-        platform: 'Craigslist',
-        message: 'Can you deliver?',
-        status: 'converted',
-        priority: 'high',
-        time: '1 day ago',
-        responseTime: '1 day ago'
-      },
-      {
-        id: 4,
-        name: 'Lisa Brown',
-        platform: 'OfferUp',
-        message: 'Price negotiable?',
-        status: 'new',
-        priority: 'low',
-        time: '3 hours ago',
-        responseTime: null
-      }
-    ]
-    setLeads(mockLeads)
+    refreshAll()
+    startRealTimeUpdates()
     
-    // Calculate stats
-    setStats({
-      total: mockLeads.length,
-      new: mockLeads.filter(l => l.status === 'new').length,
-      responded: mockLeads.filter(l => l.status === 'responded').length,
-      converted: mockLeads.filter(l => l.status === 'converted').length
-    })
+    return () => {
+      stopRealTimeUpdates()
+    }
   }, [])
 
   const filteredLeads = leads.filter(lead => {
-    if (filter === 'all') return true
-    return lead.status === filter
+    if (activeTab === 'all') return true
+    if (activeTab === 'new') return lead.status === 'new'
+    if (activeTab === 'qualified') return lead.status === 'qualified'
+    if (activeTab === 'negotiating') return lead.status === 'negotiating'
+    if (filterPriority !== 'all') return lead.priority === filterPriority
+    return true
   })
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'new': return 'text-blue-500'
-      case 'responded': return 'text-yellow-500'
-      case 'converted': return 'text-green-500'
-      default: return 'text-muted-foreground'
+  const handleBulkPriorityUpdate = async (priority: 'low' | 'medium' | 'high' | 'urgent') => {
+    if (selectedLeads.length > 0) {
+      await bulkUpdatePriority(selectedLeads, priority)
+      setSelectedLeads([])
     }
   }
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'new': return <AlertCircle className="w-4 h-4" />
-      case 'responded': return <MessageSquare className="w-4 h-4" />
-      case 'converted': return <CheckCircle className="w-4 h-4" />
-      default: return <Clock className="w-4 h-4" />
+  const handleBulkStatusUpdate = async (status: 'new' | 'contacted' | 'qualified' | 'negotiating' | 'sold' | 'lost') => {
+    if (selectedLeads.length > 0) {
+      await bulkUpdateStatus(selectedLeads, status)
+      setSelectedLeads([])
     }
   }
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return 'destructive'
-      case 'medium': return 'default'
-      case 'low': return 'secondary'
+      case 'urgent': return 'destructive'
+      case 'high': return 'default'
+      case 'medium': return 'secondary'
+      case 'low': return 'outline'
+      default: return 'outline'
+    }
+  }
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'new': return 'default'
+      case 'contacted': return 'secondary'
+      case 'qualified': return 'default'
+      case 'negotiating': return 'secondary'
+      case 'sold': return 'default'
+      case 'lost': return 'destructive'
       default: return 'outline'
     }
   }
 
   return (
-    <Card className="h-full">
-      <CardHeader>
+    <div className="space-y-6">
+      {/* Header */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Users className="w-5 h-5 text-blue-500" />
-            <CardTitle>Lead Monitor</CardTitle>
-          </div>
-          <Badge variant="outline">Phase 2</Badge>
+        <div>
+          <h2 className="text-2xl font-bold">Lead Monitor</h2>
+          <p className="text-muted-foreground">Real-time lead tracking and management</p>
         </div>
-        <CardDescription>
-          Monitor and track leads across platforms
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        {/* Lead Statistics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="p-3 rounded-lg bg-muted/50 text-center">
-            <div className="text-2xl font-bold">{stats.total}</div>
-            <div className="text-xs text-muted-foreground">Total Leads</div>
-          </div>
-          <div className="p-3 rounded-lg bg-blue-500/10 text-center">
-            <div className="text-2xl font-bold text-blue-500">{stats.new}</div>
-            <div className="text-xs text-muted-foreground">New</div>
-          </div>
-          <div className="p-3 rounded-lg bg-yellow-500/10 text-center">
-            <div className="text-2xl font-bold text-yellow-500">{stats.responded}</div>
-            <div className="text-xs text-muted-foreground">Responded</div>
-          </div>
-          <div className="p-3 rounded-lg bg-green-500/10 text-center">
-            <div className="text-2xl font-bold text-green-500">{stats.converted}</div>
-            <div className="text-xs text-muted-foreground">Converted</div>
-          </div>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" onClick={refreshAll} disabled={loading}>
+            <TrendingUp className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+            Refresh
+          </Button>
+          <Button variant="outline">
+            <Filter className="w-4 h-4 mr-2" />
+            Filter
+          </Button>
+        </div>
+      </div>
+
+      {/* Metrics Overview */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Leads</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{metrics.totalLeads}</div>
+            <p className="text-xs text-muted-foreground">
+              {metrics.newLeads} new today
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Conversion Rate</CardTitle>
+            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{Math.round(metrics.conversionRate * 100)}%</div>
+            <Progress value={metrics.conversionRate * 100} className="mt-2" />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Avg Response Time</CardTitle>
+            <Clock className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{metrics.averageResponseTime}m</div>
+            <p className="text-xs text-muted-foreground">
+              {metrics.highPriorityLeads} high priority
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Lead Score</CardTitle>
+            <Star className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{Math.round(metrics.averageLeadScore)}</div>
+            <p className="text-xs text-muted-foreground">
+              Average score
+            </p>
+          </CardContent>
+        </Card>
         </div>
 
-        {/* Filter Controls */}
-        <div className="flex items-center space-x-2">
-          <span className="text-sm font-medium">Filter:</span>
-          <Select value={filter} onValueChange={setFilter}>
-            <SelectTrigger className="w-32">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Leads</SelectItem>
-              <SelectItem value="new">New</SelectItem>
-              <SelectItem value="responded">Responded</SelectItem>
-              <SelectItem value="converted">Converted</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Leads List */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h4 className="font-medium">Leads ({filteredLeads.length})</h4>
-            <Button size="sm" variant="outline">
-              <TrendingUp className="w-4 h-4 mr-2" />
-              Analytics
+      {/* Bulk Actions */}
+      {selectedLeads.length > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">Bulk Actions ({selectedLeads.length} selected)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center gap-2">
+              <Button 
+                size="sm" 
+                variant="outline"
+                onClick={() => handleBulkPriorityUpdate('high')}
+              >
+                Set High Priority
+              </Button>
+              <Button 
+                size="sm" 
+                variant="outline"
+                onClick={() => handleBulkStatusUpdate('qualified')}
+              >
+                Mark Qualified
+              </Button>
+              <Button 
+                size="sm" 
+                variant="outline"
+                onClick={() => handleBulkStatusUpdate('contacted')}
+              >
+                Mark Contacted
+              </Button>
+              <Button 
+                size="sm" 
+                variant="outline"
+                onClick={() => setSelectedLeads([])}
+              >
+                Clear Selection
             </Button>
           </div>
-          
-          <div className="space-y-2 max-h-64 overflow-y-auto">
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Main Content */}
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
+        <TabsList className="grid w-full grid-cols-5">
+          <TabsTrigger value="all">All ({leads.length})</TabsTrigger>
+          <TabsTrigger value="new">New ({leads.filter(l => l.status === 'new').length})</TabsTrigger>
+          <TabsTrigger value="qualified">Qualified ({leads.filter(l => l.status === 'qualified').length})</TabsTrigger>
+          <TabsTrigger value="negotiating">Negotiating ({leads.filter(l => l.status === 'negotiating').length})</TabsTrigger>
+          <TabsTrigger value="sold">Sold ({leads.filter(l => l.status === 'sold').length})</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value={activeTab} className="space-y-4">
+          <div className="grid gap-4">
             {filteredLeads.map((lead) => (
-              <div key={lead.id} className="p-3 rounded-lg border hover:bg-muted/50 transition-colors">
-                <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
-                      <span className="text-xs font-bold">{lead.name[0]}</span>
+              <Card key={lead.id} className={`${selectedLeads.includes(lead.id) ? 'ring-2 ring-primary' : ''}`}>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={selectedLeads.includes(lead.id)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setSelectedLeads([...selectedLeads, lead.id])
+                          } else {
+                            setSelectedLeads(selectedLeads.filter(id => id !== lead.id))
+                          }
+                        }}
+                        className="rounded"
+                      />
+                      <div>
+                        <CardTitle className="text-base">{lead.contactInfo.name}</CardTitle>
+                        <CardDescription>
+                          {lead.platform} • {new Date(lead.timestamp).toLocaleString()}
+                        </CardDescription>
                     </div>
-                    <div>
-                      <p className="font-medium text-sm">{lead.name}</p>
-                      <p className="text-xs text-muted-foreground">{lead.platform} • {lead.time}</p>
                     </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
+                    <div className="flex items-center gap-2">
                     <Badge variant={getPriorityColor(lead.priority)}>
                       {lead.priority}
                     </Badge>
-                    <div className={`flex items-center space-x-1 ${getStatusColor(lead.status)}`}>
-                      {getStatusIcon(lead.status)}
+                      <Badge variant={getStatusColor(lead.status)}>
+                        {lead.status}
+                      </Badge>
+                      <div className="flex items-center gap-1">
+                        <Star className="w-4 h-4 text-yellow-500" />
+                        <span className="text-sm font-medium">{lead.score}</span>
+                      </div>
                     </div>
                   </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="text-sm">
+                      <strong>Message:</strong> {lead.message}
                 </div>
                 
-                <p className="text-sm text-muted-foreground mb-2">"{lead.message}"</p>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <Badge variant="outline" className="text-xs">
-                      {lead.status}
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      {lead.contactInfo.email && (
+                        <div className="flex items-center gap-1">
+                          <Mail className="w-4 h-4" />
+                          {lead.contactInfo.email}
+                        </div>
+                      )}
+                      {lead.contactInfo.phone && (
+                        <div className="flex items-center gap-1">
+                          <Phone className="w-4 h-4" />
+                          {lead.contactInfo.phone}
+                        </div>
+                      )}
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" />
+                        {new Date(lead.lastActivity).toLocaleString()}
+                      </div>
+                    </div>
+
+                    {lead.tags.length > 0 && (
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium">Tags:</span>
+                        {lead.tags.map((tag, index) => (
+                          <Badge key={index} variant="outline" className="text-xs">
+                            {tag}
                     </Badge>
-                    {lead.responseTime && (
-                      <span className="text-xs text-muted-foreground">
-                        Responded {lead.responseTime}
-                      </span>
+                        ))}
+                      </div>
                     )}
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => updateLeadPriority(lead.id, 'high')}
+                        >
+                          High Priority
+                        </Button>
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => updateLeadStatus(lead.id, 'qualified')}
+                        >
+                          Qualify
+                        </Button>
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => updateLeadStatus(lead.id, 'contacted')}
+                        >
+                          Contact
+                        </Button>
                   </div>
-                  <div className="flex space-x-1">
+                      <div className="flex items-center gap-2">
                     <Button size="sm" variant="outline">
-                      <MessageSquare className="w-3 h-3 mr-1" />
+                          <MessageSquare className="w-4 h-4 mr-1" />
                       Reply
                     </Button>
                     <Button size="sm" variant="outline">
-                      View
+                          <Bell className="w-4 h-4 mr-1" />
+                          Notify
                     </Button>
                   </div>
                 </div>
               </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
+        </TabsContent>
+      </Tabs>
         </div>
-
-        {/* Quick Actions */}
-        <div className="p-4 rounded-lg bg-muted/50">
-          <h4 className="font-medium mb-3">Quick Actions</h4>
-          <div className="grid grid-cols-2 gap-2">
-            <Button size="sm" variant="outline" className="justify-start">
-              <MessageSquare className="w-4 h-4 mr-2" />
-              Auto-Reply Setup
-            </Button>
-            <Button size="sm" variant="outline" className="justify-start">
-              <TrendingUp className="w-4 h-4 mr-2" />
-              Lead Analytics
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
   )
-}
-
-LeadMonitor.metadata = {
-  name: "LeadMonitor",
-  label: "Lead Monitor",
-  version: "1.0.0",
-  date: "2025-10-08",
-  description: "Monitor and track leads across platforms",
-  phase: "Phase 2",
-  category: "Automation",
-  tags: ["phase2", "automation", "leads", "monitoring", "tracking"]
 }

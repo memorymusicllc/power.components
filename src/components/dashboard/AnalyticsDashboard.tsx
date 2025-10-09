@@ -1,247 +1,507 @@
 /**
- * Analytics Dashboard Component
- * Comprehensive data visualization and insights
+ * Analytics Dashboard Component - Phase 2 Core
+ * Comprehensive analytics, reporting, and optimization insights
  * 
- * @version 1.0.0
- * @date 2025-10-08
- * @type dashboard-widget
- * @tags analytics,data,visualization,insights,metrics
+ * @version 2.0.0
+ * @date 2025-01-08
  */
 
-import { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
-import { Button } from '../ui/button'
-import { Badge } from '../ui/badge'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
-import { BarChart3, TrendingUp, Eye, DollarSign, Users, Calendar, Download, RefreshCw } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
+import { useAnalyticsStore } from '@/lib/stores/analytics.store'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Progress } from '@/components/ui/progress'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { 
+  BarChart3, 
+  TrendingUp, 
+  TrendingDown,
+  DollarSign,
+  Users,
+  Eye,
+  MessageSquare,
+  Target,
+  Download,
+  Settings,
+  RefreshCw,
+  AlertTriangle,
+  CheckCircle,
+  Lightbulb,
+  FileText,
+  Share2,
+  XCircle
+} from 'lucide-react'
 
-interface AnalyticsDashboardProps {
-  onDataRefresh?: () => void
-  loading?: boolean
-}
+export function AnalyticsDashboard() {
+  const {
+    metrics,
+    insights,
+    reportTemplates,
+    customDashboards,
+    loading,
+    generating,
+    exporting,
+    fetchMetrics,
+    fetchInsights,
+    fetchReportTemplates,
+    fetchCustomDashboards,
+    createInsight,
+    implementInsight,
+    dismissInsight,
+    generateReport,
+    generateCustomReport,
+    createDashboard,
+    exportData,
+    refreshAll
+  } = useAnalyticsStore()
 
-export function AnalyticsDashboard({ onDataRefresh, loading }: AnalyticsDashboardProps) {
-  const [timeRange, setTimeRange] = useState('30d')
-  const [selectedMetric, setSelectedMetric] = useState('all')
+  const [activeTab, setActiveTab] = useState('overview')
+  const [selectedTimeRange, setSelectedTimeRange] = useState('30d')
 
-  const [metrics, setMetrics] = useState({
-    totalRevenue: 15420,
-    totalViews: 2847,
-    conversionRate: 12.5,
-    averagePrice: 850,
-    totalListings: 15,
-    activeListings: 12,
-    completedSales: 18,
-    pendingSales: 3
-  })
+  useEffect(() => {
+    refreshAll()
+  }, [])
 
-  const [performanceData, setPerformanceData] = useState([
-    { platform: 'eBay', views: 1200, sales: 8, revenue: 6400, conversion: 6.7 },
-    { platform: 'Facebook', views: 850, sales: 5, revenue: 3200, conversion: 5.9 },
-    { platform: 'Craigslist', views: 450, sales: 3, revenue: 2100, conversion: 6.7 },
-    { platform: 'Amazon', views: 347, sales: 2, revenue: 3720, conversion: 5.8 }
-  ])
+  const handleCreateInsight = async () => {
+    const newInsight = {
+      category: 'pricing' as const,
+      title: 'Optimize Pricing Strategy',
+      description: 'Consider adjusting prices based on market demand and competitor analysis.',
+      impact: 'high' as const,
+      confidence: 0.85,
+      suggestedAction: 'Reduce prices by 5-10% for faster sales',
+      expectedImprovement: '15-20% increase in conversion rate',
+      implementationEffort: 'low' as const,
+      isImplemented: false
+    }
+    await createInsight(newInsight)
+  }
 
-  const [trendData, setTrendData] = useState([
-    { date: '2025-10-01', revenue: 1200, views: 450, sales: 2 },
-    { date: '2025-10-02', revenue: 1800, views: 520, sales: 3 },
-    { date: '2025-10-03', revenue: 2100, views: 680, sales: 4 },
-    { date: '2025-10-04', revenue: 1500, views: 420, sales: 2 },
-    { date: '2025-10-05', revenue: 2200, views: 750, sales: 3 },
-    { date: '2025-10-06', revenue: 1900, views: 580, sales: 2 },
-    { date: '2025-10-07', revenue: 2500, views: 720, sales: 4 }
-  ])
+  const handleGenerateReport = async (templateId: string) => {
+    try {
+      const reportUrl = await generateReport(templateId, selectedTimeRange)
+      console.log('Report generated:', reportUrl)
+    } catch (error) {
+      console.error('Failed to generate report:', error)
+    }
+  }
 
-  const getPerformanceColor = (conversion: number) => {
-    if (conversion >= 7) return 'text-green-500'
-    if (conversion >= 5) return 'text-yellow-500'
-    return 'text-red-500'
+  const handleExportData = async () => {
+    try {
+      const exportUrl = await exportData('excel', selectedTimeRange, ['revenue', 'leads', 'conversions'])
+      console.log('Data exported:', exportUrl)
+    } catch (error) {
+      console.error('Failed to export data:', error)
+    }
+  }
+
+  const getImpactColor = (impact: string) => {
+    switch (impact) {
+      case 'critical': return 'destructive'
+      case 'high': return 'default'
+      case 'medium': return 'secondary'
+      case 'low': return 'outline'
+      default: return 'outline'
+    }
+  }
+
+  const getEffortColor = (effort: string) => {
+    switch (effort) {
+      case 'low': return 'default'
+      case 'medium': return 'secondary'
+      case 'high': return 'destructive'
+      default: return 'outline'
+    }
   }
 
   return (
-    <Card className="h-full">
-      <CardHeader>
+    <div className="space-y-6">
+      {/* Header */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <BarChart3 className="w-5 h-5 text-purple-500" />
-            <CardTitle>Analytics Dashboard</CardTitle>
-          </div>
-          <Badge variant="outline">Data & Insights</Badge>
+        <div>
+          <h2 className="text-2xl font-bold">Analytics Dashboard</h2>
+          <p className="text-muted-foreground">Comprehensive analytics, reporting, and optimization insights</p>
         </div>
-        <CardDescription>
-          Comprehensive data visualization and insights
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        {/* Controls */}
-        <div className="flex items-center space-x-4">
-          <Select value={timeRange} onValueChange={setTimeRange}>
-            <SelectTrigger className="w-32">
-              <Calendar className="w-4 h-4 mr-2" />
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="7d">Last 7 days</SelectItem>
-              <SelectItem value="30d">Last 30 days</SelectItem>
-              <SelectItem value="90d">Last 90 days</SelectItem>
-              <SelectItem value="1y">Last year</SelectItem>
-            </SelectContent>
-          </Select>
-          
-          <Select value={selectedMetric} onValueChange={setSelectedMetric}>
-            <SelectTrigger className="w-40">
-              <TrendingUp className="w-4 h-4 mr-2" />
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Metrics</SelectItem>
-              <SelectItem value="revenue">Revenue</SelectItem>
-              <SelectItem value="views">Views</SelectItem>
-              <SelectItem value="sales">Sales</SelectItem>
-            </SelectContent>
-          </Select>
-          
-          <Button size="sm" variant="outline" onClick={onDataRefresh}>
-            <RefreshCw className="w-4 h-4 mr-2" />
+        <div className="flex items-center gap-2">
+          <Button variant="outline" onClick={refreshAll} disabled={loading}>
+            <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
             Refresh
           </Button>
+          <Button variant="outline" onClick={handleExportData} disabled={exporting}>
+            <Download className="w-4 h-4 mr-2" />
+            Export
+          </Button>
+          <Button onClick={handleCreateInsight}>
+            <Lightbulb className="w-4 h-4 mr-2" />
+            New Insight
+          </Button>
         </div>
+          </div>
+          
+      {/* Key Metrics Overview */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">${metrics.totalRevenue.toLocaleString()}</div>
+            <div className="flex items-center text-xs text-muted-foreground">
+              {metrics.revenueGrowth > 0 ? (
+                <TrendingUp className="w-3 h-3 mr-1 text-green-500" />
+              ) : (
+                <TrendingDown className="w-3 h-3 mr-1 text-red-500" />
+              )}
+              {Math.abs(metrics.revenueGrowth)}% from last period
+            </div>
+          </CardContent>
+        </Card>
 
-        {/* Key Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="p-4 rounded-lg bg-green-500/10">
-            <div className="flex items-center space-x-2 mb-2">
-              <DollarSign className="w-4 h-4 text-green-500" />
-              <span className="text-sm font-medium">Total Revenue</span>
-            </div>
-            <div className="text-2xl font-bold text-green-500">${metrics.totalRevenue.toLocaleString()}</div>
-            <div className="text-xs text-muted-foreground">+12.5% from last month</div>
-          </div>
-          
-          <div className="p-4 rounded-lg bg-blue-500/10">
-            <div className="flex items-center space-x-2 mb-2">
-              <Eye className="w-4 h-4 text-blue-500" />
-              <span className="text-sm font-medium">Total Views</span>
-            </div>
-            <div className="text-2xl font-bold text-blue-500">{metrics.totalViews.toLocaleString()}</div>
-            <div className="text-xs text-muted-foreground">+8.2% from last month</div>
-          </div>
-          
-          <div className="p-4 rounded-lg bg-purple-500/10">
-            <div className="flex items-center space-x-2 mb-2">
-              <TrendingUp className="w-4 h-4 text-purple-500" />
-              <span className="text-sm font-medium">Conversion Rate</span>
-            </div>
-            <div className="text-2xl font-bold text-purple-500">{metrics.conversionRate}%</div>
-            <div className="text-xs text-muted-foreground">+2.1% from last month</div>
-          </div>
-          
-          <div className="p-4 rounded-lg bg-orange-500/10">
-            <div className="flex items-center space-x-2 mb-2">
-              <Users className="w-4 h-4 text-orange-500" />
-              <span className="text-sm font-medium">Active Listings</span>
-            </div>
-            <div className="text-2xl font-bold text-orange-500">{metrics.activeListings}</div>
-            <div className="text-xs text-muted-foreground">of {metrics.totalListings} total</div>
-          </div>
-        </div>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Conversion Rate</CardTitle>
+            <Target className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{Math.round(metrics.conversionRate * 100)}%</div>
+            <Progress value={metrics.conversionRate * 100} className="mt-2" />
+          </CardContent>
+        </Card>
 
-        {/* Platform Performance */}
-        <div className="space-y-4">
-          <h4 className="font-medium">Platform Performance</h4>
-          <div className="space-y-3">
-            {performanceData.map((platform, index) => (
-              <div key={index} className="p-4 rounded-lg border">
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <h5 className="font-medium">{platform.platform}</h5>
-                    <p className="text-sm text-muted-foreground">
-                      {platform.views} views • {platform.sales} sales
-                    </p>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Active Listings</CardTitle>
+            <Eye className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{metrics.activeListings}</div>
+            <p className="text-xs text-muted-foreground">
+              {metrics.totalListings} total listings
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Avg Sale Price</CardTitle>
+            <BarChart3 className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">${metrics.averageSalePrice.toLocaleString()}</div>
+            <p className="text-xs text-muted-foreground">
+              {Math.round(metrics.profitMargin * 100)}% profit margin
+            </p>
+          </CardContent>
+        </Card>
+          </div>
+          
+      {/* Platform Performance */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Platform Performance</CardTitle>
+          <CardDescription>Performance metrics across different platforms</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {Object.entries(metrics.platformBreakdown).map(([platform, data]) => (
+              <div key={platform} className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-medium capitalize">{platform}</span>
+                  <Badge variant="outline">{data.listings} listings</Badge>
+                </div>
+                <div className="space-y-1 text-sm">
+                  <div className="flex justify-between">
+                    <span>Leads:</span>
+                    <span>{data.leads}</span>
                   </div>
-                  <div className="text-right">
-                    <p className="font-bold text-lg">${platform.revenue.toLocaleString()}</p>
-                    <p className={`text-sm ${getPerformanceColor(platform.conversion)}`}>
-                      {platform.conversion}% conversion
-                    </p>
+                  <div className="flex justify-between">
+                    <span>Sales:</span>
+                    <span>{data.sales}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Revenue:</span>
+                    <span>${data.revenue.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Conversion:</span>
+                    <span>{Math.round(data.conversionRate * 100)}%</span>
                   </div>
                 </div>
-                
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div 
-                    className="bg-primary h-2 rounded-full" 
-                    style={{ width: `${(platform.views / Math.max(...performanceData.map(p => p.views))) * 100}%` }}
-                  />
-                </div>
-              </div>
+            </div>
             ))}
           </div>
-        </div>
+        </CardContent>
+      </Card>
 
-        {/* Revenue Trend */}
-        <div className="space-y-4">
+      {/* Main Content */}
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="insights">Insights</TabsTrigger>
+          <TabsTrigger value="reports">Reports</TabsTrigger>
+          <TabsTrigger value="dashboards">Dashboards</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="overview" className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Recent Performance */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Recent Performance</CardTitle>
+                <CardDescription>Last 7 days performance metrics</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {metrics.dailyStats.slice(-7).map((day, index) => (
+                    <div key={day.date} className="flex items-center justify-between">
+                      <div className="text-sm">{new Date(day.date).toLocaleDateString()}</div>
+                      <div className="flex items-center gap-4 text-sm">
+                        <span>{day.listings} listings</span>
+                        <span>{day.leads} leads</span>
+                        <span>{day.sales} sales</span>
+                        <span className="font-medium">${day.revenue}</span>
+          </div>
+        </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Automation Performance */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Automation Performance</CardTitle>
+                <CardDescription>AI and automation effectiveness</CardDescription>
+              </CardHeader>
+              <CardContent>
+          <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Auto-Posting Success</span>
+                    <div className="flex items-center gap-2">
+                      <Progress value={metrics.autoPostingSuccess} className="w-20" />
+                      <span className="text-sm font-medium">{Math.round(metrics.autoPostingSuccess)}%</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Auto-Response Success</span>
+                    <div className="flex items-center gap-2">
+                      <Progress value={metrics.autoResponseSuccess} className="w-20" />
+                      <span className="text-sm font-medium">{Math.round(metrics.autoResponseSuccess)}%</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Automation Efficiency</span>
+                    <div className="flex items-center gap-2">
+                      <Progress value={metrics.automationEfficiency} className="w-20" />
+                      <span className="text-sm font-medium">{Math.round(metrics.automationEfficiency)}%</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="insights" className="space-y-4">
           <div className="flex items-center justify-between">
-            <h4 className="font-medium">Revenue Trend</h4>
-            <Button size="sm" variant="outline">
-              <Download className="w-4 h-4 mr-2" />
-              Export
+            <h3 className="text-lg font-semibold">Optimization Insights</h3>
+            <Button onClick={handleCreateInsight}>
+              <Lightbulb className="w-4 h-4 mr-2" />
+              New Insight
+            </Button>
+                </div>
+                
+          <div className="grid gap-4">
+            {insights.map((insight) => (
+              <Card key={insight.id}>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <CardTitle className="text-base">{insight.title}</CardTitle>
+                      <CardDescription>{insight.description}</CardDescription>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant={getImpactColor(insight.impact)}>
+                        {insight.impact} impact
+                      </Badge>
+                      <Badge variant={getEffortColor(insight.implementationEffort)}>
+                        {insight.implementationEffort} effort
+                      </Badge>
+                      <Badge variant={insight.isImplemented ? 'default' : 'outline'}>
+                        {insight.isImplemented ? 'Implemented' : 'Pending'}
+                      </Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="text-sm">
+                      <strong>Suggested Action:</strong> {insight.suggestedAction}
+                    </div>
+                    <div className="text-sm">
+                      <strong>Expected Improvement:</strong> {insight.expectedImprovement}
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm text-muted-foreground">
+                        Confidence: {Math.round(insight.confidence * 100)}%
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {!insight.isImplemented && (
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => implementInsight(insight.id)}
+                          >
+                            <CheckCircle className="w-4 h-4 mr-1" />
+                            Implement
+                          </Button>
+                        )}
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => dismissInsight(insight.id)}
+                        >
+                          <XCircle className="w-4 h-4 mr-1" />
+                          Dismiss
+                        </Button>
+                      </div>
+                </div>
+              </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="reports" className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold">Report Templates</h3>
+            <Button>
+              <FileText className="w-4 h-4 mr-2" />
+              New Template
             </Button>
           </div>
           
-          <div className="p-4 rounded-lg bg-muted/50">
-            <div className="grid grid-cols-7 gap-2">
-              {trendData.map((day, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-xs text-muted-foreground mb-1">
-                    {new Date(day.date).toLocaleDateString('en-US', { weekday: 'short' })}
+          <div className="grid gap-4">
+            {reportTemplates.map((template) => (
+              <Card key={template.id}>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <CardTitle className="text-base">{template.name}</CardTitle>
+                      <CardDescription>{template.description}</CardDescription>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline">{template.timeRange}</Badge>
+                      <Badge variant="secondary">{template.format}</Badge>
+                      <Badge variant={template.isActive ? 'default' : 'outline'}>
+                        {template.isActive ? 'Active' : 'Inactive'}
+                      </Badge>
+                    </div>
                   </div>
-                  <div className="w-full bg-muted rounded h-16 flex items-end">
-                    <div 
-                      className="w-full bg-primary rounded"
-                      style={{ height: `${(day.revenue / Math.max(...trendData.map(d => d.revenue))) * 100}%` }}
-                    />
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="text-sm">
+                      <strong>Metrics:</strong> {template.metrics.join(', ')}
+                    </div>
+                    {template.schedule && (
+                      <div className="text-sm">
+                        <strong>Schedule:</strong> {template.schedule.frequency} at {template.schedule.time}
+                      </div>
+                    )}
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm text-muted-foreground">
+                        {template.lastGenerated ? `Last generated: ${new Date(template.lastGenerated).toLocaleString()}` : 'Never generated'}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => handleGenerateReport(template.id)}
+                          disabled={generating}
+                        >
+                          <Download className="w-4 h-4 mr-1" />
+                          Generate
+                        </Button>
+                        <Button size="sm" variant="outline">
+                          <Settings className="w-4 h-4 mr-1" />
+                          Edit
+                        </Button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-xs font-medium mt-1">${day.revenue}</div>
-                </div>
+                </CardContent>
+              </Card>
               ))}
             </div>
-          </div>
+        </TabsContent>
+
+        <TabsContent value="dashboards" className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold">Custom Dashboards</h3>
+            <Button onClick={() => createDashboard({
+              name: 'New Dashboard',
+              description: 'Custom analytics dashboard',
+              widgets: [],
+              isPublic: false
+            })}>
+              <BarChart3 className="w-4 h-4 mr-2" />
+              New Dashboard
+            </Button>
         </div>
 
-        {/* Quick Insights */}
-        <div className="p-4 rounded-lg bg-muted/50">
-          <h4 className="font-medium mb-3">Quick Insights</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div className="grid gap-4">
+            {customDashboards.map((dashboard) => (
+              <Card key={dashboard.id}>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
             <div>
-              <p className="text-muted-foreground">Best Performing Platform</p>
-              <p className="font-medium">eBay - 6.7% conversion rate</p>
+                      <CardTitle className="text-base">{dashboard.name}</CardTitle>
+                      <CardDescription>{dashboard.description}</CardDescription>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant={dashboard.isPublic ? 'default' : 'outline'}>
+                        {dashboard.isPublic ? 'Public' : 'Private'}
+                      </Badge>
+                      <div className="text-sm text-muted-foreground">
+                        {dashboard.widgets.length} widgets
+                      </div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="text-sm">
+                      <strong>Widgets:</strong> {dashboard.widgets.length} configured
             </div>
-            <div>
-              <p className="text-muted-foreground">Peak Sales Day</p>
-              <p className="font-medium">Sunday - 25% of weekly sales</p>
+                    <div className="text-sm">
+                      <strong>Updated:</strong> {new Date(dashboard.updatedAt).toLocaleString()}
             </div>
-            <div>
-              <p className="text-muted-foreground">Average Sale Price</p>
-              <p className="font-medium">${metrics.averagePrice}</p>
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm text-muted-foreground">
+                        Created: {new Date(dashboard.createdAt).toLocaleString()}
             </div>
-            <div>
-              <p className="text-muted-foreground">Sales Velocity</p>
-              <p className="font-medium">2.1 sales per day</p>
+                      <div className="flex items-center gap-2">
+                        <Button size="sm" variant="outline">
+                          <Share2 className="w-4 h-4 mr-1" />
+                          Share
+                        </Button>
+                        <Button size="sm" variant="outline">
+                          <Settings className="w-4 h-4 mr-1" />
+                          Edit
+                        </Button>
             </div>
           </div>
         </div>
       </CardContent>
     </Card>
+            ))}
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
   )
-}
-
-AnalyticsDashboard.metadata = {
-  name: "AnalyticsDashboard",
-  label: "Analytics Dashboard",
-  version: "1.0.0",
-  date: "2025-10-08",
-  description: "Comprehensive data visualization and insights",
-  phase: "Core",
-  category: "Data Visualization",
-  tags: ["analytics", "data", "visualization", "insights", "metrics", "performance"]
 }
