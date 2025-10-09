@@ -1,0 +1,163 @@
+name: Component Library Validation
+
+on:
+  push:
+    branches: [ component-library ]
+    paths:
+      - 'src/components/**'
+      - 'src/lib/design-system/**'
+  pull_request:
+    branches: [ component-library ]
+    paths:
+      - 'src/components/**'
+      - 'src/lib/design-system/**'
+
+jobs:
+  validate-components:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run TypeScript check
+      run: npx tsc --noEmit
+      
+    - name: Run ESLint
+      run: npm run lint
+      
+    - name: Run tests
+      run: npm test
+      
+    - name: Validate component structure
+      run: |
+        echo "Validating component structure..."
+        
+        # Check if components follow naming convention
+        if ! find src/components -name "*.tsx" -o -name "*.ts" | grep -q .; then
+          echo "No components found in src/components/"
+          exit 1
+        fi
+        
+        # Check if design system exists
+        if [ ! -d "src/lib/design-system" ]; then
+          echo "Design system directory not found"
+          exit 1
+        fi
+        
+        # Check if components import from design system
+        for file in src/components/**/*.tsx; do
+          if [ -f "$file" ]; then
+            if ! grep -q "from '@/lib/design-system'" "$file"; then
+              echo "Warning: $file should import from design system"
+            fi
+          fi
+        done
+        
+        echo "Component structure validation passed"
+        
+    - name: Check accessibility
+      run: |
+        echo "Checking accessibility compliance..."
+        
+        # Check for ARIA attributes in components
+        for file in src/components/**/*.tsx; do
+          if [ -f "$file" ]; then
+            if ! grep -q "aria-" "$file"; then
+              echo "Warning: $file should include ARIA attributes"
+            fi
+          fi
+        done
+        
+        echo "Accessibility check completed"
+        
+    - name: Validate design tokens
+      run: |
+        echo "Validating design tokens..."
+        
+        # Check if design tokens are properly structured
+        if [ ! -f "src/lib/design-system/tokens.ts" ]; then
+          echo "Design tokens file not found"
+          exit 1
+        fi
+        
+        # Check if theme system exists
+        if [ ! -f "src/lib/design-system/theme.ts" ]; then
+          echo "Theme system file not found"
+          exit 1
+        fi
+        
+        echo "Design tokens validation passed"
+        
+    - name: Check documentation
+      run: |
+        echo "Checking component documentation..."
+        
+        # Check if documentation exists
+        if [ ! -f "COMPONENT_LIBRARY_DOCUMENTATION.md" ]; then
+          echo "Component library documentation not found"
+          exit 1
+        fi
+        
+        # Check if components have metadata
+        for file in src/components/**/*.tsx; do
+          if [ -f "$file" ]; then
+            if ! grep -q "metadata" "$file"; then
+              echo "Warning: $file should include metadata"
+            fi
+          fi
+        done
+        
+        echo "Documentation check completed"
+        
+    - name: Performance check
+      run: |
+        echo "Checking performance optimizations..."
+        
+        # Check for React.memo usage
+        for file in src/components/**/*.tsx; do
+          if [ -f "$file" ]; then
+            if ! grep -q "React.memo\|withMemo" "$file"; then
+              echo "Warning: $file should use memoization for performance"
+            fi
+          fi
+        done
+        
+        echo "Performance check completed"
+        
+    - name: Security check
+      run: |
+        echo "Running security audit..."
+        npm audit --audit-level moderate
+        
+    - name: Build check
+      run: |
+        echo "Testing build process..."
+        npm run build
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: build-artifacts
+        path: dist/
+        
+  notify-component-repo:
+    needs: validate-components
+    runs-on: ubuntu-latest
+    if: success()
+    
+    steps:
+    - name: Notify component repository
+      run: |
+        echo "Component validation passed. Ready for component repository push."
+        echo "Run: ./scripts/push-component.sh <component-path> [commit-message]"

@@ -27,3 +27,15 @@
 - **REQUIRED**: Monitor rule impact on AI assistant performance
 - **MANDATORY**: Optimize rules for faster processing
 - **PROHIBITED**: DO NOT create overly complex rule hierarchies
+
+## Component Library Enforcement
+- **MANDATORY**: All new components MUST follow the unbound design system patterns
+- **REQUIRED**: All components MUST be pushed to git@github.com:memorymusicllc/power.components.git
+- **PROHIBITED**: DO NOT create components outside the established design system
+- **MANDATORY**: All components MUST include comprehensive TypeScript interfaces
+- **REQUIRED**: All components MUST implement error boundaries and performance optimizations
+- **MANDATORY**: All components MUST include accessibility features (ARIA, keyboard navigation)
+- **REQUIRED**: All components MUST follow compound component patterns where applicable
+- **PROHIBITED**: DO NOT bypass the design token system for styling
+- **MANDATORY**: All components MUST include metadata for the component library
+- **REQUIRED**: All components MUST be documented with usage examples
