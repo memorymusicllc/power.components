@@ -2,6 +2,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/redux-ui';
 import { Button } from '@/components/redux-ui';
 import { Badge } from '@/components/redux-ui';
+import { ThemeProvider } from '@/lib/design-system/provider';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 import { Link } from 'react-router-dom';
 import {
   Activity,
@@ -36,7 +39,7 @@ import { ConnectionStatus } from '@/components/redux-ui';
 import { storage, initializeDefaultData } from '@/lib/storage';
 import { useEffect } from 'react';
 
-export function DashboardOverview() {
+const DashboardOverviewBase = () => {
   const { metrics, loading, error, refresh, lastUpdated } = useDashboardStore();
   const { isActive: realtimeActive, lastUpdate } = useDashboardRealTime();
 
@@ -474,4 +477,30 @@ export function DashboardOverview() {
       </Card>
     </div>
   );
-}
+};
+
+// Enhanced with error boundary and memoization
+export const DashboardOverview = withErrorBoundary(
+  withMemo(DashboardOverviewBase),
+  {
+    fallback: ({ error, resetError }) => (
+      <div className="p-4 border border-error-500 rounded-lg bg-error-50">
+        <p className="text-error-700">Dashboard Error: {error.message}</p>
+        <button onClick={resetError} className="mt-2 text-sm text-error-600 underline">
+          Try Again
+        </button>
+      </div>
+    )
+  }
+);
+
+// Add metadata for ComponentLibrary
+(DashboardOverview as any).metadata = {
+  name: 'DashboardOverview',
+  label: 'Dashboard Overview',
+  version: '2.0.0',
+  date: '2025-01-08',
+  description: 'Enhanced dashboard overview with unbound design system, accessibility, and performance optimization',
+  category: 'Dashboard',
+  tags: ['dashboard', 'overview', 'metrics', 'accessibility', 'performance'],
+};

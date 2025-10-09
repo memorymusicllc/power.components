@@ -1,5 +1,7 @@
 
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 
 const data = [
   { name: 'New', value: 12, color: 'hsl(210, 100%, 70%)' },
@@ -9,7 +11,7 @@ const data = [
   { name: 'Scheduled', value: 2, color: 'hsl(250, 30%, 70%)' },
 ];
 
-export function LeadsChart() {
+const LeadsChartBase = () => {
   return (
     <div className="h-64">
       <ResponsiveContainer width="100%" height="100%">
@@ -47,13 +49,30 @@ export function LeadsChart() {
       </ResponsiveContainer>
     </div>
   );
-}
+};
+
+// Enhanced with error boundary and memoization
+export const LeadsChart = withErrorBoundary(
+  withMemo(LeadsChartBase),
+  {
+    fallback: ({ error, resetError }) => (
+      <div className="p-4 border border-error-500 rounded-lg bg-error-50">
+        <p className="text-error-700">Chart Error: {error.message}</p>
+        <button onClick={resetError} className="mt-2 text-sm text-error-600 underline">
+          Try Again
+        </button>
+      </div>
+    )
+  }
+);
 
 // Component metadata
-LeadsChart.metadata = {
+(LeadsChart as any).metadata = {
   name: "LeadsChart",
   label: "Lead Pipeline Chart",
-  version: "1.0.0",
-  date: "2025-10-08",
-  description: "Pie chart showing lead status distribution"
+  version: "2.0.0",
+  date: "2025-01-08",
+  description: "Enhanced pie chart showing lead status distribution with error handling and performance optimization",
+  category: "Visualization",
+  tags: ["chart", "leads", "analytics", "accessibility", "performance"],
 };

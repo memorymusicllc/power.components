@@ -191,7 +191,7 @@ export default function ComponentLibrary() {
     // Core Components
     {
       component: DashboardCard,
-      metadata: DashboardCard.metadata || {
+      metadata: (DashboardCard as any).metadata || {
         name: "DashboardCard",
         label: "Dashboard Card Wrapper",
         version: "1.0.0",
@@ -204,7 +204,7 @@ export default function ComponentLibrary() {
     },
     {
       component: PriceChart,
-      metadata: PriceChart.metadata || {
+      metadata: (PriceChart as any).metadata || {
         name: "PriceChart",
         label: "Price History Chart",
         version: "1.0.0",
@@ -217,7 +217,7 @@ export default function ComponentLibrary() {
     },
     {
       component: LeadsChart,
-      metadata: LeadsChart.metadata || {
+      metadata: (LeadsChart as any).metadata || {
         name: "LeadsChart",
         label: "Lead Pipeline Chart",
         version: "1.0.0",
@@ -531,7 +531,7 @@ export default function ComponentLibrary() {
     },
     {
       component: CodeEditor,
-      metadata: CodeEditor.metadata
+      metadata: (CodeEditor as any).metadata
     },
     // Note: These components will be added back when Redux UI versions are created
     // {
@@ -544,7 +544,7 @@ export default function ComponentLibrary() {
     // },
     {
       component: UIElementsFilter,
-      metadata: UIElementsFilter.metadata
+      metadata: (UIElementsFilter as any).metadata
     }
   ], [])
 

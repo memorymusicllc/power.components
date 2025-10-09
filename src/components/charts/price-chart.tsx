@@ -1,5 +1,7 @@
 
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 
 const data = [
   { date: 'Day 1', price: 4200, retail: 4573 },
@@ -11,7 +13,7 @@ const data = [
   { date: 'Day 7', price: 4200, retail: 4573 },
 ];
 
-export function PriceChart() {
+const PriceChartBase = () => {
   return (
     <div className="h-64">
       <ResponsiveContainer width="100%" height="100%">
@@ -67,13 +69,30 @@ export function PriceChart() {
       </ResponsiveContainer>
     </div>
   );
-}
+};
+
+// Enhanced with error boundary and memoization
+export const PriceChart = withErrorBoundary(
+  withMemo(PriceChartBase),
+  {
+    fallback: ({ error, resetError }) => (
+      <div className="p-4 border border-error-500 rounded-lg bg-error-50">
+        <p className="text-error-700">Chart Error: {error.message}</p>
+        <button onClick={resetError} className="mt-2 text-sm text-error-600 underline">
+          Try Again
+        </button>
+      </div>
+    )
+  }
+);
 
 // Component metadata
-PriceChart.metadata = {
+(PriceChart as any).metadata = {
   name: "PriceChart",
   label: "Price History Chart",
-  version: "1.0.0",
-  date: "2025-10-08",
-  description: "Line chart showing price trends over time"
+  version: "2.0.0",
+  date: "2025-01-08",
+  description: "Enhanced line chart showing price trends over time with error handling and performance optimization",
+  category: "Visualization",
+  tags: ["chart", "price", "analytics", "accessibility", "performance"],
 };

@@ -7,7 +7,7 @@
  */
 
 import { useEffect, useState } from 'react'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/lib/design-system/provider'
 import { AuthProvider } from '@/lib/auth-context'
 // Note: Toaster components will be replaced with Redux UI equivalents
 // import { Toaster } from '@/components/ui/toaster'
@@ -137,7 +137,12 @@ function Dashboard() {
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="pow3r-cashout-theme" attribute="class">
+    <ThemeProvider 
+      defaultTheme="pow3r-dark" 
+      enableSystemPreference={true}
+      enableCSSVariables={true}
+      storageKey="pow3r-cashout-theme"
+    >
       <AuthProvider>
         <Dashboard />
       {/* Toaster components will be added when Redux UI versions are created */}
