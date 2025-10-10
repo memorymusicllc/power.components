@@ -7,8 +7,9 @@ yarn-error.log*
 # Build outputs
 dist/
 build/
-*.min.js
-*.min.js.map
+# Allow minified files for deployment
+# *.min.js
+# *.min.js.map
 
 # Environment variables
 .env
