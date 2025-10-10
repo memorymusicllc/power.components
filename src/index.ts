@@ -8,8 +8,10 @@ export { default as ComponentLibrary } from '../ComponentLibrary'
 export type { ComponentMetadata } from '../ComponentLibrary'
 
 // Re-export commonly used utilities
-export { clsx } from 'clsx'
-export { twMerge } from 'tailwind-merge'
+import { clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export { clsx, twMerge }
 
 // Utility function for combining class names
 export const cn = (...inputs: any[]) => {

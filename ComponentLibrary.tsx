@@ -24,14 +24,13 @@ import {
   Grid3x3, 
   Download, 
   ArrowLeft,
-  Calendar,
   Tag,
   Code,
   Eye
 } from 'lucide-react'
 
 // Component metadata interface
-interface ComponentMetadata {
+export interface ComponentMetadata {
   id: string
   name: string
   label: string

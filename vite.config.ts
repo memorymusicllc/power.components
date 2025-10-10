@@ -11,18 +11,11 @@ export default defineConfig({
     },
   },
   build: {
-    lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'PowerComponents',
-      fileName: (format) => `index.${format}.js`
-    },
+    outDir: 'dist',
     rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM'
-        }
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        library: path.resolve(__dirname, 'standalone-library.html')
       }
     }
   },
