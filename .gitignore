@@ -187,3 +187,4 @@ build/Release/
 
 # Optional stylelint cache
 .stylelintcache
+node_modules
