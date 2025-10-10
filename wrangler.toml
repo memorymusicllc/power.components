@@ -1,0 +1,19 @@
+name = "power-components"
+compatibility_date = "2025-01-08"
+
+[env.production]
+name = "power-components"
+route = "comp.theylove.me/*"
+
+[env.preview]
+name = "power-components-preview"
+
+# Build configuration
+[build]
+command = "npm run build"
+cwd = "."
+
+# Pages configuration
+[[pages_builds]]
+source = "dist"
+destination_id = "power-components"
