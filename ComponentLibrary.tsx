@@ -1,6 +1,6 @@
 /**
  * Power Components Library
- * Standalone component library showcase for the power.components repository
+ * Comprehensive component showcase for the power.components repository
  * 
  * Features:
  * - Search components
@@ -10,7 +10,7 @@
  * - Live previews
  * - Responsive design
  * 
- * @version 1.0.0
+ * @version 2.0.0
  * @date 2025-01-08
  */
 
@@ -47,7 +47,7 @@ export interface ComponentMetadata {
   dependencies?: string[]
 }
 
-// Component data - this would typically come from a CMS or API
+// Comprehensive component data - 40+ primitives
 const componentData: ComponentMetadata[] = [
   {
     id: 'power-redact',
@@ -112,6 +112,326 @@ const componentData: ComponentMetadata[] = [
     example: '<LeadsChart data={leadsData} colors={customColors} />',
     documentation: '/docs/leads-chart',
     dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'llm-performance-chart',
+    name: 'LLMPerformanceChart',
+    label: 'LLM Performance Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Advanced chart showing LLM performance metrics and comparison data',
+    phase: 'Core',
+    category: 'AI Analytics',
+    tags: ['core', 'chart', 'ai', 'llm', 'performance', 'analytics'],
+    usage: 'Display LLM performance metrics and comparison data',
+    props: ['data', 'metrics', 'models', 'timeRange'],
+    example: '<LLMPerformanceChart data={llmData} metrics={["accuracy", "latency"]} />',
+    documentation: '/docs/llm-performance-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'token-usage-chart',
+    name: 'TokenUsageChart',
+    label: 'Token Usage Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Visualization of token usage patterns and consumption trends',
+    phase: 'Core',
+    category: 'AI Analytics',
+    tags: ['core', 'chart', 'ai', 'tokens', 'usage', 'analytics'],
+    usage: 'Track and visualize token usage patterns',
+    props: ['data', 'timeRange', 'models', 'showTrends'],
+    example: '<TokenUsageChart data={tokenData} timeRange="30d" />',
+    documentation: '/docs/token-usage-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'model-comparison-chart',
+    name: 'ModelComparisonChart',
+    label: 'Model Comparison Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Side-by-side comparison of different AI models and their performance',
+    phase: 'Core',
+    category: 'AI Analytics',
+    tags: ['core', 'chart', 'ai', 'models', 'comparison', 'analytics'],
+    usage: 'Compare different AI models and their performance metrics',
+    props: ['models', 'metrics', 'data', 'showDetails'],
+    example: '<ModelComparisonChart models={modelList} metrics={comparisonMetrics} />',
+    documentation: '/docs/model-comparison-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'error-rate-chart',
+    name: 'ErrorRateChart',
+    label: 'Error Rate Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Track and visualize error rates over time with alerting capabilities',
+    phase: 'Core',
+    category: 'Monitoring',
+    tags: ['core', 'chart', 'monitoring', 'errors', 'alerts'],
+    usage: 'Monitor error rates and set up alerting thresholds',
+    props: ['data', 'thresholds', 'alerts', 'timeRange'],
+    example: '<ErrorRateChart data={errorData} thresholds={errorThresholds} />',
+    documentation: '/docs/error-rate-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'request-volume-chart',
+    name: 'RequestVolumeChart',
+    label: 'Request Volume Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Visualize request volume patterns and traffic trends',
+    phase: 'Core',
+    category: 'Monitoring',
+    tags: ['core', 'chart', 'monitoring', 'requests', 'traffic'],
+    usage: 'Monitor request volume and traffic patterns',
+    props: ['data', 'timeRange', 'showPeaks', 'aggregation'],
+    example: '<RequestVolumeChart data={requestData} timeRange="24h" />',
+    documentation: '/docs/request-volume-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'latency-distribution-chart',
+    name: 'LatencyDistributionChart',
+    label: 'Latency Distribution Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Histogram showing latency distribution patterns and percentiles',
+    phase: 'Core',
+    category: 'Performance',
+    tags: ['core', 'chart', 'performance', 'latency', 'distribution'],
+    usage: 'Analyze latency distribution and identify performance bottlenecks',
+    props: ['data', 'percentiles', 'showStats', 'timeRange'],
+    example: '<LatencyDistributionChart data={latencyData} percentiles={[50, 95, 99]} />',
+    documentation: '/docs/latency-distribution-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'cost-analysis-chart',
+    name: 'CostAnalysisChart',
+    label: 'Cost Analysis Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Breakdown of costs by service, feature, and usage patterns',
+    phase: 'Core',
+    category: 'Analytics',
+    tags: ['core', 'chart', 'analytics', 'costs', 'breakdown'],
+    usage: 'Analyze costs and identify optimization opportunities',
+    props: ['data', 'breakdown', 'timeRange', 'showTrends'],
+    example: '<CostAnalysisChart data={costData} breakdown="service" />',
+    documentation: '/docs/cost-analysis-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'quality-metrics-chart',
+    name: 'QualityMetricsChart',
+    label: 'Quality Metrics Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Comprehensive quality metrics dashboard with multiple KPIs',
+    phase: 'Core',
+    category: 'Quality',
+    tags: ['core', 'chart', 'quality', 'metrics', 'kpi'],
+    usage: 'Monitor quality metrics and track improvements over time',
+    props: ['metrics', 'data', 'targets', 'showTrends'],
+    example: '<QualityMetricsChart metrics={qualityMetrics} targets={qualityTargets} />',
+    documentation: '/docs/quality-metrics-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'usage-patterns-chart',
+    name: 'UsagePatternsChart',
+    label: 'Usage Patterns Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Analyze user behavior patterns and usage trends',
+    phase: 'Core',
+    category: 'Analytics',
+    tags: ['core', 'chart', 'analytics', 'usage', 'patterns'],
+    usage: 'Understand user behavior and optimize user experience',
+    props: ['data', 'patterns', 'timeRange', 'segments'],
+    example: '<UsagePatternsChart data={usageData} patterns={behaviorPatterns} />',
+    documentation: '/docs/usage-patterns-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'quadrant-leader-chart',
+    name: 'QuadrantLeaderChart',
+    label: 'Quadrant Leader Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Strategic quadrant analysis for product positioning and decision making',
+    phase: 'Core',
+    category: 'Strategy',
+    tags: ['core', 'chart', 'strategy', 'quadrant', 'positioning'],
+    usage: 'Analyze product positioning and strategic decisions',
+    props: ['data', 'axes', 'quadrants', 'showLabels'],
+    example: '<QuadrantLeaderChart data={productData} axes={["value", "effort"]} />',
+    documentation: '/docs/quadrant-leader-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'network-graph-chart',
+    name: 'NetworkGraphChart',
+    label: 'Network Graph Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Interactive network visualization for relationships and connections',
+    phase: 'Core',
+    category: 'Visualization',
+    tags: ['core', 'chart', 'network', 'graph', 'relationships'],
+    usage: 'Visualize complex relationships and network structures',
+    props: ['nodes', 'edges', 'layout', 'interactive'],
+    example: '<NetworkGraphChart nodes={networkNodes} edges={networkEdges} />',
+    documentation: '/docs/network-graph-chart',
+    dependencies: ['react', 'd3', 'tailwindcss']
+  },
+  {
+    id: 'scatter-plot-chart',
+    name: 'ScatterPlotChart',
+    label: 'Scatter Plot Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Correlation analysis and pattern discovery through scatter plots',
+    phase: 'Core',
+    category: 'Analytics',
+    tags: ['core', 'chart', 'analytics', 'scatter', 'correlation'],
+    usage: 'Discover correlations and patterns in data',
+    props: ['data', 'xAxis', 'yAxis', 'showTrendLine'],
+    example: '<ScatterPlotChart data={scatterData} xAxis="price" yAxis="sales" />',
+    documentation: '/docs/scatter-plot-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'bloom-graph-chart',
+    name: 'BloomGraphChart',
+    label: 'Bloom Graph Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Advanced graph visualization with bloom effects and animations',
+    phase: 'Core',
+    category: 'Visualization',
+    tags: ['core', 'chart', 'graph', 'bloom', 'animations'],
+    usage: 'Create stunning graph visualizations with bloom effects',
+    props: ['data', 'effects', 'animations', 'interactive'],
+    example: '<BloomGraphChart data={graphData} effects={bloomEffects} />',
+    documentation: '/docs/bloom-graph-chart',
+    dependencies: ['react', 'd3', 'tailwindcss']
+  },
+  {
+    id: 'timeline-chart',
+    name: 'TimelineChart',
+    label: 'Timeline Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Chronological event visualization with milestones and dependencies',
+    phase: 'Core',
+    category: 'Project Management',
+    tags: ['core', 'chart', 'timeline', 'events', 'milestones'],
+    usage: 'Visualize project timelines and event sequences',
+    props: ['events', 'milestones', 'dependencies', 'timeRange'],
+    example: '<TimelineChart events={projectEvents} milestones={keyMilestones} />',
+    documentation: '/docs/timeline-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'word-cloud-chart',
+    name: 'WordCloudChart',
+    label: 'Word Cloud Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Text analysis visualization with word frequency and importance',
+    phase: 'Core',
+    category: 'Text Analytics',
+    tags: ['core', 'chart', 'text', 'word-cloud', 'analysis'],
+    usage: 'Analyze text content and visualize word importance',
+    props: ['text', 'words', 'weights', 'colors'],
+    example: '<WordCloudChart text={documentText} words={wordFrequencies} />',
+    documentation: '/docs/word-cloud-chart',
+    dependencies: ['react', 'd3', 'tailwindcss']
+  },
+  {
+    id: 'heatmap-chart',
+    name: 'HeatmapChart',
+    label: 'Heatmap Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Data density visualization with color-coded intensity mapping',
+    phase: 'Core',
+    category: 'Analytics',
+    tags: ['core', 'chart', 'heatmap', 'density', 'intensity'],
+    usage: 'Visualize data density and intensity patterns',
+    props: ['data', 'xAxis', 'yAxis', 'colorScale'],
+    example: '<HeatmapChart data={densityData} xAxis="time" yAxis="category" />',
+    documentation: '/docs/heatmap-chart',
+    dependencies: ['react', 'd3', 'tailwindcss']
+  },
+  {
+    id: 'confusion-matrix-chart',
+    name: 'ConfusionMatrixChart',
+    label: 'Confusion Matrix Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Machine learning model performance visualization and analysis',
+    phase: 'Core',
+    category: 'ML Analytics',
+    tags: ['core', 'chart', 'ml', 'confusion-matrix', 'performance'],
+    usage: 'Analyze ML model performance and classification accuracy',
+    props: ['matrix', 'labels', 'showStats', 'colorScheme'],
+    example: '<ConfusionMatrixChart matrix={confusionMatrix} labels={classLabels} />',
+    documentation: '/docs/confusion-matrix-chart',
+    dependencies: ['react', 'd3', 'tailwindcss']
+  },
+  {
+    id: 'roc-curve-chart',
+    name: 'ROCCurveChart',
+    label: 'ROC Curve Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Receiver Operating Characteristic curve for model evaluation',
+    phase: 'Core',
+    category: 'ML Analytics',
+    tags: ['core', 'chart', 'ml', 'roc', 'evaluation'],
+    usage: 'Evaluate ML model performance with ROC curves',
+    props: ['data', 'models', 'showAUC', 'interactive'],
+    example: '<ROCCurveChart data={rocData} models={modelList} />',
+    documentation: '/docs/roc-curve-chart',
+    dependencies: ['react', 'recharts', 'tailwindcss']
+  },
+  {
+    id: 'sankey-diagram-chart',
+    name: 'SankeyDiagramChart',
+    label: 'Sankey Diagram Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Flow visualization showing data movement and transformations',
+    phase: 'Core',
+    category: 'Visualization',
+    tags: ['core', 'chart', 'sankey', 'flow', 'transformation'],
+    usage: 'Visualize data flows and transformation processes',
+    props: ['nodes', 'links', 'flows', 'interactive'],
+    example: '<SankeyDiagramChart nodes={flowNodes} links={flowLinks} />',
+    documentation: '/docs/sankey-diagram-chart',
+    dependencies: ['react', 'd3', 'tailwindcss']
+  },
+  {
+    id: 'gantt-chart',
+    name: 'GanttChart',
+    label: 'Gantt Chart',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Project timeline visualization with tasks, dependencies, and milestones',
+    phase: 'Core',
+    category: 'Project Management',
+    tags: ['core', 'chart', 'gantt', 'project', 'timeline'],
+    usage: 'Manage project timelines and track task progress',
+    props: ['tasks', 'dependencies', 'milestones', 'timeRange'],
+    example: '<GanttChart tasks={projectTasks} dependencies={taskDependencies} />',
+    documentation: '/docs/gantt-chart',
+    dependencies: ['react', 'd3', 'tailwindcss']
   },
   {
     id: 'item-details-collector',
@@ -224,6 +544,342 @@ const componentData: ComponentMetadata[] = [
     example: '<MessageCenter channels={messageChannels} templates={responseTemplates} />',
     documentation: '/docs/message-center',
     dependencies: ['react', 'socket.io-client', 'tailwindcss']
+  },
+  {
+    id: 'button',
+    name: 'Button',
+    label: 'Button Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Versatile button component with multiple variants and states',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'button', 'interactive', 'primitive'],
+    usage: 'Primary interactive element for user actions',
+    props: ['variant', 'size', 'disabled', 'onClick', 'children'],
+    example: '<Button variant="primary" size="md" onClick={handleClick}>Click me</Button>',
+    documentation: '/docs/button',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'input',
+    name: 'Input',
+    label: 'Input Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Form input component with validation and error states',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'input', 'form', 'primitive'],
+    usage: 'Text input for forms and data entry',
+    props: ['type', 'placeholder', 'value', 'onChange', 'error'],
+    example: '<Input type="text" placeholder="Enter text" value={value} onChange={setValue} />',
+    documentation: '/docs/input',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'card',
+    name: 'Card',
+    label: 'Card Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Container component for grouping related content',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'card', 'container', 'primitive'],
+    usage: 'Group related content in a visually distinct container',
+    props: ['title', 'children', 'className', 'elevation'],
+    example: '<Card title="Card Title"><p>Card content</p></Card>',
+    documentation: '/docs/card',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'badge',
+    name: 'Badge',
+    label: 'Badge Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Small status indicator with color coding and variants',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'badge', 'status', 'primitive'],
+    usage: 'Display status, counts, or labels',
+    props: ['variant', 'size', 'children', 'className'],
+    example: '<Badge variant="success" size="sm">Active</Badge>',
+    documentation: '/docs/badge',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'modal',
+    name: 'Modal',
+    label: 'Modal Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Overlay dialog for focused user interactions',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'modal', 'dialog', 'overlay'],
+    usage: 'Display focused content or forms in an overlay',
+    props: ['isOpen', 'onClose', 'title', 'children', 'size'],
+    example: '<Modal isOpen={isOpen} onClose={onClose} title="Modal Title">Content</Modal>',
+    documentation: '/docs/modal',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'dropdown',
+    name: 'Dropdown',
+    label: 'Dropdown Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Select component with search and multi-select capabilities',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'dropdown', 'select', 'primitive'],
+    usage: 'Select from a list of options with search functionality',
+    props: ['options', 'value', 'onChange', 'searchable', 'multiSelect'],
+    example: '<Dropdown options={options} value={value} onChange={setValue} searchable />',
+    documentation: '/docs/dropdown',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'tabs',
+    name: 'Tabs',
+    label: 'Tabs Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Tabbed interface for organizing content sections',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'tabs', 'navigation', 'primitive'],
+    usage: 'Organize content into tabbed sections',
+    props: ['tabs', 'activeTab', 'onTabChange', 'children'],
+    example: '<Tabs tabs={tabList} activeTab={activeTab} onTabChange={setActiveTab} />',
+    documentation: '/docs/tabs',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'accordion',
+    name: 'Accordion',
+    label: 'Accordion Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Collapsible content sections with smooth animations',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'accordion', 'collapsible', 'primitive'],
+    usage: 'Organize content in collapsible sections',
+    props: ['items', 'allowMultiple', 'defaultOpen', 'onToggle'],
+    example: '<Accordion items={accordionItems} allowMultiple={true} />',
+    documentation: '/docs/accordion',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'tooltip',
+    name: 'Tooltip',
+    label: 'Tooltip Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Contextual information overlay on hover or focus',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'tooltip', 'overlay', 'primitive'],
+    usage: 'Provide contextual information on hover',
+    props: ['content', 'position', 'trigger', 'children'],
+    example: '<Tooltip content="Helpful information" position="top"><Button>Hover me</Button></Tooltip>',
+    documentation: '/docs/tooltip',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'progress',
+    name: 'Progress',
+    label: 'Progress Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Progress indicator for loading states and completion tracking',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'progress', 'loading', 'primitive'],
+    usage: 'Show progress of operations or completion status',
+    props: ['value', 'max', 'variant', 'showLabel', 'animated'],
+    example: '<Progress value={75} max={100} variant="success" showLabel />',
+    documentation: '/docs/progress',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'spinner',
+    name: 'Spinner',
+    label: 'Spinner Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Loading spinner with customizable size and animation',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'spinner', 'loading', 'primitive'],
+    usage: 'Indicate loading state during async operations',
+    props: ['size', 'variant', 'color', 'animated'],
+    example: '<Spinner size="md" variant="primary" animated />',
+    documentation: '/docs/spinner',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'alert',
+    name: 'Alert',
+    label: 'Alert Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Notification component for messages and status updates',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'alert', 'notification', 'primitive'],
+    usage: 'Display important messages and status updates',
+    props: ['variant', 'title', 'children', 'dismissible', 'onDismiss'],
+    example: '<Alert variant="warning" title="Warning" dismissible>Important message</Alert>',
+    documentation: '/docs/alert',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'table',
+    name: 'Table',
+    label: 'Table Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Data table with sorting, filtering, and pagination',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'table', 'data', 'primitive'],
+    usage: 'Display tabular data with interactive features',
+    props: ['data', 'columns', 'sortable', 'filterable', 'pagination'],
+    example: '<Table data={tableData} columns={columns} sortable filterable />',
+    documentation: '/docs/table',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'form',
+    name: 'Form',
+    label: 'Form Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Form wrapper with validation and error handling',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'form', 'validation', 'primitive'],
+    usage: 'Create forms with built-in validation and error handling',
+    props: ['onSubmit', 'validation', 'children', 'initialValues'],
+    example: '<Form onSubmit={handleSubmit} validation={validationSchema}><FormField name="email" /></Form>',
+    documentation: '/docs/form',
+    dependencies: ['react', 'react-hook-form', 'tailwindcss']
+  },
+  {
+    id: 'checkbox',
+    name: 'Checkbox',
+    label: 'Checkbox Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Checkbox input with custom styling and states',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'checkbox', 'input', 'primitive'],
+    usage: 'Boolean input for forms and selections',
+    props: ['checked', 'onChange', 'label', 'disabled', 'indeterminate'],
+    example: '<Checkbox checked={isChecked} onChange={setChecked} label="Accept terms" />',
+    documentation: '/docs/checkbox',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'radio',
+    name: 'Radio',
+    label: 'Radio Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Radio button input for single selection from options',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'radio', 'input', 'primitive'],
+    usage: 'Single selection from multiple options',
+    props: ['value', 'onChange', 'options', 'name', 'disabled'],
+    example: '<Radio value={selectedValue} onChange={setValue} options={radioOptions} />',
+    documentation: '/docs/radio',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'switch',
+    name: 'Switch',
+    label: 'Switch Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Toggle switch for boolean values with smooth animation',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'switch', 'toggle', 'primitive'],
+    usage: 'Toggle boolean values with visual feedback',
+    props: ['checked', 'onChange', 'disabled', 'size', 'color'],
+    example: '<Switch checked={isEnabled} onChange={setEnabled} size="md" />',
+    documentation: '/docs/switch',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'slider',
+    name: 'Slider',
+    label: 'Slider Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Range input slider for numeric value selection',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'slider', 'range', 'primitive'],
+    usage: 'Select numeric values within a range',
+    props: ['value', 'onChange', 'min', 'max', 'step', 'marks'],
+    example: '<Slider value={sliderValue} onChange={setValue} min={0} max={100} step={5} />',
+    documentation: '/docs/slider',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'avatar',
+    name: 'Avatar',
+    label: 'Avatar Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'User avatar with image, initials, or icon fallback',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'avatar', 'user', 'primitive'],
+    usage: 'Display user profile pictures or initials',
+    props: ['src', 'alt', 'name', 'size', 'variant'],
+    example: '<Avatar src={userImage} alt={userName} size="md" />',
+    documentation: '/docs/avatar',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'breadcrumb',
+    name: 'Breadcrumb',
+    label: 'Breadcrumb Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Navigation breadcrumb showing current page hierarchy',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'breadcrumb', 'navigation', 'primitive'],
+    usage: 'Show navigation hierarchy and current location',
+    props: ['items', 'separator', 'onItemClick', 'maxItems'],
+    example: '<Breadcrumb items={breadcrumbItems} separator="/" />',
+    documentation: '/docs/breadcrumb',
+    dependencies: ['react', 'tailwindcss']
+  },
+  {
+    id: 'pagination',
+    name: 'Pagination',
+    label: 'Pagination Component',
+    version: '1.0.0',
+    date: '2025-01-08',
+    description: 'Page navigation for large datasets and content',
+    phase: 'Core',
+    category: 'UI Primitives',
+    tags: ['core', 'ui', 'pagination', 'navigation', 'primitive'],
+    usage: 'Navigate through paginated content',
+    props: ['currentPage', 'totalPages', 'onPageChange', 'showSizeChanger'],
+    example: '<Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />',
+    documentation: '/docs/pagination',
+    dependencies: ['react', 'tailwindcss']
   }
 ]
 
@@ -249,24 +905,27 @@ const ComponentCard: React.FC<{ component: ComponentMetadata; onClick: () => voi
         <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
           {component.phase}
         </span>
-        <span className="px-2 py-1 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded">
+        <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
           v{component.version}
         </span>
       </div>
     </div>
     
-    <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
       {component.description}
     </p>
     
-    <div className="flex flex-wrap gap-1 mb-3">
-      {component.tags.slice(0, 3).map(tag => (
-        <span key={tag} className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
+    <div className="flex flex-wrap gap-1 mb-4">
+      {component.tags.slice(0, 3).map((tag) => (
+        <span 
+          key={tag}
+          className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded"
+        >
           {tag}
         </span>
       ))}
       {component.tags.length > 3 && (
-        <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
+        <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
           +{component.tags.length - 3}
         </span>
       )}
@@ -292,7 +951,7 @@ const ComponentDetail: React.FC<{
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
               {component.label}
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-400 font-mono">
               {component.name} • v{component.version}
             </p>
           </div>
@@ -300,80 +959,78 @@ const ComponentDetail: React.FC<{
             onClick={onClose}
             className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-5 h-5 text-gray-500 dark:text-gray-400" />
           </button>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
-              <Eye className="w-5 h-5" />
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
               Description
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               {component.description}
             </p>
             
-            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
-              <Package className="w-5 h-5" />
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
               Usage
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               {component.usage}
             </p>
             
-            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
-              <Tag className="w-5 h-5" />
-              Tags
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+              Example
             </h3>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {component.tags.map(tag => (
-                <span key={tag} className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-                  {tag}
-                </span>
-              ))}
+            <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-6">
+              <code className="text-sm text-gray-800 dark:text-gray-200">
+                {component.example}
+              </code>
             </div>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
-              <Code className="w-5 h-5" />
-              Props
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+              Properties
             </h3>
             <div className="space-y-2 mb-6">
-              {component.props.map(prop => (
-                <div key={prop} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-700 rounded">
-                  <code className="text-sm font-mono text-blue-600 dark:text-blue-400">
+              {component.props.map((prop) => (
+                <div key={prop} className="flex items-center gap-2">
+                  <Code className="w-4 h-4 text-gray-400" />
+                  <span className="text-sm text-gray-600 dark:text-gray-300 font-mono">
                     {prop}
-                  </code>
+                  </span>
                 </div>
               ))}
             </div>
             
-            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
-              <Code className="w-5 h-5" />
-              Example
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+              Tags
             </h3>
-            <pre className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-sm overflow-x-auto">
-              <code className="text-gray-800 dark:text-gray-200">
-                {component.example}
-              </code>
-            </pre>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {component.tags.map((tag) => (
+                <span 
+                  key={tag}
+                  className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
             
-            {component.dependencies && (
-              <>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white mt-6">
-                  Dependencies
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {component.dependencies.map(dep => (
-                    <span key={dep} className="px-2 py-1 text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded">
-                      {dep}
-                    </span>
-                  ))}
-                </div>
-              </>
-            )}
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+              Dependencies
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {component.dependencies?.map((dep) => (
+                <span 
+                  key={dep}
+                  className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full"
+                >
+                  {dep}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
         
@@ -417,27 +1074,13 @@ const ComponentDetail: React.FC<{
             </div>
           </div>
         )}
-
-        {component.documentation && (
-          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-slate-700">
-            <a
-              href={component.documentation}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              View Documentation
-            </a>
-          </div>
-        )}
       </div>
     </div>
   </div>
 )
 
 // Main Component Library Component
-const ComponentLibrary: React.FC = () => {
+export default function ComponentLibrary() {
   const [searchQuery, setSearchQuery] = useState('')
   const [phaseFilter, setPhaseFilter] = useState('all')
   const [tagFilter, setTagFilter] = useState('all')
@@ -448,9 +1091,9 @@ const ComponentLibrary: React.FC = () => {
   // Toggle dark mode
   useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.classList.add('dark')
+      document.body.classList.add('dark')
     } else {
-      document.documentElement.classList.remove('dark')
+      document.body.classList.remove('dark')
     }
   }, [isDarkMode])
 
@@ -475,47 +1118,49 @@ const ComponentLibrary: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 sticky top-0 z-40">
+      <header className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <Package className="w-8 h-8 text-blue-600 dark:text-blue-400 mr-3" />
+            <div className="flex items-center gap-4">
+              <Package className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               <div>
                 <h1 className="text-xl font-bold text-gray-900 dark:text-white">
                   Power Components Library
                 </h1>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Comprehensive component showcase
+                  {componentData.length} components • {filteredComponents.length} filtered
                 </p>
               </div>
             </div>
             
             <div className="flex items-center gap-4">
               <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
+                onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
-                {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                <Grid3x3 className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </button>
               
               <button
-                onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
+                onClick={() => setIsDarkMode(!isDarkMode)}
                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                title={`Switch to ${viewMode === 'grid' ? 'list' : 'grid'} view`}
               >
-                <Grid3x3 className="w-5 h-5" />
+                {isDarkMode ? (
+                  <Sun className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                ) : (
+                  <Moon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                )}
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Search and Filters */}
         <div className="mb-8">
-          <div className="flex flex-col lg:flex-row gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <div className="flex-1">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -524,16 +1169,16 @@ const ComponentLibrary: React.FC = () => {
                   placeholder="Search components..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
             </div>
             
-            <div className="flex gap-2">
+            <div className="flex gap-4">
               <select
                 value={phaseFilter}
                 onChange={(e) => setPhaseFilter(e.target.value)}
-                className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="all">All Phases</option>
                 {phases.map(phase => (
@@ -544,7 +1189,7 @@ const ComponentLibrary: React.FC = () => {
               <select
                 value={tagFilter}
                 onChange={(e) => setTagFilter(e.target.value)}
-                className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="all">All Tags</option>
                 {tags.map(tag => (
@@ -553,59 +1198,43 @@ const ComponentLibrary: React.FC = () => {
               </select>
             </div>
           </div>
-          
-          <div className="flex items-center justify-between">
-            <p className="text-gray-600 dark:text-gray-400">
-              Showing {filteredComponents.length} of {componentData.length} components
-            </p>
-            
-            <div className="flex items-center gap-2">
-              <Filter className="w-4 h-4 text-gray-400" />
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                {phaseFilter !== 'all' && `Phase: ${phaseFilter}`}
-                {tagFilter !== 'all' && ` • Tag: ${tagFilter}`}
-              </span>
-            </div>
-          </div>
         </div>
 
         {/* Components Grid */}
-        <div className={`grid gap-6 ${
-          viewMode === 'grid' 
-            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
-            : 'grid-cols-1'
-        }`}>
-          {filteredComponents.map(component => (
-            <ComponentCard 
-              key={component.id} 
-              component={component} 
-              onClick={() => setSelectedComponent(component)}
-            />
-          ))}
-        </div>
-        
-        {filteredComponents.length === 0 && (
+        {filteredComponents.length > 0 ? (
+          <div className={`grid gap-6 ${
+            viewMode === 'grid' 
+              ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
+              : 'grid-cols-1'
+          }`}>
+            {filteredComponents.map((component) => (
+              <ComponentCard
+                key={component.id}
+                component={component}
+                onClick={() => setSelectedComponent(component)}
+              />
+            ))}
+          </div>
+        ) : (
           <div className="text-center py-12">
             <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               No components found
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-500 dark:text-gray-400">
               Try adjusting your search or filter criteria
             </p>
           </div>
         )}
-      </div>
+      </main>
 
       {/* Component Detail Modal */}
       {selectedComponent && (
-        <ComponentDetail 
-          component={selectedComponent} 
-          onClose={() => setSelectedComponent(null)} 
+        <ComponentDetail
+          component={selectedComponent}
+          onClose={() => setSelectedComponent(null)}
         />
       )}
     </div>
   )
 }
-
-export default ComponentLibrary
