@@ -50,6 +50,22 @@ export interface ComponentMetadata {
 // Component data - this would typically come from a CMS or API
 const componentData: ComponentMetadata[] = [
   {
+    id: 'power-redact',
+    name: 'PowerRedact',
+    label: 'Power Redact Plugin v2.0',
+    version: '2.0.0',
+    date: '2025-01-08',
+    description: 'Advanced text redaction plugin with enhanced UX features, mobile optimization, and iOS integration',
+    phase: 'Core',
+    category: 'Privacy & Security',
+    tags: ['core', 'redaction', 'privacy', 'pii', 'mobile', 'ios', 'touch'],
+    usage: 'Automatically detect and redact sensitive information with cursor-based reveal behavior',
+    props: ['autoRedactPII', 'customPatterns', 'excludeTerms', 'revealBehavior', 'blockStyle', 'touchSupport'],
+    example: 'const redactor = new PowerRedactPlugin(); redactor.showSettings();',
+    documentation: '/docs/power-redact',
+    dependencies: ['vanilla-js', 'esbuild']
+  },
+  {
     id: 'dashboard-card',
     name: 'DashboardCard',
     label: 'Dashboard Card Wrapper',
@@ -361,6 +377,47 @@ const ComponentDetail: React.FC<{
           </div>
         </div>
         
+        {component.id === 'power-redact' && (
+          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-slate-700">
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+              Live Demo
+            </h3>
+            <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                Try the Power Redact plugin on this sample text:
+              </p>
+              <div id="demo-text" className="text-gray-800 dark:text-gray-200 mb-3">
+                My email is john.doe@example.com and my phone number is (555) 123-4567. 
+                My SSN is 123-45-6789 and my credit card is 4532-1234-5678-9012.
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    if (window.powerRedact) {
+                      window.powerRedact.showSettings();
+                    } else {
+                      alert('Power Redact plugin not loaded. Please ensure the script is included.');
+                    }
+                  }}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                >
+                  Open Settings
+                </button>
+                <button
+                  onClick={() => {
+                    if (window.powerRedact) {
+                      window.powerRedact.clearAllRedactions();
+                    }
+                  }}
+                  className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
+                >
+                  Clear Redactions
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {component.documentation && (
           <div className="mt-6 pt-6 border-t border-gray-200 dark:border-slate-700">
             <a

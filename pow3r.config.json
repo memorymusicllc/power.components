@@ -1,0 +1,80 @@
+{
+  "graphId": "32092648f7d16c2e",
+  "projectName": "power.components",
+  "lastScan": "2025-10-05T08:31:47.735423",
+  "source": "multi",
+  "sources": [
+    "local",
+    "github",
+    "abacus",
+    "google"
+  ],
+  "project_metadata": {
+    "description": "Comprehensive analysis of power.components",
+    "purpose": "Repository visualization and analysis",
+    "tech_stack": [
+      "Config"
+    ],
+    "category": "Software Project",
+    "health_score": 0.0
+  },
+  "nodes": [
+    {
+      "id": "comp-config-0",
+      "name": "Configuration",
+      "type": "config.schema",
+      "category": "Configuration",
+      "description": "Build and runtime configuration (1 files)",
+      "tech_stack": [
+        "Config"
+      ],
+      "files": [
+        "power-redact/package.json"
+      ],
+      "features": [
+        "Environment config",
+        "Build config",
+        "Runtime settings"
+      ],
+      "purpose": "Configure application behavior and build process",
+      "tags": [
+        "config",
+        "configuration",
+        "schema"
+      ],
+      "status": {
+        "phase": "orange",
+        "completeness": 0.55,
+        "qualityScore": 0.65,
+        "notes": "Contains 1 files"
+      }
+    }
+  ],
+  "edges": [],
+  "layouts": {
+    "architecture": {
+      "type": "force-directed",
+      "charge": -300
+    },
+    "workflow": {
+      "type": "sequence",
+      "direction": "LR"
+    },
+    "combined": {
+      "type": "hierarchical",
+      "direction": "TB"
+    }
+  },
+  "ai_guide": {
+    "getting_started": "Repository: power.components",
+    "architecture_overview": "Contains 1 components",
+    "key_technologies": [
+      "Config"
+    ],
+    "development_workflow": [
+      "1. Clone repository",
+      "2. Install dependencies",
+      "3. Run development server"
+    ]
+  }
+}

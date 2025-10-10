@@ -18,9 +18,12 @@
     "dev": "concurrently \"npm run dev-redact\" \"npm run dev-canvas\"",
     "dev-redact": "cd power-redact && npm run dev",
     "dev-canvas": "cd power-canvas && npm run dev",
-    "test": "npm run test-redact && npm run test-canvas",
+    "test": "npm run test-redact && npm run test-canvas && npm run test:e2e",
     "test-redact": "cd power-redact && npm test",
     "test-canvas": "cd power-canvas && npm test",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
     "lint": "npm run lint-redact && npm run lint-canvas",
     "lint-redact": "cd power-redact && npm run lint",
     "lint-canvas": "cd power-canvas && npm run lint",
@@ -74,6 +77,7 @@
     "npm": ">=8.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.40.0",
     "@types/node": "^20.8.0",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",

@@ -1,0 +1,35 @@
+{
+  "projectName": "power.components",
+  "lastUpdate": "2025-09-16T00:49:25+00:00",
+  "source": "local",
+  "repositoryPath": "/Users/creator/Documents/DEV/Jaime/power.components",
+  "branch": "feature/power-redact-v2",
+  "status": "red",
+  "stats": {
+    "totalCommitsLast30Days": 3,
+    "totalCommitsLast14Days": 0,
+    "fileCount": 10,
+    "sizeMB": 0.2,
+    "primaryLanguage": "javascript",
+    "workingTreeClean": true
+  },
+  "nodes": [
+    {
+      "id": "node-1",
+      "title": "Main Application",
+      "type": "application",
+      "path": "."
+    }
+  ],
+  "edges": [],
+  "metadata": {
+    "generatedAt": "2025-10-02T13:47:30.287367",
+    "generatedBy": "phase1_analyzer",
+    "lastCommitMessage": "Merge main branch for PR base",
+    "lastCommitAuthor": "Power Components Team",
+    "tags": [],
+    "packageFiles": [
+      "power-redact/package.json"
+    ]
+  }
+}
