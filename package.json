@@ -1,4 +1,3 @@
-
 {
   "name": "power-components",
   "version": "1.0.0",
@@ -89,7 +88,9 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "obsidian": "latest"
+    "@vitejs/plugin-react": "^5.0.4",
+    "obsidian": "^1.4.0",
+    "vite": "^7.1.9"
   },
   "peerDependencies": {
     "obsidian": "^1.4.0"
@@ -159,4 +160,3 @@
     "npm": "9.8.1"
   }
 }
-
