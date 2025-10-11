@@ -19,15 +19,36 @@ import {
   Search, 
   Sun, 
   Moon, 
-  Filter, 
   Package, 
   Grid3x3, 
-  Download, 
   ArrowLeft,
-  Tag,
   Code,
-  Eye
+  Eye,
+  CheckCircle,
+  AlertCircle
 } from 'lucide-react'
+
+// Extend Window interface for Power Redact
+declare global {
+  interface Window {
+    powerRedact?: {
+      showSettings: () => void
+      clearAllRedactions: () => void
+    }
+  }
+}
+
+// Import UNBOUND design system components
+import { Button } from '@/lib/design-system'
+import { 
+  Input, 
+  Textarea, 
+  Label, 
+  Select, 
+  Switch, 
+  Checkbox, 
+  Separator 
+} from '@/lib/design-system/form-components'
 
 // Component metadata interface
 export interface ComponentMetadata {
@@ -883,57 +904,309 @@ const componentData: ComponentMetadata[] = [
   }
 ]
 
-// Component Card Component
+// Component Preview Renderer using UNBOUND design system
+const ComponentPreview: React.FC<{ componentId: string }> = ({ componentId }) => {
+  const [sliderValue, setSliderValue] = useState(50)
+  const [switchValue, setSwitchValue] = useState(false)
+  const [checkboxValue, setCheckboxValue] = useState(false)
+  const [progressValue] = useState(66)
+
+  const previews: Record<string, React.ReactNode> = {
+    // UI Primitives
+    'button': (
+      <div className="flex flex-wrap gap-2">
+        <Button variant="default" className="h-8 px-3 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700">Primary</Button>
+        <Button variant="outline" className="h-8 px-3 text-xs border border-gray-300 rounded-md hover:bg-gray-50">Outline</Button>
+        <Button variant="ghost" className="h-8 px-3 text-xs hover:bg-gray-100 rounded-md">Ghost</Button>
+      </div>
+    ),
+    'card': (
+      <div className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm p-3">
+        <h4 className="text-sm font-semibold mb-1">Card Title</h4>
+        <p className="text-xs text-gray-600 dark:text-gray-400">Card content example</p>
+      </div>
+    ),
+    'input': (
+      <Input placeholder="Enter text..." className="h-8 text-xs" />
+    ),
+    'badge': (
+      <div className="flex flex-wrap gap-2">
+        <Badge className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">Default</Badge>
+        <Badge className="bg-green-600 text-white text-xs px-2 py-0.5 rounded-full">Success</Badge>
+        <Badge className="bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">Error</Badge>
+      </div>
+    ),
+    'switch': (
+      <div className="flex items-center gap-2">
+        <Switch checked={switchValue} onCheckedChange={setSwitchValue} />
+        <span className="text-xs">{switchValue ? 'On' : 'Off'}</span>
+      </div>
+    ),
+    'checkbox': (
+      <div className="flex items-center gap-2">
+        <Checkbox checked={checkboxValue} onCheckedChange={setCheckboxValue} />
+        <Label className="text-xs">Accept terms</Label>
+      </div>
+    ),
+    'slider': (
+      <div className="w-full">
+        <input 
+          type="range" 
+          min="0" 
+          max="100" 
+          value={sliderValue}
+          onChange={(e) => setSliderValue(Number(e.target.value))}
+          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+        />
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Value: {sliderValue}</p>
+      </div>
+    ),
+    'progress': (
+      <div className="w-full">
+        <div className="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+          <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${progressValue}%` }}></div>
+        </div>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{progressValue}% complete</p>
+      </div>
+    ),
+    'alert': (
+      <div className="flex items-start gap-2 p-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md">
+        <AlertCircle className="w-4 h-4 text-blue-600 mt-0.5" />
+        <div>
+          <p className="text-xs font-medium text-blue-900 dark:text-blue-100">Info Alert</p>
+          <p className="text-xs text-blue-700 dark:text-blue-200">This is an alert message</p>
+        </div>
+      </div>
+    ),
+    'avatar': (
+      <div className="flex gap-2">
+        <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-semibold">JD</div>
+        <div className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-semibold">AB</div>
+        <div className="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-semibold">CD</div>
+      </div>
+    ),
+    'tabs': (
+      <div className="w-full">
+        <div className="flex gap-1 border-b border-gray-200 dark:border-gray-700">
+          <button className="px-3 py-1.5 text-xs font-medium border-b-2 border-blue-600 text-blue-600">Tab 1</button>
+          <button className="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900">Tab 2</button>
+          <button className="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900">Tab 3</button>
+        </div>
+      </div>
+    ),
+    'modal': (
+      <button className="h-8 px-3 text-xs border border-gray-300 rounded-md hover:bg-gray-50">Open Modal</button>
+    ),
+    'dropdown': (
+      <Select className="h-8 text-xs">
+        <option>Select option</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </Select>
+    ),
+    'accordion': (
+      <div className="border border-gray-200 dark:border-gray-700 rounded-md p-2">
+        <div className="flex items-center justify-between cursor-pointer">
+          <span className="text-xs font-medium">Accordion Item</span>
+          <span className="text-gray-400 text-xs">▼</span>
+        </div>
+      </div>
+    ),
+    'tooltip': (
+      <button className="h-8 px-3 text-xs border border-gray-300 rounded-md hover:bg-gray-50">Hover me</button>
+    ),
+    'spinner': (
+      <div className="flex justify-center">
+        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+      </div>
+    ),
+    'table': (
+      <div className="w-full text-xs border border-gray-200 dark:border-gray-700 rounded">
+        <div className="grid grid-cols-3 gap-1 p-2 bg-gray-50 dark:bg-gray-800 font-medium border-b">
+          <span>Name</span>
+          <span>Status</span>
+          <span>Date</span>
+        </div>
+        <div className="grid grid-cols-3 gap-1 p-2">
+          <span>Item 1</span>
+          <span>Active</span>
+          <span>2025-01-11</span>
+        </div>
+      </div>
+    ),
+    'form': (
+      <div className="space-y-2 w-full">
+        <Input placeholder="Email" className="h-8 text-xs" />
+        <button className="w-full h-8 px-3 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700">Submit</button>
+      </div>
+    ),
+    'radio': (
+      <div className="space-y-1">
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded-full border-2 border-blue-600 flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+          </div>
+          <span className="text-xs">Option 1</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded-full border-2 border-gray-300"></div>
+          <span className="text-xs">Option 2</span>
+        </div>
+      </div>
+    ),
+    'breadcrumb': (
+      <div className="flex items-center gap-1 text-xs">
+        <span>Home</span>
+        <span className="text-gray-400">/</span>
+        <span>Components</span>
+        <span className="text-gray-400">/</span>
+        <span className="font-medium">Breadcrumb</span>
+      </div>
+    ),
+    'pagination': (
+      <div className="flex items-center gap-1">
+        <button className="w-7 h-7 text-xs bg-blue-600 text-white rounded">1</button>
+        <button className="w-7 h-7 text-xs hover:bg-gray-100 rounded">2</button>
+        <button className="w-7 h-7 text-xs hover:bg-gray-100 rounded">3</button>
+      </div>
+    ),
+    'separator': (
+      <Separator className="w-full" />
+    ),
+    'textarea': (
+      <Textarea placeholder="Enter details..." className="text-xs min-h-[60px]" />
+    ),
+    'label': (
+      <Label className="text-xs">Form Label</Label>
+    ),
+    // Charts - Visual representations
+    'price-chart': (
+      <div className="w-full h-16 flex items-end gap-1">
+        {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
+          <div key={i} className="flex-1 bg-blue-600 rounded-t" style={{ height: `${h}%` }}></div>
+        ))}
+      </div>
+    ),
+    'leads-chart': (
+      <div className="w-16 h-16 rounded-full border-8 border-blue-600 border-t-green-600 border-r-yellow-600 border-b-red-600"></div>
+    ),
+    // Default preview for components without specific preview
+    default: (
+      <div className="flex items-center justify-center gap-2 text-xs text-gray-500 dark:text-gray-400 p-4">
+        <Eye className="w-4 h-4" />
+        <span>Live preview</span>
+      </div>
+    )
+  }
+
+  // Apply default preview to all chart components
+  const chartIds = [
+    'llm-performance-chart', 'token-usage-chart', 'model-comparison-chart',
+    'error-rate-chart', 'request-volume-chart', 'latency-distribution-chart',
+    'cost-analysis-chart', 'quality-metrics-chart', 'usage-patterns-chart',
+    'quadrant-leader-chart', 'network-graph-chart', 'scatter-plot-chart',
+    'bloom-graph-chart', 'timeline-chart', 'word-cloud-chart', 'heatmap-chart',
+    'confusion-matrix-chart', 'roc-curve-chart', 'sankey-diagram-chart', 'gantt-chart'
+  ]
+
+  if (chartIds.includes(componentId)) {
+    return (
+      <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-md p-4 min-h-[100px] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+            <Code className="w-6 h-6 text-white" />
+          </div>
+          <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Chart Component</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Dashboard & advanced components
+  const dashboardIds = [
+    'power-redact', 'dashboard-card', 'item-details-collector', 'photo-processor',
+    'auto-posting-engine', 'lead-monitor', 'negotiation-manager', 'admin-panel', 'message-center'
+  ]
+
+  if (dashboardIds.includes(componentId)) {
+    return (
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-md p-4 min-h-[100px] flex items-center justify-center">
+        <div className="text-center">
+          <CheckCircle className="w-8 h-8 mx-auto mb-2 text-green-600" />
+          <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Feature Component</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-gray-50 dark:bg-gray-700/50 rounded-md p-3 min-h-[100px] flex items-center justify-center">
+      {previews[componentId] || previews.default}
+    </div>
+  )
+}
+
+// Component Card Component with live preview
 const ComponentCard: React.FC<{ component: ComponentMetadata; onClick: () => void }> = ({ 
   component, 
   onClick 
 }) => (
   <div 
-    className="component-card bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg p-6 cursor-pointer hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
-    onClick={onClick}
+    className="component-card bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
   >
-    <div className="flex items-start justify-between mb-3">
-      <div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-          {component.label}
-        </h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400 font-mono">
-          {component.name}
-        </p>
+    {/* Live Preview Section */}
+    <div className="border-b border-gray-200 dark:border-slate-700 p-4">
+      <ComponentPreview componentId={component.id} />
+    </div>
+    
+    {/* Component Info Section */}
+    <div className="p-4 cursor-pointer" onClick={onClick}>
+      <div className="flex items-start justify-between mb-2">
+        <div className="flex-1">
+          <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+            {component.label}
+          </h3>
+          <p className="text-xs text-gray-500 dark:text-gray-400 font-mono">
+            {component.name}
+          </p>
+        </div>
+        <div className="flex items-center gap-1 flex-shrink-0 ml-2">
+          <span className="px-2 py-0.5 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
+            {component.phase}
+          </span>
+        </div>
       </div>
-      <div className="flex items-center gap-2">
-        <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
-          {component.phase}
+      
+      <p className="text-xs text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+        {component.description}
+      </p>
+      
+      <div className="flex flex-wrap gap-1 mb-3">
+        {component.tags.slice(0, 3).map((tag) => (
+          <span 
+            key={tag}
+            className="px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded"
+          >
+            {tag}
+          </span>
+        ))}
+        {component.tags.length > 3 && (
+          <span className="px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
+            +{component.tags.length - 3}
+          </span>
+        )}
+      </div>
+      
+      <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <span className="flex items-center gap-1">
+          <Code className="w-3 h-3" />
+          {component.category}
         </span>
-        <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
+        <span className="flex items-center gap-1">
+          <Eye className="w-3 h-3" />
           v{component.version}
         </span>
       </div>
-    </div>
-    
-    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
-      {component.description}
-    </p>
-    
-    <div className="flex flex-wrap gap-1 mb-4">
-      {component.tags.slice(0, 3).map((tag) => (
-        <span 
-          key={tag}
-          className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded"
-        >
-          {tag}
-        </span>
-      ))}
-      {component.tags.length > 3 && (
-        <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
-          +{component.tags.length - 3}
-        </span>
-      )}
-    </div>
-    
-    <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-      <span>{component.category}</span>
-      <span>{component.date}</span>
     </div>
   </div>
 )
