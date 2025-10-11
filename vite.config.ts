@@ -4,6 +4,8 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Use relative base so assets work on subpaths
+  base: './',
   plugins: [react()],
   resolve: {
     alias: {
