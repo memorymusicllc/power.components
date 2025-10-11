@@ -5,8 +5,12 @@ yarn-debug.log*
 yarn-error.log*
 
 # Build outputs
+# Keep dist ignored by default, but allow Pages deployment to commit built files
 dist/
 build/
+!dist/index.html
+!dist/standalone-library.html
+!dist/assets/
 # Allow minified files for deployment
 # *.min.js
 # *.min.js.map
