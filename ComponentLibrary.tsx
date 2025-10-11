@@ -22,11 +22,11 @@ import {
   Filter, 
   Package, 
   Grid3x3, 
-  Download, 
   ArrowLeft,
   Tag,
   Code,
-  Eye
+  Eye,
+  ExternalLink
 } from 'lucide-react'
 
 // Component metadata interface
@@ -361,19 +361,16 @@ const ComponentDetail: React.FC<{
           </div>
         </div>
         
-        {component.documentation && (
-          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-slate-700">
-            <a
-              href={component.documentation}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              View Documentation
-            </a>
-          </div>
-        )}
+        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-slate-700">
+          <button
+            onClick={() => window.open(`/standalone-library.html#${component.id}`, '_blank')}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            title="Open component in new tab"
+          >
+            <ExternalLink className="w-4 h-4" />
+            View in New Tab
+          </button>
+        </div>
       </div>
     </div>
   </div>
