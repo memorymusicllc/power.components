@@ -1,10 +1,10 @@
 
 import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/design-system';
+import { Button } from '@/lib/design-system';
+import { Badge } from '@/lib/design-system';
+import { Textarea } from '@/lib/design-system/form-components';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/design-system/form-components';
 import {
   FileText,
   Sparkles,

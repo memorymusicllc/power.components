@@ -2,12 +2,12 @@
 'use client';
 
 import { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Switch } from '@/components/ui/switch';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/design-system';
+import { Button } from '@/lib/design-system';
+import { Badge } from '@/lib/design-system';
+import { Input } from '@/lib/design-system/form-components';
+import { Textarea } from '@/lib/design-system/form-components';
+import { Switch } from '@/lib/design-system/form-components';
 import {
   MessageSquare,
   Bot,

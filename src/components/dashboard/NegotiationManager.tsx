@@ -8,11 +8,11 @@
 
 import React, { useEffect, useState } from 'react'
 import { useNegotiationStore } from '@/lib/stores/negotiation.store'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Progress } from '@/components/ui/progress'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/design-system'
+import { Button } from '@/lib/design-system'
+import { Badge } from '@/lib/design-system'
+import { Progress } from '@/lib/design-system'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/design-system'
 import { 
   Handshake, 
   DollarSign, 

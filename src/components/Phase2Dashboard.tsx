@@ -8,8 +8,7 @@
  */
 
 import { useState } from 'react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Badge } from '@/components/ui/badge'
+import { Tabs, Badge } from '@/lib/design-system'
 import { 
   Bot, 
   TrendingUp, 
@@ -30,8 +29,7 @@ import { AutoPostingEngine } from '@/components/dashboard/AutoPostingEngine'
 // import { AnalyticsDashboard } from '@/components/dashboard/AnalyticsDashboard' // Needs API
 
 // Temporary placeholders
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Card, Button } from '@/lib/design-system'
 
 export function Phase2Dashboard() {
   const [activeAutomations, setActiveAutomations] = useState({

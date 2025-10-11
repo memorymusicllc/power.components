@@ -55,12 +55,13 @@ Before claiming ANY system is "working":
 - Must acknowledge and fix the specific bypass that led to violation
 
 ## MANDATORY TECH STACK
-- REDUX UI MUST BE UNBOUND 
-- USE TAILWIND CSS BASIC 
-- ZUSTAND CONNECTION
+- REDUX UI (UNBOUND from data and style)
+- CSS THEMES
+- TAILWIND BASIC CSS
+- ZUSTAND 
 - VITE
 - COMPONENTS MUST SUPPORT BOTH REACT FLOW AND 3JS/REACT THREE FIBER 
-- CANNOT USE SHADCN OR NEXTJS
+- CANNOT USE SHADCN, RADIX, OR NEXTJS
 
 ## Default to E2E Validation: 
 All feature development, refactoring, or bug-fixing tasks must be accompanied by new or updated Playwright E2E tests that validate the core functionality of the changes. A task is not complete until the tests are written and passing.

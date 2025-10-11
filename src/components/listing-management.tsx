@@ -1,14 +1,14 @@
 
 import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { DashboardCard } from '@/components/ui/dashboard-card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/design-system';
+import { DashboardCard } from '@/lib/design-system/form-components';
+import { Button } from '@/lib/design-system';
+import { Badge } from '@/lib/design-system';
+import { Input } from '@/lib/design-system/form-components';
+import { Textarea } from '@/lib/design-system/form-components';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/design-system/form-components';
+import { Checkbox } from '@/lib/design-system/form-components';
+import { Separator } from '@/lib/design-system/form-components';
 import {
   FileText,
   Sparkles,
@@ -46,7 +46,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@/lib/design-system/form-components';
 
 interface Platform {
   id: string;

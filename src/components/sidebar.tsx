@@ -16,7 +16,7 @@ import {
   Zap,
   Target
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/lib/design-system';
 
 const navigation = [
   {

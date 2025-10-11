@@ -7,15 +7,15 @@
  */
 
 import { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Switch } from '@/components/ui/switch'
-import { Label } from '@/components/ui/label'
-import { Separator } from '@/components/ui/separator'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/design-system'
+import { Button } from '@/lib/design-system'
+import { Badge } from '@/lib/design-system'
+import { Input } from '@/lib/design-system/form-components'
+import { Textarea } from '@/lib/design-system/form-components'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/design-system/form-components'
+import { Switch } from '@/lib/design-system/form-components'
+import { Label } from '@/lib/design-system/form-components'
+import { Separator } from '@/lib/design-system/form-components'
 import { 
   FileText, 
   Plus, 

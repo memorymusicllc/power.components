@@ -7,8 +7,7 @@
  * @phase Phase1
  */
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Badge } from '@/components/ui/badge'
+import { Tabs, Badge } from '@/lib/design-system'
 import { 
   FileText, 
   Image, 
