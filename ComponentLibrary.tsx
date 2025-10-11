@@ -19,15 +19,33 @@ import {
   Search, 
   Sun, 
   Moon, 
-  Filter, 
   Package, 
   Grid3x3, 
-  Download, 
   ArrowLeft,
-  Tag,
   Code,
-  Eye
+  Eye,
+  Info
 } from 'lucide-react'
+
+// Import actual UI components
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Switch } from '@/components/ui/switch'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Slider } from '@/components/ui/slider'
+import { Progress } from '@/components/ui/progress'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+
+// Extend Window interface for Power Redact
+declare global {
+  interface Window {
+    powerRedact?: {
+      showSettings: () => void
+      clearAllRedactions: () => void
+    }
+  }
+}
 
 // Component metadata interface
 export interface ComponentMetadata {
@@ -883,57 +901,264 @@ const componentData: ComponentMetadata[] = [
   }
 ]
 
+// Component Preview Renderer
+const ComponentPreview: React.FC<{ componentId: string }> = ({ componentId }) => {
+  const [sliderValue, setSliderValue] = useState([50])
+  const [switchChecked, setSwitchChecked] = useState(false)
+  const [checkboxChecked, setCheckboxChecked] = useState(false)
+  
+  const previews: Record<string, React.ReactElement> = {
+    'button': (
+      <div className="flex flex-wrap gap-2">
+        <button className="inline-flex items-center justify-center rounded-md text-xs font-medium bg-blue-600 text-white hover:bg-blue-700 px-3 py-1.5">
+          Primary
+        </button>
+        <button className="inline-flex items-center justify-center rounded-md text-xs font-medium bg-gray-200 text-gray-900 hover:bg-gray-300 px-3 py-1.5">
+          Secondary
+        </button>
+        <button className="inline-flex items-center justify-center rounded-md text-xs font-medium border border-gray-300 bg-white hover:bg-gray-50 px-3 py-1.5">
+          Outline
+        </button>
+      </div>
+    ),
+    'card': (
+      <Card className="w-full">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm">Card Example</CardTitle>
+          <CardDescription className="text-xs">This is a card component</CardDescription>
+        </CardHeader>
+        <CardContent className="text-xs">
+          <p>Card content goes here</p>
+        </CardContent>
+      </Card>
+    ),
+    'badge': (
+      <div className="flex flex-wrap gap-2">
+        <span className="inline-flex items-center rounded-full border-transparent bg-blue-600 text-white px-2.5 py-0.5 text-xs font-semibold">
+          Default
+        </span>
+        <span className="inline-flex items-center rounded-full border-transparent bg-gray-200 text-gray-900 px-2.5 py-0.5 text-xs font-semibold">
+          Secondary
+        </span>
+        <span className="inline-flex items-center rounded-full border border-gray-300 bg-white text-gray-900 px-2.5 py-0.5 text-xs font-semibold">
+          Outline
+        </span>
+        <span className="inline-flex items-center rounded-full border-transparent bg-red-600 text-white px-2.5 py-0.5 text-xs font-semibold">
+          Error
+        </span>
+      </div>
+    ),
+    'input': (
+      <Input placeholder="Enter text..." className="text-sm" />
+    ),
+    'switch': (
+      <div className="flex items-center gap-2">
+        <Switch checked={switchChecked} onCheckedChange={setSwitchChecked} />
+        <span className="text-xs text-gray-600 dark:text-gray-300">
+          {switchChecked ? 'On' : 'Off'}
+        </span>
+      </div>
+    ),
+    'checkbox': (
+      <div className="flex items-center gap-2">
+        <Checkbox checked={checkboxChecked} onCheckedChange={(checked: boolean) => setCheckboxChecked(!!checked)} />
+        <label className="text-xs text-gray-600 dark:text-gray-300">Accept terms</label>
+      </div>
+    ),
+    'slider': (
+      <div className="w-full">
+        <Slider value={sliderValue} onValueChange={setSliderValue} max={100} step={1} />
+        <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">Value: {sliderValue[0]}</p>
+      </div>
+    ),
+    'progress': (
+      <div className="w-full">
+        <Progress value={66} className="h-2" />
+        <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">66% complete</p>
+      </div>
+    ),
+    'alert': (
+      <Alert className="py-2">
+        <Info className="h-4 w-4" />
+        <AlertTitle className="text-xs mb-0">Info</AlertTitle>
+        <AlertDescription className="text-xs">This is an alert message</AlertDescription>
+      </Alert>
+    ),
+    'avatar': (
+      <div className="flex gap-2">
+        <Avatar className="h-8 w-8">
+          <AvatarFallback className="text-xs">JD</AvatarFallback>
+        </Avatar>
+        <Avatar className="h-8 w-8">
+          <AvatarFallback className="text-xs">AB</AvatarFallback>
+        </Avatar>
+        <Avatar className="h-8 w-8">
+          <AvatarFallback className="text-xs">CD</AvatarFallback>
+        </Avatar>
+      </div>
+    ),
+    'modal': (
+      <button className="inline-flex items-center justify-center rounded-md text-xs font-medium border border-gray-300 bg-white hover:bg-gray-50 px-3 py-1.5">
+        Open Modal
+      </button>
+    ),
+    'dropdown': (
+      <button className="inline-flex items-center justify-center rounded-md text-xs font-medium border border-gray-300 bg-white hover:bg-gray-50 px-3 py-1.5">
+        Select Option ▼
+      </button>
+    ),
+    'tabs': (
+      <div className="flex gap-1 border-b border-gray-200">
+        <button className="text-xs font-medium px-3 py-1.5 border-b-2 border-blue-600 text-blue-600">Tab 1</button>
+        <button className="text-xs font-medium px-3 py-1.5 text-gray-600 hover:text-gray-900">Tab 2</button>
+        <button className="text-xs font-medium px-3 py-1.5 text-gray-600 hover:text-gray-900">Tab 3</button>
+      </div>
+    ),
+    'accordion': (
+      <div className="w-full border rounded-md p-2 text-xs">
+        <div className="flex items-center justify-between">
+          <span className="font-medium">Accordion Item</span>
+          <span className="text-gray-400">▼</span>
+        </div>
+      </div>
+    ),
+    'tooltip': (
+      <button className="inline-flex items-center justify-center rounded-md text-xs font-medium border border-gray-300 bg-white hover:bg-gray-50 px-3 py-1.5">
+        Hover me
+      </button>
+    ),
+    'spinner': (
+      <div className="flex justify-center">
+        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+      </div>
+    ),
+    'table': (
+      <div className="w-full text-xs border rounded">
+        <div className="grid grid-cols-3 gap-1 p-2 bg-gray-50 dark:bg-gray-700 font-medium">
+          <span>Name</span>
+          <span>Status</span>
+          <span>Date</span>
+        </div>
+        <div className="grid grid-cols-3 gap-1 p-2 border-t">
+          <span>Item 1</span>
+          <span>Active</span>
+          <span>2025-01-08</span>
+        </div>
+      </div>
+    ),
+    'form': (
+      <div className="space-y-2 w-full">
+        <Input placeholder="Email" className="text-sm h-8" />
+        <button className="inline-flex items-center justify-center rounded-md text-xs font-medium bg-blue-600 text-white hover:bg-blue-700 px-3 py-1.5 w-full h-8">
+          Submit
+        </button>
+      </div>
+    ),
+    'radio': (
+      <div className="space-y-1 text-xs">
+        <div className="flex items-center gap-2">
+          <div className="h-4 w-4 rounded-full border-2 border-blue-600 flex items-center justify-center">
+            <div className="h-2 w-2 rounded-full bg-blue-600"></div>
+          </div>
+          <span>Option 1</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="h-4 w-4 rounded-full border-2 border-gray-300"></div>
+          <span>Option 2</span>
+        </div>
+      </div>
+    ),
+    'breadcrumb': (
+      <div className="flex items-center gap-1 text-xs">
+        <span>Home</span>
+        <span className="text-gray-400">/</span>
+        <span>Components</span>
+        <span className="text-gray-400">/</span>
+        <span className="font-medium">Breadcrumb</span>
+      </div>
+    ),
+    'pagination': (
+      <div className="flex items-center gap-1">
+        <button className="inline-flex items-center justify-center rounded-md text-xs font-medium bg-blue-600 text-white h-7 w-7">1</button>
+        <button className="inline-flex items-center justify-center rounded-md text-xs font-medium hover:bg-gray-100 h-7 w-7">2</button>
+        <button className="inline-flex items-center justify-center rounded-md text-xs font-medium hover:bg-gray-100 h-7 w-7">3</button>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-gray-50 dark:bg-gray-700/50 rounded-md p-3 min-h-[80px] flex items-center justify-center">
+      {previews[componentId] || (
+        <div className="flex items-center gap-2 text-xs text-gray-500">
+          <Eye className="w-4 h-4" />
+          <span>Preview coming soon</span>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // Component Card Component
 const ComponentCard: React.FC<{ component: ComponentMetadata; onClick: () => void }> = ({ 
   component, 
   onClick 
 }) => (
   <div 
-    className="component-card bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg p-6 cursor-pointer hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
-    onClick={onClick}
+    className="component-card bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
   >
-    <div className="flex items-start justify-between mb-3">
-      <div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-          {component.label}
-        </h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400 font-mono">
-          {component.name}
-        </p>
+    {/* Component Preview Section */}
+    <div className="border-b border-gray-200 dark:border-slate-700">
+      <ComponentPreview componentId={component.id} />
+    </div>
+    
+    {/* Component Info Section */}
+    <div className="p-4 cursor-pointer" onClick={onClick}>
+      <div className="flex items-start justify-between mb-2">
+        <div className="flex-1">
+          <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+            {component.label}
+          </h3>
+          <p className="text-xs text-gray-500 dark:text-gray-400 font-mono">
+            {component.name}
+          </p>
+        </div>
+        <div className="flex items-center gap-1 flex-shrink-0 ml-2">
+          <span className="px-2 py-0.5 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
+            {component.phase}
+          </span>
+        </div>
       </div>
-      <div className="flex items-center gap-2">
-        <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
-          {component.phase}
+      
+      <p className="text-xs text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+        {component.description}
+      </p>
+      
+      <div className="flex flex-wrap gap-1 mb-3">
+        {component.tags.slice(0, 3).map((tag) => (
+          <span 
+            key={tag}
+            className="px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded"
+          >
+            {tag}
+          </span>
+        ))}
+        {component.tags.length > 3 && (
+          <span className="px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
+            +{component.tags.length - 3}
+          </span>
+        )}
+      </div>
+      
+      <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <span className="flex items-center gap-1">
+          <Code className="w-3 h-3" />
+          {component.category}
         </span>
-        <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
+        <span className="flex items-center gap-1">
+          <Eye className="w-3 h-3" />
           v{component.version}
         </span>
       </div>
-    </div>
-    
-    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
-      {component.description}
-    </p>
-    
-    <div className="flex flex-wrap gap-1 mb-4">
-      {component.tags.slice(0, 3).map((tag) => (
-        <span 
-          key={tag}
-          className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded"
-        >
-          {tag}
-        </span>
-      ))}
-      {component.tags.length > 3 && (
-        <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
-          +{component.tags.length - 3}
-        </span>
-      )}
-    </div>
-    
-    <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-      <span>{component.category}</span>
-      <span>{component.date}</span>
     </div>
   </div>
 )
