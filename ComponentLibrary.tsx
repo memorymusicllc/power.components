@@ -1099,7 +1099,33 @@ const ComponentPreview: React.FC<{ componentId: string }> = ({ componentId }) =>
     )
   }
 
-  // Apply default preview to all chart components
+  // Specific chart previews
+  if (componentId === 'price-chart') {
+    return (
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md p-3 min-h-[100px]">
+        <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">Price History</div>
+        <div className="w-full h-12 flex items-end gap-1">
+          {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
+            <div key={i} className="flex-1 bg-blue-600 rounded-t" style={{ height: `${h}%` }}></div>
+          ))}
+        </div>
+        <div className="text-xs text-green-600 mt-1">+5.2%</div>
+      </div>
+    )
+  }
+
+  if (componentId === 'leads-chart') {
+    return (
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md p-3 min-h-[100px] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 rounded-full border-8 border-blue-600 border-t-green-600 border-r-yellow-600 border-b-red-600 mb-2"></div>
+          <div className="text-xs text-gray-600 dark:text-gray-400">Lead Distribution</div>
+        </div>
+      </div>
+    )
+  }
+
+  // Apply default preview to other chart components
   const chartIds = [
     'llm-performance-chart', 'token-usage-chart', 'model-comparison-chart',
     'error-rate-chart', 'request-volume-chart', 'latency-distribution-chart',
@@ -1122,10 +1148,48 @@ const ComponentPreview: React.FC<{ componentId: string }> = ({ componentId }) =>
     )
   }
 
+  // Special previews for specific components
+  if (componentId === 'power-redact') {
+    return (
+      <div className="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 rounded-md p-3 min-h-[100px]">
+        <div className="mb-2">
+          <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Sample text with PII:</div>
+          <div className="text-xs bg-black text-white p-2 rounded font-mono">
+            Email: <span className="bg-red-500 text-white px-1 rounded">████████</span> | 
+            Phone: <span className="bg-red-500 text-white px-1 rounded">████████</span>
+          </div>
+        </div>
+        <div className="flex gap-1">
+          <button className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700">
+            Redact
+          </button>
+          <button className="px-2 py-1 text-xs bg-gray-600 text-white rounded hover:bg-gray-700">
+            Clear
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  if (componentId === 'dashboard-card') {
+    return (
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 min-h-[100px]">
+        <div className="flex items-center justify-between mb-2">
+          <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Dashboard Card</h4>
+          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+        </div>
+        <div className="text-xs text-gray-600 dark:text-gray-400">
+          <div className="mb-1">Value: $1,234</div>
+          <div className="text-green-600">+12.5%</div>
+        </div>
+      </div>
+    )
+  }
+
   // Dashboard & advanced components
   const dashboardIds = [
-    'power-redact', 'dashboard-card', 'item-details-collector', 'photo-processor',
-    'auto-posting-engine', 'lead-monitor', 'negotiation-manager', 'admin-panel', 'message-center'
+    'item-details-collector', 'photo-processor', 'auto-posting-engine', 
+    'lead-monitor', 'negotiation-manager', 'admin-panel', 'message-center'
   ]
 
   if (dashboardIds.includes(componentId)) {
