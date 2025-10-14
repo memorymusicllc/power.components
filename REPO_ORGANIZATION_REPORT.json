@@ -1,0 +1,57 @@
+{
+  "timestamp": "2025-10-14T15:25:15.040Z",
+  "version": "3.0.0",
+  "compliance": false,
+  "structure": {
+    ".github/workflows/": [
+      "pow3r-deployment-pipeline.yml"
+    ],
+    "src/": [
+      "components/",
+      "lib/",
+      "index.ts",
+      "main.tsx",
+      "index.css"
+    ],
+    "src/components/": [
+      "redux-ui/",
+      "charts/",
+      "dashboard/",
+      "search/",
+      "*.tsx"
+    ],
+    "src/lib/": [
+      "design-system/",
+      "utils.ts",
+      "types.ts"
+    ],
+    "docs/": [
+      "*.md",
+      "*.pdf"
+    ],
+    "tests/": [
+      "*.spec.ts"
+    ],
+    "scripts/": [
+      "*.js",
+      "*.sh"
+    ],
+    ".archive/": [
+      "v2/",
+      "old-configs/"
+    ],
+    ".cursor/rules/": [
+      "*.md"
+    ]
+  },
+  "files": {
+    "pow3r.config.json": ".archive/old-configs/pow3r.config.json",
+    "pow3r.config.md": ".archive/old-configs/pow3r.config.md",
+    "pow3r.status.json": ".archive/old-configs/pow3r.status.json",
+    "pow3r.v3.config.json": "pow3r.v3.config.json",
+    "pow3r.v3.data.json": "pow3r.v3.data.json",
+    "ComponentLibrary.tsx": "ComponentLibrary.tsx",
+    "ComponentLibrary.v2.tsx": "ComponentLibrary.v2.tsx",
+    "ComponentLibrary.v3.tsx": "ComponentLibrary.v3.tsx"
+  }
+}
