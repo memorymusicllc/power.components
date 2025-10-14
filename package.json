@@ -1,9 +1,33 @@
 {
   "name": "power-components",
-  "version": "1.0.0",
-  "description": "A comprehensive suite of powerful Obsidian plugins for enhanced note-taking and knowledge management",
-  "main": "index.js",
-  "private": true,
+  "version": "2.0.0",
+  "description": "AI-Agent friendly React component library with unbound design system - NO SHADCN/RADIX/NEXTJS",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./components": {
+      "import": "./dist/components.esm.js",
+      "require": "./dist/components.js",
+      "types": "./dist/components.d.ts"
+    },
+    "./design-system": {
+      "import": "./dist/design-system.esm.js",
+      "require": "./dist/design-system.js",
+      "types": "./dist/design-system.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "private": false,
   "workspaces": [
     "power-redact",
     "power-canvas"
@@ -45,7 +69,12 @@
     "changelog": "node scripts/generate-changelog.js",
     "security-audit": "npm audit && cd power-redact && npm audit && cd ../power-canvas && npm audit",
     "outdated": "npm outdated && cd power-redact && npm outdated && cd ../power-canvas && npm outdated",
-    "update-deps": "npm update && cd power-redact && npm update && cd ../power-canvas && npm update"
+    "update-deps": "npm update && cd power-redact && npm update && cd ../power-canvas && npm update",
+    "verify": "tsx src/lib/verification/verification-cli.ts",
+    "verify:full": "npm run verify full -- --parallel --auto-fix",
+    "verify:component": "npm run verify component",
+    "verify:agents": "npm run verify agents",
+    "verify:status": "npm run verify status"
   },
   "repository": {
     "type": "git",
@@ -82,11 +111,17 @@
     "@types/node": "^20.8.0",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
+    "chalk": "^4.1.2",
+    "cli-table3": "^0.6.3",
+    "commander": "^11.1.0",
     "concurrently": "^8.2.0",
     "eslint": "^8.50.0",
+    "glob": "^10.3.10",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
+    "ora": "^5.4.1",
     "prettier": "^3.0.3",
+    "tsx": "^4.6.2",
     "typescript": "^5.2.2"
   },
   "dependencies": {

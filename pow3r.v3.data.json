@@ -1,0 +1,732 @@
+{
+  "$schema": "https://pow3r.status/schemas/pow3r.config.v3.json",
+  "sceneId": "PowerComponentsLibrary_v3",
+  "version": "3.0.0",
+  "nodes": [
+    {
+      "id": "node-main-dashboard",
+      "type": "ui.dashboard",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "theme", "dtype": "string", "validationRule": "isOneOf:light,dark,auto" },
+          { "name": "layout", "dtype": "string", "validationRule": "isOneOf:grid,list,compact" }
+        ],
+        "outputs": [
+          { "name": "onThemeChange", "dtype": "event" },
+          { "name": "onLayoutChange", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "Power Components Library v3",
+        "subtitle": "AI-Driven Component Showcase & Transformation Engine",
+        "layout": "grid",
+        "theme": "dark",
+        "widgets": [
+          "node-component-showcase",
+          "node-chart-gallery",
+          "node-redux-ui-demo",
+          "node-3d-visualization",
+          "node-privacy-controls",
+          "node-ai-workflows"
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-ii",
+        "requiredTests": [
+          {
+            "description": "Verify dashboard renders with all 6 main widget sections",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "All widget sections are visible and properly laid out in grid format"
+          },
+          {
+            "description": "Verify theme switching works between light, dark, and auto modes",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Theme changes are applied immediately and persist across page reloads"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["renderTime", "errorRate", "accessibilityScore"],
+          "failureCondition": "renderTime > 2000ms OR errorRate > 0.05 for 5m",
+          "repairPrompt": "Main dashboard is experiencing performance issues. Render time: {renderTime}ms, Error rate: {errorRate}. Optimize component loading and error handling."
+        }
+      }
+    },
+    {
+      "id": "node-component-showcase",
+      "type": "ui.showcase",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "searchQuery", "dtype": "string", "validationRule": "isString" },
+          { "name": "filterTags", "dtype": "array", "validationRule": "isArrayOfStrings" },
+          { "name": "selectedPhase", "dtype": "string", "validationRule": "isOneOf:Phase 1,Phase 2,Core" }
+        ],
+        "outputs": [
+          { "name": "onComponentSelect", "dtype": "event" },
+          { "name": "onFilterChange", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "Component Showcase",
+        "description": "Interactive component library with search, filtering, and live previews",
+        "components": [
+          {
+            "id": "power-redact",
+            "name": "PowerRedact",
+            "version": "2.0.0",
+            "category": "Privacy & Security",
+            "tags": ["core", "redaction", "privacy", "pii", "mobile", "ios", "touch"],
+            "phase": "Core",
+            "preview": "Advanced text redaction with enhanced UX features"
+          },
+          {
+            "id": "dashboard-card",
+            "name": "DashboardCard",
+            "version": "1.0.0",
+            "category": "Layout",
+            "tags": ["core", "layout", "container", "dashboard"],
+            "phase": "Core",
+            "preview": "Standardized container for dashboard widgets"
+          }
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-iii",
+        "requiredTests": [
+          {
+            "description": "Verify search functionality filters components correctly",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Search results update in real-time as user types"
+          },
+          {
+            "description": "Verify component selection shows detailed preview",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Clicking a component displays its metadata and live preview"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["searchLatency", "filterAccuracy"],
+          "failureCondition": "searchLatency > 500ms for 3m",
+          "repairPrompt": "Component showcase search is slow. Latency: {searchLatency}ms. Optimize search algorithm and component indexing."
+        }
+      }
+    },
+    {
+      "id": "node-chart-gallery",
+      "type": "ui.gallery",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "chartType", "dtype": "string", "validationRule": "isOneOf:pie,bar,line,scatter,radar,heatmap" },
+          { "name": "dataSource", "dtype": "string", "validationRule": "isValidDataSource" }
+        ],
+        "outputs": [
+          { "name": "onChartInteraction", "dtype": "event" },
+          { "name": "onDataExport", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "Chart Gallery",
+        "description": "Comprehensive data visualization components with real-time updates",
+        "charts": [
+          {
+            "id": "leads-chart",
+            "type": "pie",
+            "title": "Lead Status Distribution",
+            "data": [
+              { "name": "New", "value": 12, "color": "hsl(210, 100%, 70%)" },
+              { "name": "Contacted", "value": 8, "color": "hsl(25, 100%, 60%)" },
+              { "name": "Qualified", "value": 5, "color": "hsl(120, 50%, 60%)" },
+              { "name": "Negotiating", "value": 3, "color": "hsl(330, 100%, 70%)" },
+              { "name": "Scheduled", "value": 2, "color": "hsl(250, 30%, 70%)" }
+            ]
+          },
+          {
+            "id": "llm-performance-chart",
+            "type": "bar",
+            "title": "LLM Response Quality",
+            "data": [
+              { "model": "GPT-4", "accuracy": 95, "speed": 85, "cost": 70 },
+              { "model": "Claude-3", "accuracy": 92, "speed": 90, "cost": 80 },
+              { "model": "Gemini", "accuracy": 88, "speed": 95, "cost": 90 },
+              { "model": "Llama-2", "accuracy": 82, "speed": 75, "cost": 95 }
+            ]
+          },
+          {
+            "id": "cost-analysis-chart",
+            "type": "pie",
+            "title": "Cost Breakdown",
+            "data": [
+              { "name": "Compute", "value": 45, "color": "hsl(210, 100%, 70%)" },
+              { "name": "Storage", "value": 25, "color": "hsl(25, 100%, 60%)" },
+              { "name": "API Calls", "value": 20, "color": "hsl(120, 50%, 60%)" },
+              { "name": "Data Transfer", "value": 10, "color": "hsl(330, 100%, 70%)" }
+            ]
+          },
+          {
+            "id": "model-comparison-chart",
+            "type": "radar",
+            "title": "Model Comparison",
+            "data": [
+              { "metric": "Accuracy", "GPT4": 95, "Claude3": 92, "Gemini": 88, "Llama2": 82 },
+              { "metric": "Speed", "GPT4": 85, "Claude3": 90, "Gemini": 95, "Llama2": 75 },
+              { "metric": "Cost", "GPT4": 70, "Claude3": 80, "Gemini": 90, "Llama2": 95 },
+              { "metric": "Safety", "GPT4": 90, "Claude3": 95, "Gemini": 85, "Llama2": 80 },
+              { "metric": "Creativity", "GPT4": 95, "Claude3": 88, "Gemini": 82, "Llama2": 85 }
+            ]
+          }
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-iii",
+        "requiredTests": [
+          {
+            "description": "Verify all chart types render correctly with sample data",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "All charts display data with proper colors, labels, and interactions"
+          },
+          {
+            "description": "Verify chart interactions (hover, click, zoom) work properly",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Chart tooltips, legends, and interactive elements respond correctly"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["renderTime", "dataAccuracy", "interactionLatency"],
+          "failureCondition": "renderTime > 1000ms OR dataAccuracy < 0.95 for 5m",
+          "repairPrompt": "Chart gallery performance degraded. Render time: {renderTime}ms, Data accuracy: {dataAccuracy}. Check data binding and rendering optimization."
+        }
+      }
+    },
+    {
+      "id": "node-redux-ui-demo",
+      "type": "ui.playground",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "componentProps", "dtype": "object", "validationRule": "isValidComponentProps" },
+          { "name": "theme", "dtype": "string", "validationRule": "isOneOf:light,dark" }
+        ],
+        "outputs": [
+          { "name": "onPropChange", "dtype": "event" },
+          { "name": "onCodeGeneration", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "Redux UI Playground",
+        "description": "Interactive component testing with live prop editing and code generation",
+        "components": [
+          {
+            "id": "redux-ui-button",
+            "name": "Button",
+            "version": "2.0.0",
+            "props": {
+              "variant": "default",
+              "size": "md",
+              "color": "primary",
+              "state": "default",
+              "loading": false,
+              "children": "Click Me"
+            },
+            "variants": {
+              "variant": ["default", "outline", "ghost", "destructive", "success", "warning", "info"],
+              "size": ["xs", "sm", "md", "lg", "xl"],
+              "color": ["primary", "secondary", "accent", "neutral", "success", "warning", "error", "info"]
+            }
+          },
+          {
+            "id": "redux-ui-card",
+            "name": "Card",
+            "version": "2.0.0",
+            "props": {
+              "variant": "default",
+              "elevation": "md",
+              "padding": "md"
+            },
+            "variants": {
+              "variant": ["default", "outline", "elevated", "flat"],
+              "elevation": ["none", "sm", "md", "lg", "xl"],
+              "padding": ["none", "sm", "md", "lg", "xl"]
+            }
+          }
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-iv",
+        "requiredTests": [
+          {
+            "description": "Verify component prop changes update the preview in real-time",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Changing props in the editor immediately reflects in the component preview"
+          },
+          {
+            "description": "Verify code generation produces valid React/TypeScript code",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Generated code is syntactically correct and matches the current component state"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["propUpdateLatency", "codeGenerationTime", "syntaxErrors"],
+          "failureCondition": "propUpdateLatency > 200ms OR syntaxErrors > 0 for 2m",
+          "repairPrompt": "Redux UI playground has performance issues. Prop update latency: {propUpdateLatency}ms, Syntax errors: {syntaxErrors}. Optimize state management and code generation."
+        }
+      }
+    },
+    {
+      "id": "node-3d-visualization",
+      "type": "visualization.3d",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "sceneData", "dtype": "object", "validationRule": "isValid3DScene" },
+          { "name": "cameraPosition", "dtype": "object", "validationRule": "isValidCameraPosition" }
+        ],
+        "outputs": [
+          { "name": "onNodeSelect", "dtype": "event" },
+          { "name": "onSceneUpdate", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "3D Visualization Engine",
+        "description": "Power Canvas 3D visualization with WebGL/THREE.js integration",
+        "scene": {
+          "nodes": [
+            {
+              "id": "node-1",
+              "position": { "x": 0, "y": 0, "z": 0 },
+              "type": "component",
+              "data": { "name": "Button", "category": "UI" }
+            },
+            {
+              "id": "node-2",
+              "position": { "x": 2, "y": 1, "z": 0 },
+              "type": "chart",
+              "data": { "name": "Leads Chart", "category": "Data" }
+            },
+            {
+              "id": "node-3",
+              "position": { "x": -2, "y": -1, "z": 1 },
+              "type": "workflow",
+              "data": { "name": "AI Pipeline", "category": "Process" }
+            }
+          ],
+          "edges": [
+            {
+              "from": "node-1",
+              "to": "node-2",
+              "type": "data-flow",
+              "strength": 0.8
+            },
+            {
+              "from": "node-2",
+              "to": "node-3",
+              "type": "trigger",
+              "strength": 0.6
+            }
+          ],
+          "camera": {
+            "position": { "x": 5, "y": 5, "z": 5 },
+            "target": { "x": 0, "y": 0, "z": 0 }
+          }
+        }
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-v",
+        "requiredTests": [
+          {
+            "description": "Verify 3D scene renders with proper lighting and materials",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "3D scene displays with correct perspective, lighting, and node positioning"
+          },
+          {
+            "description": "Verify camera controls (pan, zoom, rotate) work smoothly",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Camera responds to mouse/touch interactions without lag or jitter"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["fps", "renderTime", "memoryUsage"],
+          "failureCondition": "fps < 30 OR memoryUsage > 500MB for 5m",
+          "repairPrompt": "3D visualization performance degraded. FPS: {fps}, Memory usage: {memoryUsage}MB. Optimize rendering pipeline and memory management."
+        }
+      }
+    },
+    {
+      "id": "node-privacy-controls",
+      "type": "privacy.manager",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "redactionRules", "dtype": "array", "validationRule": "isValidRedactionRules" },
+          { "name": "privacyLevel", "dtype": "string", "validationRule": "isOneOf:low,medium,high,maximum" }
+        ],
+        "outputs": [
+          { "name": "onRedactionApplied", "dtype": "event" },
+          { "name": "onPrivacyViolation", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "Privacy & Security Controls",
+        "description": "Power Redact plugin with advanced PII detection and redaction",
+        "redactionConfig": {
+          "autoRedactPII": true,
+          "customPatterns": [
+            { "name": "SSN", "pattern": "\\d{3}-\\d{2}-\\d{4}", "replacement": "[SSN]" },
+            { "name": "Email", "pattern": "[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}", "replacement": "[EMAIL]" },
+            { "name": "Phone", "pattern": "\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}", "replacement": "[PHONE]" }
+          ],
+          "excludeTerms": ["admin", "system", "test"],
+          "revealBehavior": "cursor-hover",
+          "blockStyle": "solid",
+          "touchSupport": true
+        },
+        "privacyLevels": {
+          "low": { "redactEmails": false, "redactPhones": false, "redactSSN": true },
+          "medium": { "redactEmails": true, "redactPhones": true, "redactSSN": true },
+          "high": { "redactEmails": true, "redactPhones": true, "redactSSN": true, "redactNames": true },
+          "maximum": { "redactAll": true, "customPatterns": "all" }
+        }
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-vi",
+        "requiredTests": [
+          {
+            "description": "Verify PII detection correctly identifies sensitive information",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Email addresses, phone numbers, and SSNs are properly detected and highlighted"
+          },
+          {
+            "description": "Verify redaction applies correctly based on privacy level",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Text is redacted according to selected privacy level with proper reveal behavior"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["detectionAccuracy", "redactionSpeed", "falsePositives"],
+          "failureCondition": "detectionAccuracy < 0.95 OR falsePositives > 0.05 for 10m",
+          "repairPrompt": "Privacy controls accuracy degraded. Detection accuracy: {detectionAccuracy}, False positives: {falsePositives}. Review and update detection patterns."
+        }
+      }
+    },
+    {
+      "id": "node-ai-workflows",
+      "type": "workflow.orchestrator",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "workflowDefinition", "dtype": "object", "validationRule": "isValidWorkflow" },
+          { "name": "triggerEvent", "dtype": "string", "validationRule": "isValidTrigger" }
+        ],
+        "outputs": [
+          { "name": "onWorkflowComplete", "dtype": "event" },
+          { "name": "onStepComplete", "dtype": "event" },
+          { "name": "onError", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "AI Workflow Orchestrator",
+        "description": "Automated workflow execution with AI agent integration",
+        "workflows": [
+          {
+            "id": "content-generation-workflow",
+            "name": "Content Generation Pipeline",
+            "steps": [
+              {
+                "id": "step-1",
+                "name": "Data Collection",
+                "type": "ui.form",
+                "component": "ItemDetailsCollector",
+                "outputs": ["itemData"]
+              },
+              {
+                "id": "step-2",
+                "name": "Price Research",
+                "type": "agent.service",
+                "component": "PriceResearcher",
+                "inputs": ["itemData"],
+                "outputs": ["pricingAnalysis"]
+              },
+              {
+                "id": "step-3",
+                "name": "Content Generation",
+                "type": "agent.service",
+                "component": "ContentGenerator",
+                "inputs": ["pricingAnalysis"],
+                "outputs": ["generatedContent"]
+              },
+              {
+                "id": "step-4",
+                "name": "Quality Review",
+                "type": "ai.reviewer",
+                "component": "QualityReviewer",
+                "inputs": ["generatedContent"],
+                "outputs": ["reviewedContent"]
+              }
+            ],
+            "triggers": ["manual", "scheduled", "api-call"],
+            "status": "active"
+          },
+          {
+            "id": "lead-management-workflow",
+            "name": "Lead Management Automation",
+            "steps": [
+              {
+                "id": "step-1",
+                "name": "Lead Capture",
+                "type": "ui.form",
+                "component": "LeadCaptureForm",
+                "outputs": ["leadData"]
+              },
+              {
+                "id": "step-2",
+                "name": "Lead Scoring",
+                "type": "ai.scorer",
+                "component": "LeadScorer",
+                "inputs": ["leadData"],
+                "outputs": ["leadScore"]
+              },
+              {
+                "id": "step-3",
+                "name": "Auto Response",
+                "type": "agent.service",
+                "component": "AutoResponder",
+                "inputs": ["leadScore"],
+                "outputs": ["response"]
+              }
+            ],
+            "triggers": ["form-submission", "api-webhook"],
+            "status": "active"
+          }
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-v",
+        "requiredTests": [
+          {
+            "description": "Verify workflow execution progresses through all steps correctly",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Workflow completes all steps in sequence with proper data flow between components"
+          },
+          {
+            "description": "Verify error handling and recovery mechanisms work properly",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Workflow handles errors gracefully and provides recovery options"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["workflowSuccessRate", "stepLatency", "errorRate"],
+          "failureCondition": "workflowSuccessRate < 0.9 OR stepLatency > 5000ms for 10m",
+          "repairPrompt": "AI workflow performance degraded. Success rate: {workflowSuccessRate}, Step latency: {stepLatency}ms. Analyze workflow bottlenecks and optimize step execution."
+        }
+      }
+    },
+    {
+      "id": "node-search-engine",
+      "type": "search.universal",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "searchQuery", "dtype": "string", "validationRule": "isNonEmptyString" },
+          { "name": "searchFilters", "dtype": "object", "validationRule": "isValidSearchFilters" }
+        ],
+        "outputs": [
+          { "name": "onSearchResults", "dtype": "event" },
+          { "name": "onSearchSuggestion", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "Universal Search Engine",
+        "description": "3D search interface with semantic and visual search capabilities",
+        "searchTypes": [
+          {
+            "id": "semantic-search",
+            "name": "Semantic Search",
+            "description": "AI-powered semantic understanding of search queries",
+            "enabled": true
+          },
+          {
+            "id": "visual-search",
+            "name": "Visual Search",
+            "description": "Search components by visual similarity and layout",
+            "enabled": true
+          },
+          {
+            "id": "code-search",
+            "name": "Code Search",
+            "description": "Search through component source code and documentation",
+            "enabled": true
+          }
+        ],
+        "searchIndex": {
+          "components": 75,
+          "charts": 22,
+          "workflows": 8,
+          "documentation": 15
+        }
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-iii",
+        "requiredTests": [
+          {
+            "description": "Verify search returns relevant results for various query types",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Search results are relevant, ranked by relevance, and include proper metadata"
+          },
+          {
+            "description": "Verify search suggestions appear as user types",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Search suggestions update in real-time and help guide user queries"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["searchLatency", "resultRelevance", "indexFreshness"],
+          "failureCondition": "searchLatency > 1000ms OR resultRelevance < 0.8 for 5m",
+          "repairPrompt": "Search engine performance degraded. Latency: {searchLatency}ms, Relevance: {resultRelevance}. Optimize search algorithms and index structure."
+        }
+      }
+    },
+    {
+      "id": "node-performance-monitor",
+      "type": "monitoring.dashboard",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "metricsData", "dtype": "array", "validationRule": "isValidMetricsArray" },
+          { "name": "alertThresholds", "dtype": "object", "validationRule": "isValidThresholds" }
+        ],
+        "outputs": [
+          { "name": "onAlertTriggered", "dtype": "event" },
+          { "name": "onPerformanceReport", "dtype": "event" }
+        ]
+      },
+      "props": {
+        "title": "Performance Monitor",
+        "description": "Real-time performance monitoring and alerting system",
+        "metrics": [
+          {
+            "name": "Component Render Time",
+            "value": 45,
+            "unit": "ms",
+            "threshold": 100,
+            "status": "healthy"
+          },
+          {
+            "name": "Memory Usage",
+            "value": 128,
+            "unit": "MB",
+            "threshold": 512,
+            "status": "healthy"
+          },
+          {
+            "name": "Error Rate",
+            "value": 0.02,
+            "unit": "%",
+            "threshold": 5,
+            "status": "healthy"
+          },
+          {
+            "name": "User Satisfaction",
+            "value": 4.8,
+            "unit": "/5",
+            "threshold": 4.0,
+            "status": "excellent"
+          }
+        ],
+        "alerts": [
+          {
+            "id": "high-render-time",
+            "condition": "renderTime > 200ms",
+            "severity": "warning",
+            "enabled": true
+          },
+          {
+            "id": "memory-leak",
+            "condition": "memoryUsage > 1GB",
+            "severity": "critical",
+            "enabled": true
+          }
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-ii",
+        "requiredTests": [
+          {
+            "description": "Verify performance metrics update in real-time",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Metrics display current values and update automatically"
+          },
+          {
+            "description": "Verify alerts trigger when thresholds are exceeded",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Alerts are triggered and displayed when performance thresholds are breached"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["alertAccuracy", "metricLatency", "systemHealth"],
+          "failureCondition": "alertAccuracy < 0.95 OR systemHealth < 0.8 for 5m",
+          "repairPrompt": "Performance monitor accuracy degraded. Alert accuracy: {alertAccuracy}, System health: {systemHealth}. Review monitoring logic and thresholds."
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": { "nodeId": "node-component-showcase", "port": "onComponentSelect" },
+      "to": { "nodeId": "node-redux-ui-demo", "port": "componentProps" },
+      "type": "data-flow",
+      "label": "Component Selection"
+    },
+    {
+      "from": { "nodeId": "node-chart-gallery", "port": "onChartInteraction" },
+      "to": { "nodeId": "node-3d-visualization", "port": "sceneData" },
+      "type": "visualization-update",
+      "label": "Chart to 3D"
+    },
+    {
+      "from": { "nodeId": "node-search-engine", "port": "onSearchResults" },
+      "to": { "nodeId": "node-component-showcase", "port": "searchQuery" },
+      "type": "search-filter",
+      "label": "Search Results"
+    },
+    {
+      "from": { "nodeId": "node-ai-workflows", "port": "onWorkflowComplete" },
+      "to": { "nodeId": "node-performance-monitor", "port": "metricsData" },
+      "type": "metrics-update",
+      "label": "Workflow Metrics"
+    },
+    {
+      "from": { "nodeId": "node-privacy-controls", "port": "onPrivacyViolation" },
+      "to": { "nodeId": "node-performance-monitor", "port": "alertThresholds" },
+      "type": "security-alert",
+      "label": "Privacy Alert"
+    },
+    {
+      "from": { "nodeId": "node-main-dashboard", "port": "onThemeChange" },
+      "to": { "nodeId": "node-redux-ui-demo", "port": "theme" },
+      "type": "theme-sync",
+      "label": "Theme Sync"
+    },
+    {
+      "from": { "nodeId": "node-3d-visualization", "port": "onNodeSelect" },
+      "to": { "nodeId": "node-component-showcase", "port": "filterTags" },
+      "type": "visual-filter",
+      "label": "3D Selection Filter"
+    },
+    {
+      "from": { "nodeId": "node-performance-monitor", "port": "onAlertTriggered" },
+      "to": { "nodeId": "node-ai-workflows", "port": "triggerEvent" },
+      "type": "auto-remediation",
+      "label": "Auto-Healing Trigger"
+    }
+  ]
+}

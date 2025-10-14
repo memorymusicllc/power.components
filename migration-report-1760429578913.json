@@ -1,0 +1,314 @@
+{
+  "timestamp": "2025-10-14T08:12:58.911Z",
+  "version": "3.0.0",
+  "summary": {
+    "total": 60,
+    "completed": 60,
+    "failed": 0,
+    "skipped": 0,
+    "successRate": "100.00%"
+  },
+  "errors": [],
+  "components": [
+    {
+      "name": "bloom-graph-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "confusion-matrix-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "cost-analysis-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "error-rate-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "gantt-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "heatmap-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "latency-distribution-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "leads-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "llm-performance-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "model-comparison-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "network-graph-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "price-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "quadrant-leader-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "quality-metrics-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "request-volume-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "roc-curve-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "sankey-diagram-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "scatter-plot-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "timeline-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "token-usage-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "usage-patterns-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "word-cloud-chart",
+      "category": "charts",
+      "status": "completed"
+    },
+    {
+      "name": "Badge",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "Button",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "Card",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "CodeEditor",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "ConnectionStatus",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "DashboardCard",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "Input",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "Progress",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "ResponsiveGrid",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "Select",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "Separator",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "Tabs",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "UIElementsFilter",
+      "category": "reduxUI",
+      "status": "completed"
+    },
+    {
+      "name": "AIResponseSystem",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "AdminPanel",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "AnalyticsDashboard",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "AutoPostingEngine",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "AutomationEngine",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "ContentGenerator",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "ItemDetailsCollector",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "LLMSwitcher",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "LeadMonitor",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "MessageCenter",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "NegotiationManager",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "PhotoProcessor",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "PlatformSelector",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "PostingStrategy",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "PriceResearcher",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "PromptTemplatesManager",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "ResponseTemplatesManager",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "SaleProcessor",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "UserManager",
+      "category": "dashboard",
+      "status": "completed"
+    },
+    {
+      "name": "FilterChips",
+      "category": "search",
+      "status": "completed"
+    },
+    {
+      "name": "LogicOperators",
+      "category": "search",
+      "status": "completed"
+    },
+    {
+      "name": "Search3D",
+      "category": "search",
+      "status": "completed"
+    },
+    {
+      "name": "SearchIntegration",
+      "category": "search",
+      "status": "completed"
+    },
+    {
+      "name": "UniversalSearch",
+      "category": "search",
+      "status": "completed"
+    },
+    {
+      "name": "VerificationDashboard",
+      "category": "verification",
+      "status": "completed"
+    }
+  ]
+}

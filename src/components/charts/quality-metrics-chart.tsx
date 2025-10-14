@@ -1,143 +1,100 @@
 /**
- * Quality Metrics Chart
- * Thin line style graph for LLM quality assessment
+ * Quality Metrics Chart Component
+ * Shows quality scores and performance indicators
  * 
  * @version 1.0.0
- * @date 2025-10-08
+ * @date 2025-01-11
  */
 
-import { Line } from 'react-chartjs-2'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-} from 'chart.js'
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from 'recharts';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-)
+const data = [
+  { date: 'Day 1', quality: 85, relevance: 90, accuracy: 88, speed: 82 },
+  { date: 'Day 2', quality: 87, relevance: 92, accuracy: 90, speed: 85 },
+  { date: 'Day 3', quality: 89, relevance: 88, accuracy: 92, speed: 88 },
+  { date: 'Day 4', quality: 91, relevance: 94, accuracy: 89, speed: 90 },
+  { date: 'Day 5', quality: 88, relevance: 91, accuracy: 93, speed: 87 },
+  { date: 'Day 6', quality: 92, relevance: 89, accuracy: 91, speed: 92 },
+  { date: 'Day 7', quality: 90, relevance: 93, accuracy: 94, speed: 89 },
+];
 
-interface QualityMetricsChartProps {
-  className?: string
-}
-
-export function QualityMetricsChart({ className }: QualityMetricsChartProps) {
-  const data = {
-    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8'],
-    datasets: [
-      {
-        label: 'Relevance Score',
-        data: [85, 87, 89, 91, 88, 92, 90, 93],
-        borderColor: 'rgb(34, 197, 94)',
-        backgroundColor: 'rgba(34, 197, 94, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Coherence Score',
-        data: [82, 84, 86, 88, 85, 89, 87, 90],
-        borderColor: 'rgb(59, 130, 246)',
-        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Fluency Score',
-        data: [88, 90, 89, 91, 87, 93, 91, 94],
-        borderColor: 'rgb(168, 85, 247)',
-        backgroundColor: 'rgba(168, 85, 247, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Safety Score',
-        data: [95, 96, 94, 97, 95, 98, 96, 99],
-        borderColor: 'rgb(16, 185, 129)',
-        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      }
-    ]
-  }
-
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-        labels: {
-          usePointStyle: true,
-          padding: 20
-        }
-      },
-      title: {
-        display: true,
-        text: 'Quality Metrics Assessment',
-        font: {
-          size: 14,
-          weight: 'bold' as const
-        }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: false,
-        min: 80,
-        max: 100,
-        title: {
-          display: true,
-          text: 'Quality Score (%)'
-        },
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      },
-      x: {
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      }
-    },
-    elements: {
-      point: {
-        radius: 3,
-        hoverRadius: 6
-      }
-    }
-  }
-
+const QualityMetricsChartBase = () => {
   return (
-    <div className={`w-full h-64 ${className}`}>
-      <Line data={data} options={options} />
+    <div className="h-64">
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart
+          data={data}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <XAxis 
+            dataKey="date" 
+            tickLine={false} 
+            tick={{ fontSize: 10 }}
+            axisLine={false}
+          />
+          <YAxis 
+            tickLine={false} 
+            tick={{ fontSize: 10 }}
+            axisLine={false}
+            domain={[80, 100]}
+          />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: 'hsl(var(--popover))',
+              border: '1px solid hsl(var(--border))',
+              borderRadius: '6px',
+              fontSize: '12px',
+            }}
+            formatter={(value: any, name: string) => [
+              `${value}%`,
+              name === 'quality' ? 'Quality Score' : 
+              name === 'relevance' ? 'Relevance' : 
+              name === 'accuracy' ? 'Accuracy' : 'Speed'
+            ]}
+          />
+          <Legend 
+            wrapperStyle={{ fontSize: 11 }}
+          />
+          <ReferenceLine y={90} stroke="hsl(120, 50%, 60%)" strokeDasharray="3 3" />
+          <Line 
+            type="monotone" 
+            dataKey="quality" 
+            stroke="hsl(210, 100%, 70%)" 
+            strokeWidth={2}
+            name="Quality Score"
+            dot={{ fill: 'hsl(210, 100%, 70%)', strokeWidth: 2, r: 4 }}
+          />
+          <Line 
+            type="monotone" 
+            dataKey="relevance" 
+            stroke="hsl(25, 100%, 60%)" 
+            strokeWidth={2}
+            name="Relevance"
+            dot={{ fill: 'hsl(25, 100%, 60%)', strokeWidth: 2, r: 4 }}
+          />
+          <Line 
+            type="monotone" 
+            dataKey="accuracy" 
+            stroke="hsl(120, 50%, 60%)" 
+            strokeWidth={2}
+            name="Accuracy"
+            dot={{ fill: 'hsl(120, 50%, 60%)', strokeWidth: 2, r: 4 }}
+          />
+          <Line 
+            type="monotone" 
+            dataKey="speed" 
+            stroke="hsl(330, 100%, 70%)" 
+            strokeWidth={2}
+            name="Speed"
+            dot={{ fill: 'hsl(330, 100%, 70%)', strokeWidth: 2, r: 4 }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
-QualityMetricsChart.metadata = {
-  name: 'QualityMetricsChart',
-  label: 'Quality Metrics Chart',
-  version: '1.0.0',
-  date: '2025-10-08',
-  description: 'Thin line chart tracking LLM quality metrics including relevance, coherence, fluency, and safety scores',
-  phase: 'Core',
-  category: 'Data Visualization',
-  tags: ['LLM', 'Quality', 'Metrics', 'Assessment', 'Line Chart']
-}
+export const QualityMetricsChart = withErrorBoundary(withMemo(QualityMetricsChartBase));
+export default QualityMetricsChart;

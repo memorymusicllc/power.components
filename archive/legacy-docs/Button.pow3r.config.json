@@ -1,0 +1,118 @@
+{
+  "id": "redux-ui-button",
+  "type": "ReactComponent",
+  "version": "2.0.0",
+  "io": {
+    "inputs": [
+      {
+        "name": "variant",
+        "dtype": "string",
+        "validationRule": "isOneOf:default,outline,ghost,destructive,success,warning,info"
+      },
+      {
+        "name": "size",
+        "dtype": "string", 
+        "validationRule": "isOneOf:xs,sm,md,lg,xl"
+      },
+      {
+        "name": "color",
+        "dtype": "string",
+        "validationRule": "isOneOf:primary,secondary,accent,neutral,success,warning,error,info"
+      },
+      {
+        "name": "state",
+        "dtype": "string",
+        "validationRule": "isOneOf:default,hover,active,focus,disabled,loading"
+      },
+      {
+        "name": "loading",
+        "dtype": "boolean",
+        "validationRule": "isBoolean"
+      },
+      {
+        "name": "children",
+        "dtype": "ReactNode",
+        "validationRule": "isRequired"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "onClick",
+        "dtype": "function",
+        "description": "Button click handler"
+      },
+      {
+        "name": "onFocus",
+        "dtype": "function", 
+        "description": "Button focus handler"
+      },
+      {
+        "name": "onBlur",
+        "dtype": "function",
+        "description": "Button blur handler"
+      }
+    ]
+  },
+  "observability": {
+    "metrics": ["clickCount", "errorRate", "renderTime", "accessibilityScore"],
+    "logging": {
+      "level": "info",
+      "enabled": true
+    }
+  },
+  "props": {
+    "defaultVariant": "default",
+    "defaultSize": "md",
+    "defaultColor": "primary",
+    "accessibility": {
+      "ariaLabel": "required",
+      "keyboardNavigation": "enabled"
+    }
+  },
+  "agentDirectives": {
+    "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-iv",
+    "requiredTests": [
+      {
+        "description": "Verify that the button renders with default props",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Button renders with default styling and is clickable"
+      },
+      {
+        "description": "Verify that the button enters a loading state when clicked",
+        "testType": "e2e-playwright", 
+        "expectedOutcome": "Button shows loading spinner and becomes disabled during click"
+      },
+      {
+        "description": "Verify that the button handles keyboard navigation",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Button can be focused with Tab key and activated with Enter/Space"
+      },
+      {
+        "description": "Verify that the button respects disabled state",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Disabled button cannot be clicked and has appropriate visual styling"
+      },
+      {
+        "description": "Verify that the button renders all variant styles correctly",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "All button variants (default, outline, ghost, destructive, success, warning, info) render with correct styling"
+      },
+      {
+        "description": "Verify that the button renders all size variants correctly",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "All button sizes (xs, sm, md, lg, xl) render with correct dimensions"
+      },
+      {
+        "description": "Verify that the button handles error states gracefully",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Button shows error boundary when internal error occurs"
+      }
+    ],
+    "selfHealing": {
+      "enabled": true,
+      "monitoredMetrics": ["errorRate", "clickCount", "renderTime", "accessibilityScore"],
+      "failureCondition": "errorRate > 0.05 for 5m OR accessibilityScore < 0.8 for 10m",
+      "repairPrompt": "Button component has failed self-healing threshold. Error rate: {errorRate}, Accessibility score: {accessibilityScore}, Render time: {renderTime}. Please analyze the component code, identify the issue, and implement a fix. Ensure all tests pass and the component meets accessibility standards."
+    }
+  }
+}

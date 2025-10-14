@@ -1,0 +1,200 @@
+{
+    "$schema": "https://pow3r.status/schemas/pow3r.config.v2.json",
+    "sceneId": "ComponentLibraryDemoScene_v1",
+    "version": "1.0.0",
+    "nodes": [
+      {
+        "id": "node-dashboard-overview",
+        "type": "ui.dashboard",
+        "version": "1.0.0",
+        "props": {
+          "layout": "grid",
+          "title": "AI Sales & Automation Overview",
+          "widgets": [
+            "node-leads-chart",
+            "node-workflow-progress-main",
+            "node-llm-performance-chart",
+            "node-error-rate-chart",
+            "node-connection-status"
+          ]
+        },
+        "agentDirectives": {
+          "constitutionArticleRef": "Article II",
+          "requiredTests": [
+            {
+              "description": "Verify that all 5 widgets are present and render their initial state.",
+              "testType": "e2e-playwright"
+            }
+          ],
+          "selfHealing": { "enabled": false }
+        }
+      },
+      {
+        "id": "node-leads-chart",
+        "type": "chart.pie",
+        "version": "1.0.0",
+        "io": {
+          "inputs": [
+            { "name": "leadData", "dtype": "application/json", "validationRule": "isArrayOfObjects" }
+          ],
+          "outputs": [
+            { "name": "onClickSegment", "dtype": "event" }
+          ]
+        },
+        "props": {
+          "title": "Lead Status Distribution",
+          "data": [
+            { "name": "New", "value": 400, "fill": "#8884d8" },
+            { "name": "Contacted", "value": 300, "fill": "#82ca9d" },
+            { "name": "Negotiating", "value": 150, "fill": "#ffc658" },
+            { "name": "Closed", "value": 100, "fill": "#00C49F" },
+            { "name": "Lost", "value": 50, "fill": "#FF8042" }
+          ]
+        },
+        "agentDirectives": {
+          "constitutionArticleRef": "Article III",
+          "requiredTests": [
+            {
+              "description": "Verify the pie chart renders with 5 distinct segments.",
+              "testType": "e2e-playwright"
+            },
+            {
+              "description": "Verify clicking the 'New' segment emits the 'onClickSegment' event with the correct payload.",
+              "testType": "e2e-playwright"
+            }
+          ],
+          "selfHealing": {
+            "enabled": true,
+            "monitoredMetrics": ["errorRate"],
+            "failureCondition": "errorRate > 0.1 for 2m",
+            "repairPrompt": "The LeadsChart component is failing to render. The error rate is above 10%. Analyze the component's data binding and rendering logic based on its schema and fix the root cause."
+          }
+        }
+      },
+      {
+        "id": "node-llm-performance-chart",
+        "type": "chart.bar",
+        "version": "1.2.0",
+        "props": {
+          "title": "LLM Response Quality",
+          "data": [
+            { "name": "GPT-4o", "quality": 0.92, "latency": 120 },
+            { "name": "Claude 3.5", "quality": 0.95, "latency": 150 },
+            { "name": "Llama3-70B", "quality": 0.88, "latency": 90 }
+          ]
+        },
+        "agentDirectives": {
+          "constitutionArticleRef": "Article II",
+          "requiredTests": [{ "description": "Verify the bar chart renders 3 bars with correct labels.", "testType": "e2e-playwright" }],
+          "selfHealing": { "enabled": true, "monitoredMetrics": ["avgLatency"], "failureCondition": "avgLatency > 500 for 10m", "repairPrompt": "LLM Performance chart data source is experiencing high latency. Investigate the data fetching logic and optimize."}
+        }
+      },
+      {
+        "id": "node-new-post-workflow",
+        "type": "workflow.definition",
+        "version": "1.0.0",
+        "props": {
+          "name": "New Item Listing Workflow",
+          "entryNode": "node-item-collector"
+        },
+        "agentDirectives": {
+          "constitutionArticleRef": "Article III",
+          "requiredTests": [{ "description": "Verify the workflow can be initiated and progresses through all defined steps.", "testType": "e2e-playwright" }],
+          "selfHealing": { "enabled": false }
+        }
+      },
+      {
+        "id": "node-item-collector",
+        "type": "ui.form",
+        "version": "1.0.0",
+        "io": {
+          "inputs": [],
+          "outputs": [{ "name": "itemData", "dtype": "application/json" }]
+        },
+        "props": {
+          "title": "Collect Item Details",
+          "fields": [
+            { "id": "itemName", "label": "Item Name", "fieldType": "Input" },
+            { "id": "description", "label": "Description", "fieldType": "Textarea" },
+            { "id": "category", "label": "Category", "fieldType": "Select", "options": ["Electronics", "Furniture", "Collectibles"] }
+          ],
+          "submitButton": { "label": "Start Research" }
+        },
+         "agentDirectives": {
+          "constitutionArticleRef": "Article II",
+          "requiredTests": [{ "description": "Verify form submission outputs a valid itemData JSON object.", "testType": "e2e-playwright" }],
+          "selfHealing": { "enabled": false }
+        }
+      },
+      {
+        "id": "node-price-researcher",
+        "type": "agent.service",
+        "version": "1.0.0",
+        "io": {
+          "inputs": [{ "name": "itemData", "dtype": "application/json" }],
+          "outputs": [{ "name": "pricingAnalysis", "dtype": "application/json" }]
+        },
+        "props": {
+          "title": "Price Researcher AI",
+          "status": "idle"
+        },
+        "agentDirectives": {
+          "constitutionArticleRef": "Article V",
+          "requiredTests": [{ "description": "Verify that given itemData, the agent returns a pricingAnalysis object with 'min', 'max', and 'suggested' prices.", "testType": "integration" }],
+          "selfHealing": { "enabled": true, "monitoredMetrics": ["errorRate"], "failureCondition": "errorRate > 0.2", "repairPrompt": "Price Researcher agent is failing. Check its API connection and data parsing logic."}
+        }
+      },
+      {
+        "id": "node-listing-generator",
+        "type": "agent.service",
+        "version": "1.0.0",
+         "io": {
+          "inputs": [{ "name": "pricingAnalysis", "dtype": "application/json" }],
+          "outputs": [{ "name": "generatedListing", "dtype": "text/html" }]
+        },
+        "props": {
+          "title": "Listing Generator AI",
+          "status": "idle"
+        },
+        "agentDirectives": {
+          "constitutionArticleRef": "Article V",
+          "requiredTests": [{ "description": "Verify the agent generates a valid HTML listing.", "testType": "integration" }],
+          "selfHealing": { "enabled": false }
+        }
+      },
+      {
+        "id": "node-connection-status",
+        "type": "ui.indicator",
+        "version": "1.0.0",
+        "props": {
+          "label": "Real-time Connection",
+          "status": "connected"
+        },
+        "agentDirectives": {
+          "constitutionArticleRef": "Article II",
+          "requiredTests": [{ "description": "Verify the component correctly displays 'connected' and 'disconnected' states.", "testType": "e2e-playwright" }],
+          "selfHealing": { "enabled": false }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": { "nodeId": "node-item-collector", "port": "itemData" },
+        "to": { "nodeId": "node-price-researcher", "port": "itemData" },
+        "type": "triggers",
+        "label": "Submit for Pricing"
+      },
+      {
+        "from": { "nodeId": "node-price-researcher", "port": "pricingAnalysis" },
+        "to": { "nodeId": "node-listing-generator", "port": "pricingAnalysis" },
+        "type": "transformsInto",
+        "label": "Analyze & Generate"
+      },
+      {
+        "from": { "nodeId": "node-new-post-workflow", "port": "status" },
+        "to": { "nodeId": "node-dashboard-overview", "port": "workflowStatus" },
+        "type": "updates",
+        "label": "Dashboard Update"
+      }
+    ]
+  }

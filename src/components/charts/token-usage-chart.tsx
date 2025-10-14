@@ -1,146 +1,79 @@
 /**
- * Token Usage Chart
- * Thin line style graph for LLM token consumption tracking
+ * Token Usage Chart Component
+ * Displays token consumption patterns and trends
  * 
  * @version 1.0.0
- * @date 2025-10-08
+ * @date 2025-01-11
  */
 
-import { Line } from 'react-chartjs-2'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-} from 'chart.js'
+import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-)
+const data = [
+  { time: '00:00', input: 1200, output: 800, total: 2000 },
+  { time: '04:00', input: 800, output: 600, total: 1400 },
+  { time: '08:00', input: 2000, output: 1500, total: 3500 },
+  { time: '12:00', input: 1800, output: 1200, total: 3000 },
+  { time: '16:00', input: 1500, output: 1000, total: 2500 },
+  { time: '20:00', input: 1000, output: 700, total: 1700 },
+];
 
-interface TokenUsageChartProps {
-  className?: string
-}
-
-export function TokenUsageChart({ className }: TokenUsageChartProps) {
-  const data = {
-    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
-    datasets: [
-      {
-        label: 'Input Tokens',
-        data: [1200, 800, 2400, 3200, 1800, 2800, 1500],
-        borderColor: 'rgb(99, 102, 241)',
-        backgroundColor: 'rgba(99, 102, 241, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Output Tokens',
-        data: [400, 300, 800, 1200, 600, 900, 500],
-        borderColor: 'rgb(236, 72, 153)',
-        backgroundColor: 'rgba(236, 72, 153, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Total Cost ($)',
-        data: [0.12, 0.08, 0.24, 0.32, 0.18, 0.28, 0.15],
-        borderColor: 'rgb(245, 158, 11)',
-        backgroundColor: 'rgba(245, 158, 11, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true,
-        yAxisID: 'y1'
-      }
-    ]
-  }
-
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-        labels: {
-          usePointStyle: true,
-          padding: 20
-        }
-      },
-      title: {
-        display: true,
-        text: 'Token Usage & Cost Tracking',
-        font: {
-          size: 14,
-          weight: 'bold' as const
-        }
-      }
-    },
-    scales: {
-      y: {
-        type: 'linear' as const,
-        display: true,
-        position: 'left' as const,
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Tokens'
-        }
-      },
-      y1: {
-        type: 'linear' as const,
-        display: true,
-        position: 'right' as const,
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Cost ($)'
-        },
-        grid: {
-          drawOnChartArea: false,
-        }
-      },
-      x: {
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      }
-    },
-    elements: {
-      point: {
-        radius: 3,
-        hoverRadius: 6
-      }
-    }
-  }
-
+const TokenUsageChartBase = () => {
   return (
-    <div className={`w-full h-64 ${className}`}>
-      <Line data={data} options={options} />
+    <div className="h-64">
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart
+          data={data}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+        >
+          <XAxis 
+            dataKey="time" 
+            tickLine={false} 
+            tick={{ fontSize: 10 }}
+            axisLine={false}
+          />
+          <YAxis 
+            tickLine={false} 
+            tick={{ fontSize: 10 }}
+            axisLine={false}
+          />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: 'hsl(var(--popover))',
+              border: '1px solid hsl(var(--border))',
+              borderRadius: '6px',
+              fontSize: '12px',
+            }}
+            formatter={(value: any, name: string) => [
+              `${value.toLocaleString()} tokens`,
+              name === 'input' ? 'Input Tokens' : name === 'output' ? 'Output Tokens' : 'Total Tokens'
+            ]}
+          />
+          <Legend 
+            wrapperStyle={{ fontSize: 11 }}
+          />
+          <Area 
+            type="monotone" 
+            dataKey="input" 
+            stackId="1" 
+            stroke="hsl(210, 100%, 70%)" 
+            fill="hsl(210, 100%, 70%)" 
+            name="Input Tokens"
+          />
+          <Area 
+            type="monotone" 
+            dataKey="output" 
+            stackId="1" 
+            stroke="hsl(25, 100%, 60%)" 
+            fill="hsl(25, 100%, 60%)" 
+            name="Output Tokens"
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
-TokenUsageChart.metadata = {
-  name: 'TokenUsageChart',
-  label: 'Token Usage Chart',
-  version: '1.0.0',
-  date: '2025-10-08',
-  description: 'Thin line chart tracking LLM token consumption and costs over time',
-  phase: 'Core',
-  category: 'Data Visualization',
-  tags: ['LLM', 'Tokens', 'Cost', 'Usage', 'Line Chart']
-}
+export const TokenUsageChart = withErrorBoundary(withMemo(TokenUsageChartBase));
+export default TokenUsageChart;

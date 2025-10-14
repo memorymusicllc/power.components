@@ -1,132 +1,89 @@
 /**
- * Error Rate Chart
- * Thin line style graph for LLM error tracking
+ * Error Rate Chart Component
+ * Displays error rates and failure patterns over time
  * 
  * @version 1.0.0
- * @date 2025-10-08
+ * @date 2025-01-11
  */
 
-import { Line } from 'react-chartjs-2'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-} from 'chart.js'
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from 'recharts';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-)
+const data = [
+  { time: '00:00', errors: 2, warnings: 5, success: 98 },
+  { time: '04:00', errors: 1, warnings: 3, success: 99 },
+  { time: '08:00', errors: 8, warnings: 12, success: 92 },
+  { time: '12:00', errors: 5, warnings: 8, success: 95 },
+  { time: '16:00', errors: 3, warnings: 6, success: 97 },
+  { time: '20:00', errors: 1, warnings: 4, success: 99 },
+];
 
-interface ErrorRateChartProps {
-  className?: string
-}
-
-export function ErrorRateChart({ className }: ErrorRateChartProps) {
-  const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    datasets: [
-      {
-        label: 'API Errors',
-        data: [2, 1, 3, 0, 1, 2, 1],
-        borderColor: 'rgb(239, 68, 68)',
-        backgroundColor: 'rgba(239, 68, 68, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Rate Limit Errors',
-        data: [0, 1, 0, 2, 1, 0, 1],
-        borderColor: 'rgb(245, 158, 11)',
-        backgroundColor: 'rgba(245, 158, 11, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Timeout Errors',
-        data: [1, 0, 1, 1, 0, 1, 0],
-        borderColor: 'rgb(168, 85, 247)',
-        backgroundColor: 'rgba(168, 85, 247, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      }
-    ]
-  }
-
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-        labels: {
-          usePointStyle: true,
-          padding: 20
-        }
-      },
-      title: {
-        display: true,
-        text: 'Error Rate Tracking',
-        font: {
-          size: 14,
-          weight: 'bold' as const
-        }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Error Count'
-        },
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      },
-      x: {
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      }
-    },
-    elements: {
-      point: {
-        radius: 3,
-        hoverRadius: 6
-      }
-    }
-  }
-
+const ErrorRateChartBase = () => {
   return (
-    <div className={`w-full h-64 ${className}`}>
-      <Line data={data} options={options} />
+    <div className="h-64">
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart
+          data={data}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <XAxis 
+            dataKey="time" 
+            tickLine={false} 
+            tick={{ fontSize: 10 }}
+            axisLine={false}
+          />
+          <YAxis 
+            tickLine={false} 
+            tick={{ fontSize: 10 }}
+            axisLine={false}
+            domain={[0, 100]}
+          />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: 'hsl(var(--popover))',
+              border: '1px solid hsl(var(--border))',
+              borderRadius: '6px',
+              fontSize: '12px',
+            }}
+            formatter={(value: any, name: string) => [
+              `${value}%`,
+              name === 'errors' ? 'Error Rate' : name === 'warnings' ? 'Warning Rate' : 'Success Rate'
+            ]}
+          />
+          <Legend 
+            wrapperStyle={{ fontSize: 11 }}
+          />
+          <ReferenceLine y={95} stroke="hsl(120, 50%, 60%)" strokeDasharray="3 3" />
+          <Line 
+            type="monotone" 
+            dataKey="errors" 
+            stroke="hsl(0, 100%, 60%)" 
+            strokeWidth={2}
+            name="Error Rate"
+            dot={{ fill: 'hsl(0, 100%, 60%)', strokeWidth: 2, r: 4 }}
+          />
+          <Line 
+            type="monotone" 
+            dataKey="warnings" 
+            stroke="hsl(45, 100%, 60%)" 
+            strokeWidth={2}
+            name="Warning Rate"
+            dot={{ fill: 'hsl(45, 100%, 60%)', strokeWidth: 2, r: 4 }}
+          />
+          <Line 
+            type="monotone" 
+            dataKey="success" 
+            stroke="hsl(120, 50%, 60%)" 
+            strokeWidth={2}
+            name="Success Rate"
+            dot={{ fill: 'hsl(120, 50%, 60%)', strokeWidth: 2, r: 4 }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
-ErrorRateChart.metadata = {
-  name: 'ErrorRateChart',
-  label: 'Error Rate Chart',
-  version: '1.0.0',
-  date: '2025-10-08',
-  description: 'Thin line chart tracking LLM error rates and types over time',
-  phase: 'Core',
-  category: 'Data Visualization',
-  tags: ['LLM', 'Errors', 'Monitoring', 'Reliability', 'Line Chart']
-}
+export const ErrorRateChart = withErrorBoundary(withMemo(ErrorRateChartBase));
+export default ErrorRateChart;

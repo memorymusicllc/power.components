@@ -1,143 +1,77 @@
 /**
- * Model Comparison Chart
- * Thin line style graph comparing different LLM models
+ * Model Comparison Chart Component
+ * Compares different AI models across multiple metrics
  * 
  * @version 1.0.0
- * @date 2025-10-08
+ * @date 2025-01-11
  */
 
-import { Line } from 'react-chartjs-2'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-} from 'chart.js'
+import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from 'recharts';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-)
+const data = [
+  { metric: 'Accuracy', GPT4: 95, Claude3: 92, Gemini: 88, Llama2: 82 },
+  { metric: 'Speed', GPT4: 85, Claude3: 90, Gemini: 95, Llama2: 75 },
+  { metric: 'Cost', GPT4: 70, Claude3: 80, Gemini: 90, Llama2: 95 },
+  { metric: 'Safety', GPT4: 90, Claude3: 95, Gemini: 85, Llama2: 80 },
+  { metric: 'Creativity', GPT4: 95, Claude3: 88, Gemini: 82, Llama2: 85 },
+];
 
-interface ModelComparisonChartProps {
-  className?: string
-}
-
-export function ModelComparisonChart({ className }: ModelComparisonChartProps) {
-  const data = {
-    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8'],
-    datasets: [
-      {
-        label: 'GPT-4',
-        data: [92, 94, 91, 93, 95, 92, 94, 93],
-        borderColor: 'rgb(34, 197, 94)',
-        backgroundColor: 'rgba(34, 197, 94, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: false
-      },
-      {
-        label: 'Claude-3',
-        data: [88, 90, 89, 91, 89, 91, 90, 92],
-        borderColor: 'rgb(59, 130, 246)',
-        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: false
-      },
-      {
-        label: 'Gemini Pro',
-        data: [85, 87, 86, 88, 87, 89, 88, 90],
-        borderColor: 'rgb(168, 85, 247)',
-        backgroundColor: 'rgba(168, 85, 247, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: false
-      },
-      {
-        label: 'Llama-2',
-        data: [82, 84, 83, 85, 84, 86, 85, 87],
-        borderColor: 'rgb(245, 158, 11)',
-        backgroundColor: 'rgba(245, 158, 11, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: false
-      }
-    ]
-  }
-
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-        labels: {
-          usePointStyle: true,
-          padding: 20
-        }
-      },
-      title: {
-        display: true,
-        text: 'Model Performance Comparison',
-        font: {
-          size: 14,
-          weight: 'bold' as const
-        }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: false,
-        min: 80,
-        max: 100,
-        title: {
-          display: true,
-          text: 'Accuracy Score (%)'
-        },
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      },
-      x: {
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      }
-    },
-    elements: {
-      point: {
-        radius: 3,
-        hoverRadius: 6
-      }
-    }
-  }
-
+const ModelComparisonChartBase = () => {
   return (
-    <div className={`w-full h-64 ${className}`}>
-      <Line data={data} options={options} />
+    <div className="h-64">
+      <ResponsiveContainer width="100%" height="100%">
+        <RadarChart
+          data={data}
+          margin={{ top: 20, right: 80, bottom: 20, left: 20 }}
+        >
+          <PolarGrid />
+          <PolarAngleAxis 
+            dataKey="metric" 
+            tick={{ fontSize: 10 }}
+          />
+          <PolarRadiusAxis 
+            angle={90} 
+            domain={[0, 100]} 
+            tick={{ fontSize: 8 }}
+          />
+          <Radar 
+            name="GPT-4" 
+            dataKey="GPT4" 
+            stroke="hsl(210, 100%, 70%)" 
+            fill="hsl(210, 100%, 70%)" 
+            fillOpacity={0.3} 
+          />
+          <Radar 
+            name="Claude-3" 
+            dataKey="Claude3" 
+            stroke="hsl(25, 100%, 60%)" 
+            fill="hsl(25, 100%, 60%)" 
+            fillOpacity={0.3} 
+          />
+          <Radar 
+            name="Gemini" 
+            dataKey="Gemini" 
+            stroke="hsl(120, 50%, 60%)" 
+            fill="hsl(120, 50%, 60%)" 
+            fillOpacity={0.3} 
+          />
+          <Radar 
+            name="Llama-2" 
+            dataKey="Llama2" 
+            stroke="hsl(330, 100%, 70%)" 
+            fill="hsl(330, 100%, 70%)" 
+            fillOpacity={0.3} 
+          />
+          <Legend 
+            wrapperStyle={{ fontSize: 11 }}
+          />
+        </RadarChart>
+      </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
-ModelComparisonChart.metadata = {
-  name: 'ModelComparisonChart',
-  label: 'Model Comparison Chart',
-  version: '1.0.0',
-  date: '2025-10-08',
-  description: 'Thin line chart comparing performance of different LLM models over time',
-  phase: 'Core',
-  category: 'Data Visualization',
-  tags: ['LLM', 'Comparison', 'Models', 'Performance', 'Line Chart']
-}
+export const ModelComparisonChart = withErrorBoundary(withMemo(ModelComparisonChartBase));
+export default ModelComparisonChart;

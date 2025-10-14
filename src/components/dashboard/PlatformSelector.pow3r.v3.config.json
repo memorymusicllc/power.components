@@ -1,0 +1,468 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pow3r v3 Component Schema Template",
+  "description": "Universal schema template for all Pow3r v3 components with X-FILES integration and self-healing capabilities",
+  "type": "DashboardComponent",
+  "required": [
+    "id",
+    "type",
+    "version",
+    "io",
+    "observability",
+    "props",
+    "agentDirectives"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique component identifier (kebab-case)"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ReactComponent",
+        "ChartComponent",
+        "DashboardComponent",
+        "SearchComponent",
+        "VerificationComponent"
+      ],
+      "description": "Component type classification"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^3\\.0\\.0$",
+      "description": "Schema version (must be 3.0.0 for v3 migration)"
+    },
+    "io": {
+      "type": "object",
+      "required": [
+        "inputs",
+        "outputs"
+      ],
+      "properties": {
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "dtype",
+              "validationRule"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Input property name"
+              },
+              "dtype": {
+                "type": "string",
+                "enum": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "object",
+                  "array",
+                  "ReactNode",
+                  "function"
+                ],
+                "description": "Data type of the input"
+              },
+              "validationRule": {
+                "type": "string",
+                "description": "Validation rule (e.g., 'isRequired', 'isOneOf:val1,val2', 'isGreaterThan:0', 'isEmail')"
+              },
+              "defaultValue": {
+                "description": "Default value for the input"
+              },
+              "description": {
+                "type": "string",
+                "description": "Human-readable description of the input"
+              }
+            }
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "dtype"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Output event/function name"
+              },
+              "dtype": {
+                "type": "string",
+                "enum": [
+                  "function",
+                  "event",
+                  "data"
+                ],
+                "description": "Output type"
+              },
+              "description": {
+                "type": "string",
+                "description": "Human-readable description of the output"
+              }
+            }
+          }
+        }
+      }
+    },
+    "observability": {
+      "type": "object",
+      "required": [
+        "metrics",
+        "logging"
+      ],
+      "properties": {
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of metrics to track (e.g., 'clickCount', 'errorRate', 'renderTime', 'accessibilityScore')"
+        },
+        "logging": {
+          "type": "object",
+          "required": [
+            "level",
+            "enabled"
+          ],
+          "properties": {
+            "level": {
+              "type": "string",
+              "enum": [
+                "debug",
+                "info",
+                "warn",
+                "error"
+              ],
+              "description": "Logging level"
+            },
+            "enabled": {
+              "type": "boolean",
+              "description": "Whether logging is enabled"
+            }
+          }
+        },
+        "performance": {
+          "type": "object",
+          "properties": {
+            "maxRenderTime": {
+              "type": "number",
+              "description": "Maximum acceptable render time in milliseconds"
+            },
+            "memoryThreshold": {
+              "type": "number",
+              "description": "Maximum memory usage threshold in MB"
+            }
+          }
+        }
+      }
+    },
+    "props": {
+      "type": "object",
+      "properties": {
+        "defaultValues": {
+          "type": "object",
+          "description": "Default prop values"
+        },
+        "accessibility": {
+          "type": "object",
+          "properties": {
+            "ariaLabel": {
+              "type": "string",
+              "enum": [
+                "required",
+                "optional",
+                "auto"
+              ],
+              "description": "ARIA label requirement"
+            },
+            "keyboardNavigation": {
+              "type": "string",
+              "enum": [
+                "enabled",
+                "disabled"
+              ],
+              "description": "Keyboard navigation support"
+            },
+            "screenReader": {
+              "type": "string",
+              "enum": [
+                "supported",
+                "not-supported"
+              ],
+              "description": "Screen reader support"
+            }
+          }
+        },
+        "performance": {
+          "type": "object",
+          "properties": {
+            "memoization": {
+              "type": "boolean",
+              "description": "Whether component should be memoized"
+            },
+            "lazyLoading": {
+              "type": "boolean",
+              "description": "Whether component supports lazy loading"
+            },
+            "virtualization": {
+              "type": "boolean",
+              "description": "Whether component supports virtualization"
+            }
+          }
+        }
+      }
+    },
+    "agentDirectives": {
+      "type": "object",
+      "required": [
+        "constitutionRef",
+        "requiredTests",
+        "selfHealing"
+      ],
+      "properties": {
+        "constitutionRef": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI reference to constitutional article this component must adhere to"
+        },
+        "requiredTests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "description",
+              "testType",
+              "expectedOutcome"
+            ],
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "Natural language description of the test case"
+              },
+              "testType": {
+                "type": "string",
+                "enum": [
+                  "unit",
+                  "integration",
+                  "e2e-playwright"
+                ],
+                "default": "e2e-playwright",
+                "description": "Type of test to generate"
+              },
+              "expectedOutcome": {
+                "type": "string",
+                "description": "Expected result of the test"
+              },
+              "priority": {
+                "type": "string",
+                "enum": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low"
+                ],
+                "default": "high",
+                "description": "Test priority level"
+              }
+            }
+          }
+        },
+        "selfHealing": {
+          "type": "object",
+          "required": [
+            "enabled",
+            "monitoredMetrics",
+            "failureCondition",
+            "repairPrompt"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": true,
+              "description": "Whether self-healing is enabled"
+            },
+            "monitoredMetrics": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Metrics to monitor for failure conditions"
+            },
+            "failureCondition": {
+              "type": "string",
+              "description": "Logical condition for triggering self-healing (e.g., 'errorRate > 0.05 for 5m')"
+            },
+            "repairPrompt": {
+              "type": "string",
+              "description": "Pre-defined prompt template for repair requests"
+            },
+            "repairTimeout": {
+              "type": "number",
+              "default": 300,
+              "description": "Timeout for repair operations in seconds"
+            }
+          }
+        },
+        "xFiles": {
+          "type": "object",
+          "required": [
+            "enabled",
+            "triggerPosition"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": true,
+              "description": "Whether X-FILES integration is enabled"
+            },
+            "triggerPosition": {
+              "type": "string",
+              "enum": [
+                "bottom-right",
+                "bottom-left",
+                "top-right",
+                "top-left",
+                "center"
+              ],
+              "default": "bottom-right",
+              "description": "Position of X-FILES trigger icon"
+            },
+            "caseTypes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BugReport",
+                  "FeatureRequest",
+                  "SystemAnomaly",
+                  "PerformanceIssue",
+                  "AccessibilityIssue"
+                ]
+              },
+              "description": "Types of cases this component can create"
+            }
+          }
+        }
+      }
+    }
+  },
+  "id": "dashboard-PlatformSelector-v3",
+  "version": "3.0.0",
+  "io": {
+    "inputs": [
+      {
+        "name": "data",
+        "dtype": "array",
+        "validationRule": "isArray",
+        "description": "Data for the component"
+      },
+      {
+        "name": "className",
+        "dtype": "string",
+        "validationRule": "isOptional",
+        "description": "Additional CSS classes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "onDataChange",
+        "dtype": "function",
+        "description": "Data change handler"
+      }
+    ]
+  },
+  "observability": {
+    "metrics": [
+      "renderTime",
+      "errorRate",
+      "accessibilityScore",
+      "layoutRenderTime",
+      "stateUpdateTime",
+      "componentCount"
+    ],
+    "logging": {
+      "level": "info",
+      "enabled": true
+    },
+    "performance": {
+      "maxRenderTime": 50,
+      "memoryThreshold": 10
+    }
+  },
+  "props": {
+    "defaultValues": {},
+    "accessibility": {
+      "ariaLabel": "required",
+      "keyboardNavigation": "enabled",
+      "screenReader": "supported"
+    },
+    "performance": {
+      "memoization": true,
+      "lazyLoading": false,
+      "virtualization": true
+    }
+  },
+  "agentDirectives": {
+    "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md",
+    "requiredTests": [
+      {
+        "description": "Verify that PlatformSelector renders with default props",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "PlatformSelector renders correctly with default configuration",
+        "priority": "critical"
+      },
+      {
+        "description": "Verify that PlatformSelector handles error states gracefully",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "PlatformSelector shows error boundary when internal error occurs",
+        "priority": "high"
+      },
+      {
+        "description": "Verify that PlatformSelector supports X-FILES integration",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "X-FILES trigger icon appears and creates CaseFile when clicked",
+        "priority": "critical"
+      },
+      {
+        "description": "Verify that PlatformSelector meets accessibility standards",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "PlatformSelector passes WCAG 2.1 AA compliance tests",
+        "priority": "critical"
+      }
+    ],
+    "selfHealing": {
+      "enabled": true,
+      "monitoredMetrics": [
+        "renderTime",
+        "errorRate",
+        "accessibilityScore",
+        "layoutRenderTime",
+        "stateUpdateTime",
+        "componentCount"
+      ],
+      "failureCondition": "errorRate > 0.05 for 5m OR renderTime > 75ms for 3m OR accessibilityScore < 0.8 for 10m",
+      "repairPrompt": "PlatformSelector component v3 has failed self-healing threshold. Error rate: {errorRate}, Accessibility score: {accessibilityScore}, Render time: {renderTime}ms. Please analyze the component code, identify the issue, and implement a fix. Ensure all tests pass, X-FILES integration works, and the component meets accessibility standards.",
+      "repairTimeout": 300
+    },
+    "xFiles": {
+      "enabled": true,
+      "triggerPosition": "bottom-right",
+      "caseTypes": [
+        "BugReport",
+        "FeatureRequest",
+        "SystemAnomaly",
+        "PerformanceIssue",
+        "AccessibilityIssue"
+      ]
+    }
+  }
+}

@@ -1,35 +1,143 @@
 
-# Power Components for Obsidian
+# Power Components v3 - Autonomous AI-Agent Component Ecosystem
 
-A comprehensive suite of powerful Obsidian plugins designed to enhance your note-taking and knowledge management workflow.
+🚀 **Schema-driven, self-healing, X-FILES enabled component library** with autonomous workflows, JSON intelligence paths, and constitutional compliance. The world's first truly autonomous component ecosystem.
 
-## 🚀 Components Overview
+## ⚡ One-Line Setup for AI Agents
 
-This repository contains two major plugin components:
+```bash
+npm install power.components
+```
+
+```typescript
+import { ButtonV3, CardV3, InputV3, ThemeProvider, quickSetup } from 'power.components'
+```
+
+## 🎯 Pow3r v3 Features
+
+### 🧬 Schema-Driven Architecture
+- **JSON as Intelligence Paths**: Components derive behavior from schemas
+- **Real-time Reconfiguration**: Dynamic updates without code changes
+- **Constitutional Compliance**: Automated governance and quality assurance
+
+### 🔧 X-FILES System
+- **In-Situ Triage**: Real-time issue detection and management
+- **CaseFile Management**: Comprehensive issue tracking and resolution
+- **Agent Coordination**: Multi-agent collaboration for problem solving
+
+### 🛡️ Self-Healing Capabilities
+- **Autonomous Repair**: Components diagnose and fix themselves
+- **Performance Monitoring**: Continuous optimization and improvement
+- **Error Recovery**: Automatic error handling and state restoration
+
+### 📊 Enhanced Observability
+- **Metrics Collection**: Comprehensive component and system metrics
+- **Health Assessment**: Continuous system health evaluation
+- **Predictive Analytics**: Proactive issue prevention
+
+## 🎯 AI Agent Quick Start
+
+**Copy this prompt for AI agents:**
+> "Use Power Components v3 library: `npm install power.components` then `import { ButtonV3, CardV3, InputV3, ThemeProvider, quickSetup } from 'power.components'` - Schema-driven, self-healing, X-FILES enabled - NO SHADCN/RADIX/NEXTJS - Mobile-first, dark theme default, TypeScript, Tailwind CSS, Zustand, Vite, Playwright, Cloudflare stack - Wrap app with ThemeProvider, use cn() for styling, check quickSetup for components - Full docs: AI_AGENT_GUIDE.md - Constitution: pow3r.v3.law.md"
+
+## 🚫 What This Library Replaces
+
+- ❌ **NO SHADCN/UI** - Use Power Components instead
+- ❌ **NO RADIX UI** - Use Power Components instead  
+- ❌ **NO NEXTJS** - Use Vite + React instead
+- ❌ **NO MOCK DATA** - Use real data connections
+
+## ✅ Approved Tech Stack
+
+- ✅ **React** - UI framework
+- ✅ **TypeScript** - Type safety
+- ✅ **Tailwind CSS** - Styling
+- ✅ **Zustand** - State management
+- ✅ **Vite** - Build tool
+- ✅ **Playwright** - E2E testing
+- ✅ **Cloudflare** - Deployment
+- ✅ **Redux UI** - Unbound from data and style
+
+## 🎨 Component Library Features
+
+### Core Components
+- **Button** - Interactive buttons with variants
+- **Card** - Container components with slots
+- **Input** - Form input components
+- **Badge** - Status and label indicators
+- **Progress** - Progress indicators
+- **Tabs** - Tab navigation components
+
+### Form Components
+- **Input, Textarea, Label** - Text input components
+- **Select, Switch, Checkbox** - Selection components
+- **Dialog, DropdownMenu** - Modal and menu components
+- **Separator** - Visual dividers
+
+### Design System
+- **Unbound Design System** - Complete separation of concerns
+- **Theme System** - Dark/light theme support
+- **Design Tokens** - Consistent styling system
+- **Compound Components** - Flexible component patterns
+- **Error Boundaries** - Graceful error handling
+- **Performance Optimized** - Lazy loading, memoization
+
+## 📱 Mobile-First Design
+
+- ✅ **Responsive** - Works on all screen sizes
+- ✅ **Touch-friendly** - Optimized for touch interactions
+- ✅ **Dark theme default** - Dark mode as primary theme
+- ✅ **Accessibility** - WCAG 2.1 AA compliant
+- ✅ **Performance** - Tree-shakeable, minimal bundle size
+
+## 🔧 Usage Examples
+
+### Basic Setup
+```typescript
+import { Button, Card, Input, ThemeProvider } from 'power.components'
+
+function App() {
+  return (
+    <ThemeProvider defaultTheme="dark">
+      <Card>
+        <Input placeholder="Enter text..." />
+        <Button>Click me</Button>
+      </Card>
+    </ThemeProvider>
+  )
+}
+```
+
+### Component Discovery
+```typescript
+import { quickSetup } from 'power.components'
+
+// Discover available components
+console.log(quickSetup.essentials)  // ['Button', 'Card', 'Input', 'Badge', 'Progress']
+console.log(quickSetup.forms)       // ['Input', 'Textarea', 'Select', 'Switch', 'Checkbox']
+console.log(quickSetup.layout)      // ['Card', 'Separator', 'Tabs']
+```
+
+### Styling
+```typescript
+import { Button, cn } from 'power.components'
+
+<Button className={cn("custom-class", "another-class")}>
+  Custom Button
+</Button>
+```
+
+## 🚀 Additional Components
+
+This repository also contains specialized plugins:
 
 ### 🔒 Power Redact Plugin v2.0
-Advanced text redaction and privacy protection for sensitive information in your notes.
-
-**Key Features:**
-- Smart pattern detection (SSN, credit cards, emails, phone numbers)
-- Custom redaction patterns with regex support
-- Multiple redaction styles (blackout, blur, hash, custom)
-- Batch processing capabilities
-- Undo/redo functionality
-- Export controls for redacted content
+Advanced text redaction and privacy protection for sensitive information.
 
 **Location:** `power-redact/`
 
-### 🎨 Power Canvas Plugin
+### 🎨 Power Canvas Plugin  
 Enhanced canvas functionality with advanced drawing tools and interactive elements.
-
-**Key Features:**
-- Advanced drawing tools (pen, highlighter, shapes)
-- Interactive elements and annotations
-- Layer management system
-- Export capabilities (PNG, SVG, PDF)
-- Collaboration features
-- Template system
 
 **Location:** `power-canvas/`
 

@@ -1,0 +1,204 @@
+{
+  "id": "charts-llm-performance-chart-v3",
+  "type": "ChartComponent",
+  "version": "3.0.0",
+  "io": {
+    "inputs": [
+      {
+        "name": "data",
+        "dtype": "array",
+        "validationRule": "isArray",
+        "description": "LLM performance data array"
+      },
+      {
+        "name": "width",
+        "dtype": "number",
+        "validationRule": "isGreaterThan:0",
+        "defaultValue": 400,
+        "description": "Chart width in pixels"
+      },
+      {
+        "name": "height",
+        "dtype": "number",
+        "validationRule": "isGreaterThan:0",
+        "defaultValue": 300,
+        "description": "Chart height in pixels"
+      },
+      {
+        "name": "showTooltip",
+        "dtype": "boolean",
+        "validationRule": "isBoolean",
+        "defaultValue": true,
+        "description": "Whether to show tooltip on hover"
+      },
+      {
+        "name": "showLegend",
+        "dtype": "boolean",
+        "validationRule": "isBoolean",
+        "defaultValue": true,
+        "description": "Whether to show legend"
+      },
+      {
+        "name": "colorScheme",
+        "dtype": "string",
+        "validationRule": "isOneOf:default,blue,green,red,purple,orange",
+        "defaultValue": "default",
+        "description": "Color scheme for the chart"
+      },
+      {
+        "name": "animation",
+        "dtype": "boolean",
+        "validationRule": "isBoolean",
+        "defaultValue": true,
+        "description": "Whether to enable animations"
+      },
+      {
+        "name": "className",
+        "dtype": "string",
+        "validationRule": "isOptional",
+        "description": "Additional CSS classes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "onDataPointClick",
+        "dtype": "function",
+        "description": "Handler for data point clicks"
+      },
+      {
+        "name": "onChartHover",
+        "dtype": "function",
+        "description": "Handler for chart hover events"
+      },
+      {
+        "name": "onDataChange",
+        "dtype": "function",
+        "description": "Handler for data changes"
+      }
+    ]
+  },
+  "observability": {
+    "metrics": [
+      "renderTime",
+      "errorRate",
+      "accessibilityScore",
+      "dataUpdateTime",
+      "chartRenderTime",
+      "interactionCount",
+      "tooltipShowCount",
+      "legendClickCount"
+    ],
+    "logging": {
+      "level": "info",
+      "enabled": true
+    },
+    "performance": {
+      "maxRenderTime": 100,
+      "memoryThreshold": 50
+    }
+  },
+  "props": {
+    "defaultValues": {
+      "width": 400,
+      "height": 300,
+      "showTooltip": true,
+      "showLegend": true,
+      "colorScheme": "default",
+      "animation": true
+    },
+    "accessibility": {
+      "ariaLabel": "required",
+      "keyboardNavigation": "enabled",
+      "screenReader": "supported"
+    },
+    "performance": {
+      "memoization": true,
+      "lazyLoading": true,
+      "virtualization": false
+    }
+  },
+  "agentDirectives": {
+    "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md#article-iv",
+    "requiredTests": [
+      {
+        "description": "Verify that LLMPerformanceChart renders with default props",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "LLMPerformanceChart renders correctly with default configuration",
+        "priority": "critical"
+      },
+      {
+        "description": "Verify that LLMPerformanceChart renders chart data correctly",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Chart displays data with correct visual representation",
+        "priority": "high"
+      },
+      {
+        "description": "Verify that LLMPerformanceChart handles tooltip interactions",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Tooltip appears on hover and displays correct data",
+        "priority": "high"
+      },
+      {
+        "description": "Verify that LLMPerformanceChart handles legend interactions",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Legend items can be clicked to toggle data series",
+        "priority": "medium"
+      },
+      {
+        "description": "Verify that LLMPerformanceChart handles error states gracefully",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Chart shows error boundary when internal error occurs",
+        "priority": "high"
+      },
+      {
+        "description": "Verify that LLMPerformanceChart supports X-FILES integration",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "X-FILES trigger icon appears and creates CaseFile when clicked",
+        "priority": "critical"
+      },
+      {
+        "description": "Verify that LLMPerformanceChart meets accessibility standards",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Chart passes WCAG 2.1 AA compliance tests",
+        "priority": "critical"
+      },
+      {
+        "description": "Verify that LLMPerformanceChart handles real-time data updates",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Chart updates smoothly when data changes",
+        "priority": "high"
+      },
+      {
+        "description": "Verify that LLMPerformanceChart implements self-healing capabilities",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "Chart automatically recovers from error states and reports metrics",
+        "priority": "high"
+      }
+    ],
+    "selfHealing": {
+      "enabled": true,
+      "monitoredMetrics": [
+        "errorRate",
+        "renderTime",
+        "accessibilityScore",
+        "dataUpdateTime",
+        "chartRenderTime",
+        "interactionCount"
+      ],
+      "failureCondition": "errorRate > 0.05 for 5m OR renderTime > 100ms for 3m OR accessibilityScore < 0.8 for 10m",
+      "repairPrompt": "LLMPerformanceChart component v3 has failed self-healing threshold. Error rate: {errorRate}, Accessibility score: {accessibilityScore}, Render time: {renderTime}ms, Data update time: {dataUpdateTime}ms, Chart render time: {chartRenderTime}ms, Interaction count: {interactionCount}. Please analyze the component code, identify the issue, and implement a fix. Ensure all tests pass, X-FILES integration works, real-time updates function properly, and the component meets accessibility standards.",
+      "repairTimeout": 300
+    },
+    "xFiles": {
+      "enabled": true,
+      "triggerPosition": "bottom-right",
+      "caseTypes": [
+        "BugReport",
+        "FeatureRequest",
+        "SystemAnomaly",
+        "PerformanceIssue",
+        "AccessibilityIssue"
+      ]
+    }
+  }
+}

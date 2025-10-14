@@ -1,134 +1,60 @@
 /**
- * Cost Analysis Chart
- * Thin line style graph for LLM cost tracking and analysis
+ * Cost Analysis Chart Component
+ * Displays cost breakdown and spending patterns
  * 
  * @version 1.0.0
- * @date 2025-10-08
+ * @date 2025-01-11
  */
 
-import { Line } from 'react-chartjs-2'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-} from 'chart.js'
+import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-)
+const data = [
+  { name: 'Compute', value: 45, color: 'hsl(210, 100%, 70%)' },
+  { name: 'Storage', value: 25, color: 'hsl(25, 100%, 60%)' },
+  { name: 'API Calls', value: 20, color: 'hsl(120, 50%, 60%)' },
+  { name: 'Data Transfer', value: 10, color: 'hsl(330, 100%, 70%)' },
+];
 
-interface CostAnalysisChartProps {
-  className?: string
-}
-
-export function CostAnalysisChart({ className }: CostAnalysisChartProps) {
-  const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-    datasets: [
-      {
-        label: 'Daily Cost ($)',
-        data: [12.50, 18.75, 22.30, 28.90, 35.20, 42.10, 38.75, 45.60, 52.30, 48.90],
-        borderColor: 'rgb(239, 68, 68)',
-        backgroundColor: 'rgba(239, 68, 68, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Budget Limit',
-        data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
-        borderColor: 'rgb(156, 163, 175)',
-        backgroundColor: 'rgba(156, 163, 175, 0.1)',
-        borderWidth: 2,
-        tension: 0,
-        borderDash: [5, 5],
-        fill: false
-      },
-      {
-        label: 'Projected Cost',
-        data: [15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
-        borderColor: 'rgb(245, 158, 11)',
-        backgroundColor: 'rgba(245, 158, 11, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: false,
-        borderDash: [3, 3]
-      }
-    ]
-  }
-
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-        labels: {
-          usePointStyle: true,
-          padding: 20
-        }
-      },
-      title: {
-        display: true,
-        text: 'Cost Analysis & Budget Tracking',
-        font: {
-          size: 14,
-          weight: 'bold' as const
-        }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Cost ($)'
-        },
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      },
-      x: {
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      }
-    },
-    elements: {
-      point: {
-        radius: 3,
-        hoverRadius: 6
-      }
-    }
-  }
-
+const CostAnalysisChartBase = () => {
   return (
-    <div className={`w-full h-64 ${className}`}>
-      <Line data={data} options={options} />
+    <div className="h-64">
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+          <Pie
+            data={data}
+            cx="50%"
+            cy="50%"
+            innerRadius={40}
+            outerRadius={80}
+            paddingAngle={5}
+            dataKey="value"
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.color} />
+            ))}
+          </Pie>
+          <Tooltip
+            contentStyle={{
+              backgroundColor: 'hsl(var(--popover))',
+              border: '1px solid hsl(var(--border))',
+              borderRadius: '6px',
+              fontSize: '12px',
+            }}
+            formatter={(value: any, name: string) => [
+              `$${value}`,
+              name
+            ]}
+          />
+          <Legend 
+            wrapperStyle={{ fontSize: 11 }}
+          />
+        </PieChart>
+      </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
-CostAnalysisChart.metadata = {
-  name: 'CostAnalysisChart',
-  label: 'Cost Analysis Chart',
-  version: '1.0.0',
-  date: '2025-10-08',
-  description: 'Thin line chart tracking LLM costs, budget limits, and projections over time',
-  phase: 'Core',
-  category: 'Data Visualization',
-  tags: ['LLM', 'Cost', 'Budget', 'Analysis', 'Line Chart']
-}
+export const CostAnalysisChart = withErrorBoundary(withMemo(CostAnalysisChartBase));
+export default CostAnalysisChart;

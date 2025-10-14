@@ -1,145 +1,80 @@
 /**
- * Usage Patterns Chart
- * Thin line style graph for LLM usage pattern analysis
+ * Usage Patterns Chart Component
+ * Shows user behavior and usage analytics
  * 
  * @version 1.0.0
- * @date 2025-10-08
+ * @date 2025-01-11
  */
 
-import { Line } from 'react-chartjs-2'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-} from 'chart.js'
+import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { withErrorBoundary } from '@/lib/design-system/error-boundary';
+import { withMemo } from '@/lib/design-system/performance';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-)
+const data = [
+  { time: '00:00', active: 120, new: 15, returning: 105 },
+  { time: '04:00', active: 80, new: 8, returning: 72 },
+  { time: '08:00', active: 450, new: 45, returning: 405 },
+  { time: '12:00', active: 380, new: 38, returning: 342 },
+  { time: '16:00', active: 320, new: 32, returning: 288 },
+  { time: '20:00', active: 200, new: 20, returning: 180 },
+];
 
-interface UsagePatternsChartProps {
-  className?: string
-}
-
-export function UsagePatternsChart({ className }: UsagePatternsChartProps) {
-  const data = {
-    labels: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'],
-    datasets: [
-      {
-        label: 'Text Generation',
-        data: [5, 3, 2, 8, 25, 45, 55, 48, 35, 28, 15, 8],
-        borderColor: 'rgb(59, 130, 246)',
-        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Code Generation',
-        data: [2, 1, 1, 3, 12, 18, 22, 20, 15, 12, 6, 3],
-        borderColor: 'rgb(16, 185, 129)',
-        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Analysis Tasks',
-        data: [1, 0, 0, 2, 8, 12, 15, 18, 14, 10, 5, 2],
-        borderColor: 'rgb(168, 85, 247)',
-        backgroundColor: 'rgba(168, 85, 247, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      },
-      {
-        label: 'Translation',
-        data: [0, 0, 0, 1, 3, 5, 8, 6, 4, 3, 1, 0],
-        borderColor: 'rgb(245, 158, 11)',
-        backgroundColor: 'rgba(245, 158, 11, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        fill: true
-      }
-    ]
-  }
-
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-        labels: {
-          usePointStyle: true,
-          padding: 20
-        }
-      },
-      title: {
-        display: true,
-        text: 'Usage Patterns by Task Type',
-        font: {
-          size: 14,
-          weight: 'bold' as const
-        }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Requests per Hour'
-        },
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      },
-      x: {
-        title: {
-          display: true,
-          text: 'Time of Day'
-        },
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)'
-        }
-      }
-    },
-    elements: {
-      point: {
-        radius: 3,
-        hoverRadius: 6
-      }
-    }
-  }
-
+const UsagePatternsChartBase = () => {
   return (
-    <div className={`w-full h-64 ${className}`}>
-      <Line data={data} options={options} />
+    <div className="h-64">
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart
+          data={data}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+        >
+          <XAxis 
+            dataKey="time" 
+            tickLine={false} 
+            tick={{ fontSize: 10 }}
+            axisLine={false}
+          />
+          <YAxis 
+            tickLine={false} 
+            tick={{ fontSize: 10 }}
+            axisLine={false}
+          />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: 'hsl(var(--popover))',
+              border: '1px solid hsl(var(--border))',
+              borderRadius: '6px',
+              fontSize: '12px',
+            }}
+            formatter={(value: any, name: string) => [
+              `${value} users`,
+              name === 'active' ? 'Active Users' : 
+              name === 'new' ? 'New Users' : 'Returning Users'
+            ]}
+          />
+          <Legend 
+            wrapperStyle={{ fontSize: 11 }}
+          />
+          <Area 
+            type="monotone" 
+            dataKey="returning" 
+            stackId="1" 
+            stroke="hsl(210, 100%, 70%)" 
+            fill="hsl(210, 100%, 70%)" 
+            name="Returning Users"
+          />
+          <Area 
+            type="monotone" 
+            dataKey="new" 
+            stackId="1" 
+            stroke="hsl(25, 100%, 60%)" 
+            fill="hsl(25, 100%, 60%)" 
+            name="New Users"
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
-UsagePatternsChart.metadata = {
-  name: 'UsagePatternsChart',
-  label: 'Usage Patterns Chart',
-  version: '1.0.0',
-  date: '2025-10-08',
-  description: 'Thin line chart analyzing LLM usage patterns by task type throughout the day',
-  phase: 'Core',
-  category: 'Data Visualization',
-  tags: ['LLM', 'Usage', 'Patterns', 'Analytics', 'Line Chart']
-}
+export const UsagePatternsChart = withErrorBoundary(withMemo(UsagePatternsChartBase));
+export default UsagePatternsChart;

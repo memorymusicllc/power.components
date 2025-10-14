@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pow3rSchemaParadigm v2 (Self-Healing Edition)",
+  "description": "The universal schema, now with embedded directives for AI agent enforcement, self-evaluation, and real-time reconfiguration.",
+  "definitions": {
+    "Node": {
+      "type": "object",
+      "required": ["id", "type", "version", "io", "agentDirectives"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "io": {
+          "type": "object",
+          "properties": {
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "dtype": { "type": "string" },
+                  "validationRule": { "type": "string", "description": "A validation rule (e.g., 'isEmail', 'isGreaterThan:0') for the agent to enforce." }
+                }
+              }
+            },
+            "outputs": {
+              "type": "array",
+              "items": { "type": "object" }
+            }
+          }
+        },
+        "observability": { "$ref": "#/definitions/ObservabilityConfig" },
+        "props": { "type": "object" },
+        
+        "agentDirectives": {
+          "type": "object",
+          "description": "Instructions for AI agents on how to build, test, and maintain this component.",
+          "properties": {
+            "constitutionRef": { "type": "string", "format": "uri", "description": "A URI pointing to the specific constitutional article this component must adhere to." },
+            "requiredTests": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string", "description": "A natural language description of the test case. (e.g., 'Verify that the button enters a loading state when clicked')." },
+                  "testType": { "type": "string", "enum": ["unit", "integration", "e2e-playwright"], "default": "e2e-playwright" },
+                  "expectedOutcome": { "type": "string", "description": "The expected result of the test." }
+                }
+              }
+            },
+            "selfHealing": {
+              "type": "object",
+              "description": "Defines how the component can self-diagnose and request repairs.",
+              "properties": {
+                "enabled": { "type": "boolean", "default": true },
+                "monitoredMetrics": { "type": "array", "items": { "type": "string" }, "description": "Metrics from observability to watch (e.g., 'errorRate', 'avgLatency')." },
+                "failureCondition": { "type": "string", "description": "A logical condition for triggering a self-healing request (e.g., 'errorRate > 0.05 for 5m')." },
+                "repairPrompt": { "type": "string", "description": "A pre-defined prompt to send to the 'Architect' agent upon failure, including context." }
+              }
+            }
+          },
+          "required": ["requiredTests", "selfHealing"]
+        }
+      }
+    }
+  }
+}
