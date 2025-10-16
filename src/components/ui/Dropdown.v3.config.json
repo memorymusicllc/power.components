@@ -1,0 +1,236 @@
+{
+  "id": "dropdown-v3",
+  "type": "ui.dropdown",
+  "version": "3.0.0",
+  "name": "Dropdown Component",
+  "description": "A comprehensive dropdown component with multiple variants, search, multi-select, and async loading capabilities",
+  "category": "ui",
+  "tags": ["dropdown", "select", "multiselect", "search", "async", "grouped", "accessible"],
+  "io": {
+    "inputs": {
+      "options": {
+        "type": "array",
+        "description": "Array of dropdown options",
+        "required": true,
+        "schema": {
+          "id": "string",
+          "label": "string", 
+          "value": "string",
+          "icon": "string",
+          "description": "string",
+          "disabled": "boolean",
+          "group": "string",
+          "metadata": "object"
+        }
+      },
+      "value": {
+        "type": "string|array",
+        "description": "Selected value(s)",
+        "default": ""
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Placeholder text",
+        "default": "Select an option..."
+      },
+      "searchable": {
+        "type": "boolean",
+        "description": "Enable search functionality",
+        "default": false
+      },
+      "multiSelect": {
+        "type": "boolean",
+        "description": "Enable multi-selection",
+        "default": false
+      },
+      "disabled": {
+        "type": "boolean",
+        "description": "Disable the dropdown",
+        "default": false
+      },
+      "loading": {
+        "type": "boolean",
+        "description": "Show loading state",
+        "default": false
+      },
+      "error": {
+        "type": "string",
+        "description": "Error message to display"
+      },
+      "variant": {
+        "type": "string",
+        "enum": ["default", "outline", "ghost", "filled"],
+        "description": "Visual variant",
+        "default": "default"
+      },
+      "size": {
+        "type": "string",
+        "enum": ["sm", "md", "lg"],
+        "description": "Size variant",
+        "default": "md"
+      },
+      "showIcons": {
+        "type": "boolean",
+        "description": "Show icons in options",
+        "default": false
+      },
+      "groupBy": {
+        "type": "string",
+        "description": "Group options by field"
+      },
+      "async": {
+        "type": "boolean",
+        "description": "Enable async loading",
+        "default": false
+      },
+      "hasMore": {
+        "type": "boolean",
+        "description": "Has more data to load",
+        "default": false
+      }
+    },
+    "outputs": {
+      "onChange": {
+        "type": "function",
+        "description": "Called when selection changes"
+      },
+      "onSearch": {
+        "type": "function",
+        "description": "Called when search query changes"
+      },
+      "onLoadMore": {
+        "type": "function",
+        "description": "Called when load more is requested"
+      }
+    }
+  },
+  "observability": {
+    "metrics": {
+      "renderTime": {
+        "type": "number",
+        "unit": "ms",
+        "description": "Component render time",
+        "target": 16,
+        "threshold": 50
+      },
+      "searchLatency": {
+        "type": "number",
+        "unit": "ms",
+        "description": "Search response time",
+        "target": 100,
+        "threshold": 500
+      },
+      "optionCount": {
+        "type": "number",
+        "unit": "count",
+        "description": "Number of options rendered",
+        "target": 50,
+        "threshold": 1000
+      }
+    },
+    "logging": {
+      "level": "info",
+      "events": ["selection_change", "search_query", "dropdown_open", "dropdown_close", "error"]
+    },
+    "performance": {
+      "targetRenderTime": 16,
+      "maxMemoryUsage": 25,
+      "optimizationLevel": "high"
+    }
+  },
+  "props": {
+    "defaultValues": {
+      "placeholder": "Select an option...",
+      "searchable": false,
+      "multiSelect": false,
+      "disabled": false,
+      "loading": false,
+      "variant": "default",
+      "size": "md",
+      "showIcons": false,
+      "async": false,
+      "hasMore": false
+    },
+    "accessibility": {
+      "ariaLabel": "Dropdown selection component",
+      "keyboardNavigation": true,
+      "screenReaderSupport": true,
+      "highContrast": true,
+      "ariaExpanded": true,
+      "ariaHaspopup": "listbox",
+      "role": "combobox"
+    },
+    "performance": {
+      "lazyLoading": true,
+      "virtualization": true,
+      "memoization": true,
+      "debounceSearch": true,
+      "debounceDelay": 300
+    }
+  },
+  "agentDirectives": {
+    "constitution": "pow3r.v3.law.md",
+    "requiredTests": [
+      "unit",
+      "integration",
+      "accessibility",
+      "performance",
+      "visual-regression",
+      "keyboard-navigation"
+    ],
+    "selfHealing": {
+      "enabled": true,
+      "autoRecovery": true,
+      "errorThreshold": 0.05,
+      "recoveryActions": [
+        "reset_selection",
+        "clear_search",
+        "close_dropdown",
+        "fallback_render"
+      ]
+    },
+    "xFilesIntegration": {
+      "enabled": true,
+      "caseFile": "dropdown-v3",
+      "monitoringLevel": "comprehensive",
+      "autoDocumentation": true
+    }
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "lucide-react": "^0.263.1"
+  },
+  "compatibility": {
+    "react": ">=18.0.0",
+    "browsers": ["chrome", "firefox", "safari", "edge"],
+    "devices": ["desktop", "tablet", "mobile"]
+  },
+  "documentation": {
+    "usage": "Import and use DropdownV3 for comprehensive dropdown functionality with search, multi-select, and async loading",
+    "examples": [
+      "Basic single-select dropdown",
+      "Multi-select with search",
+      "Grouped options with icons",
+      "Async loading with pagination",
+      "Different variants and sizes"
+    ],
+    "api": {
+      "props": {
+        "options": "Array of dropdown options with id, label, value, and optional properties",
+        "value": "Currently selected value(s)",
+        "onChange": "Callback function when selection changes",
+        "searchable": "Enable search functionality",
+        "multiSelect": "Allow multiple selections",
+        "variant": "Visual style variant",
+        "size": "Size of the dropdown"
+      },
+      "methods": {
+        "open": "Programmatically open the dropdown",
+        "close": "Programmatically close the dropdown",
+        "clear": "Clear current selection",
+        "focus": "Focus the dropdown trigger"
+      }
+    }
+  }
+}
+

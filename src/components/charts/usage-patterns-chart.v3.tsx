@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface usage-patterns-chartV3Props {
+export interface UsagePatternsChartV3Props {
   // Props will be generated based on schema
 }
 
-const usage-patterns-chartV3Component = React.forwardRef<HTMLDivElement, usage-patterns-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const UsagePatternsChartV3Component = React.forwardRef<HTMLDivElement, UsagePatternsChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const usage-patterns-chartV3Component = React.forwardRef<HTMLDivElement, usage-p
   }
 );
 
-usage-patterns-chartV3Component.displayName = "usage-patterns-chartV3";
+UsagePatternsChartV3Component.displayName = "UsagePatternsChartV3";
 
-export const usage-patterns-chartV3 = withErrorBoundary(withMemo(usage-patterns-chartV3Component));
+export const UsagePatternsChartV3 = withErrorBoundary(withMemo(UsagePatternsChartV3Component));
 
-export default usage-patterns-chartV3;
+export default UsagePatternsChartV3;

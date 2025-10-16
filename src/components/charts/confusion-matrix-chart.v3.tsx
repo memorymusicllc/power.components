@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface confusion-matrix-chartV3Props {
+export interface ConfusionMatrixChartV3Props {
   // Props will be generated based on schema
 }
 
-const confusion-matrix-chartV3Component = React.forwardRef<HTMLDivElement, confusion-matrix-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const ConfusionMatrixChartV3Component = React.forwardRef<HTMLDivElement, ConfusionMatrixChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const confusion-matrix-chartV3Component = React.forwardRef<HTMLDivElement, confu
   }
 );
 
-confusion-matrix-chartV3Component.displayName = "confusion-matrix-chartV3";
+ConfusionMatrixChartV3Component.displayName = "ConfusionMatrixChartV3";
 
-export const confusion-matrix-chartV3 = withErrorBoundary(withMemo(confusion-matrix-chartV3Component));
+export const ConfusionMatrixChartV3 = withErrorBoundary(withMemo(ConfusionMatrixChartV3Component));
 
-export default confusion-matrix-chartV3;
+export default ConfusionMatrixChartV3;

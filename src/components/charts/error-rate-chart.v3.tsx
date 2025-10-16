@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface error-rate-chartV3Props {
+export interface ErrorRateChartV3Props {
   // Props will be generated based on schema
 }
 
-const error-rate-chartV3Component = React.forwardRef<HTMLDivElement, error-rate-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const ErrorRateChartV3Component = React.forwardRef<HTMLDivElement, ErrorRateChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const error-rate-chartV3Component = React.forwardRef<HTMLDivElement, error-rate-
   }
 );
 
-error-rate-chartV3Component.displayName = "error-rate-chartV3";
+ErrorRateChartV3Component.displayName = "ErrorRateChartV3";
 
-export const error-rate-chartV3 = withErrorBoundary(withMemo(error-rate-chartV3Component));
+export const ErrorRateChartV3 = withErrorBoundary(withMemo(ErrorRateChartV3Component));
 
-export default error-rate-chartV3;
+export default ErrorRateChartV3;

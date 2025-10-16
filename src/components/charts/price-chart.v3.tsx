@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface price-chartV3Props {
+export interface PriceChartV3Props {
   // Props will be generated based on schema
 }
 
-const price-chartV3Component = React.forwardRef<HTMLDivElement, price-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const PriceChartV3Component = React.forwardRef<HTMLDivElement, PriceChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const price-chartV3Component = React.forwardRef<HTMLDivElement, price-chartV3Pro
   }
 );
 
-price-chartV3Component.displayName = "price-chartV3";
+PriceChartV3Component.displayName = "PriceChartV3";
 
-export const price-chartV3 = withErrorBoundary(withMemo(price-chartV3Component));
+export const PriceChartV3 = withErrorBoundary(withMemo(PriceChartV3Component));
 
-export default price-chartV3;
+export default PriceChartV3;

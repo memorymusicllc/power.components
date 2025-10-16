@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface leads-chartV3Props {
+export interface LeadsChartV3Props {
   // Props will be generated based on schema
 }
 
-const leads-chartV3Component = React.forwardRef<HTMLDivElement, leads-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const LeadsChartV3Component = React.forwardRef<HTMLDivElement, LeadsChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const leads-chartV3Component = React.forwardRef<HTMLDivElement, leads-chartV3Pro
   }
 );
 
-leads-chartV3Component.displayName = "leads-chartV3";
+LeadsChartV3Component.displayName = "LeadsChartV3";
 
-export const leads-chartV3 = withErrorBoundary(withMemo(leads-chartV3Component));
+export const LeadsChartV3 = withErrorBoundary(withMemo(LeadsChartV3Component));
 
-export default leads-chartV3;
+export default LeadsChartV3;

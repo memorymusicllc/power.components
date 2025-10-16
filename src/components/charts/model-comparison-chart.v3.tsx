@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface model-comparison-chartV3Props {
+export interface ModelComparisonChartV3Props {
   // Props will be generated based on schema
 }
 
-const model-comparison-chartV3Component = React.forwardRef<HTMLDivElement, model-comparison-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const ModelComparisonChartV3Component = React.forwardRef<HTMLDivElement, ModelComparisonChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const model-comparison-chartV3Component = React.forwardRef<HTMLDivElement, model
   }
 );
 
-model-comparison-chartV3Component.displayName = "model-comparison-chartV3";
+ModelComparisonChartV3Component.displayName = "ModelComparisonChartV3";
 
-export const model-comparison-chartV3 = withErrorBoundary(withMemo(model-comparison-chartV3Component));
+export const ModelComparisonChartV3 = withErrorBoundary(withMemo(ModelComparisonChartV3Component));
 
-export default model-comparison-chartV3;
+export default ModelComparisonChartV3;

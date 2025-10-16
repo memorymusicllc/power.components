@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface heatmap-chartV3Props {
+export interface HeatmapChartV3Props {
   // Props will be generated based on schema
 }
 
-const heatmap-chartV3Component = React.forwardRef<HTMLDivElement, heatmap-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const HeatmapChartV3Component = React.forwardRef<HTMLDivElement, HeatmapChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const heatmap-chartV3Component = React.forwardRef<HTMLDivElement, heatmap-chartV
   }
 );
 
-heatmap-chartV3Component.displayName = "heatmap-chartV3";
+HeatmapChartV3Component.displayName = "HeatmapChartV3";
 
-export const heatmap-chartV3 = withErrorBoundary(withMemo(heatmap-chartV3Component));
+export const HeatmapChartV3 = withErrorBoundary(withMemo(HeatmapChartV3Component));
 
-export default heatmap-chartV3;
+export default HeatmapChartV3;

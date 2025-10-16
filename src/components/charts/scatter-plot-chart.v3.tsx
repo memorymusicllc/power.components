@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface scatter-plot-chartV3Props {
+export interface ScatterPlotChartV3Props {
   // Props will be generated based on schema
 }
 
-const scatter-plot-chartV3Component = React.forwardRef<HTMLDivElement, scatter-plot-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const ScatterPlotChartV3Component = React.forwardRef<HTMLDivElement, ScatterPlotChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const scatter-plot-chartV3Component = React.forwardRef<HTMLDivElement, scatter-p
   }
 );
 
-scatter-plot-chartV3Component.displayName = "scatter-plot-chartV3";
+ScatterPlotChartV3Component.displayName = "ScatterPlotChartV3";
 
-export const scatter-plot-chartV3 = withErrorBoundary(withMemo(scatter-plot-chartV3Component));
+export const ScatterPlotChartV3 = withErrorBoundary(withMemo(ScatterPlotChartV3Component));
 
-export default scatter-plot-chartV3;
+export default ScatterPlotChartV3;

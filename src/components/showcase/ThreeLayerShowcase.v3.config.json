@@ -1,0 +1,136 @@
+{
+  "id": "three-layer-showcase-v3",
+  "type": "showcase",
+  "version": "3.0.0",
+  "name": "Three-Layer Showcase",
+  "description": "Demonstrates three distinct layers: Observability (real-time data), View (2D objects), and Scene (3D objects)",
+  "category": "showcase",
+  "tags": ["observability", "2d", "3d", "visualization", "real-time", "interactive"],
+  "io": {
+    "inputs": {
+      "activeLayer": {
+        "type": "string",
+        "enum": ["observability", "view", "scene"],
+        "default": "observability",
+        "description": "Currently active layer to display"
+      },
+      "isAnimating": {
+        "type": "boolean",
+        "default": true,
+        "description": "Whether animations are enabled"
+      }
+    },
+    "outputs": {
+      "layerChanged": {
+        "type": "string",
+        "description": "Emitted when layer is switched"
+      },
+      "dataUpdated": {
+        "type": "object",
+        "description": "Emitted when real-time data is updated"
+      }
+    }
+  },
+  "observability": {
+    "metrics": {
+      "renderTime": {
+        "type": "number",
+        "unit": "ms",
+        "description": "Component render time"
+      },
+      "animationFPS": {
+        "type": "number",
+        "unit": "fps",
+        "description": "Animation frame rate"
+      },
+      "dataUpdateFrequency": {
+        "type": "number",
+        "unit": "hz",
+        "description": "Real-time data update frequency"
+      }
+    },
+    "logging": {
+      "level": "info",
+      "events": ["layer_switch", "animation_toggle", "data_update", "error"]
+    },
+    "performance": {
+      "targetRenderTime": 16,
+      "maxMemoryUsage": 50,
+      "optimizationLevel": "high"
+    }
+  },
+  "props": {
+    "defaultValues": {
+      "activeLayer": "observability",
+      "isAnimating": true,
+      "showControls": true,
+      "enableRealTimeUpdates": true
+    },
+    "accessibility": {
+      "ariaLabel": "Three-layer showcase component with observability, 2D view, and 3D scene layers",
+      "keyboardNavigation": true,
+      "screenReaderSupport": true,
+      "highContrast": true
+    },
+    "performance": {
+      "lazyLoading": true,
+      "virtualization": false,
+      "memoization": true,
+      "debounceUpdates": true
+    }
+  },
+  "agentDirectives": {
+    "constitution": "pow3r.v3.law.md",
+    "requiredTests": [
+      "unit",
+      "integration", 
+      "accessibility",
+      "performance",
+      "visual-regression"
+    ],
+    "selfHealing": {
+      "enabled": true,
+      "autoRecovery": true,
+      "errorThreshold": 0.05,
+      "recoveryActions": [
+        "restart_animation",
+        "reset_data",
+        "fallback_render"
+      ]
+    },
+    "xFilesIntegration": {
+      "enabled": true,
+      "caseFile": "three-layer-showcase-v3",
+      "monitoringLevel": "comprehensive",
+      "autoDocumentation": true
+    }
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "lucide-react": "^0.263.1",
+    "zustand": "^4.4.1"
+  },
+  "compatibility": {
+    "react": ">=18.0.0",
+    "browsers": ["chrome", "firefox", "safari", "edge"],
+    "devices": ["desktop", "tablet", "mobile"]
+  },
+  "documentation": {
+    "usage": "Import and use ThreeLayerShowcaseV3 to demonstrate three distinct visualization layers",
+    "examples": [
+      "Basic usage with default observability layer",
+      "Switching between layers programmatically",
+      "Customizing animation and real-time updates"
+    ],
+    "api": {
+      "props": {
+        "activeLayer": "Controls which layer is currently displayed",
+        "isAnimating": "Enables or disables animations"
+      },
+      "methods": {
+        "switchLayer": "Programmatically switch between layers",
+        "toggleAnimation": "Start or stop animations"
+      }
+    }
+  }
+}

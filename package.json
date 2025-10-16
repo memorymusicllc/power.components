@@ -1,210 +1,188 @@
 {
-  "name": "power-components",
-  "version": "2.0.0",
-  "description": "AI-Agent friendly React component library with unbound design system - NO SHADCN/RADIX/NEXTJS",
+  "name": "power.components",
+  "version": "3.0.0",
+  "description": "Pow3r v3 Component Library with Full Automation System",
+  "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.js",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./components": {
-      "import": "./dist/components.esm.js",
-      "require": "./dist/components.js",
-      "types": "./dist/components.d.ts"
-    },
-    "./design-system": {
-      "import": "./dist/design-system.esm.js",
-      "require": "./dist/design-system.js",
-      "types": "./dist/design-system.d.ts"
+    "./automation": {
+      "import": "./dist/lib/automation/index.js",
+      "types": "./dist/lib/automation/index.d.ts"
     }
   },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
-  "private": false,
-  "workspaces": [
-    "power-redact",
-    "power-canvas"
-  ],
   "scripts": {
-    "build": "vite build",
-    "dev:library": "vite dev",
-    "install-all": "npm install && npm run install-plugins",
-    "install-plugins": "cd power-redact && npm install && cd ../power-canvas && npm install",
-    "build-all": "npm run build && npm run build-redact && npm run build-canvas",
-    "build-redact": "cd power-redact && npm run build",
-    "build-canvas": "cd power-canvas && npm run build",
-    "dev": "concurrently \"npm run dev-redact\" \"npm run dev-canvas\"",
-    "dev-redact": "cd power-redact && npm run dev",
-    "dev-canvas": "cd power-canvas && npm run dev",
-    "test": "npm run test-redact && npm run test-canvas && npm run test:e2e",
-    "test-redact": "cd power-redact && npm test",
-    "test-canvas": "cd power-canvas && npm test",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:minimal": "vite build --config vite.config.minimal.ts",
+    "build:watch": "tsc --watch && vite build --watch",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:components": "vitest run --reporter=verbose src/components",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
-    "lint": "npm run lint-redact && npm run lint-canvas",
-    "lint-redact": "cd power-redact && npm run lint",
-    "lint-canvas": "cd power-canvas && npm run lint",
-    "lint-fix": "npm run lint-fix-redact && npm run lint-fix-canvas",
-    "lint-fix-redact": "cd power-redact && npm run lint:fix",
-    "lint-fix-canvas": "cd power-canvas && npm run lint:fix",
-    "clean": "npm run clean-redact && npm run clean-canvas",
-    "clean-redact": "cd power-redact && npm run clean",
-    "clean-canvas": "cd power-canvas && npm run clean",
-    "link-vault": "node scripts/link-vault.js",
-    "unlink-vault": "node scripts/unlink-vault.js",
-    "release": "npm run build-all && npm run test && npm run package",
-    "package": "node scripts/package.js",
-    "docs": "npm run docs-build",
-    "docs-build": "node scripts/build-docs.js",
-    "docs-serve": "node scripts/serve-docs.js",
-    "version-bump": "node scripts/version-bump.js",
-    "changelog": "node scripts/generate-changelog.js",
-    "security-audit": "npm audit && cd power-redact && npm audit && cd ../power-canvas && npm audit",
-    "outdated": "npm outdated && cd power-redact && npm outdated && cd ../power-canvas && npm outdated",
-    "update-deps": "npm update && cd power-redact && npm update && cd ../power-canvas && npm update",
-    "verify": "tsx src/lib/verification/verification-cli.ts",
-    "verify:full": "npm run verify full -- --parallel --auto-fix",
-    "verify:component": "npm run verify component",
-    "verify:agents": "npm run verify agents",
-    "verify:status": "npm run verify status"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/memorymusicllc/power.components.git"
+    "test:api": "node src/lib/automation/automation-cli.js test api",
+    "test:integration": "node src/lib/automation/automation-cli.js test e2e",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "verify": "node src/lib/automation/automation-cli.js verify full",
+    "verify:full": "node src/lib/automation/automation-cli.js verify full",
+    "verify:constitutional": "node src/lib/automation/automation-cli.js verify constitutional",
+    "verify:schemas": "node src/lib/automation/automation-cli.js verify schemas",
+    "verify:components": "node src/lib/automation/automation-cli.js verify components",
+    "verify:final": "node src/lib/automation/automation-cli.js verify final",
+    "automation": "node src/lib/automation/automation-cli.js",
+    "automation:start": "node src/lib/automation/automation-cli.js start --monitor",
+    "automation:stop": "node src/lib/automation/automation-cli.js stop",
+    "automation:status": "node src/lib/automation/automation-cli.js status",
+    "automation:process": "node src/lib/automation/automation-cli.js process-request",
+    "automation:report": "node src/lib/automation/automation-cli.js report automation",
+    "ateam:start": "node src/lib/automation/ateam-cli.js start",
+    "ateam:stop": "node src/lib/automation/ateam-cli.js stop",
+    "ateam:status": "node src/lib/automation/ateam-cli.js status",
+    "ateam:process": "node src/lib/automation/ateam-cli.js process",
+    "ateam:report": "node src/lib/automation/ateam-cli.js report",
+    "ateam:dashboard": "node src/lib/automation/ateam-cli.js dashboard",
+    "github:create-pr": "node src/lib/automation/automation-cli.js github create-pr",
+    "github:merge-pr": "node src/lib/automation/automation-cli.js github merge-pr",
+    "github:cleanup": "node src/lib/automation/automation-cli.js github cleanup",
+    "deploy:preview": "node src/lib/automation/automation-cli.js deploy preview",
+    "deploy:production": "node src/lib/automation/automation-cli.js deploy production",
+    "deploy:force": "node src/lib/automation/automation-cli.js deploy production --force",
+    "screenshot": "node src/lib/automation/automation-cli.js screenshot",
+    "screenshot:production": "node src/lib/automation/automation-cli.js screenshot https://power-components.com",
+    "cleanup:repository": "node src/lib/automation/automation-cli.js github cleanup",
+    "organize:structure": "node scripts/organize-repo-structure.js",
+    "docs:update": "node src/lib/automation/automation-cli.js docs update",
+    "docs:generate": "node src/lib/automation/automation-cli.js docs generate",
+    "report:completion": "node src/lib/automation/automation-cli.js report automation --format json > reports/completion-report.json",
+    "report:status": "node src/lib/automation/automation-cli.js status --json > reports/status-report.json",
+    "agents:list": "node src/lib/automation/automation-cli.js agents list",
+    "agents:status": "node src/lib/automation/automation-cli.js agents status",
+    "migrate:v3": "node scripts/migrate-to-v3.js",
+    "migrate:v2-to-v3": "node src/lib/migration/migrate-cli.js migrate",
+    "migrate:status": "node src/lib/migration/migrate-cli.js status",
+    "deploy:components": "node src/lib/automation/deploy-components.js",
+    "build:all": "npm run build && npm run build:power-canvas && npm run build:power-redact",
+    "build:power-canvas": "cd power-canvas && npm run build",
+    "build:power-redact": "cd power-redact && npm run build",
+    "install:all": "npm install && cd power-canvas && npm install && cd ../power-redact && npm install",
+    "postinstall": "npm run type-check && npm run lint",
+    "precommit": "npm run lint && npm run type-check && npm run test:run",
+    "prepush": "npm run verify:full && npm run test:e2e"
   },
   "keywords": [
-    "obsidian",
-    "plugin",
-    "redaction",
-    "canvas",
-    "privacy",
-    "drawing",
-    "note-taking",
-    "knowledge-management",
-    "text-processing",
-    "visualization"
+    "react",
+    "components",
+    "typescript",
+    "tailwind",
+    "automation",
+    "pow3r",
+    "v3",
+    "x-files",
+    "self-healing",
+    "constitutional-compliance"
   ],
-  "author": {
-    "name": "Memory Music LLC",
-    "email": "dev@memorymusic.com",
-    "url": "https://memorymusic.com"
-  },
+  "author": "Pow3r Team",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memorymusicllc/power.components.git"
+  },
   "bugs": {
     "url": "https://github.com/memorymusicllc/power.components/issues"
   },
-  "homepage": "https://github.com/memorymusicllc/power.components#readme",
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.40.0",
-    "@types/node": "^20.8.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "chalk": "^4.1.2",
-    "cli-table3": "^0.6.3",
-    "commander": "^11.1.0",
-    "concurrently": "^8.2.0",
-    "eslint": "^8.50.0",
-    "glob": "^10.3.10",
-    "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "ora": "^5.4.1",
-    "prettier": "^3.0.3",
-    "tsx": "^4.6.2",
-    "typescript": "^5.2.2"
-  },
+  "homepage": "https://power-components.com",
   "dependencies": {
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.1",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.16",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.545.0",
-    "obsidian": "^1.4.0",
-    "postcss": "^8.4.32",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "@vitest/ui": "^1.0.0",
+    "c8": "^8.0.1",
+    "class-variance-authority": "^0.7.0",
+    "cli-table3": "^0.6.5",
+    "clsx": "^2.0.0",
+    "commander": "^11.1.0",
+    "framer-motion": "^12.23.24",
+    "immer": "^10.1.3",
+    "lucide-react": "^0.294.0",
+    "ora": "^9.0.0",
+    "playwright": "^1.40.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-flow-renderer": "^10.3.17",
+    "react-redux": "^9.0.4",
+    "react-three-fiber": "^6.0.13",
+    "recharts": "^2.8.0",
+    "redux": "^5.0.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.3.6",
-    "vite": "^4.5.3",
-    "zustand": "^5.0.8"
+    "vitest": "^1.0.0",
+    "zustand": "^4.4.7"
   },
-  "peerDependencies": {
-    "obsidian": "^1.4.0"
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vite-plugin-dts": "^3.6.4"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "node scripts/validate-commit.js"
-    }
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   },
-  "lint-staged": {
-    "*.{ts,js}": [
-      "eslint --fix",
-      "prettier --write"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-    "*.{md,json}": [
-      "prettier --write"
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   },
-  "config": {
-    "plugins": {
-      "power-redact": {
-        "name": "Power Redact Plugin",
-        "version": "2.0.0",
-        "description": "Advanced text redaction and privacy protection",
-        "main": "main.js",
-        "manifest": "manifest.json"
-      },
-      "power-canvas": {
-        "name": "Power Canvas Plugin",
-        "version": "1.0.0",
-        "description": "Enhanced canvas functionality with advanced drawing tools",
-        "main": "main.js",
-        "manifest": "manifest.json"
-      }
-    }
-  },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/memorymusicllc"
-  },
-  "contributors": [
-    {
-      "name": "Memory Music LLC Development Team",
-      "email": "dev@memorymusic.com"
-    }
-  ],
-  "directories": {
-    "doc": "docs",
-    "test": "tests"
-  },
   "files": [
-    "power-redact/",
-    "power-canvas/",
-    "docs/",
-    "scripts/",
+    "dist",
+    "src",
     "README.md",
     "LICENSE",
-    "CHANGELOG.md"
+    "package.json"
   ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "volta": {
-    "node": "18.18.0",
-    "npm": "9.8.1"
+  "config": {
+    "pow3r": {
+      "version": "3.0.0",
+      "constitution": "pow3r.v3.law.md",
+      "automation": {
+        "enabled": true,
+        "agents": 10,
+        "monitoring": true,
+        "selfHealing": true
+      }
+    }
   }
 }

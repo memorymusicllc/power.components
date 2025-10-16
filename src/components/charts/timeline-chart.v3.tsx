@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface timeline-chartV3Props {
+export interface TimelineChartV3Props {
   // Props will be generated based on schema
 }
 
-const timeline-chartV3Component = React.forwardRef<HTMLDivElement, timeline-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const TimelineChartV3Component = React.forwardRef<HTMLDivElement, TimelineChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const timeline-chartV3Component = React.forwardRef<HTMLDivElement, timeline-char
   }
 );
 
-timeline-chartV3Component.displayName = "timeline-chartV3";
+TimelineChartV3Component.displayName = "TimelineChartV3";
 
-export const timeline-chartV3 = withErrorBoundary(withMemo(timeline-chartV3Component));
+export const TimelineChartV3 = withErrorBoundary(withMemo(TimelineChartV3Component));
 
-export default timeline-chartV3;
+export default TimelineChartV3;

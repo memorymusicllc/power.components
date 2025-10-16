@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface gantt-chartV3Props {
+export interface GanttChartV3Props {
   // Props will be generated based on schema
 }
 
-const gantt-chartV3Component = React.forwardRef<HTMLDivElement, gantt-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const GanttChartV3Component = React.forwardRef<HTMLDivElement, GanttChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const gantt-chartV3Component = React.forwardRef<HTMLDivElement, gantt-chartV3Pro
   }
 );
 
-gantt-chartV3Component.displayName = "gantt-chartV3";
+GanttChartV3Component.displayName = "GanttChartV3";
 
-export const gantt-chartV3 = withErrorBoundary(withMemo(gantt-chartV3Component));
+export const GanttChartV3 = withErrorBoundary(withMemo(GanttChartV3Component));
 
-export default gantt-chartV3;
+export default GanttChartV3;

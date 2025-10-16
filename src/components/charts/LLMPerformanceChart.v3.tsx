@@ -8,7 +8,7 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
@@ -143,8 +143,6 @@ const LLMPerformanceChartV3Component = React.forwardRef<HTMLDivElement, LLMPerfo
     const totalInteractions = useRef<number>(0);
     const tooltipShows = useRef<number>(0);
     const legendClicks = useRef<number>(0);
-    const xFiles = useXFiles();
-    
     // Performance monitoring (v3)
     useEffect(() => {
       const renderTime = Date.now() - renderStartTime.current;
@@ -455,3 +453,4 @@ export const LLMPerformanceChartV3 = withErrorBoundary(withMemo(LLMPerformanceCh
 };
 
 export default LLMPerformanceChartV3;
+

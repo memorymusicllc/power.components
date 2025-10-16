@@ -28,7 +28,10 @@
           "node-redux-ui-demo",
           "node-3d-visualization",
           "node-privacy-controls",
-          "node-ai-workflows"
+          "node-ai-workflows",
+          "node-three-layer-showcase",
+          "node-dropdown-component",
+          "node-universal-component-container"
         ]
       },
       "agentDirectives": {
@@ -675,6 +678,431 @@
           "monitoredMetrics": ["alertAccuracy", "metricLatency", "systemHealth"],
           "failureCondition": "alertAccuracy < 0.95 OR systemHealth < 0.8 for 5m",
           "repairPrompt": "Performance monitor accuracy degraded. Alert accuracy: {alertAccuracy}, System health: {systemHealth}. Review monitoring logic and thresholds."
+        }
+      }
+    },
+    {
+      "id": "node-three-layer-showcase",
+      "type": "ui.showcase",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "activeLayer", "dtype": "string", "validationRule": "isOneOf:observability,view,scene" },
+          { "name": "isAnimating", "dtype": "boolean", "validationRule": "isBoolean" }
+        ],
+        "outputs": [
+          { "name": "layerChanged", "dtype": "event" },
+          { "name": "dataUpdated", "dtype": "object" }
+        ]
+      },
+      "props": {
+        "title": "Three-Layer Showcase",
+        "description": "Demonstrates three distinct layers: Observability (real-time data), View (2D objects), and Scene (3D objects)",
+        "activeLayer": "observability",
+        "isAnimating": true,
+        "showControls": true,
+        "enableRealTimeUpdates": true,
+        "layers": [
+          {
+            "id": "observability",
+            "name": "Observability Layer",
+            "description": "Real-time data monitoring and metrics",
+            "icon": "Activity",
+            "features": ["Real-time metrics", "Health monitoring", "Event logging", "Performance tracking"]
+          },
+          {
+            "id": "view",
+            "name": "2D View Layer", 
+            "description": "Interactive 2D objects and visualizations",
+            "icon": "Eye",
+            "features": ["Network diagrams", "Interactive nodes", "Connection visualization", "Canvas rendering"]
+          },
+          {
+            "id": "scene",
+            "name": "3D Scene Layer",
+            "description": "3D objects and spatial relationships", 
+            "icon": "Cube",
+            "features": ["3D objects", "Spatial relationships", "Material properties", "Animation system"]
+          }
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "pow3r.v3.law.md",
+        "requiredTests": [
+          {
+            "description": "Verify all three layers render correctly",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Observability, View, and Scene layers all display properly"
+          },
+          {
+            "description": "Verify layer switching functionality",
+            "testType": "e2e-playwright", 
+            "expectedOutcome": "Users can switch between layers and content updates correctly"
+          },
+          {
+            "description": "Verify real-time data updates",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Observability layer shows live updating metrics"
+          },
+          {
+            "description": "Verify 2D canvas rendering",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "View layer renders interactive 2D objects on canvas"
+          },
+          {
+            "description": "Verify 3D scene rendering",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Scene layer renders 3D objects with animations"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["renderTime", "animationFPS", "dataUpdateFrequency"],
+          "failureCondition": "renderTime > 100ms OR animationFPS < 30 OR dataUpdateFrequency < 1Hz",
+          "repairPrompt": "Restart animation loop, reset data streams, or fallback to static rendering"
+        },
+        "xFilesIntegration": {
+          "enabled": true,
+          "caseFile": "three-layer-showcase-v3",
+          "monitoringLevel": "comprehensive",
+          "autoDocumentation": true
+        }
+      },
+      "observability": {
+        "metrics": {
+          "renderTime": {
+            "type": "number",
+            "unit": "ms",
+            "description": "Component render time",
+            "target": 16,
+            "threshold": 100
+          },
+          "animationFPS": {
+            "type": "number", 
+            "unit": "fps",
+            "description": "Animation frame rate",
+            "target": 60,
+            "threshold": 30
+          },
+          "dataUpdateFrequency": {
+            "type": "number",
+            "unit": "hz", 
+            "description": "Real-time data update frequency",
+            "target": 1,
+            "threshold": 0.5
+          }
+        },
+        "logging": {
+          "level": "info",
+          "events": ["layer_switch", "animation_toggle", "data_update", "error"]
+        },
+        "performance": {
+          "targetRenderTime": 16,
+          "maxMemoryUsage": 50,
+          "optimizationLevel": "high"
+        }
+      }
+    },
+    {
+      "id": "node-dropdown-component",
+      "type": "ui.dropdown",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "options", "dtype": "array", "validationRule": "isArray" },
+          { "name": "value", "dtype": "string|array", "validationRule": "isValidValue" },
+          { "name": "placeholder", "dtype": "string", "validationRule": "isString" },
+          { "name": "searchable", "dtype": "boolean", "validationRule": "isBoolean" },
+          { "name": "multiSelect", "dtype": "boolean", "validationRule": "isBoolean" },
+          { "name": "variant", "dtype": "string", "validationRule": "isOneOf:default,outline,ghost,filled" },
+          { "name": "size", "dtype": "string", "validationRule": "isOneOf:sm,md,lg" }
+        ],
+        "outputs": [
+          { "name": "onChange", "dtype": "function" },
+          { "name": "onSearch", "dtype": "function" },
+          { "name": "onLoadMore", "dtype": "function" }
+        ]
+      },
+      "props": {
+        "title": "Dropdown Component",
+        "description": "A comprehensive dropdown component with multiple variants, search, multi-select, and async loading capabilities",
+        "placeholder": "Select an option...",
+        "searchable": true,
+        "multiSelect": false,
+        "variant": "default",
+        "size": "md",
+        "showIcons": true,
+        "features": [
+          "Single and multi-select",
+          "Search functionality",
+          "Grouped options",
+          "Async loading",
+          "Keyboard navigation",
+          "Accessibility support",
+          "Multiple variants",
+          "Custom icons"
+        ],
+        "variants": [
+          {
+            "name": "default",
+            "description": "Standard dropdown with border"
+          },
+          {
+            "name": "outline",
+            "description": "Outlined dropdown with transparent background"
+          },
+          {
+            "name": "ghost",
+            "description": "Ghost dropdown with minimal styling"
+          },
+          {
+            "name": "filled",
+            "description": "Filled dropdown with background color"
+          }
+        ],
+        "sizes": [
+          {
+            "name": "sm",
+            "description": "Small size for compact layouts"
+          },
+          {
+            "name": "md",
+            "description": "Medium size for standard layouts"
+          },
+          {
+            "name": "lg",
+            "description": "Large size for prominent selections"
+          }
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "pow3r.v3.law.md",
+        "requiredTests": [
+          {
+            "description": "Verify dropdown opens and closes correctly",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Dropdown opens on click and closes on outside click or escape"
+          },
+          {
+            "description": "Verify search functionality works",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Search filters options correctly and shows results"
+          },
+          {
+            "description": "Verify multi-select functionality",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Multiple options can be selected and deselected"
+          },
+          {
+            "description": "Verify keyboard navigation",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Arrow keys navigate options, Enter selects, Escape closes"
+          },
+          {
+            "description": "Verify accessibility features",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Screen reader support and ARIA attributes work correctly"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["renderTime", "searchLatency", "optionCount"],
+          "failureCondition": "renderTime > 50ms OR searchLatency > 500ms OR optionCount > 1000",
+          "repairPrompt": "Dropdown performance degraded. Render time: {renderTime}ms, Search latency: {searchLatency}ms, Options: {optionCount}. Optimize rendering or implement virtualization."
+        },
+        "xFilesIntegration": {
+          "enabled": true,
+          "caseFile": "dropdown-v3",
+          "monitoringLevel": "comprehensive",
+          "autoDocumentation": true
+        }
+      },
+      "observability": {
+        "metrics": {
+          "renderTime": {
+            "type": "number",
+            "unit": "ms",
+            "description": "Component render time",
+            "target": 16,
+            "threshold": 50
+          },
+          "searchLatency": {
+            "type": "number",
+            "unit": "ms",
+            "description": "Search response time",
+            "target": 100,
+            "threshold": 500
+          },
+          "optionCount": {
+            "type": "number",
+            "unit": "count",
+            "description": "Number of options rendered",
+            "target": 50,
+            "threshold": 1000
+          }
+        },
+        "logging": {
+          "level": "info",
+          "events": ["selection_change", "search_query", "dropdown_open", "dropdown_close", "error"]
+        },
+        "performance": {
+          "targetRenderTime": 16,
+          "maxMemoryUsage": 25,
+          "optimizationLevel": "high"
+        }
+      }
+    },
+    {
+      "id": "node-universal-component-container",
+      "type": "universal.container",
+      "version": "3.0.0",
+      "io": {
+        "inputs": [
+          { "name": "activeComponentId", "dtype": "string", "validationRule": "isValidComponentId" },
+          { "name": "componentData", "dtype": "object", "validationRule": "isObject" },
+          { "name": "isExpanded", "dtype": "boolean", "validationRule": "isBoolean" },
+          { "name": "viewMode", "dtype": "string", "validationRule": "isOneOf:grid,list" },
+          { "name": "autoRotate", "dtype": "boolean", "validationRule": "isBoolean" },
+          { "name": "rotationSpeed", "dtype": "number", "validationRule": "isNumber" }
+        ],
+        "outputs": [
+          { "name": "onComponentChange", "dtype": "function" },
+          { "name": "onDataUpdate", "dtype": "function" },
+          { "name": "onStateChange", "dtype": "function" }
+        ]
+      },
+      "props": {
+        "title": "Universal Component Container",
+        "description": "A single container that can morph into any of 52 component types by switching data. Eliminates the need for 52 separate components and provides a unified interface.",
+        "activeComponentId": "dashboard",
+        "componentData": {},
+        "isExpanded": false,
+        "viewMode": "grid",
+        "autoRotate": false,
+        "rotationSpeed": 3000,
+        "totalComponents": 52,
+        "categories": [
+          {
+            "name": "Dashboard",
+            "count": 8,
+            "components": ["dashboard", "analytics", "monitoring", "workflow", "database", "server", "cloud", "security"]
+          },
+          {
+            "name": "UI",
+            "count": 12,
+            "components": ["button", "dropdown", "input", "toggle", "slider", "checkbox", "radio", "select", "textarea", "modal", "tooltip", "popover"]
+          },
+          {
+            "name": "Data",
+            "count": 8,
+            "components": ["table", "list", "grid", "card", "accordion", "tabs", "stepper", "breadcrumb"]
+          },
+          {
+            "name": "Media",
+            "count": 6,
+            "components": ["image", "video", "audio", "gallery", "carousel", "lightbox"]
+          },
+          {
+            "name": "Navigation",
+            "count": 6,
+            "components": ["navbar", "sidebar", "menu", "pagination", "steps", "anchor"]
+          },
+          {
+            "name": "Form",
+            "count": 8,
+            "components": ["form", "field", "validation", "upload", "datepicker", "timepicker", "colorpicker", "rating"]
+          },
+          {
+            "name": "Layout",
+            "count": 4,
+            "components": ["container", "flex", "grid", "spacer"]
+          }
+        ],
+        "features": [
+          "52 Component Types",
+          "State Toggle Interface",
+          "Auto-Rotation Mode",
+          "Component Morphing",
+          "Unified Data Interface",
+          "Performance Optimized",
+          "Accessibility Support",
+          "Constitutional Compliance"
+        ]
+      },
+      "agentDirectives": {
+        "constitutionRef": "pow3r.v3.law.md",
+        "requiredTests": [
+          {
+            "description": "Verify all 52 components can be rendered",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "All component types render correctly when selected"
+          },
+          {
+            "description": "Verify component switching functionality",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Components switch smoothly between different types"
+          },
+          {
+            "description": "Verify auto-rotation feature",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Auto-rotation cycles through all components at specified speed"
+          },
+          {
+            "description": "Verify state persistence",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Component state persists across switches and rotations"
+          },
+          {
+            "description": "Verify performance with all components",
+            "testType": "e2e-playwright",
+            "expectedOutcome": "Container maintains performance with all 52 component types"
+          }
+        ],
+        "selfHealing": {
+          "enabled": true,
+          "monitoredMetrics": ["renderTime", "componentSwitchTime", "activeComponentCount"],
+          "failureCondition": "renderTime > 50ms OR componentSwitchTime > 500ms OR activeComponentCount > 52",
+          "repairPrompt": "Universal container performance degraded. Render time: {renderTime}ms, Switch time: {componentSwitchTime}ms, Components: {activeComponentCount}. Optimize rendering or implement component caching."
+        },
+        "xFilesIntegration": {
+          "enabled": true,
+          "caseFile": "universal-component-container-v3",
+          "monitoringLevel": "comprehensive",
+          "autoDocumentation": true
+        }
+      },
+      "observability": {
+        "metrics": {
+          "renderTime": {
+            "type": "number",
+            "unit": "ms",
+            "description": "Component render time",
+            "target": 16,
+            "threshold": 50
+          },
+          "componentSwitchTime": {
+            "type": "number",
+            "unit": "ms",
+            "description": "Time to switch between components",
+            "target": 100,
+            "threshold": 500
+          },
+          "activeComponentCount": {
+            "type": "number",
+            "unit": "count",
+            "description": "Number of components rendered",
+            "target": 1,
+            "threshold": 52
+          }
+        },
+        "logging": {
+          "level": "info",
+          "events": ["component_switch", "data_update", "state_change", "auto_rotation", "error"]
+        },
+        "performance": {
+          "targetRenderTime": 16,
+          "maxMemoryUsage": 100,
+          "optimizationLevel": "high"
         }
       }
     }

@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface llm-performance-chartV3Props {
+export interface LlmPerformanceChartV3Props {
   // Props will be generated based on schema
 }
 
-const llm-performance-chartV3Component = React.forwardRef<HTMLDivElement, llm-performance-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const LlmPerformanceChartV3Component = React.forwardRef<HTMLDivElement, LlmPerformanceChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const llm-performance-chartV3Component = React.forwardRef<HTMLDivElement, llm-pe
   }
 );
 
-llm-performance-chartV3Component.displayName = "llm-performance-chartV3";
+LlmPerformanceChartV3Component.displayName = "LlmPerformanceChartV3";
 
-export const llm-performance-chartV3 = withErrorBoundary(withMemo(llm-performance-chartV3Component));
+export const LlmPerformanceChartV3 = withErrorBoundary(withMemo(LlmPerformanceChartV3Component));
 
-export default llm-performance-chartV3;
+export default LlmPerformanceChartV3;

@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface latency-distribution-chartV3Props {
+export interface LatencyDistributionChartV3Props {
   // Props will be generated based on schema
 }
 
-const latency-distribution-chartV3Component = React.forwardRef<HTMLDivElement, latency-distribution-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const LatencyDistributionChartV3Component = React.forwardRef<HTMLDivElement, LatencyDistributionChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const latency-distribution-chartV3Component = React.forwardRef<HTMLDivElement, l
   }
 );
 
-latency-distribution-chartV3Component.displayName = "latency-distribution-chartV3";
+LatencyDistributionChartV3Component.displayName = "LatencyDistributionChartV3";
 
-export const latency-distribution-chartV3 = withErrorBoundary(withMemo(latency-distribution-chartV3Component));
+export const LatencyDistributionChartV3 = withErrorBoundary(withMemo(LatencyDistributionChartV3Component));
 
-export default latency-distribution-chartV3;
+export default LatencyDistributionChartV3;

@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface cost-analysis-chartV3Props {
+export interface CostAnalysisChartV3Props {
   // Props will be generated based on schema
 }
 
-const cost-analysis-chartV3Component = React.forwardRef<HTMLDivElement, cost-analysis-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const CostAnalysisChartV3Component = React.forwardRef<HTMLDivElement, CostAnalysisChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const cost-analysis-chartV3Component = React.forwardRef<HTMLDivElement, cost-ana
   }
 );
 
-cost-analysis-chartV3Component.displayName = "cost-analysis-chartV3";
+CostAnalysisChartV3Component.displayName = "CostAnalysisChartV3";
 
-export const cost-analysis-chartV3 = withErrorBoundary(withMemo(cost-analysis-chartV3Component));
+export const CostAnalysisChartV3 = withErrorBoundary(withMemo(CostAnalysisChartV3Component));
 
-export default cost-analysis-chartV3;
+export default CostAnalysisChartV3;

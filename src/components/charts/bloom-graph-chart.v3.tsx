@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface bloom-graph-chartV3Props {
+export interface BloomGraphChartV3Props {
   // Props will be generated based on schema
 }
 
-const bloom-graph-chartV3Component = React.forwardRef<HTMLDivElement, bloom-graph-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const BloomGraphChartV3Component = React.forwardRef<HTMLDivElement, BloomGraphChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const bloom-graph-chartV3Component = React.forwardRef<HTMLDivElement, bloom-grap
   }
 );
 
-bloom-graph-chartV3Component.displayName = "bloom-graph-chartV3";
+BloomGraphChartV3Component.displayName = "BloomGraphChartV3";
 
-export const bloom-graph-chartV3 = withErrorBoundary(withMemo(bloom-graph-chartV3Component));
+export const BloomGraphChartV3 = withErrorBoundary(withMemo(BloomGraphChartV3Component));
 
-export default bloom-graph-chartV3;
+export default BloomGraphChartV3;

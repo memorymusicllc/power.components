@@ -1,0 +1,355 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2025-01-11T00:00:00.000Z",
+  "nodes": [
+    {
+      "id": "director-abi",
+      "type": "agent",
+      "name": "Director Abi",
+      "status": "completed",
+      "dependencies": [],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 50,
+          "memoryUsage": 25,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "agent-manager",
+      "type": "system",
+      "name": "Agent Manager",
+      "status": "completed",
+      "dependencies": ["director-abi"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 100,
+          "memoryUsage": 50,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "chat-analysis-agent",
+      "type": "agent",
+      "name": "Chat Analysis Agent",
+      "status": "completed",
+      "dependencies": ["agent-manager"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 200,
+          "memoryUsage": 30,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "verification-agent",
+      "type": "agent",
+      "name": "Verification Agent",
+      "status": "completed",
+      "dependencies": ["agent-manager"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 150,
+          "memoryUsage": 40,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "github-agent",
+      "type": "agent",
+      "name": "GitHub Agent",
+      "status": "completed",
+      "dependencies": ["agent-manager"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 300,
+          "memoryUsage": 20,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "deployment-agent",
+      "type": "agent",
+      "name": "Deployment Agent",
+      "status": "completed",
+      "dependencies": ["github-agent"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 500,
+          "memoryUsage": 60,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "documentation-agent",
+      "type": "agent",
+      "name": "Documentation Agent",
+      "status": "completed",
+      "dependencies": ["agent-manager"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 250,
+          "memoryUsage": 35,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "testing-agent",
+      "type": "agent",
+      "name": "Testing Agent",
+      "status": "completed",
+      "dependencies": ["agent-manager"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 400,
+          "memoryUsage": 45,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "ateam-dashboard",
+      "type": "component",
+      "name": "A-TEAM Dashboard",
+      "status": "completed",
+      "dependencies": ["agent-manager"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 100,
+          "memoryUsage": 15,
+          "errorRate": 0
+        }
+      }
+    },
+    {
+      "id": "ateam-cli",
+      "type": "component",
+      "name": "A-TEAM CLI",
+      "status": "completed",
+      "dependencies": ["agent-manager"],
+      "metadata": {
+        "version": "3.0.0",
+        "lastModified": "2025-01-11T00:00:00.000Z",
+        "health": "healthy",
+        "compliance": "compliant",
+        "tests": {
+          "unit": 100,
+          "integration": 100,
+          "e2e": 100
+        },
+        "performance": {
+          "renderTime": 50,
+          "memoryUsage": 10,
+          "errorRate": 0
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "director-abi",
+      "to": "agent-manager",
+      "type": "control_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 10,
+        "reliability": 100,
+        "throughput": 1000
+      }
+    },
+    {
+      "from": "agent-manager",
+      "to": "chat-analysis-agent",
+      "type": "control_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 5,
+        "reliability": 100,
+        "throughput": 500
+      }
+    },
+    {
+      "from": "agent-manager",
+      "to": "verification-agent",
+      "type": "control_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 5,
+        "reliability": 100,
+        "throughput": 500
+      }
+    },
+    {
+      "from": "agent-manager",
+      "to": "github-agent",
+      "type": "control_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 5,
+        "reliability": 100,
+        "throughput": 500
+      }
+    },
+    {
+      "from": "agent-manager",
+      "to": "deployment-agent",
+      "type": "control_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 5,
+        "reliability": 100,
+        "throughput": 500
+      }
+    },
+    {
+      "from": "agent-manager",
+      "to": "documentation-agent",
+      "type": "control_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 5,
+        "reliability": 100,
+        "throughput": 500
+      }
+    },
+    {
+      "from": "agent-manager",
+      "to": "testing-agent",
+      "type": "control_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 5,
+        "reliability": 100,
+        "throughput": 500
+      }
+    },
+    {
+      "from": "github-agent",
+      "to": "deployment-agent",
+      "type": "data_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 100,
+        "reliability": 100,
+        "throughput": 100
+      }
+    },
+    {
+      "from": "agent-manager",
+      "to": "ateam-dashboard",
+      "type": "data_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 10,
+        "reliability": 100,
+        "throughput": 1000
+      }
+    },
+    {
+      "from": "agent-manager",
+      "to": "ateam-cli",
+      "type": "data_flow",
+      "status": "active",
+      "metadata": {
+        "latency": 5,
+        "reliability": 100,
+        "throughput": 1000
+      }
+    }
+  ],
+  "metadata": {
+    "totalComponents": 10,
+    "completedComponents": 10,
+    "failedComponents": 0,
+    "overallHealth": "healthy",
+    "constitutionalCompliance": 100
+  }
+}

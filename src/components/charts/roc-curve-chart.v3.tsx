@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface roc-curve-chartV3Props {
+export interface RocCurveChartV3Props {
   // Props will be generated based on schema
 }
 
-const roc-curve-chartV3Component = React.forwardRef<HTMLDivElement, roc-curve-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const RocCurveChartV3Component = React.forwardRef<HTMLDivElement, RocCurveChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const roc-curve-chartV3Component = React.forwardRef<HTMLDivElement, roc-curve-ch
   }
 );
 
-roc-curve-chartV3Component.displayName = "roc-curve-chartV3";
+RocCurveChartV3Component.displayName = "RocCurveChartV3";
 
-export const roc-curve-chartV3 = withErrorBoundary(withMemo(roc-curve-chartV3Component));
+export const RocCurveChartV3 = withErrorBoundary(withMemo(RocCurveChartV3Component));
 
-export default roc-curve-chartV3;
+export default RocCurveChartV3;

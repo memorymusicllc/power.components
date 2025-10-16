@@ -1,0 +1,216 @@
+{
+  "id": "universal-component-container-v3",
+  "type": "universal.container",
+  "version": "3.0.0",
+  "name": "Universal Component Container",
+  "description": "A single container that can morph into any of 52 component types by switching data. Eliminates the need for 52 separate components and provides a unified interface.",
+  "category": "universal",
+  "tags": ["universal", "container", "morphing", "52-components", "state-toggle", "unified-interface"],
+  "io": {
+    "inputs": {
+      "activeComponentId": {
+        "type": "string",
+        "description": "Currently active component type ID",
+        "default": "dashboard"
+      },
+      "componentData": {
+        "type": "object",
+        "description": "Data for each component type",
+        "default": {}
+      },
+      "isExpanded": {
+        "type": "boolean",
+        "description": "Whether component selector is expanded",
+        "default": false
+      },
+      "viewMode": {
+        "type": "string",
+        "enum": ["grid", "list"],
+        "description": "View mode for component selector",
+        "default": "grid"
+      },
+      "autoRotate": {
+        "type": "boolean",
+        "description": "Enable automatic component rotation",
+        "default": false
+      },
+      "rotationSpeed": {
+        "type": "number",
+        "description": "Speed of auto-rotation in milliseconds",
+        "default": 3000
+      }
+    },
+    "outputs": {
+      "onComponentChange": {
+        "type": "function",
+        "description": "Called when active component changes"
+      },
+      "onDataUpdate": {
+        "type": "function",
+        "description": "Called when component data is updated"
+      },
+      "onStateChange": {
+        "type": "function",
+        "description": "Called when container state changes"
+      }
+    }
+  },
+  "observability": {
+    "metrics": {
+      "renderTime": {
+        "type": "number",
+        "unit": "ms",
+        "description": "Component render time",
+        "target": 16,
+        "threshold": 50
+      },
+      "componentSwitchTime": {
+        "type": "number",
+        "unit": "ms",
+        "description": "Time to switch between components",
+        "target": 100,
+        "threshold": 500
+      },
+      "activeComponentCount": {
+        "type": "number",
+        "unit": "count",
+        "description": "Number of components rendered",
+        "target": 1,
+        "threshold": 52
+      }
+    },
+    "logging": {
+      "level": "info",
+      "events": ["component_switch", "data_update", "state_change", "auto_rotation", "error"]
+    },
+    "performance": {
+      "targetRenderTime": 16,
+      "maxMemoryUsage": 100,
+      "optimizationLevel": "high"
+    }
+  },
+  "props": {
+    "defaultValues": {
+      "activeComponentId": "dashboard",
+      "componentData": {},
+      "isExpanded": false,
+      "viewMode": "grid",
+      "autoRotate": false,
+      "rotationSpeed": 3000
+    },
+    "accessibility": {
+      "ariaLabel": "Universal component container with 52 component types",
+      "keyboardNavigation": true,
+      "screenReaderSupport": true,
+      "highContrast": true,
+      "ariaExpanded": true,
+      "ariaLive": "polite"
+    },
+    "performance": {
+      "lazyLoading": true,
+      "virtualization": true,
+      "memoization": true,
+      "debounceUpdates": true,
+      "componentCaching": true
+    }
+  },
+  "agentDirectives": {
+    "constitution": "pow3r.v3.law.md",
+    "requiredTests": [
+      "unit",
+      "integration",
+      "accessibility",
+      "performance",
+      "visual-regression",
+      "component-morphing"
+    ],
+    "selfHealing": {
+      "enabled": true,
+      "autoRecovery": true,
+      "errorThreshold": 0.05,
+      "recoveryActions": [
+        "reset_component",
+        "fallback_render",
+        "clear_cache",
+        "restart_container"
+      ]
+    },
+    "xFilesIntegration": {
+      "enabled": true,
+      "caseFile": "universal-component-container-v3",
+      "monitoringLevel": "comprehensive",
+      "autoDocumentation": true
+    }
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "lucide-react": "^0.263.1"
+  },
+  "compatibility": {
+    "react": ">=18.0.0",
+    "browsers": ["chrome", "firefox", "safari", "edge"],
+    "devices": ["desktop", "tablet", "mobile"]
+  },
+  "documentation": {
+    "usage": "Import and use UniversalComponentContainerV3 to display any of 52 component types with a unified interface",
+    "examples": [
+      "Basic usage with component selector",
+      "Auto-rotation through all components",
+      "Custom component data injection",
+      "State management and persistence"
+    ],
+    "api": {
+      "props": {
+        "activeComponentId": "Controls which component type is currently displayed",
+        "componentData": "Data object for each component type",
+        "autoRotate": "Enables automatic rotation through components",
+        "rotationSpeed": "Controls speed of auto-rotation"
+      },
+      "methods": {
+        "switchComponent": "Programmatically switch to a specific component",
+        "updateComponentData": "Update data for a specific component type",
+        "toggleAutoRotate": "Start or stop auto-rotation"
+      }
+    }
+  },
+  "componentRegistry": {
+    "totalComponents": 52,
+    "categories": [
+      {
+        "name": "Dashboard",
+        "count": 8,
+        "components": ["dashboard", "analytics", "monitoring", "workflow", "database", "server", "cloud", "security"]
+      },
+      {
+        "name": "UI",
+        "count": 12,
+        "components": ["button", "dropdown", "input", "toggle", "slider", "checkbox", "radio", "select", "textarea", "modal", "tooltip", "popover"]
+      },
+      {
+        "name": "Data",
+        "count": 8,
+        "components": ["table", "list", "grid", "card", "accordion", "tabs", "stepper", "breadcrumb"]
+      },
+      {
+        "name": "Media",
+        "count": 6,
+        "components": ["image", "video", "audio", "gallery", "carousel", "lightbox"]
+      },
+      {
+        "name": "Navigation",
+        "count": 6,
+        "components": ["navbar", "sidebar", "menu", "pagination", "steps", "anchor"]
+      },
+      {
+        "name": "Form",
+        "count": 8,
+        "components": ["form", "field", "validation", "upload", "datepicker", "timepicker", "colorpicker", "rating"]
+      },
+      {
+        "name": "Layout",
+        "count": 4,
+        "components": ["container", "flex", "grid", "spacer"]
+      }
+    ]
+  }
+}

@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface token-usage-chartV3Props {
+export interface TokenUsageChartV3Props {
   // Props will be generated based on schema
 }
 
-const token-usage-chartV3Component = React.forwardRef<HTMLDivElement, token-usage-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const TokenUsageChartV3Component = React.forwardRef<HTMLDivElement, TokenUsageChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const token-usage-chartV3Component = React.forwardRef<HTMLDivElement, token-usag
   }
 );
 
-token-usage-chartV3Component.displayName = "token-usage-chartV3";
+TokenUsageChartV3Component.displayName = "TokenUsageChartV3";
 
-export const token-usage-chartV3 = withErrorBoundary(withMemo(token-usage-chartV3Component));
+export const TokenUsageChartV3 = withErrorBoundary(withMemo(TokenUsageChartV3Component));
 
-export default token-usage-chartV3;
+export default TokenUsageChartV3;

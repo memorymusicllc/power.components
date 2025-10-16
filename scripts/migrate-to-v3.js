@@ -456,3 +456,4 @@ if (require.main === module) {
 }
 
 module.exports = V3MigrationEngine;
+

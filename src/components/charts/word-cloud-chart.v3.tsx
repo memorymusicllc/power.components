@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface word-cloud-chartV3Props {
+export interface WordCloudChartV3Props {
   // Props will be generated based on schema
 }
 
-const word-cloud-chartV3Component = React.forwardRef<HTMLDivElement, word-cloud-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const WordCloudChartV3Component = React.forwardRef<HTMLDivElement, WordCloudChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const word-cloud-chartV3Component = React.forwardRef<HTMLDivElement, word-cloud-
   }
 );
 
-word-cloud-chartV3Component.displayName = "word-cloud-chartV3";
+WordCloudChartV3Component.displayName = "WordCloudChartV3";
 
-export const word-cloud-chartV3 = withErrorBoundary(withMemo(word-cloud-chartV3Component));
+export const WordCloudChartV3 = withErrorBoundary(withMemo(WordCloudChartV3Component));
 
-export default word-cloud-chartV3;
+export default WordCloudChartV3;

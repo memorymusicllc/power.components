@@ -8,20 +8,18 @@
  * @constitution https://github.com/memorymusicllc/power.components/blob/main/pow3r.v3.law.md
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { withErrorBoundary } from '@/lib/design-system/error-boundary';
 import { withMemo } from '@/lib/design-system/performance';
 import { useXFiles } from '@/lib/x-files-system';
 
 // Schema-driven interface derived from pow3r.v3.config.json
-export interface network-graph-chartV3Props {
+export interface NetworkGraphChartV3Props {
   // Props will be generated based on schema
 }
 
-const network-graph-chartV3Component = React.forwardRef<HTMLDivElement, network-graph-chartV3Props>(
-  (props, ref) => {
-    const xFiles = useXFiles();
-    
+const NetworkGraphChartV3Component = React.forwardRef<HTMLDivElement, NetworkGraphChartV3Props>(
+  (_, ref) => {
     // Component implementation will be generated based on original component
     // and enhanced with v3 features
     
@@ -33,8 +31,8 @@ const network-graph-chartV3Component = React.forwardRef<HTMLDivElement, network-
   }
 );
 
-network-graph-chartV3Component.displayName = "network-graph-chartV3";
+NetworkGraphChartV3Component.displayName = "NetworkGraphChartV3";
 
-export const network-graph-chartV3 = withErrorBoundary(withMemo(network-graph-chartV3Component));
+export const NetworkGraphChartV3 = withErrorBoundary(withMemo(NetworkGraphChartV3Component));
 
-export default network-graph-chartV3;
+export default NetworkGraphChartV3;
