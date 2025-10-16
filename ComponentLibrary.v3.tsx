@@ -53,7 +53,7 @@ import LeadMonitorV3 from './src/components/dashboard/LeadMonitor.v3'
 import ThreeLayerShowcaseV3 from './src/components/showcase/ThreeLayerShowcase.v3'
 import { DropdownDemo } from './src/components/ui/Dropdown.v3'
 import UniversalComponentContainerV3 from './src/components/universal/UniversalComponentContainer.v3'
-import ObservabilityDashboard from './src/components/observability/ObservabilityDashboard.v3'
+// import ObservabilityDashboard from './src/components/observability/ObservabilityDashboard.v3'
 
 // Import v3 data configuration
 import v3Data from './pow3r.v3.data.json'
@@ -176,7 +176,7 @@ const V3DashboardNode: React.FC<{ node: V3Node }> = ({ node }) => {
       'Three-Layer Showcase': ThreeLayerShowcaseV3,
       'Dropdown Component': DropdownDemo,
       'Universal Component Container': UniversalComponentContainerV3,
-      'Observability Dashboard': ObservabilityDashboard,
+      // 'Observability Dashboard': ObservabilityDashboard,
     }
 
     // Try to find component by node ID first, then by title
@@ -534,17 +534,17 @@ export default function ComponentLibraryV3() {
           health: 'healthy' as const,
           lastUpdated: new Date().toISOString()
         },
-        {
-          id: 'observability-dashboard-v3',
-          name: 'Observability Dashboard v3',
-          category: 'Monitoring',
-          version: '3.0.0',
-          status: 'active' as const,
-          performance: { renderTime: 15, errorRate: 0.001, accessibilityScore: 0.99 },
-          constitutionalCompliance: 100,
-          health: 'healthy' as const,
-          lastUpdated: new Date().toISOString()
-        }
+        // {
+        //   id: 'observability-dashboard-v3',
+        //   name: 'Observability Dashboard v3',
+        //   category: 'Monitoring',
+        //   version: '3.0.0',
+        //   status: 'active' as const,
+        //   performance: { renderTime: 15, errorRate: 0.001, accessibilityScore: 0.99 },
+        //   constitutionalCompliance: 100,
+        //   health: 'healthy' as const,
+        //   lastUpdated: new Date().toISOString()
+        // }
       ];
       
       components.forEach(component => {
