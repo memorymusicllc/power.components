@@ -462,8 +462,14 @@ const Visualization3D: React.FC = () => {
 export default function ComponentLibraryV3() {
   // Initialize Zustand store and add components
   useEffect(() => {
-    // Initialize store first
-    initializeComponentStore();
+    // Initialize store with delay to ensure it's ready
+    const initTimer = setTimeout(() => {
+      try {
+        initializeComponentStore();
+      } catch (error) {
+        console.error('Failed to initialize component store:', error);
+      }
+    }, 100);
     
     // Add all components to the store after a brief delay to ensure store is ready
     const timer = setTimeout(() => {
@@ -552,7 +558,10 @@ export default function ComponentLibraryV3() {
       });
     }, 100);
     
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(initTimer);
+      clearTimeout(timer);
+    };
   }, [initializeComponentStore, addComponent]);
 
   // Get state from Zustand store

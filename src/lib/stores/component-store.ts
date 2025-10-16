@@ -456,7 +456,15 @@ export const useComponentActions = () => {
 
 // Initialize store with v.3 components
 export const initializeComponentStore = () => {
-  const { addComponent } = useComponentStore.getState();
+  try {
+    const state = useComponentStore.getState();
+    if (!state || !state.addComponent) {
+      console.warn('Component store not ready, retrying...');
+      setTimeout(initializeComponentStore, 100);
+      return;
+    }
+    
+    const { addComponent } = state;
   
   // Add v.3 components from the data
   const v3Components: ComponentMetadata[] = [
@@ -537,13 +545,20 @@ export const initializeComponentStore = () => {
     }
   ];
   
-  // Add all v.3 components to the store
-  v3Components.forEach(component => {
-    addComponent(component);
-  });
-  
-  // Update system metrics
-  useComponentStore.getState().updateSystemMetrics();
+    // Add all v.3 components to the store
+    v3Components.forEach(component => {
+      addComponent(component);
+    });
+    
+    // Update system metrics
+    useComponentStore.getState().updateSystemMetrics();
+    
+    console.log('✅ Component Store initialized successfully');
+  } catch (error) {
+    console.error('Failed to initialize component store:', error);
+    // Retry after a delay
+    setTimeout(initializeComponentStore, 500);
+  }
 };
 
 export default useComponentStore;
