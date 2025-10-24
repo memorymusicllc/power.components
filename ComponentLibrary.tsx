@@ -8,13 +8,14 @@
 
 import React, { useState } from 'react'
 
-// Import both versions
+// Import all versions
 import ComponentLibraryV2 from './ComponentLibrary.v2'
 import ComponentLibraryV3 from './ComponentLibrary.v3'
+import ComponentLibraryV4 from './ComponentLibrary.v4'
 
 // Version Router Component
 const VersionRouter: React.FC = () => {
-  const [version, setVersion] = useState<'v2' | 'v3'>('v3')
+  const [version, setVersion] = useState<'v2' | 'v3' | 'v4'>('v4')
   const [showVersionSelector, setShowVersionSelector] = useState(false)
 
   const VersionSelector = () => (
@@ -47,8 +48,22 @@ const VersionRouter: React.FC = () => {
                 : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
             }`}
           >
-            <div className="font-medium">v3.0.0 (Latest)</div>
+            <div className="font-medium">v3.0.0 (AI-Driven)</div>
             <div className="text-xs opacity-75">AI-driven transformation engine</div>
+          </button>
+          <button
+            onClick={() => {
+              setVersion('v4')
+              setShowVersionSelector(false)
+            }}
+            className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+              version === 'v4'
+                ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300'
+                : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
+            }`}
+          >
+            <div className="font-medium">v4.0.0 (Enhanced)</div>
+            <div className="text-xs opacity-75">139 components with outline theme</div>
           </button>
         </div>
       </div>
@@ -77,7 +92,9 @@ const VersionRouter: React.FC = () => {
       )}
 
       {/* Render Selected Version */}
-      {version === 'v2' ? <ComponentLibraryV2 /> : <ComponentLibraryV3 />}
+      {version === 'v2' && <ComponentLibraryV2 />}
+      {version === 'v3' && <ComponentLibraryV3 />}
+      {version === 'v4' && <ComponentLibraryV4 />}
     </>
   )
 }

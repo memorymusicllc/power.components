@@ -1,0 +1,119 @@
+{
+  "id": "workflows-workflowstep",
+  "type": "ReactComponent",
+  "version": "3.0.0",
+  "io": {
+    "inputs": [
+      {
+        "name": "variant",
+        "dtype": "string",
+        "validationRule": "isOneOf:default,outline,ghost,filled",
+        "defaultValue": "default",
+        "description": "Component variant style"
+      },
+      {
+        "name": "size",
+        "dtype": "string",
+        "validationRule": "isOneOf:sm,md,lg",
+        "defaultValue": "md",
+        "description": "Component size"
+      },
+      {
+        "name": "theme",
+        "dtype": "string",
+        "validationRule": "isOneOf:light,dark,auto",
+        "defaultValue": "auto",
+        "description": "Theme mode"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "onClick",
+        "dtype": "function",
+        "description": "Click event handler"
+      },
+      {
+        "name": "onChange",
+        "dtype": "function",
+        "description": "Change event handler"
+      }
+    ]
+  },
+  "observability": {
+    "metrics": [
+      "renderTime",
+      "errorRate",
+      "accessibilityScore",
+      "userInteraction"
+    ],
+    "logging": {
+      "level": "info",
+      "enabled": true
+    },
+    "performance": {
+      "maxRenderTime": 100,
+      "memoryThreshold": 50
+    }
+  },
+  "props": {
+    "defaultValues": {
+      "variant": "default",
+      "size": "md",
+      "theme": "auto"
+    },
+    "accessibility": {
+      "ariaLabel": "required",
+      "keyboardNavigation": "enabled",
+      "screenReader": "supported"
+    },
+    "performance": {
+      "memoization": true,
+      "lazyLoading": false,
+      "virtualization": false
+    }
+  },
+  "agentDirectives": {
+    "constitutionRef": "https://github.com/memorymusicllc/power.components/blob/main/.cursor/Project%20Constitution.md#article-iv",
+    "requiredTests": [
+      {
+        "description": "Verify WorkflowStep renders with default props",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "WorkflowStep renders correctly with default styling",
+        "priority": "high"
+      },
+      {
+        "description": "Verify WorkflowStep supports outline theme",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "WorkflowStep applies outline theme styling correctly",
+        "priority": "high"
+      },
+      {
+        "description": "Verify WorkflowStep accessibility features",
+        "testType": "e2e-playwright",
+        "expectedOutcome": "WorkflowStep meets WCAG 2.1 AA accessibility standards",
+        "priority": "critical"
+      }
+    ],
+    "selfHealing": {
+      "enabled": true,
+      "monitoredMetrics": [
+        "renderTime",
+        "errorRate",
+        "accessibilityScore"
+      ],
+      "failureCondition": "renderTime > 100ms OR errorRate > 0.05 for 5m",
+      "repairPrompt": "WorkflowStep component performance degraded. Render time: {renderTime}ms, Error rate: {errorRate}. Optimize component rendering and error handling.",
+      "repairTimeout": 300
+    },
+    "xFiles": {
+      "enabled": true,
+      "triggerPosition": "bottom-right",
+      "caseTypes": [
+        "BugReport",
+        "FeatureRequest",
+        "PerformanceIssue",
+        "AccessibilityIssue"
+      ]
+    }
+  }
+}

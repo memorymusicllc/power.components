@@ -7,6 +7,9 @@ export { default as ComponentLibrary } from '../ComponentLibrary'
 // Component Library Types
 export type { ComponentMetadata } from '../ComponentLibrary'
 
+// Legacy Components - Older Theme Style
+export * from './components/legacy'
+
 // Re-export commonly used utilities
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
