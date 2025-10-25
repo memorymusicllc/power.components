@@ -32,42 +32,10 @@ import {
   Activity
 } from 'lucide-react';
 import { ThemeProvider, useTheme, ThemeSelector } from '../lib/themes/ThemeProvider';
+import { componentData } from '../lib/component-types';
 
-// Component categories from COMPONENT_INVENTORY.md
-const componentCategories = {
-  dashboard: { name: 'Dashboard', icon: Monitor, count: 19, color: 'blue' },
-  charts: { name: 'Charts', icon: BarChart3, count: 22, color: 'green' },
-  workflows: { name: 'Workflows', icon: Settings, count: 10, color: 'purple' },
-  search: { name: 'Search', icon: Search, count: 5, color: 'orange' },
-  ui: { name: 'UI Components', icon: Layers, count: 52, color: 'gray' },
-  'redux-ui': { name: 'Redux UI', icon: Zap, count: 13, color: 'red' },
-  pow3r: { name: 'Pow3r', icon: Shield, count: 5, color: 'indigo' },
-  features: { name: 'Features', icon: Activity, count: 13, color: 'pink' }
-};
-
-// Sample component data (in a real app, this would come from the actual components)
-const sampleComponents = [
-  // Dashboard Components
-  { id: 'admin-panel', name: 'AdminPanel', category: 'dashboard', description: 'System administration and oversight', tags: ['admin', 'management', 'system'], version: '1.0.0' },
-  { id: 'ai-response-system', name: 'AIResponseSystem', category: 'dashboard', description: 'AI-powered auto-responses and templates', tags: ['ai', 'automation', 'phase2'], version: '2.0.0' },
-  { id: 'analytics-dashboard', name: 'AnalyticsDashboard', category: 'dashboard', description: 'Analytics and metrics visualization', tags: ['analytics', 'metrics', 'phase2'], version: '1.0.0' },
-  
-  // Chart Components
-  { id: 'leads-chart', name: 'LeadsChart', category: 'charts', description: 'Lead pipeline pie chart', tags: ['chart', 'leads', 'analytics'], version: '2.0.0' },
-  { id: 'bloom-graph-chart', name: 'BloomGraphChart', category: 'charts', description: 'Bloom filter visualization', tags: ['chart', 'visualization'], version: '1.0.0' },
-  { id: 'confusion-matrix-chart', name: 'ConfusionMatrixChart', category: 'charts', description: 'ML confusion matrix', tags: ['chart', 'ml', 'analytics'], version: '1.0.0' },
-  
-  // UI Components
-  { id: 'button', name: 'Button', category: 'ui', description: 'Interactive button component', tags: ['ui', 'interactive', 'button'], version: '1.0.0' },
-  { id: 'card', name: 'Card', category: 'ui', description: 'Content container card', tags: ['ui', 'container', 'card'], version: '1.0.0' },
-  { id: 'input', name: 'Input', category: 'ui', description: 'Text input component', tags: ['ui', 'form', 'input'], version: '1.0.0' },
-  
-  // Redux UI Components
-  { id: 'redux-button', name: 'Button', category: 'redux-ui', description: 'Redux UI button', tags: ['redux-ui', 'button', 'interactive'], version: '1.0.0' },
-  { id: 'redux-card', name: 'Card', category: 'redux-ui', description: 'Redux UI card', tags: ['redux-ui', 'card', 'container'], version: '1.0.0' },
-  
-  // Add more components as needed...
-];
+// Use actual component data
+const { components: allComponents, categories: componentCategories } = componentData;
 
 export interface LibraryPageProps {
   className?: string;
@@ -83,7 +51,7 @@ const LibraryPageContent: React.FC<LibraryPageProps> = ({ className }) => {
 
   // Filter and sort components
   const filteredComponents = useMemo(() => {
-    let filtered = sampleComponents;
+    let filtered = allComponents;
 
     // Search filter
     if (searchQuery) {
@@ -154,7 +122,7 @@ const LibraryPageContent: React.FC<LibraryPageProps> = ({ className }) => {
                 Power Components Library
               </h1>
               <span className="ml-3 px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
-                139 Components
+                {allComponents.length} Components
               </span>
             </div>
             
@@ -244,8 +212,8 @@ const LibraryPageContent: React.FC<LibraryPageProps> = ({ className }) => {
         {/* Results Summary */}
         <div className="mb-6">
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Showing {filteredComponents.length} of {sampleComponents.length} components
-            {selectedCategory !== 'all' && ` in ${componentCategories[selectedCategory as keyof typeof componentCategories]?.name}`}
+            Showing {filteredComponents.length} of {allComponents.length} components
+            {selectedCategory !== 'all' && ` in ${componentCategories[selectedCategory]?.name}`}
             {searchQuery && ` matching "${searchQuery}"`}
           </p>
         </div>

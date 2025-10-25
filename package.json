@@ -106,6 +106,7 @@
   },
   "homepage": "https://power-components.com",
   "dependencies": {
+    "@playwright/test": "^1.56.1",
     "@vitest/ui": "^1.0.0",
     "c8": "^8.0.1",
     "class-variance-authority": "^0.7.0",
