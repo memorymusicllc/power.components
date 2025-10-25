@@ -16,10 +16,10 @@
  */
 
 import React from 'react';
-import SimpleLibraryPage from './src/components/SimpleLibraryPage';
+import WorkingLibraryPage from './src/components/WorkingLibraryPage';
 
 const ComponentLibraryV4: React.FC = () => {
-  return <SimpleLibraryPage />;
+  return <WorkingLibraryPage />;
 };
 
 export default ComponentLibraryV4;
