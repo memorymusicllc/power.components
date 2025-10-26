@@ -78,3 +78,47 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.break-words {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Fix for component card layout */
+.component-card h3 {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.component-card .category-badge {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.component-card .metadata-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.component-card .metadata-row span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

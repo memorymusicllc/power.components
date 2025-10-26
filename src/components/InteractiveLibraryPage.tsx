@@ -617,56 +617,58 @@ const InteractiveLibraryPage: React.FC = () => {
         {/* Component Grid/List */}
         <div className={
           viewMode === 'grid'
-            ? `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ${getComponentWidthClass()}`
+            ? `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6`
             : 'space-y-4'
         }>
           {filteredComponents.map(component => (
             <div
               key={component.id}
-              className={`p-6 rounded-lg border transition-all duration-200 hover:shadow-lg cursor-pointer ${currentTheme.card}`}
+              className={`p-6 rounded-lg border transition-all duration-200 hover:shadow-lg cursor-pointer ${currentTheme.card} ${viewMode === 'list' ? getComponentWidthClass() : ''}`}
               onClick={() => handleComponentClick(component)}
             >
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-lg font-semibold">{component.name}</h3>
-                <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white break-words pr-2">
+                  {component.name}
+                </h3>
+                <span className="category-badge px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
                   {component.category}
                 </span>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
                 {component.description}
               </p>
               <div className="space-y-2 mb-3">
-                <div className="flex justify-between text-xs text-gray-500">
-                  <span>Version: {component.version}</span>
-                  <span>Type: {component.type}</span>
+                <div className="metadata-row text-xs text-gray-500 dark:text-gray-400">
+                  <span className="text-ellipsis">Version: {component.version}</span>
+                  <span className="text-ellipsis">Type: {component.type}</span>
                 </div>
-                <div className="flex justify-between text-xs text-gray-500">
-                  <span>Dimension: {component.dimension}</span>
-                  <span>Date: {component.date}</span>
+                <div className="metadata-row text-xs text-gray-500 dark:text-gray-400">
+                  <span className="text-ellipsis">Dimension: {component.dimension}</span>
+                  <span className="text-ellipsis">Date: {component.date}</span>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1 mb-4">
                 {component.tags.slice(0, 3).map(tag => (
                   <span
                     key={tag}
-                    className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"
+                    className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded whitespace-nowrap"
                   >
                     {tag}
                   </span>
                 ))}
                 {component.tags.length > 3 && (
-                  <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
+                  <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded whitespace-nowrap">
                     +{component.tags.length - 3}
                   </span>
                 )}
               </div>
               <div className="flex gap-2">
-                <button className="flex-1 px-3 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors">
-                  <Eye size={14} className="inline mr-1" />
+                <button className="flex-1 px-3 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center">
+                  <Eye size={14} className="mr-1" />
                   View
                 </button>
-                <button className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                  <Code size={14} className="inline mr-1" />
+                <button className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center justify-center">
+                  <Code size={14} className="mr-1" />
                   Code
                 </button>
               </div>

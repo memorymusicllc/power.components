@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Basic Deployment Verification', () => {
   test('should verify core functionality works', async ({ page }) => {
     // Navigate to the deployment
-    await page.goto('https://0b7e4c8d.power-components.pages.dev');
+    await page.goto('https://1f91816b.power-components.pages.dev');
     
     // Wait for the page to load
     await page.waitForLoadState('networkidle');
