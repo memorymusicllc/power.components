@@ -1,0 +1,4863 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - button "V4 • Switch" [ref=e3] [cursor=pointer]
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - heading "Power Components Library v4" [level=1] [ref=e7]
+      - paragraph [ref=e8]: 153 / 153 components
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - img [ref=e12]
+          - textbox "Search components..." [ref=e15]
+        - combobox [ref=e16]:
+          - option "All Components (153)" [selected]
+          - option "Dashboard (19)"
+          - option "Charts (22)"
+          - option "Workflows (10)"
+          - option "Search (5)"
+          - option "UI Components (60)"
+          - option "Redux UI (13)"
+          - option "Pow3r (5)"
+          - option "Features (13)"
+          - option "Legacy (5)"
+          - option "Universal (1)"
+        - combobox [ref=e17]:
+          - option "Small (200px)"
+          - option "Medium (300px)" [selected]
+          - option "Large (400px)"
+          - option "Extra Large (500px)"
+          - option "Full Width"
+        - combobox [ref=e18]:
+          - option "Light Theme"
+          - option "Dark Theme"
+          - option "Outline Theme" [selected]
+        - generic [ref=e19]:
+          - button "Grid View" [ref=e20] [cursor=pointer]:
+            - img [ref=e21]
+          - button "List View" [ref=e23] [cursor=pointer]:
+            - img [ref=e24]
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - text: Config Version
+          - combobox [ref=e27]:
+            - option "All Versions" [selected]
+            - option "1.0.0"
+            - option "2.0.0"
+            - option "3.0.0"
+        - generic [ref=e28]:
+          - text: Config Type
+          - combobox [ref=e29]:
+            - option "All Types" [selected]
+            - option "config"
+            - option "status"
+            - option "schema"
+            - option "law"
+            - option "doc"
+            - option "data"
+        - generic [ref=e30]:
+          - text: Component Version
+          - combobox [ref=e31]:
+            - option "All Versions" [selected]
+            - option "1.0.0"
+            - option "2.0.0"
+            - option "3.0.0"
+        - generic [ref=e32]:
+          - text: Component Tag
+          - combobox [ref=e33]:
+            - option "All Tags" [selected]
+            - option "admin"
+            - option "ai"
+            - option "analytics"
+            - option "chart"
+            - option "dashboard"
+            - option "ui"
+            - option "redux"
+            - option "pow3r"
+        - generic [ref=e34]:
+          - text: Dimension
+          - combobox [ref=e35]:
+            - option "All Dimensions" [selected]
+            - option "2D"
+            - option "3D"
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "AdminPanel" [level=3] [ref=e40]
+            - generic [ref=e41]: dashboard
+          - paragraph [ref=e42]: System administration and oversight
+          - generic [ref=e43]:
+            - generic [ref=e44]: admin
+            - generic [ref=e45]: management
+            - generic [ref=e46]: system
+        - generic [ref=e48]:
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - paragraph [ref=e52]: Total Users
+              - paragraph [ref=e53]: 12,543
+            - generic [ref=e55]:
+              - text: ↗
+              - generic [ref=e56]: 12.5%
+          - generic [ref=e57]:
+            - heading "AdminPanel Dashboard" [level=3] [ref=e58]
+            - img [ref=e59]:
+              - generic [ref=e61]: "200"
+              - generic [ref=e63]: "170"
+              - generic [ref=e65]: "140"
+              - generic [ref=e67]: "110"
+              - generic [ref=e69]: "80"
+              - generic [ref=e70]: Jan
+              - generic [ref=e71]: Feb
+              - generic [ref=e72]: Mar
+              - generic [ref=e73]: Apr
+              - generic [ref=e74]: May
+              - generic [ref=e75]: Jun
+              - generic [ref=e76]: Jul
+              - generic [ref=e77]: Aug
+              - generic [ref=e78]: Sep
+              - generic [ref=e79]: Oct
+            - generic [ref=e94]: Response Time (ms)
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]: "Version: 1.0.0"
+            - generic [ref=e98]: "Type: config"
+            - generic [ref=e99]: "Dimension: 2D"
+          - generic [ref=e100]:
+            - button "Details" [ref=e101] [cursor=pointer]:
+              - img [ref=e102]
+              - text: Details
+            - button "Code" [ref=e105] [cursor=pointer]:
+              - img [ref=e106]
+              - text: Code
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - heading "AIResponseSystem" [level=3] [ref=e112]
+            - generic [ref=e113]: dashboard
+          - paragraph [ref=e114]: AI-powered response management
+          - generic [ref=e115]:
+            - generic [ref=e116]: ai
+            - generic [ref=e117]: automation
+            - generic [ref=e118]: response
+        - generic [ref=e120]:
+          - generic [ref=e122]:
+            - generic [ref=e123]:
+              - paragraph [ref=e124]: Total Users
+              - paragraph [ref=e125]: 12,543
+            - generic [ref=e127]:
+              - text: ↗
+              - generic [ref=e128]: 12.5%
+          - generic [ref=e129]:
+            - heading "AIResponseSystem Dashboard" [level=3] [ref=e130]
+            - img [ref=e131]:
+              - generic [ref=e133]: "200"
+              - generic [ref=e135]: "170"
+              - generic [ref=e137]: "140"
+              - generic [ref=e139]: "110"
+              - generic [ref=e141]: "80"
+              - generic [ref=e142]: Jan
+              - generic [ref=e143]: Feb
+              - generic [ref=e144]: Mar
+              - generic [ref=e145]: Apr
+              - generic [ref=e146]: May
+              - generic [ref=e147]: Jun
+              - generic [ref=e148]: Jul
+              - generic [ref=e149]: Aug
+              - generic [ref=e150]: Sep
+              - generic [ref=e151]: Oct
+            - generic [ref=e166]: Response Time (ms)
+        - generic [ref=e167]:
+          - generic [ref=e168]:
+            - generic [ref=e169]: "Version: 1.0.0"
+            - generic [ref=e170]: "Type: config"
+            - generic [ref=e171]: "Dimension: 2D"
+          - generic [ref=e172]:
+            - button "Details" [ref=e173] [cursor=pointer]:
+              - img [ref=e174]
+              - text: Details
+            - button "Code" [ref=e177] [cursor=pointer]:
+              - img [ref=e178]
+              - text: Code
+      - generic [ref=e181]:
+        - generic [ref=e182]:
+          - generic [ref=e183]:
+            - heading "AnalyticsDashboard" [level=3] [ref=e184]
+            - generic [ref=e185]: dashboard
+          - paragraph [ref=e186]: Comprehensive analytics overview
+          - generic [ref=e187]:
+            - generic [ref=e188]: analytics
+            - generic [ref=e189]: metrics
+            - generic [ref=e190]: dashboard
+        - generic [ref=e192]:
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - paragraph [ref=e196]: Total Users
+              - paragraph [ref=e197]: 12,543
+            - generic [ref=e199]:
+              - text: ↗
+              - generic [ref=e200]: 12.5%
+          - generic [ref=e201]:
+            - heading "AnalyticsDashboard Dashboard" [level=3] [ref=e202]
+            - img [ref=e203]:
+              - generic [ref=e205]: "200"
+              - generic [ref=e207]: "170"
+              - generic [ref=e209]: "140"
+              - generic [ref=e211]: "110"
+              - generic [ref=e213]: "80"
+              - generic [ref=e214]: Jan
+              - generic [ref=e215]: Feb
+              - generic [ref=e216]: Mar
+              - generic [ref=e217]: Apr
+              - generic [ref=e218]: May
+              - generic [ref=e219]: Jun
+              - generic [ref=e220]: Jul
+              - generic [ref=e221]: Aug
+              - generic [ref=e222]: Sep
+              - generic [ref=e223]: Oct
+            - generic [ref=e238]: Response Time (ms)
+        - generic [ref=e239]:
+          - generic [ref=e240]:
+            - generic [ref=e241]: "Version: 1.0.0"
+            - generic [ref=e242]: "Type: config"
+            - generic [ref=e243]: "Dimension: 2D"
+          - generic [ref=e244]:
+            - button "Details" [ref=e245] [cursor=pointer]:
+              - img [ref=e246]
+              - text: Details
+            - button "Code" [ref=e249] [cursor=pointer]:
+              - img [ref=e250]
+              - text: Code
+      - generic [ref=e253]:
+        - generic [ref=e254]:
+          - generic [ref=e255]:
+            - heading "BusinessDashboard" [level=3] [ref=e256]
+            - generic [ref=e257]: dashboard
+          - paragraph [ref=e258]: Business intelligence dashboard
+          - generic [ref=e259]:
+            - generic [ref=e260]: business
+            - generic [ref=e261]: intelligence
+            - generic [ref=e262]: overview
+        - generic [ref=e264]:
+          - generic [ref=e266]:
+            - generic [ref=e267]:
+              - paragraph [ref=e268]: Total Users
+              - paragraph [ref=e269]: 12,543
+            - generic [ref=e271]:
+              - text: ↗
+              - generic [ref=e272]: 12.5%
+          - generic [ref=e273]:
+            - heading "BusinessDashboard Dashboard" [level=3] [ref=e274]
+            - img [ref=e275]:
+              - generic [ref=e277]: "200"
+              - generic [ref=e279]: "170"
+              - generic [ref=e281]: "140"
+              - generic [ref=e283]: "110"
+              - generic [ref=e285]: "80"
+              - generic [ref=e286]: Jan
+              - generic [ref=e287]: Feb
+              - generic [ref=e288]: Mar
+              - generic [ref=e289]: Apr
+              - generic [ref=e290]: May
+              - generic [ref=e291]: Jun
+              - generic [ref=e292]: Jul
+              - generic [ref=e293]: Aug
+              - generic [ref=e294]: Sep
+              - generic [ref=e295]: Oct
+            - generic [ref=e310]: Response Time (ms)
+        - generic [ref=e311]:
+          - generic [ref=e312]:
+            - generic [ref=e313]: "Version: 1.0.0"
+            - generic [ref=e314]: "Type: config"
+            - generic [ref=e315]: "Dimension: 2D"
+          - generic [ref=e316]:
+            - button "Details" [ref=e317] [cursor=pointer]:
+              - img [ref=e318]
+              - text: Details
+            - button "Code" [ref=e321] [cursor=pointer]:
+              - img [ref=e322]
+              - text: Code
+      - generic [ref=e325]:
+        - generic [ref=e326]:
+          - generic [ref=e327]:
+            - heading "ChartGallery" [level=3] [ref=e328]
+            - generic [ref=e329]: dashboard
+          - paragraph [ref=e330]: Interactive chart collection
+          - generic [ref=e331]:
+            - generic [ref=e332]: charts
+            - generic [ref=e333]: visualization
+            - generic [ref=e334]: gallery
+        - generic [ref=e336]:
+          - generic [ref=e338]:
+            - generic [ref=e339]:
+              - paragraph [ref=e340]: Total Users
+              - paragraph [ref=e341]: 12,543
+            - generic [ref=e343]:
+              - text: ↗
+              - generic [ref=e344]: 12.5%
+          - generic [ref=e345]:
+            - heading "ChartGallery Dashboard" [level=3] [ref=e346]
+            - img [ref=e347]:
+              - generic [ref=e349]: "200"
+              - generic [ref=e351]: "170"
+              - generic [ref=e353]: "140"
+              - generic [ref=e355]: "110"
+              - generic [ref=e357]: "80"
+              - generic [ref=e358]: Jan
+              - generic [ref=e359]: Feb
+              - generic [ref=e360]: Mar
+              - generic [ref=e361]: Apr
+              - generic [ref=e362]: May
+              - generic [ref=e363]: Jun
+              - generic [ref=e364]: Jul
+              - generic [ref=e365]: Aug
+              - generic [ref=e366]: Sep
+              - generic [ref=e367]: Oct
+            - generic [ref=e382]: Response Time (ms)
+        - generic [ref=e383]:
+          - generic [ref=e384]:
+            - generic [ref=e385]: "Version: 1.0.0"
+            - generic [ref=e386]: "Type: config"
+            - generic [ref=e387]: "Dimension: 2D"
+          - generic [ref=e388]:
+            - button "Details" [ref=e389] [cursor=pointer]:
+              - img [ref=e390]
+              - text: Details
+            - button "Code" [ref=e393] [cursor=pointer]:
+              - img [ref=e394]
+              - text: Code
+      - generic [ref=e397]:
+        - generic [ref=e398]:
+          - generic [ref=e399]:
+            - heading "DashboardCard" [level=3] [ref=e400]
+            - generic [ref=e401]: dashboard
+          - paragraph [ref=e402]: Reusable dashboard card component
+          - generic [ref=e403]:
+            - generic [ref=e404]: card
+            - generic [ref=e405]: dashboard
+            - generic [ref=e406]: reusable
+        - generic [ref=e408]:
+          - generic [ref=e410]:
+            - generic [ref=e411]:
+              - paragraph [ref=e412]: Total Users
+              - paragraph [ref=e413]: 12,543
+            - generic [ref=e415]:
+              - text: ↗
+              - generic [ref=e416]: 12.5%
+          - generic [ref=e417]:
+            - heading "DashboardCard Dashboard" [level=3] [ref=e418]
+            - img [ref=e419]:
+              - generic [ref=e421]: "200"
+              - generic [ref=e423]: "170"
+              - generic [ref=e425]: "140"
+              - generic [ref=e427]: "110"
+              - generic [ref=e429]: "80"
+              - generic [ref=e430]: Jan
+              - generic [ref=e431]: Feb
+              - generic [ref=e432]: Mar
+              - generic [ref=e433]: Apr
+              - generic [ref=e434]: May
+              - generic [ref=e435]: Jun
+              - generic [ref=e436]: Jul
+              - generic [ref=e437]: Aug
+              - generic [ref=e438]: Sep
+              - generic [ref=e439]: Oct
+            - generic [ref=e454]: Response Time (ms)
+        - generic [ref=e455]:
+          - generic [ref=e456]:
+            - generic [ref=e457]: "Version: 1.0.0"
+            - generic [ref=e458]: "Type: config"
+            - generic [ref=e459]: "Dimension: 2D"
+          - generic [ref=e460]:
+            - button "Details" [ref=e461] [cursor=pointer]:
+              - img [ref=e462]
+              - text: Details
+            - button "Code" [ref=e465] [cursor=pointer]:
+              - img [ref=e466]
+              - text: Code
+      - generic [ref=e469]:
+        - generic [ref=e470]:
+          - generic [ref=e471]:
+            - heading "DashboardGrid" [level=3] [ref=e472]
+            - generic [ref=e473]: dashboard
+          - paragraph [ref=e474]: Responsive dashboard grid layout
+          - generic [ref=e475]:
+            - generic [ref=e476]: grid
+            - generic [ref=e477]: layout
+            - generic [ref=e478]: responsive
+        - generic [ref=e480]:
+          - generic [ref=e482]:
+            - generic [ref=e483]:
+              - paragraph [ref=e484]: Total Users
+              - paragraph [ref=e485]: 12,543
+            - generic [ref=e487]:
+              - text: ↗
+              - generic [ref=e488]: 12.5%
+          - generic [ref=e489]:
+            - heading "DashboardGrid Dashboard" [level=3] [ref=e490]
+            - img [ref=e491]:
+              - generic [ref=e493]: "200"
+              - generic [ref=e495]: "170"
+              - generic [ref=e497]: "140"
+              - generic [ref=e499]: "110"
+              - generic [ref=e501]: "80"
+              - generic [ref=e502]: Jan
+              - generic [ref=e503]: Feb
+              - generic [ref=e504]: Mar
+              - generic [ref=e505]: Apr
+              - generic [ref=e506]: May
+              - generic [ref=e507]: Jun
+              - generic [ref=e508]: Jul
+              - generic [ref=e509]: Aug
+              - generic [ref=e510]: Sep
+              - generic [ref=e511]: Oct
+            - generic [ref=e526]: Response Time (ms)
+        - generic [ref=e527]:
+          - generic [ref=e528]:
+            - generic [ref=e529]: "Version: 1.0.0"
+            - generic [ref=e530]: "Type: config"
+            - generic [ref=e531]: "Dimension: 2D"
+          - generic [ref=e532]:
+            - button "Details" [ref=e533] [cursor=pointer]:
+              - img [ref=e534]
+              - text: Details
+            - button "Code" [ref=e537] [cursor=pointer]:
+              - img [ref=e538]
+              - text: Code
+      - generic [ref=e541]:
+        - generic [ref=e542]:
+          - generic [ref=e543]:
+            - heading "DashboardHeader" [level=3] [ref=e544]
+            - generic [ref=e545]: dashboard
+          - paragraph [ref=e546]: Dashboard header with navigation
+          - generic [ref=e547]:
+            - generic [ref=e548]: header
+            - generic [ref=e549]: navigation
+            - generic [ref=e550]: dashboard
+        - generic [ref=e552]:
+          - generic [ref=e554]:
+            - generic [ref=e555]:
+              - paragraph [ref=e556]: Total Users
+              - paragraph [ref=e557]: 12,543
+            - generic [ref=e559]:
+              - text: ↗
+              - generic [ref=e560]: 12.5%
+          - generic [ref=e561]:
+            - heading "DashboardHeader Dashboard" [level=3] [ref=e562]
+            - img [ref=e563]:
+              - generic [ref=e565]: "200"
+              - generic [ref=e567]: "170"
+              - generic [ref=e569]: "140"
+              - generic [ref=e571]: "110"
+              - generic [ref=e573]: "80"
+              - generic [ref=e574]: Jan
+              - generic [ref=e575]: Feb
+              - generic [ref=e576]: Mar
+              - generic [ref=e577]: Apr
+              - generic [ref=e578]: May
+              - generic [ref=e579]: Jun
+              - generic [ref=e580]: Jul
+              - generic [ref=e581]: Aug
+              - generic [ref=e582]: Sep
+              - generic [ref=e583]: Oct
+            - generic [ref=e598]: Response Time (ms)
+        - generic [ref=e599]:
+          - generic [ref=e600]:
+            - generic [ref=e601]: "Version: 1.0.0"
+            - generic [ref=e602]: "Type: config"
+            - generic [ref=e603]: "Dimension: 2D"
+          - generic [ref=e604]:
+            - button "Details" [ref=e605] [cursor=pointer]:
+              - img [ref=e606]
+              - text: Details
+            - button "Code" [ref=e609] [cursor=pointer]:
+              - img [ref=e610]
+              - text: Code
+      - generic [ref=e613]:
+        - generic [ref=e614]:
+          - generic [ref=e615]:
+            - heading "DashboardSidebar" [level=3] [ref=e616]
+            - generic [ref=e617]: dashboard
+          - paragraph [ref=e618]: Collapsible dashboard sidebar
+          - generic [ref=e619]:
+            - generic [ref=e620]: sidebar
+            - generic [ref=e621]: navigation
+            - generic [ref=e622]: collapsible
+        - generic [ref=e624]:
+          - generic [ref=e626]:
+            - generic [ref=e627]:
+              - paragraph [ref=e628]: Total Users
+              - paragraph [ref=e629]: 12,543
+            - generic [ref=e631]:
+              - text: ↗
+              - generic [ref=e632]: 12.5%
+          - generic [ref=e633]:
+            - heading "DashboardSidebar Dashboard" [level=3] [ref=e634]
+            - img [ref=e635]:
+              - generic [ref=e637]: "200"
+              - generic [ref=e639]: "170"
+              - generic [ref=e641]: "140"
+              - generic [ref=e643]: "110"
+              - generic [ref=e645]: "80"
+              - generic [ref=e646]: Jan
+              - generic [ref=e647]: Feb
+              - generic [ref=e648]: Mar
+              - generic [ref=e649]: Apr
+              - generic [ref=e650]: May
+              - generic [ref=e651]: Jun
+              - generic [ref=e652]: Jul
+              - generic [ref=e653]: Aug
+              - generic [ref=e654]: Sep
+              - generic [ref=e655]: Oct
+            - generic [ref=e670]: Response Time (ms)
+        - generic [ref=e671]:
+          - generic [ref=e672]:
+            - generic [ref=e673]: "Version: 1.0.0"
+            - generic [ref=e674]: "Type: config"
+            - generic [ref=e675]: "Dimension: 2D"
+          - generic [ref=e676]:
+            - button "Details" [ref=e677] [cursor=pointer]:
+              - img [ref=e678]
+              - text: Details
+            - button "Code" [ref=e681] [cursor=pointer]:
+              - img [ref=e682]
+              - text: Code
+      - generic [ref=e685]:
+        - generic [ref=e686]:
+          - generic [ref=e687]:
+            - heading "DashboardWidget" [level=3] [ref=e688]
+            - generic [ref=e689]: dashboard
+          - paragraph [ref=e690]: Configurable dashboard widget
+          - generic [ref=e691]:
+            - generic [ref=e692]: widget
+            - generic [ref=e693]: configurable
+            - generic [ref=e694]: dashboard
+        - generic [ref=e696]:
+          - generic [ref=e698]:
+            - generic [ref=e699]:
+              - paragraph [ref=e700]: Total Users
+              - paragraph [ref=e701]: 12,543
+            - generic [ref=e703]:
+              - text: ↗
+              - generic [ref=e704]: 12.5%
+          - generic [ref=e705]:
+            - heading "DashboardWidget Dashboard" [level=3] [ref=e706]
+            - img [ref=e707]:
+              - generic [ref=e709]: "200"
+              - generic [ref=e711]: "170"
+              - generic [ref=e713]: "140"
+              - generic [ref=e715]: "110"
+              - generic [ref=e717]: "80"
+              - generic [ref=e718]: Jan
+              - generic [ref=e719]: Feb
+              - generic [ref=e720]: Mar
+              - generic [ref=e721]: Apr
+              - generic [ref=e722]: May
+              - generic [ref=e723]: Jun
+              - generic [ref=e724]: Jul
+              - generic [ref=e725]: Aug
+              - generic [ref=e726]: Sep
+              - generic [ref=e727]: Oct
+            - generic [ref=e742]: Response Time (ms)
+        - generic [ref=e743]:
+          - generic [ref=e744]:
+            - generic [ref=e745]: "Version: 1.0.0"
+            - generic [ref=e746]: "Type: config"
+            - generic [ref=e747]: "Dimension: 2D"
+          - generic [ref=e748]:
+            - button "Details" [ref=e749] [cursor=pointer]:
+              - img [ref=e750]
+              - text: Details
+            - button "Code" [ref=e753] [cursor=pointer]:
+              - img [ref=e754]
+              - text: Code
+      - generic [ref=e757]:
+        - generic [ref=e758]:
+          - generic [ref=e759]:
+            - heading "DataVisualization" [level=3] [ref=e760]
+            - generic [ref=e761]: dashboard
+          - paragraph [ref=e762]: Advanced data visualization tools
+          - generic [ref=e763]:
+            - generic [ref=e764]: data
+            - generic [ref=e765]: visualization
+            - generic [ref=e766]: charts
+        - generic [ref=e768]:
+          - generic [ref=e770]:
+            - generic [ref=e771]:
+              - paragraph [ref=e772]: Total Users
+              - paragraph [ref=e773]: 12,543
+            - generic [ref=e775]:
+              - text: ↗
+              - generic [ref=e776]: 12.5%
+          - generic [ref=e777]:
+            - heading "DataVisualization Dashboard" [level=3] [ref=e778]
+            - img [ref=e779]:
+              - generic [ref=e781]: "200"
+              - generic [ref=e783]: "170"
+              - generic [ref=e785]: "140"
+              - generic [ref=e787]: "110"
+              - generic [ref=e789]: "80"
+              - generic [ref=e790]: Jan
+              - generic [ref=e791]: Feb
+              - generic [ref=e792]: Mar
+              - generic [ref=e793]: Apr
+              - generic [ref=e794]: May
+              - generic [ref=e795]: Jun
+              - generic [ref=e796]: Jul
+              - generic [ref=e797]: Aug
+              - generic [ref=e798]: Sep
+              - generic [ref=e799]: Oct
+            - generic [ref=e814]: Response Time (ms)
+        - generic [ref=e815]:
+          - generic [ref=e816]:
+            - generic [ref=e817]: "Version: 1.0.0"
+            - generic [ref=e818]: "Type: config"
+            - generic [ref=e819]: "Dimension: 2D"
+          - generic [ref=e820]:
+            - button "Details" [ref=e821] [cursor=pointer]:
+              - img [ref=e822]
+              - text: Details
+            - button "Code" [ref=e825] [cursor=pointer]:
+              - img [ref=e826]
+              - text: Code
+      - generic [ref=e829]:
+        - generic [ref=e830]:
+          - generic [ref=e831]:
+            - heading "PerformanceMonitor" [level=3] [ref=e832]
+            - generic [ref=e833]: dashboard
+          - paragraph [ref=e834]: Real-time performance monitoring
+          - generic [ref=e835]:
+            - generic [ref=e836]: performance
+            - generic [ref=e837]: monitoring
+            - generic [ref=e838]: real-time
+        - generic [ref=e840]:
+          - generic [ref=e842]:
+            - generic [ref=e843]:
+              - paragraph [ref=e844]: Avg Response Time
+              - paragraph [ref=e845]: 245ms
+            - generic [ref=e847]:
+              - text: ↗
+              - generic [ref=e848]: 15.2%
+          - generic [ref=e849]:
+            - heading "Performance Metrics" [level=3] [ref=e850]
+            - img [ref=e851]:
+              - generic [ref=e853]: "200"
+              - generic [ref=e855]: "170"
+              - generic [ref=e857]: "140"
+              - generic [ref=e859]: "110"
+              - generic [ref=e861]: "80"
+              - generic [ref=e862]: Jan
+              - generic [ref=e863]: Feb
+              - generic [ref=e864]: Mar
+              - generic [ref=e865]: Apr
+              - generic [ref=e866]: May
+              - generic [ref=e867]: Jun
+              - generic [ref=e868]: Jul
+              - generic [ref=e869]: Aug
+              - generic [ref=e870]: Sep
+              - generic [ref=e871]: Oct
+            - generic [ref=e886]: Response Time (ms)
+        - generic [ref=e887]:
+          - generic [ref=e888]:
+            - generic [ref=e889]: "Version: 1.0.0"
+            - generic [ref=e890]: "Type: config"
+            - generic [ref=e891]: "Dimension: 2D"
+          - generic [ref=e892]:
+            - button "Details" [ref=e893] [cursor=pointer]:
+              - img [ref=e894]
+              - text: Details
+            - button "Code" [ref=e897] [cursor=pointer]:
+              - img [ref=e898]
+              - text: Code
+      - generic [ref=e901]:
+        - generic [ref=e902]:
+          - generic [ref=e903]:
+            - heading "KPIDashboard" [level=3] [ref=e904]
+            - generic [ref=e905]: dashboard
+          - paragraph [ref=e906]: Key performance indicators dashboard
+          - generic [ref=e907]:
+            - generic [ref=e908]: kpi
+            - generic [ref=e909]: metrics
+            - generic [ref=e910]: performance
+        - generic [ref=e912]:
+          - generic [ref=e913]:
+            - generic [ref=e915]:
+              - generic [ref=e916]:
+                - paragraph [ref=e917]: Total Users
+                - paragraph [ref=e918]: 12,543
+              - generic [ref=e920]:
+                - text: ↗
+                - generic [ref=e921]: 12.5%
+            - generic [ref=e923]:
+              - generic [ref=e924]:
+                - paragraph [ref=e925]: Revenue
+                - paragraph [ref=e926]: $125,430
+              - generic [ref=e928]:
+                - text: ↗
+                - generic [ref=e929]: 8.2%
+          - generic [ref=e930]:
+            - heading "KPI Trends" [level=3] [ref=e931]
+            - img [ref=e932]:
+              - generic [ref=e934]: "200"
+              - generic [ref=e936]: "170"
+              - generic [ref=e938]: "140"
+              - generic [ref=e940]: "110"
+              - generic [ref=e942]: "80"
+              - generic [ref=e943]: Jan
+              - generic [ref=e944]: Feb
+              - generic [ref=e945]: Mar
+              - generic [ref=e946]: Apr
+              - generic [ref=e947]: May
+              - generic [ref=e948]: Jun
+              - generic [ref=e949]: Jul
+              - generic [ref=e950]: Aug
+              - generic [ref=e951]: Sep
+              - generic [ref=e952]: Oct
+            - generic [ref=e967]: Response Time (ms)
+        - generic [ref=e968]:
+          - generic [ref=e969]:
+            - generic [ref=e970]: "Version: 1.0.0"
+            - generic [ref=e971]: "Type: config"
+            - generic [ref=e972]: "Dimension: 2D"
+          - generic [ref=e973]:
+            - button "Details" [ref=e974] [cursor=pointer]:
+              - img [ref=e975]
+              - text: Details
+            - button "Code" [ref=e978] [cursor=pointer]:
+              - img [ref=e979]
+              - text: Code
+      - generic [ref=e982]:
+        - generic [ref=e983]:
+          - generic [ref=e984]:
+            - heading "MetricsOverview" [level=3] [ref=e985]
+            - generic [ref=e986]: dashboard
+          - paragraph [ref=e987]: Comprehensive metrics overview
+          - generic [ref=e988]:
+            - generic [ref=e989]: metrics
+            - generic [ref=e990]: overview
+            - generic [ref=e991]: analytics
+        - generic [ref=e993]:
+          - generic [ref=e995]:
+            - generic [ref=e996]:
+              - paragraph [ref=e997]: Total Users
+              - paragraph [ref=e998]: 12,543
+            - generic [ref=e1000]:
+              - text: ↗
+              - generic [ref=e1001]: 12.5%
+          - generic [ref=e1002]:
+            - heading "MetricsOverview Dashboard" [level=3] [ref=e1003]
+            - img [ref=e1004]:
+              - generic [ref=e1006]: "200"
+              - generic [ref=e1008]: "170"
+              - generic [ref=e1010]: "140"
+              - generic [ref=e1012]: "110"
+              - generic [ref=e1014]: "80"
+              - generic [ref=e1015]: Jan
+              - generic [ref=e1016]: Feb
+              - generic [ref=e1017]: Mar
+              - generic [ref=e1018]: Apr
+              - generic [ref=e1019]: May
+              - generic [ref=e1020]: Jun
+              - generic [ref=e1021]: Jul
+              - generic [ref=e1022]: Aug
+              - generic [ref=e1023]: Sep
+              - generic [ref=e1024]: Oct
+            - generic [ref=e1039]: Response Time (ms)
+        - generic [ref=e1040]:
+          - generic [ref=e1041]:
+            - generic [ref=e1042]: "Version: 1.0.0"
+            - generic [ref=e1043]: "Type: config"
+            - generic [ref=e1044]: "Dimension: 2D"
+          - generic [ref=e1045]:
+            - button "Details" [ref=e1046] [cursor=pointer]:
+              - img [ref=e1047]
+              - text: Details
+            - button "Code" [ref=e1050] [cursor=pointer]:
+              - img [ref=e1051]
+              - text: Code
+      - generic [ref=e1054]:
+        - generic [ref=e1055]:
+          - generic [ref=e1056]:
+            - heading "PerformanceMonitor" [level=3] [ref=e1057]
+            - generic [ref=e1058]: dashboard
+          - paragraph [ref=e1059]: Real-time performance monitoring
+          - generic [ref=e1060]:
+            - generic [ref=e1061]: performance
+            - generic [ref=e1062]: monitoring
+            - generic [ref=e1063]: real-time
+        - generic [ref=e1065]:
+          - generic [ref=e1067]:
+            - generic [ref=e1068]:
+              - paragraph [ref=e1069]: Avg Response Time
+              - paragraph [ref=e1070]: 245ms
+            - generic [ref=e1072]:
+              - text: ↗
+              - generic [ref=e1073]: 15.2%
+          - generic [ref=e1074]:
+            - heading "Performance Metrics" [level=3] [ref=e1075]
+            - img [ref=e1076]:
+              - generic [ref=e1078]: "200"
+              - generic [ref=e1080]: "170"
+              - generic [ref=e1082]: "140"
+              - generic [ref=e1084]: "110"
+              - generic [ref=e1086]: "80"
+              - generic [ref=e1087]: Jan
+              - generic [ref=e1088]: Feb
+              - generic [ref=e1089]: Mar
+              - generic [ref=e1090]: Apr
+              - generic [ref=e1091]: May
+              - generic [ref=e1092]: Jun
+              - generic [ref=e1093]: Jul
+              - generic [ref=e1094]: Aug
+              - generic [ref=e1095]: Sep
+              - generic [ref=e1096]: Oct
+            - generic [ref=e1111]: Response Time (ms)
+        - generic [ref=e1112]:
+          - generic [ref=e1113]:
+            - generic [ref=e1114]: "Version: 1.0.0"
+            - generic [ref=e1115]: "Type: config"
+            - generic [ref=e1116]: "Dimension: 2D"
+          - generic [ref=e1117]:
+            - button "Details" [ref=e1118] [cursor=pointer]:
+              - img [ref=e1119]
+              - text: Details
+            - button "Code" [ref=e1122] [cursor=pointer]:
+              - img [ref=e1123]
+              - text: Code
+      - generic [ref=e1126]:
+        - generic [ref=e1127]:
+          - generic [ref=e1128]:
+            - heading "RealtimeDashboard" [level=3] [ref=e1129]
+            - generic [ref=e1130]: dashboard
+          - paragraph [ref=e1131]: Real-time data dashboard
+          - generic [ref=e1132]:
+            - generic [ref=e1133]: realtime
+            - generic [ref=e1134]: data
+            - generic [ref=e1135]: dashboard
+        - generic [ref=e1137]:
+          - generic [ref=e1138]:
+            - generic [ref=e1140]:
+              - generic [ref=e1141]:
+                - paragraph [ref=e1142]: Total Users
+                - paragraph [ref=e1143]: 12,543
+              - generic [ref=e1145]:
+                - text: ↗
+                - generic [ref=e1146]: 12.5%
+            - generic [ref=e1148]:
+              - generic [ref=e1149]:
+                - paragraph [ref=e1150]: Revenue
+                - paragraph [ref=e1151]: $125,430
+              - generic [ref=e1153]:
+                - text: ↗
+                - generic [ref=e1154]: 8.2%
+            - generic [ref=e1156]:
+              - generic [ref=e1157]:
+                - paragraph [ref=e1158]: Conversion Rate
+                - paragraph [ref=e1159]: 3.2%
+              - generic [ref=e1161]:
+                - text: ↘
+                - generic [ref=e1162]: 0.5%
+            - generic [ref=e1164]:
+              - generic [ref=e1165]:
+                - paragraph [ref=e1166]: Avg Response Time
+                - paragraph [ref=e1167]: 245ms
+              - generic [ref=e1169]:
+                - text: ↗
+                - generic [ref=e1170]: 15.2%
+          - generic [ref=e1171]:
+            - generic [ref=e1172]:
+              - heading "Real-time Metrics" [level=3] [ref=e1173]
+              - img [ref=e1174]:
+                - generic [ref=e1176]: "200"
+                - generic [ref=e1178]: "170"
+                - generic [ref=e1180]: "140"
+                - generic [ref=e1182]: "110"
+                - generic [ref=e1184]: "80"
+                - generic [ref=e1185]: Jan
+                - generic [ref=e1186]: Feb
+                - generic [ref=e1187]: Mar
+                - generic [ref=e1188]: Apr
+                - generic [ref=e1189]: May
+                - generic [ref=e1190]: Jun
+                - generic [ref=e1191]: Jul
+                - generic [ref=e1192]: Aug
+                - generic [ref=e1193]: Sep
+                - generic [ref=e1194]: Oct
+              - generic [ref=e1209]: Response Time (ms)
+            - generic [ref=e1210]:
+              - heading "Status Distribution" [level=3] [ref=e1211]
+              - img [ref=e1213]
+              - generic [ref=e1217]:
+                - generic [ref=e1218]:
+                  - generic [ref=e1221]: Qualified
+                  - generic [ref=e1222]: 45 (45%)
+                - generic [ref=e1223]:
+                  - generic [ref=e1226]: Unqualified
+                  - generic [ref=e1227]: 30 (30%)
+                - generic [ref=e1228]:
+                  - generic [ref=e1231]: In Progress
+                  - generic [ref=e1232]: 25 (25%)
+        - generic [ref=e1233]:
+          - generic [ref=e1234]:
+            - generic [ref=e1235]: "Version: 1.0.0"
+            - generic [ref=e1236]: "Type: config"
+            - generic [ref=e1237]: "Dimension: 2D"
+          - generic [ref=e1238]:
+            - button "Details" [ref=e1239] [cursor=pointer]:
+              - img [ref=e1240]
+              - text: Details
+            - button "Code" [ref=e1243] [cursor=pointer]:
+              - img [ref=e1244]
+              - text: Code
+      - generic [ref=e1247]:
+        - generic [ref=e1248]:
+          - generic [ref=e1249]:
+            - heading "StatusDashboard" [level=3] [ref=e1250]
+            - generic [ref=e1251]: dashboard
+          - paragraph [ref=e1252]: System status monitoring dashboard
+          - generic [ref=e1253]:
+            - generic [ref=e1254]: status
+            - generic [ref=e1255]: monitoring
+            - generic [ref=e1256]: system
+        - generic [ref=e1258]:
+          - generic [ref=e1259]:
+            - generic [ref=e1261]:
+              - generic [ref=e1262]:
+                - paragraph [ref=e1263]: Total Users
+                - paragraph [ref=e1264]: 12,543
+              - generic [ref=e1266]:
+                - text: ↗
+                - generic [ref=e1267]: 12.5%
+            - generic [ref=e1269]:
+              - generic [ref=e1270]:
+                - paragraph [ref=e1271]: Revenue
+                - paragraph [ref=e1272]: $125,430
+              - generic [ref=e1274]:
+                - text: ↗
+                - generic [ref=e1275]: 8.2%
+          - generic [ref=e1276]:
+            - heading "System Status" [level=3] [ref=e1277]
+            - img [ref=e1278]:
+              - generic [ref=e1279]: Morning
+              - generic [ref=e1280]: Afternoon
+              - generic [ref=e1281]: Evening
+              - generic [ref=e1282]: Mon
+              - generic [ref=e1283]: Tue
+              - generic [ref=e1284]: Wed
+              - 'generic "Mon Morning: 65" [ref=e1285] [cursor=pointer]'
+              - 'generic "Mon Afternoon: 45" [ref=e1286] [cursor=pointer]'
+              - 'generic "Mon Evening: 30" [ref=e1287] [cursor=pointer]'
+              - 'generic "Tue Morning: 70" [ref=e1288] [cursor=pointer]'
+              - 'generic "Tue Afternoon: 55" [ref=e1289] [cursor=pointer]'
+              - 'generic "Tue Evening: 40" [ref=e1290] [cursor=pointer]'
+              - 'generic "Wed Morning: 60" [ref=e1291] [cursor=pointer]'
+              - 'generic "Wed Afternoon: 50" [ref=e1292] [cursor=pointer]'
+              - 'generic "Wed Evening: 35" [ref=e1293] [cursor=pointer]'
+            - generic [ref=e1294]:
+              - generic [ref=e1297]: Low
+              - generic [ref=e1300]: Medium
+              - generic [ref=e1303]: High
+        - generic [ref=e1304]:
+          - generic [ref=e1305]:
+            - generic [ref=e1306]: "Version: 1.0.0"
+            - generic [ref=e1307]: "Type: config"
+            - generic [ref=e1308]: "Dimension: 2D"
+          - generic [ref=e1309]:
+            - button "Details" [ref=e1310] [cursor=pointer]:
+              - img [ref=e1311]
+              - text: Details
+            - button "Code" [ref=e1314] [cursor=pointer]:
+              - img [ref=e1315]
+              - text: Code
+      - generic [ref=e1318]:
+        - generic [ref=e1319]:
+          - generic [ref=e1320]:
+            - heading "UserDashboard" [level=3] [ref=e1321]
+            - generic [ref=e1322]: dashboard
+          - paragraph [ref=e1323]: User-specific dashboard view
+          - generic [ref=e1324]:
+            - generic [ref=e1325]: user
+            - generic [ref=e1326]: dashboard
+            - generic [ref=e1327]: personalized
+        - generic [ref=e1329]:
+          - generic [ref=e1331]:
+            - generic [ref=e1332]:
+              - paragraph [ref=e1333]: Total Users
+              - paragraph [ref=e1334]: 12,543
+            - generic [ref=e1336]:
+              - text: ↗
+              - generic [ref=e1337]: 12.5%
+          - generic [ref=e1338]:
+            - heading "User Activity" [level=3] [ref=e1340]
+            - table [ref=e1342]:
+              - rowgroup [ref=e1343]:
+                - row "Name Email Role Status" [ref=e1344]:
+                  - cell "Name" [ref=e1345]
+                  - cell "Email" [ref=e1346]
+                  - cell "Role" [ref=e1347]
+                  - cell "Status" [ref=e1348]
+              - rowgroup [ref=e1349]:
+                - row "John Doe john@example.com Admin Active" [ref=e1350]:
+                  - cell "John Doe" [ref=e1351]
+                  - cell "john@example.com" [ref=e1352]
+                  - cell "Admin" [ref=e1353]
+                  - cell "Active" [ref=e1354]:
+                    - generic [ref=e1355]: Active
+                - row "Jane Smith jane@example.com User Active" [ref=e1356]:
+                  - cell "Jane Smith" [ref=e1357]
+                  - cell "jane@example.com" [ref=e1358]
+                  - cell "User" [ref=e1359]
+                  - cell "Active" [ref=e1360]:
+                    - generic [ref=e1361]: Active
+                - row "Bob Johnson bob@example.com Moderator Inactive" [ref=e1362]:
+                  - cell "Bob Johnson" [ref=e1363]
+                  - cell "bob@example.com" [ref=e1364]
+                  - cell "Moderator" [ref=e1365]
+                  - cell "Inactive" [ref=e1366]:
+                    - generic [ref=e1367]: Inactive
+                - row "Alice Brown alice@example.com User Active" [ref=e1368]:
+                  - cell "Alice Brown" [ref=e1369]
+                  - cell "alice@example.com" [ref=e1370]
+                  - cell "User" [ref=e1371]
+                  - cell "Active" [ref=e1372]:
+                    - generic [ref=e1373]: Active
+                - row "Charlie Wilson charlie@example.com Admin Active" [ref=e1374]:
+                  - cell "Charlie Wilson" [ref=e1375]
+                  - cell "charlie@example.com" [ref=e1376]
+                  - cell "Admin" [ref=e1377]
+                  - cell "Active" [ref=e1378]:
+                    - generic [ref=e1379]: Active
+        - generic [ref=e1380]:
+          - generic [ref=e1381]:
+            - generic [ref=e1382]: "Version: 1.0.0"
+            - generic [ref=e1383]: "Type: config"
+            - generic [ref=e1384]: "Dimension: 2D"
+          - generic [ref=e1385]:
+            - button "Details" [ref=e1386] [cursor=pointer]:
+              - img [ref=e1387]
+              - text: Details
+            - button "Code" [ref=e1390] [cursor=pointer]:
+              - img [ref=e1391]
+              - text: Code
+      - generic [ref=e1394]:
+        - generic [ref=e1395]:
+          - generic [ref=e1396]:
+            - heading "WidgetContainer" [level=3] [ref=e1397]
+            - generic [ref=e1398]: dashboard
+          - paragraph [ref=e1399]: Container for dashboard widgets
+          - generic [ref=e1400]:
+            - generic [ref=e1401]: container
+            - generic [ref=e1402]: widget
+            - generic [ref=e1403]: dashboard
+        - generic [ref=e1405]:
+          - generic [ref=e1407]:
+            - generic [ref=e1408]:
+              - paragraph [ref=e1409]: Total Users
+              - paragraph [ref=e1410]: 12,543
+            - generic [ref=e1412]:
+              - text: ↗
+              - generic [ref=e1413]: 12.5%
+          - generic [ref=e1414]:
+            - heading "WidgetContainer Dashboard" [level=3] [ref=e1415]
+            - img [ref=e1416]:
+              - generic [ref=e1418]: "200"
+              - generic [ref=e1420]: "170"
+              - generic [ref=e1422]: "140"
+              - generic [ref=e1424]: "110"
+              - generic [ref=e1426]: "80"
+              - generic [ref=e1427]: Jan
+              - generic [ref=e1428]: Feb
+              - generic [ref=e1429]: Mar
+              - generic [ref=e1430]: Apr
+              - generic [ref=e1431]: May
+              - generic [ref=e1432]: Jun
+              - generic [ref=e1433]: Jul
+              - generic [ref=e1434]: Aug
+              - generic [ref=e1435]: Sep
+              - generic [ref=e1436]: Oct
+            - generic [ref=e1451]: Response Time (ms)
+        - generic [ref=e1452]:
+          - generic [ref=e1453]:
+            - generic [ref=e1454]: "Version: 1.0.0"
+            - generic [ref=e1455]: "Type: config"
+            - generic [ref=e1456]: "Dimension: 2D"
+          - generic [ref=e1457]:
+            - button "Details" [ref=e1458] [cursor=pointer]:
+              - img [ref=e1459]
+              - text: Details
+            - button "Code" [ref=e1462] [cursor=pointer]:
+              - img [ref=e1463]
+              - text: Code
+      - generic [ref=e1466]:
+        - generic [ref=e1467]:
+          - generic [ref=e1468]:
+            - heading "WorkflowDashboard" [level=3] [ref=e1469]
+            - generic [ref=e1470]: dashboard
+          - paragraph [ref=e1471]: Workflow management dashboard
+          - generic [ref=e1472]:
+            - generic [ref=e1473]: workflow
+            - generic [ref=e1474]: management
+            - generic [ref=e1475]: dashboard
+        - generic [ref=e1477]:
+          - generic [ref=e1478]:
+            - generic [ref=e1480]:
+              - generic [ref=e1481]:
+                - paragraph [ref=e1482]: Total Users
+                - paragraph [ref=e1483]: 12,543
+              - generic [ref=e1485]:
+                - text: ↗
+                - generic [ref=e1486]: 12.5%
+            - generic [ref=e1488]:
+              - generic [ref=e1489]:
+                - paragraph [ref=e1490]: Revenue
+                - paragraph [ref=e1491]: $125,430
+              - generic [ref=e1493]:
+                - text: ↗
+                - generic [ref=e1494]: 8.2%
+          - generic [ref=e1495]:
+            - heading "Workflow Metrics" [level=3] [ref=e1496]
+            - img [ref=e1497]:
+              - generic [ref=e1499]: "67000"
+              - generic [ref=e1501]: "50250"
+              - generic [ref=e1503]: "33500"
+              - generic [ref=e1505]: "16750"
+              - generic [ref=e1507]: "0"
+              - generic [ref=e1508]:
+                - generic [ref=e1510]: Jan
+                - generic [ref=e1511]: 45,000
+              - generic [ref=e1512]:
+                - generic [ref=e1514]: Feb
+                - generic [ref=e1515]: 52,000
+              - generic [ref=e1516]:
+                - generic [ref=e1518]: Mar
+                - generic [ref=e1519]: 48,000
+              - generic [ref=e1520]:
+                - generic [ref=e1522]: Apr
+                - generic [ref=e1523]: 61,000
+              - generic [ref=e1524]:
+                - generic [ref=e1526]: May
+                - generic [ref=e1527]: 55,000
+              - generic [ref=e1528]:
+                - generic [ref=e1530]: Jun
+                - generic [ref=e1531]: 67,000
+            - generic [ref=e1535]: Revenue
+        - generic [ref=e1536]:
+          - generic [ref=e1537]:
+            - generic [ref=e1538]: "Version: 1.0.0"
+            - generic [ref=e1539]: "Type: config"
+            - generic [ref=e1540]: "Dimension: 2D"
+          - generic [ref=e1541]:
+            - button "Details" [ref=e1542] [cursor=pointer]:
+              - img [ref=e1543]
+              - text: Details
+            - button "Code" [ref=e1546] [cursor=pointer]:
+              - img [ref=e1547]
+              - text: Code
+      - generic [ref=e1550]:
+        - generic [ref=e1551]:
+          - generic [ref=e1552]:
+            - heading "LeadsChart" [level=3] [ref=e1553]
+            - generic [ref=e1554]: charts
+          - paragraph [ref=e1555]: Lead pipeline pie chart
+          - generic [ref=e1556]:
+            - generic [ref=e1557]: chart
+            - generic [ref=e1558]: leads
+            - generic [ref=e1559]: analytics
+        - generic [ref=e1561]:
+          - heading "LeadsChart Chart" [level=3] [ref=e1562]
+          - img [ref=e1563]:
+            - generic [ref=e1565]: "200"
+            - generic [ref=e1567]: "170"
+            - generic [ref=e1569]: "140"
+            - generic [ref=e1571]: "110"
+            - generic [ref=e1573]: "80"
+            - generic [ref=e1574]: Jan
+            - generic [ref=e1575]: Feb
+            - generic [ref=e1576]: Mar
+            - generic [ref=e1577]: Apr
+            - generic [ref=e1578]: May
+            - generic [ref=e1579]: Jun
+            - generic [ref=e1580]: Jul
+            - generic [ref=e1581]: Aug
+            - generic [ref=e1582]: Sep
+            - generic [ref=e1583]: Oct
+          - generic [ref=e1598]: Response Time (ms)
+        - generic [ref=e1599]:
+          - generic [ref=e1600]:
+            - generic [ref=e1601]: "Version: 1.0.0"
+            - generic [ref=e1602]: "Type: config"
+            - generic [ref=e1603]: "Dimension: 2D"
+          - generic [ref=e1604]:
+            - button "Details" [ref=e1605] [cursor=pointer]:
+              - img [ref=e1606]
+              - text: Details
+            - button "Code" [ref=e1609] [cursor=pointer]:
+              - img [ref=e1610]
+              - text: Code
+      - generic [ref=e1613]:
+        - generic [ref=e1614]:
+          - generic [ref=e1615]:
+            - heading "BloomGraphChart" [level=3] [ref=e1616]
+            - generic [ref=e1617]: charts
+          - paragraph [ref=e1618]: Interactive bloom graph visualization
+          - generic [ref=e1619]:
+            - generic [ref=e1620]: chart
+            - generic [ref=e1621]: graph
+            - generic [ref=e1622]: interactive
+        - generic [ref=e1624]:
+          - heading "BloomGraphChart Chart" [level=3] [ref=e1625]
+          - img [ref=e1626]:
+            - generic [ref=e1628]: "200"
+            - generic [ref=e1630]: "170"
+            - generic [ref=e1632]: "140"
+            - generic [ref=e1634]: "110"
+            - generic [ref=e1636]: "80"
+            - generic [ref=e1637]: Jan
+            - generic [ref=e1638]: Feb
+            - generic [ref=e1639]: Mar
+            - generic [ref=e1640]: Apr
+            - generic [ref=e1641]: May
+            - generic [ref=e1642]: Jun
+            - generic [ref=e1643]: Jul
+            - generic [ref=e1644]: Aug
+            - generic [ref=e1645]: Sep
+            - generic [ref=e1646]: Oct
+          - generic [ref=e1661]: Response Time (ms)
+        - generic [ref=e1662]:
+          - generic [ref=e1663]:
+            - generic [ref=e1664]: "Version: 1.0.0"
+            - generic [ref=e1665]: "Type: config"
+            - generic [ref=e1666]: "Dimension: 3D"
+          - generic [ref=e1667]:
+            - button "Details" [ref=e1668] [cursor=pointer]:
+              - img [ref=e1669]
+              - text: Details
+            - button "Code" [ref=e1672] [cursor=pointer]:
+              - img [ref=e1673]
+              - text: Code
+      - generic [ref=e1676]:
+        - generic [ref=e1677]:
+          - generic [ref=e1678]:
+            - heading "ConfusionMatrixChart" [level=3] [ref=e1679]
+            - generic [ref=e1680]: charts
+          - paragraph [ref=e1681]: Machine learning confusion matrix
+          - generic [ref=e1682]:
+            - generic [ref=e1683]: chart
+            - generic [ref=e1684]: ml
+            - generic [ref=e1685]: matrix
+        - generic [ref=e1687]:
+          - heading "ConfusionMatrixChart Chart" [level=3] [ref=e1688]
+          - img [ref=e1689]:
+            - generic [ref=e1691]: "200"
+            - generic [ref=e1693]: "170"
+            - generic [ref=e1695]: "140"
+            - generic [ref=e1697]: "110"
+            - generic [ref=e1699]: "80"
+            - generic [ref=e1700]: Jan
+            - generic [ref=e1701]: Feb
+            - generic [ref=e1702]: Mar
+            - generic [ref=e1703]: Apr
+            - generic [ref=e1704]: May
+            - generic [ref=e1705]: Jun
+            - generic [ref=e1706]: Jul
+            - generic [ref=e1707]: Aug
+            - generic [ref=e1708]: Sep
+            - generic [ref=e1709]: Oct
+          - generic [ref=e1724]: Response Time (ms)
+        - generic [ref=e1725]:
+          - generic [ref=e1726]:
+            - generic [ref=e1727]: "Version: 1.0.0"
+            - generic [ref=e1728]: "Type: config"
+            - generic [ref=e1729]: "Dimension: 2D"
+          - generic [ref=e1730]:
+            - button "Details" [ref=e1731] [cursor=pointer]:
+              - img [ref=e1732]
+              - text: Details
+            - button "Code" [ref=e1735] [cursor=pointer]:
+              - img [ref=e1736]
+              - text: Code
+      - generic [ref=e1739]:
+        - generic [ref=e1740]:
+          - generic [ref=e1741]:
+            - heading "CorrelationHeatmap" [level=3] [ref=e1742]
+            - generic [ref=e1743]: charts
+          - paragraph [ref=e1744]: Data correlation heatmap
+          - generic [ref=e1745]:
+            - generic [ref=e1746]: chart
+            - generic [ref=e1747]: heatmap
+            - generic [ref=e1748]: correlation
+        - generic [ref=e1750]:
+          - heading "CorrelationHeatmap Chart" [level=3] [ref=e1751]
+          - img [ref=e1752]:
+            - generic [ref=e1754]: "200"
+            - generic [ref=e1756]: "170"
+            - generic [ref=e1758]: "140"
+            - generic [ref=e1760]: "110"
+            - generic [ref=e1762]: "80"
+            - generic [ref=e1763]: Jan
+            - generic [ref=e1764]: Feb
+            - generic [ref=e1765]: Mar
+            - generic [ref=e1766]: Apr
+            - generic [ref=e1767]: May
+            - generic [ref=e1768]: Jun
+            - generic [ref=e1769]: Jul
+            - generic [ref=e1770]: Aug
+            - generic [ref=e1771]: Sep
+            - generic [ref=e1772]: Oct
+          - generic [ref=e1787]: Response Time (ms)
+        - generic [ref=e1788]:
+          - generic [ref=e1789]:
+            - generic [ref=e1790]: "Version: 1.0.0"
+            - generic [ref=e1791]: "Type: config"
+            - generic [ref=e1792]: "Dimension: 2D"
+          - generic [ref=e1793]:
+            - button "Details" [ref=e1794] [cursor=pointer]:
+              - img [ref=e1795]
+              - text: Details
+            - button "Code" [ref=e1798] [cursor=pointer]:
+              - img [ref=e1799]
+              - text: Code
+      - generic [ref=e1802]:
+        - generic [ref=e1803]:
+          - generic [ref=e1804]:
+            - heading "DonutChart" [level=3] [ref=e1805]
+            - generic [ref=e1806]: charts
+          - paragraph [ref=e1807]: Donut chart with customizable segments
+          - generic [ref=e1808]:
+            - generic [ref=e1809]: chart
+            - generic [ref=e1810]: donut
+            - generic [ref=e1811]: pie
+        - generic [ref=e1813]:
+          - heading "DonutChart Chart" [level=3] [ref=e1814]
+          - img [ref=e1815]:
+            - generic [ref=e1817]: "200"
+            - generic [ref=e1819]: "170"
+            - generic [ref=e1821]: "140"
+            - generic [ref=e1823]: "110"
+            - generic [ref=e1825]: "80"
+            - generic [ref=e1826]: Jan
+            - generic [ref=e1827]: Feb
+            - generic [ref=e1828]: Mar
+            - generic [ref=e1829]: Apr
+            - generic [ref=e1830]: May
+            - generic [ref=e1831]: Jun
+            - generic [ref=e1832]: Jul
+            - generic [ref=e1833]: Aug
+            - generic [ref=e1834]: Sep
+            - generic [ref=e1835]: Oct
+          - generic [ref=e1850]: Response Time (ms)
+        - generic [ref=e1851]:
+          - generic [ref=e1852]:
+            - generic [ref=e1853]: "Version: 1.0.0"
+            - generic [ref=e1854]: "Type: config"
+            - generic [ref=e1855]: "Dimension: 2D"
+          - generic [ref=e1856]:
+            - button "Details" [ref=e1857] [cursor=pointer]:
+              - img [ref=e1858]
+              - text: Details
+            - button "Code" [ref=e1861] [cursor=pointer]:
+              - img [ref=e1862]
+              - text: Code
+      - generic [ref=e1865]:
+        - generic [ref=e1866]:
+          - generic [ref=e1867]:
+            - heading "GaugeChart" [level=3] [ref=e1868]
+            - generic [ref=e1869]: charts
+          - paragraph [ref=e1870]: Gauge chart for metrics display
+          - generic [ref=e1871]:
+            - generic [ref=e1872]: chart
+            - generic [ref=e1873]: gauge
+            - generic [ref=e1874]: metrics
+        - generic [ref=e1876]:
+          - heading "GaugeChart Chart" [level=3] [ref=e1877]
+          - img [ref=e1878]:
+            - generic [ref=e1880]: "200"
+            - generic [ref=e1882]: "170"
+            - generic [ref=e1884]: "140"
+            - generic [ref=e1886]: "110"
+            - generic [ref=e1888]: "80"
+            - generic [ref=e1889]: Jan
+            - generic [ref=e1890]: Feb
+            - generic [ref=e1891]: Mar
+            - generic [ref=e1892]: Apr
+            - generic [ref=e1893]: May
+            - generic [ref=e1894]: Jun
+            - generic [ref=e1895]: Jul
+            - generic [ref=e1896]: Aug
+            - generic [ref=e1897]: Sep
+            - generic [ref=e1898]: Oct
+          - generic [ref=e1913]: Response Time (ms)
+        - generic [ref=e1914]:
+          - generic [ref=e1915]:
+            - generic [ref=e1916]: "Version: 1.0.0"
+            - generic [ref=e1917]: "Type: config"
+            - generic [ref=e1918]: "Dimension: 2D"
+          - generic [ref=e1919]:
+            - button "Details" [ref=e1920] [cursor=pointer]:
+              - img [ref=e1921]
+              - text: Details
+            - button "Code" [ref=e1924] [cursor=pointer]:
+              - img [ref=e1925]
+              - text: Code
+      - generic [ref=e1928]:
+        - generic [ref=e1929]:
+          - generic [ref=e1930]:
+            - heading "HeatmapChart" [level=3] [ref=e1931]
+            - generic [ref=e1932]: charts
+          - paragraph [ref=e1933]: Data heatmap visualization
+          - generic [ref=e1934]:
+            - generic [ref=e1935]: chart
+            - generic [ref=e1936]: heatmap
+            - generic [ref=e1937]: data
+        - generic [ref=e1939]:
+          - heading "Activity Heatmap" [level=3] [ref=e1940]
+          - img [ref=e1941]:
+            - generic [ref=e1942]: Morning
+            - generic [ref=e1943]: Afternoon
+            - generic [ref=e1944]: Evening
+            - generic [ref=e1945]: Mon
+            - generic [ref=e1946]: Tue
+            - generic [ref=e1947]: Wed
+            - 'generic "Mon Morning: 65" [ref=e1948] [cursor=pointer]'
+            - 'generic "Mon Afternoon: 45" [ref=e1949] [cursor=pointer]'
+            - 'generic "Mon Evening: 30" [ref=e1950] [cursor=pointer]'
+            - 'generic "Tue Morning: 70" [ref=e1951] [cursor=pointer]'
+            - 'generic "Tue Afternoon: 55" [ref=e1952] [cursor=pointer]'
+            - 'generic "Tue Evening: 40" [ref=e1953] [cursor=pointer]'
+            - 'generic "Wed Morning: 60" [ref=e1954] [cursor=pointer]'
+            - 'generic "Wed Afternoon: 50" [ref=e1955] [cursor=pointer]'
+            - 'generic "Wed Evening: 35" [ref=e1956] [cursor=pointer]'
+          - generic [ref=e1957]:
+            - generic [ref=e1960]: Low
+            - generic [ref=e1963]: Medium
+            - generic [ref=e1966]: High
+        - generic [ref=e1967]:
+          - generic [ref=e1968]:
+            - generic [ref=e1969]: "Version: 1.0.0"
+            - generic [ref=e1970]: "Type: config"
+            - generic [ref=e1971]: "Dimension: 2D"
+          - generic [ref=e1972]:
+            - button "Details" [ref=e1973] [cursor=pointer]:
+              - img [ref=e1974]
+              - text: Details
+            - button "Code" [ref=e1977] [cursor=pointer]:
+              - img [ref=e1978]
+              - text: Code
+      - generic [ref=e1981]:
+        - generic [ref=e1982]:
+          - generic [ref=e1983]:
+            - heading "LineChart" [level=3] [ref=e1984]
+            - generic [ref=e1985]: charts
+          - paragraph [ref=e1986]: Time series line chart
+          - generic [ref=e1987]:
+            - generic [ref=e1988]: chart
+            - generic [ref=e1989]: line
+            - generic [ref=e1990]: time-series
+        - generic [ref=e1992]:
+          - heading "Performance Metrics" [level=3] [ref=e1993]
+          - img [ref=e1994]:
+            - generic [ref=e1996]: "200"
+            - generic [ref=e1998]: "170"
+            - generic [ref=e2000]: "140"
+            - generic [ref=e2002]: "110"
+            - generic [ref=e2004]: "80"
+            - generic [ref=e2005]: Jan
+            - generic [ref=e2006]: Feb
+            - generic [ref=e2007]: Mar
+            - generic [ref=e2008]: Apr
+            - generic [ref=e2009]: May
+            - generic [ref=e2010]: Jun
+            - generic [ref=e2011]: Jul
+            - generic [ref=e2012]: Aug
+            - generic [ref=e2013]: Sep
+            - generic [ref=e2014]: Oct
+          - generic [ref=e2029]: Response Time (ms)
+        - generic [ref=e2030]:
+          - generic [ref=e2031]:
+            - generic [ref=e2032]: "Version: 1.0.0"
+            - generic [ref=e2033]: "Type: config"
+            - generic [ref=e2034]: "Dimension: 2D"
+          - generic [ref=e2035]:
+            - button "Details" [ref=e2036] [cursor=pointer]:
+              - img [ref=e2037]
+              - text: Details
+            - button "Code" [ref=e2040] [cursor=pointer]:
+              - img [ref=e2041]
+              - text: Code
+      - generic [ref=e2044]:
+        - generic [ref=e2045]:
+          - generic [ref=e2046]:
+            - heading "PieChart" [level=3] [ref=e2047]
+            - generic [ref=e2048]: charts
+          - paragraph [ref=e2049]: Pie chart with segments
+          - generic [ref=e2050]:
+            - generic [ref=e2051]: chart
+            - generic [ref=e2052]: pie
+            - generic [ref=e2053]: segments
+        - generic [ref=e2055]:
+          - heading "Leads Distribution" [level=3] [ref=e2056]
+          - img [ref=e2058]
+          - generic [ref=e2062]:
+            - generic [ref=e2063]:
+              - generic [ref=e2066]: Qualified
+              - generic [ref=e2067]: 45 (45%)
+            - generic [ref=e2068]:
+              - generic [ref=e2071]: Unqualified
+              - generic [ref=e2072]: 30 (30%)
+            - generic [ref=e2073]:
+              - generic [ref=e2076]: In Progress
+              - generic [ref=e2077]: 25 (25%)
+        - generic [ref=e2078]:
+          - generic [ref=e2079]:
+            - generic [ref=e2080]: "Version: 1.0.0"
+            - generic [ref=e2081]: "Type: config"
+            - generic [ref=e2082]: "Dimension: 2D"
+          - generic [ref=e2083]:
+            - button "Details" [ref=e2084] [cursor=pointer]:
+              - img [ref=e2085]
+              - text: Details
+            - button "Code" [ref=e2088] [cursor=pointer]:
+              - img [ref=e2089]
+              - text: Code
+      - generic [ref=e2092]:
+        - generic [ref=e2093]:
+          - generic [ref=e2094]:
+            - heading "RadarChart" [level=3] [ref=e2095]
+            - generic [ref=e2096]: charts
+          - paragraph [ref=e2097]: Radar chart for multi-dimensional data
+          - generic [ref=e2098]:
+            - generic [ref=e2099]: chart
+            - generic [ref=e2100]: radar
+            - generic [ref=e2101]: multi-dimensional
+        - generic [ref=e2103]:
+          - heading "RadarChart Chart" [level=3] [ref=e2104]
+          - img [ref=e2105]:
+            - generic [ref=e2107]: "200"
+            - generic [ref=e2109]: "170"
+            - generic [ref=e2111]: "140"
+            - generic [ref=e2113]: "110"
+            - generic [ref=e2115]: "80"
+            - generic [ref=e2116]: Jan
+            - generic [ref=e2117]: Feb
+            - generic [ref=e2118]: Mar
+            - generic [ref=e2119]: Apr
+            - generic [ref=e2120]: May
+            - generic [ref=e2121]: Jun
+            - generic [ref=e2122]: Jul
+            - generic [ref=e2123]: Aug
+            - generic [ref=e2124]: Sep
+            - generic [ref=e2125]: Oct
+          - generic [ref=e2140]: Response Time (ms)
+        - generic [ref=e2141]:
+          - generic [ref=e2142]:
+            - generic [ref=e2143]: "Version: 1.0.0"
+            - generic [ref=e2144]: "Type: config"
+            - generic [ref=e2145]: "Dimension: 2D"
+          - generic [ref=e2146]:
+            - button "Details" [ref=e2147] [cursor=pointer]:
+              - img [ref=e2148]
+              - text: Details
+            - button "Code" [ref=e2151] [cursor=pointer]:
+              - img [ref=e2152]
+              - text: Code
+      - generic [ref=e2155]:
+        - generic [ref=e2156]:
+          - generic [ref=e2157]:
+            - heading "ScatterPlot" [level=3] [ref=e2158]
+            - generic [ref=e2159]: charts
+          - paragraph [ref=e2160]: Scatter plot for correlation analysis
+          - generic [ref=e2161]:
+            - generic [ref=e2162]: chart
+            - generic [ref=e2163]: scatter
+            - generic [ref=e2164]: correlation
+        - generic [ref=e2166]:
+          - heading "ScatterPlot Chart" [level=3] [ref=e2167]
+          - img [ref=e2168]:
+            - generic [ref=e2170]: "200"
+            - generic [ref=e2172]: "170"
+            - generic [ref=e2174]: "140"
+            - generic [ref=e2176]: "110"
+            - generic [ref=e2178]: "80"
+            - generic [ref=e2179]: Jan
+            - generic [ref=e2180]: Feb
+            - generic [ref=e2181]: Mar
+            - generic [ref=e2182]: Apr
+            - generic [ref=e2183]: May
+            - generic [ref=e2184]: Jun
+            - generic [ref=e2185]: Jul
+            - generic [ref=e2186]: Aug
+            - generic [ref=e2187]: Sep
+            - generic [ref=e2188]: Oct
+          - generic [ref=e2203]: Response Time (ms)
+        - generic [ref=e2204]:
+          - generic [ref=e2205]:
+            - generic [ref=e2206]: "Version: 1.0.0"
+            - generic [ref=e2207]: "Type: config"
+            - generic [ref=e2208]: "Dimension: 2D"
+          - generic [ref=e2209]:
+            - button "Details" [ref=e2210] [cursor=pointer]:
+              - img [ref=e2211]
+              - text: Details
+            - button "Code" [ref=e2214] [cursor=pointer]:
+              - img [ref=e2215]
+              - text: Code
+      - generic [ref=e2218]:
+        - generic [ref=e2219]:
+          - generic [ref=e2220]:
+            - heading "SankeyDiagram" [level=3] [ref=e2221]
+            - generic [ref=e2222]: charts
+          - paragraph [ref=e2223]: Flow diagram for data visualization
+          - generic [ref=e2224]:
+            - generic [ref=e2225]: chart
+            - generic [ref=e2226]: sankey
+            - generic [ref=e2227]: flow
+        - generic [ref=e2229]:
+          - heading "SankeyDiagram Chart" [level=3] [ref=e2230]
+          - img [ref=e2231]:
+            - generic [ref=e2233]: "200"
+            - generic [ref=e2235]: "170"
+            - generic [ref=e2237]: "140"
+            - generic [ref=e2239]: "110"
+            - generic [ref=e2241]: "80"
+            - generic [ref=e2242]: Jan
+            - generic [ref=e2243]: Feb
+            - generic [ref=e2244]: Mar
+            - generic [ref=e2245]: Apr
+            - generic [ref=e2246]: May
+            - generic [ref=e2247]: Jun
+            - generic [ref=e2248]: Jul
+            - generic [ref=e2249]: Aug
+            - generic [ref=e2250]: Sep
+            - generic [ref=e2251]: Oct
+          - generic [ref=e2266]: Response Time (ms)
+        - generic [ref=e2267]:
+          - generic [ref=e2268]:
+            - generic [ref=e2269]: "Version: 1.0.0"
+            - generic [ref=e2270]: "Type: config"
+            - generic [ref=e2271]: "Dimension: 2D"
+          - generic [ref=e2272]:
+            - button "Details" [ref=e2273] [cursor=pointer]:
+              - img [ref=e2274]
+              - text: Details
+            - button "Code" [ref=e2277] [cursor=pointer]:
+              - img [ref=e2278]
+              - text: Code
+      - generic [ref=e2281]:
+        - generic [ref=e2282]:
+          - generic [ref=e2283]:
+            - heading "TreemapChart" [level=3] [ref=e2284]
+            - generic [ref=e2285]: charts
+          - paragraph [ref=e2286]: Hierarchical treemap visualization
+          - generic [ref=e2287]:
+            - generic [ref=e2288]: chart
+            - generic [ref=e2289]: treemap
+            - generic [ref=e2290]: hierarchical
+        - generic [ref=e2292]:
+          - heading "TreemapChart Chart" [level=3] [ref=e2293]
+          - img [ref=e2294]:
+            - generic [ref=e2296]: "200"
+            - generic [ref=e2298]: "170"
+            - generic [ref=e2300]: "140"
+            - generic [ref=e2302]: "110"
+            - generic [ref=e2304]: "80"
+            - generic [ref=e2305]: Jan
+            - generic [ref=e2306]: Feb
+            - generic [ref=e2307]: Mar
+            - generic [ref=e2308]: Apr
+            - generic [ref=e2309]: May
+            - generic [ref=e2310]: Jun
+            - generic [ref=e2311]: Jul
+            - generic [ref=e2312]: Aug
+            - generic [ref=e2313]: Sep
+            - generic [ref=e2314]: Oct
+          - generic [ref=e2329]: Response Time (ms)
+        - generic [ref=e2330]:
+          - generic [ref=e2331]:
+            - generic [ref=e2332]: "Version: 1.0.0"
+            - generic [ref=e2333]: "Type: config"
+            - generic [ref=e2334]: "Dimension: 2D"
+          - generic [ref=e2335]:
+            - button "Details" [ref=e2336] [cursor=pointer]:
+              - img [ref=e2337]
+              - text: Details
+            - button "Code" [ref=e2340] [cursor=pointer]:
+              - img [ref=e2341]
+              - text: Code
+      - generic [ref=e2344]:
+        - generic [ref=e2345]:
+          - generic [ref=e2346]:
+            - heading "WaterfallChart" [level=3] [ref=e2347]
+            - generic [ref=e2348]: charts
+          - paragraph [ref=e2349]: Waterfall chart for cumulative data
+          - generic [ref=e2350]:
+            - generic [ref=e2351]: chart
+            - generic [ref=e2352]: waterfall
+            - generic [ref=e2353]: cumulative
+        - generic [ref=e2355]:
+          - heading "WaterfallChart Chart" [level=3] [ref=e2356]
+          - img [ref=e2357]:
+            - generic [ref=e2359]: "200"
+            - generic [ref=e2361]: "170"
+            - generic [ref=e2363]: "140"
+            - generic [ref=e2365]: "110"
+            - generic [ref=e2367]: "80"
+            - generic [ref=e2368]: Jan
+            - generic [ref=e2369]: Feb
+            - generic [ref=e2370]: Mar
+            - generic [ref=e2371]: Apr
+            - generic [ref=e2372]: May
+            - generic [ref=e2373]: Jun
+            - generic [ref=e2374]: Jul
+            - generic [ref=e2375]: Aug
+            - generic [ref=e2376]: Sep
+            - generic [ref=e2377]: Oct
+          - generic [ref=e2392]: Response Time (ms)
+        - generic [ref=e2393]:
+          - generic [ref=e2394]:
+            - generic [ref=e2395]: "Version: 1.0.0"
+            - generic [ref=e2396]: "Type: config"
+            - generic [ref=e2397]: "Dimension: 2D"
+          - generic [ref=e2398]:
+            - button "Details" [ref=e2399] [cursor=pointer]:
+              - img [ref=e2400]
+              - text: Details
+            - button "Code" [ref=e2403] [cursor=pointer]:
+              - img [ref=e2404]
+              - text: Code
+      - generic [ref=e2407]:
+        - generic [ref=e2408]:
+          - generic [ref=e2409]:
+            - heading "BarChart" [level=3] [ref=e2410]
+            - generic [ref=e2411]: charts
+          - paragraph [ref=e2412]: Bar chart for categorical data
+          - generic [ref=e2413]:
+            - generic [ref=e2414]: chart
+            - generic [ref=e2415]: bar
+            - generic [ref=e2416]: categorical
+        - generic [ref=e2418]:
+          - heading "Monthly Revenue" [level=3] [ref=e2419]
+          - img [ref=e2420]:
+            - generic [ref=e2422]: "67000"
+            - generic [ref=e2424]: "50250"
+            - generic [ref=e2426]: "33500"
+            - generic [ref=e2428]: "16750"
+            - generic [ref=e2430]: "0"
+            - generic [ref=e2431]:
+              - generic [ref=e2433]: Jan
+              - generic [ref=e2434]: 45,000
+            - generic [ref=e2435]:
+              - generic [ref=e2437]: Feb
+              - generic [ref=e2438]: 52,000
+            - generic [ref=e2439]:
+              - generic [ref=e2441]: Mar
+              - generic [ref=e2442]: 48,000
+            - generic [ref=e2443]:
+              - generic [ref=e2445]: Apr
+              - generic [ref=e2446]: 61,000
+            - generic [ref=e2447]:
+              - generic [ref=e2449]: May
+              - generic [ref=e2450]: 55,000
+            - generic [ref=e2451]:
+              - generic [ref=e2453]: Jun
+              - generic [ref=e2454]: 67,000
+          - generic [ref=e2458]: Revenue
+        - generic [ref=e2459]:
+          - generic [ref=e2460]:
+            - generic [ref=e2461]: "Version: 1.0.0"
+            - generic [ref=e2462]: "Type: config"
+            - generic [ref=e2463]: "Dimension: 2D"
+          - generic [ref=e2464]:
+            - button "Details" [ref=e2465] [cursor=pointer]:
+              - img [ref=e2466]
+              - text: Details
+            - button "Code" [ref=e2469] [cursor=pointer]:
+              - img [ref=e2470]
+              - text: Code
+      - generic [ref=e2473]:
+        - generic [ref=e2474]:
+          - generic [ref=e2475]:
+            - heading "AreaChart" [level=3] [ref=e2476]
+            - generic [ref=e2477]: charts
+          - paragraph [ref=e2478]: Area chart for filled data visualization
+          - generic [ref=e2479]:
+            - generic [ref=e2480]: chart
+            - generic [ref=e2481]: area
+            - generic [ref=e2482]: filled
+        - generic [ref=e2484]:
+          - heading "AreaChart Chart" [level=3] [ref=e2485]
+          - img [ref=e2486]:
+            - generic [ref=e2488]: "200"
+            - generic [ref=e2490]: "170"
+            - generic [ref=e2492]: "140"
+            - generic [ref=e2494]: "110"
+            - generic [ref=e2496]: "80"
+            - generic [ref=e2497]: Jan
+            - generic [ref=e2498]: Feb
+            - generic [ref=e2499]: Mar
+            - generic [ref=e2500]: Apr
+            - generic [ref=e2501]: May
+            - generic [ref=e2502]: Jun
+            - generic [ref=e2503]: Jul
+            - generic [ref=e2504]: Aug
+            - generic [ref=e2505]: Sep
+            - generic [ref=e2506]: Oct
+          - generic [ref=e2521]: Response Time (ms)
+        - generic [ref=e2522]:
+          - generic [ref=e2523]:
+            - generic [ref=e2524]: "Version: 1.0.0"
+            - generic [ref=e2525]: "Type: config"
+            - generic [ref=e2526]: "Dimension: 2D"
+          - generic [ref=e2527]:
+            - button "Details" [ref=e2528] [cursor=pointer]:
+              - img [ref=e2529]
+              - text: Details
+            - button "Code" [ref=e2532] [cursor=pointer]:
+              - img [ref=e2533]
+              - text: Code
+      - generic [ref=e2536]:
+        - generic [ref=e2537]:
+          - generic [ref=e2538]:
+            - heading "BubbleChart" [level=3] [ref=e2539]
+            - generic [ref=e2540]: charts
+          - paragraph [ref=e2541]: Bubble chart for multi-dimensional data
+          - generic [ref=e2542]:
+            - generic [ref=e2543]: chart
+            - generic [ref=e2544]: bubble
+            - generic [ref=e2545]: multi-dimensional
+        - generic [ref=e2547]:
+          - heading "BubbleChart Chart" [level=3] [ref=e2548]
+          - img [ref=e2549]:
+            - generic [ref=e2551]: "200"
+            - generic [ref=e2553]: "170"
+            - generic [ref=e2555]: "140"
+            - generic [ref=e2557]: "110"
+            - generic [ref=e2559]: "80"
+            - generic [ref=e2560]: Jan
+            - generic [ref=e2561]: Feb
+            - generic [ref=e2562]: Mar
+            - generic [ref=e2563]: Apr
+            - generic [ref=e2564]: May
+            - generic [ref=e2565]: Jun
+            - generic [ref=e2566]: Jul
+            - generic [ref=e2567]: Aug
+            - generic [ref=e2568]: Sep
+            - generic [ref=e2569]: Oct
+          - generic [ref=e2584]: Response Time (ms)
+        - generic [ref=e2585]:
+          - generic [ref=e2586]:
+            - generic [ref=e2587]: "Version: 1.0.0"
+            - generic [ref=e2588]: "Type: config"
+            - generic [ref=e2589]: "Dimension: 2D"
+          - generic [ref=e2590]:
+            - button "Details" [ref=e2591] [cursor=pointer]:
+              - img [ref=e2592]
+              - text: Details
+            - button "Code" [ref=e2595] [cursor=pointer]:
+              - img [ref=e2596]
+              - text: Code
+      - generic [ref=e2599]:
+        - generic [ref=e2600]:
+          - generic [ref=e2601]:
+            - heading "CandlestickChart" [level=3] [ref=e2602]
+            - generic [ref=e2603]: charts
+          - paragraph [ref=e2604]: Financial candlestick chart
+          - generic [ref=e2605]:
+            - generic [ref=e2606]: chart
+            - generic [ref=e2607]: candlestick
+            - generic [ref=e2608]: financial
+        - generic [ref=e2610]:
+          - heading "CandlestickChart Chart" [level=3] [ref=e2611]
+          - img [ref=e2612]:
+            - generic [ref=e2614]: "200"
+            - generic [ref=e2616]: "170"
+            - generic [ref=e2618]: "140"
+            - generic [ref=e2620]: "110"
+            - generic [ref=e2622]: "80"
+            - generic [ref=e2623]: Jan
+            - generic [ref=e2624]: Feb
+            - generic [ref=e2625]: Mar
+            - generic [ref=e2626]: Apr
+            - generic [ref=e2627]: May
+            - generic [ref=e2628]: Jun
+            - generic [ref=e2629]: Jul
+            - generic [ref=e2630]: Aug
+            - generic [ref=e2631]: Sep
+            - generic [ref=e2632]: Oct
+          - generic [ref=e2647]: Response Time (ms)
+        - generic [ref=e2648]:
+          - generic [ref=e2649]:
+            - generic [ref=e2650]: "Version: 1.0.0"
+            - generic [ref=e2651]: "Type: config"
+            - generic [ref=e2652]: "Dimension: 2D"
+          - generic [ref=e2653]:
+            - button "Details" [ref=e2654] [cursor=pointer]:
+              - img [ref=e2655]
+              - text: Details
+            - button "Code" [ref=e2658] [cursor=pointer]:
+              - img [ref=e2659]
+              - text: Code
+      - generic [ref=e2662]:
+        - generic [ref=e2663]:
+          - generic [ref=e2664]:
+            - heading "FunnelChart" [level=3] [ref=e2665]
+            - generic [ref=e2666]: charts
+          - paragraph [ref=e2667]: Funnel chart for conversion analysis
+          - generic [ref=e2668]:
+            - generic [ref=e2669]: chart
+            - generic [ref=e2670]: funnel
+            - generic [ref=e2671]: conversion
+        - generic [ref=e2673]:
+          - heading "FunnelChart Chart" [level=3] [ref=e2674]
+          - img [ref=e2675]:
+            - generic [ref=e2677]: "200"
+            - generic [ref=e2679]: "170"
+            - generic [ref=e2681]: "140"
+            - generic [ref=e2683]: "110"
+            - generic [ref=e2685]: "80"
+            - generic [ref=e2686]: Jan
+            - generic [ref=e2687]: Feb
+            - generic [ref=e2688]: Mar
+            - generic [ref=e2689]: Apr
+            - generic [ref=e2690]: May
+            - generic [ref=e2691]: Jun
+            - generic [ref=e2692]: Jul
+            - generic [ref=e2693]: Aug
+            - generic [ref=e2694]: Sep
+            - generic [ref=e2695]: Oct
+          - generic [ref=e2710]: Response Time (ms)
+        - generic [ref=e2711]:
+          - generic [ref=e2712]:
+            - generic [ref=e2713]: "Version: 1.0.0"
+            - generic [ref=e2714]: "Type: config"
+            - generic [ref=e2715]: "Dimension: 2D"
+          - generic [ref=e2716]:
+            - button "Details" [ref=e2717] [cursor=pointer]:
+              - img [ref=e2718]
+              - text: Details
+            - button "Code" [ref=e2721] [cursor=pointer]:
+              - img [ref=e2722]
+              - text: Code
+      - generic [ref=e2725]:
+        - generic [ref=e2726]:
+          - generic [ref=e2727]:
+            - heading "HistogramChart" [level=3] [ref=e2728]
+            - generic [ref=e2729]: charts
+          - paragraph [ref=e2730]: Histogram for distribution analysis
+          - generic [ref=e2731]:
+            - generic [ref=e2732]: chart
+            - generic [ref=e2733]: histogram
+            - generic [ref=e2734]: distribution
+        - generic [ref=e2736]:
+          - heading "HistogramChart Chart" [level=3] [ref=e2737]
+          - img [ref=e2738]:
+            - generic [ref=e2740]: "200"
+            - generic [ref=e2742]: "170"
+            - generic [ref=e2744]: "140"
+            - generic [ref=e2746]: "110"
+            - generic [ref=e2748]: "80"
+            - generic [ref=e2749]: Jan
+            - generic [ref=e2750]: Feb
+            - generic [ref=e2751]: Mar
+            - generic [ref=e2752]: Apr
+            - generic [ref=e2753]: May
+            - generic [ref=e2754]: Jun
+            - generic [ref=e2755]: Jul
+            - generic [ref=e2756]: Aug
+            - generic [ref=e2757]: Sep
+            - generic [ref=e2758]: Oct
+          - generic [ref=e2773]: Response Time (ms)
+        - generic [ref=e2774]:
+          - generic [ref=e2775]:
+            - generic [ref=e2776]: "Version: 1.0.0"
+            - generic [ref=e2777]: "Type: config"
+            - generic [ref=e2778]: "Dimension: 2D"
+          - generic [ref=e2779]:
+            - button "Details" [ref=e2780] [cursor=pointer]:
+              - img [ref=e2781]
+              - text: Details
+            - button "Code" [ref=e2784] [cursor=pointer]:
+              - img [ref=e2785]
+              - text: Code
+      - generic [ref=e2788]:
+        - generic [ref=e2789]:
+          - generic [ref=e2790]:
+            - heading "PolarChart" [level=3] [ref=e2791]
+            - generic [ref=e2792]: charts
+          - paragraph [ref=e2793]: Polar coordinate chart
+          - generic [ref=e2794]:
+            - generic [ref=e2795]: chart
+            - generic [ref=e2796]: polar
+            - generic [ref=e2797]: coordinates
+        - generic [ref=e2799]:
+          - heading "PolarChart Chart" [level=3] [ref=e2800]
+          - img [ref=e2801]:
+            - generic [ref=e2803]: "200"
+            - generic [ref=e2805]: "170"
+            - generic [ref=e2807]: "140"
+            - generic [ref=e2809]: "110"
+            - generic [ref=e2811]: "80"
+            - generic [ref=e2812]: Jan
+            - generic [ref=e2813]: Feb
+            - generic [ref=e2814]: Mar
+            - generic [ref=e2815]: Apr
+            - generic [ref=e2816]: May
+            - generic [ref=e2817]: Jun
+            - generic [ref=e2818]: Jul
+            - generic [ref=e2819]: Aug
+            - generic [ref=e2820]: Sep
+            - generic [ref=e2821]: Oct
+          - generic [ref=e2836]: Response Time (ms)
+        - generic [ref=e2837]:
+          - generic [ref=e2838]:
+            - generic [ref=e2839]: "Version: 1.0.0"
+            - generic [ref=e2840]: "Type: config"
+            - generic [ref=e2841]: "Dimension: 2D"
+          - generic [ref=e2842]:
+            - button "Details" [ref=e2843] [cursor=pointer]:
+              - img [ref=e2844]
+              - text: Details
+            - button "Code" [ref=e2847] [cursor=pointer]:
+              - img [ref=e2848]
+              - text: Code
+      - generic [ref=e2851]:
+        - generic [ref=e2852]:
+          - generic [ref=e2853]:
+            - heading "SunburstChart" [level=3] [ref=e2854]
+            - generic [ref=e2855]: charts
+          - paragraph [ref=e2856]: Hierarchical sunburst visualization
+          - generic [ref=e2857]:
+            - generic [ref=e2858]: chart
+            - generic [ref=e2859]: sunburst
+            - generic [ref=e2860]: hierarchical
+        - generic [ref=e2862]:
+          - heading "SunburstChart Chart" [level=3] [ref=e2863]
+          - img [ref=e2864]:
+            - generic [ref=e2866]: "200"
+            - generic [ref=e2868]: "170"
+            - generic [ref=e2870]: "140"
+            - generic [ref=e2872]: "110"
+            - generic [ref=e2874]: "80"
+            - generic [ref=e2875]: Jan
+            - generic [ref=e2876]: Feb
+            - generic [ref=e2877]: Mar
+            - generic [ref=e2878]: Apr
+            - generic [ref=e2879]: May
+            - generic [ref=e2880]: Jun
+            - generic [ref=e2881]: Jul
+            - generic [ref=e2882]: Aug
+            - generic [ref=e2883]: Sep
+            - generic [ref=e2884]: Oct
+          - generic [ref=e2899]: Response Time (ms)
+        - generic [ref=e2900]:
+          - generic [ref=e2901]:
+            - generic [ref=e2902]: "Version: 1.0.0"
+            - generic [ref=e2903]: "Type: config"
+            - generic [ref=e2904]: "Dimension: 2D"
+          - generic [ref=e2905]:
+            - button "Details" [ref=e2906] [cursor=pointer]:
+              - img [ref=e2907]
+              - text: Details
+            - button "Code" [ref=e2910] [cursor=pointer]:
+              - img [ref=e2911]
+              - text: Code
+      - generic [ref=e2914]:
+        - generic [ref=e2915]:
+          - generic [ref=e2916]:
+            - heading "WorkflowCard" [level=3] [ref=e2917]
+            - generic [ref=e2918]: workflows
+          - paragraph [ref=e2919]: Individual workflow card
+          - generic [ref=e2920]:
+            - generic [ref=e2921]: workflow
+            - generic [ref=e2922]: card
+            - generic [ref=e2923]: individual
+        - generic [ref=e2925]:
+          - heading "WorkflowCard" [level=3] [ref=e2926]
+          - paragraph [ref=e2927]: Interactive WorkflowCard component
+        - generic [ref=e2928]:
+          - generic [ref=e2929]:
+            - generic [ref=e2930]: "Version: 1.0.0"
+            - generic [ref=e2931]: "Type: config"
+            - generic [ref=e2932]: "Dimension: 2D"
+          - generic [ref=e2933]:
+            - button "Details" [ref=e2934] [cursor=pointer]:
+              - img [ref=e2935]
+              - text: Details
+            - button "Code" [ref=e2938] [cursor=pointer]:
+              - img [ref=e2939]
+              - text: Code
+      - generic [ref=e2942]:
+        - generic [ref=e2943]:
+          - generic [ref=e2944]:
+            - heading "WorkflowStep" [level=3] [ref=e2945]
+            - generic [ref=e2946]: workflows
+          - paragraph [ref=e2947]: Single workflow step
+          - generic [ref=e2948]:
+            - generic [ref=e2949]: workflow
+            - generic [ref=e2950]: step
+            - generic [ref=e2951]: process
+        - generic [ref=e2953]:
+          - heading "WorkflowStep" [level=3] [ref=e2954]
+          - paragraph [ref=e2955]: Interactive WorkflowStep component
+        - generic [ref=e2956]:
+          - generic [ref=e2957]:
+            - generic [ref=e2958]: "Version: 1.0.0"
+            - generic [ref=e2959]: "Type: config"
+            - generic [ref=e2960]: "Dimension: 2D"
+          - generic [ref=e2961]:
+            - button "Details" [ref=e2962] [cursor=pointer]:
+              - img [ref=e2963]
+              - text: Details
+            - button "Code" [ref=e2966] [cursor=pointer]:
+              - img [ref=e2967]
+              - text: Code
+      - generic [ref=e2970]:
+        - generic [ref=e2971]:
+          - generic [ref=e2972]:
+            - heading "WorkflowBuilder" [level=3] [ref=e2973]
+            - generic [ref=e2974]: workflows
+          - paragraph [ref=e2975]: Visual workflow builder
+          - generic [ref=e2976]:
+            - generic [ref=e2977]: workflow
+            - generic [ref=e2978]: builder
+            - generic [ref=e2979]: visual
+        - generic [ref=e2981]:
+          - heading "WorkflowBuilder" [level=3] [ref=e2982]
+          - paragraph [ref=e2983]: Interactive WorkflowBuilder component
+        - generic [ref=e2984]:
+          - generic [ref=e2985]:
+            - generic [ref=e2986]: "Version: 1.0.0"
+            - generic [ref=e2987]: "Type: config"
+            - generic [ref=e2988]: "Dimension: 2D"
+          - generic [ref=e2989]:
+            - button "Details" [ref=e2990] [cursor=pointer]:
+              - img [ref=e2991]
+              - text: Details
+            - button "Code" [ref=e2994] [cursor=pointer]:
+              - img [ref=e2995]
+              - text: Code
+      - generic [ref=e2998]:
+        - generic [ref=e2999]:
+          - generic [ref=e3000]:
+            - heading "WorkflowExecutor" [level=3] [ref=e3001]
+            - generic [ref=e3002]: workflows
+          - paragraph [ref=e3003]: Workflow execution engine
+          - generic [ref=e3004]:
+            - generic [ref=e3005]: workflow
+            - generic [ref=e3006]: executor
+            - generic [ref=e3007]: engine
+        - generic [ref=e3009]:
+          - heading "WorkflowExecutor" [level=3] [ref=e3010]
+          - paragraph [ref=e3011]: Interactive WorkflowExecutor component
+        - generic [ref=e3012]:
+          - generic [ref=e3013]:
+            - generic [ref=e3014]: "Version: 1.0.0"
+            - generic [ref=e3015]: "Type: config"
+            - generic [ref=e3016]: "Dimension: 2D"
+          - generic [ref=e3017]:
+            - button "Details" [ref=e3018] [cursor=pointer]:
+              - img [ref=e3019]
+              - text: Details
+            - button "Code" [ref=e3022] [cursor=pointer]:
+              - img [ref=e3023]
+              - text: Code
+      - generic [ref=e3026]:
+        - generic [ref=e3027]:
+          - generic [ref=e3028]:
+            - heading "WorkflowMonitor" [level=3] [ref=e3029]
+            - generic [ref=e3030]: workflows
+          - paragraph [ref=e3031]: Workflow monitoring and status
+          - generic [ref=e3032]:
+            - generic [ref=e3033]: workflow
+            - generic [ref=e3034]: monitor
+            - generic [ref=e3035]: status
+        - generic [ref=e3037]:
+          - heading "WorkflowMonitor" [level=3] [ref=e3038]
+          - paragraph [ref=e3039]: Interactive WorkflowMonitor component
+        - generic [ref=e3040]:
+          - generic [ref=e3041]:
+            - generic [ref=e3042]: "Version: 1.0.0"
+            - generic [ref=e3043]: "Type: config"
+            - generic [ref=e3044]: "Dimension: 2D"
+          - generic [ref=e3045]:
+            - button "Details" [ref=e3046] [cursor=pointer]:
+              - img [ref=e3047]
+              - text: Details
+            - button "Code" [ref=e3050] [cursor=pointer]:
+              - img [ref=e3051]
+              - text: Code
+      - generic [ref=e3054]:
+        - generic [ref=e3055]:
+          - generic [ref=e3056]:
+            - heading "WorkflowScheduler" [level=3] [ref=e3057]
+            - generic [ref=e3058]: workflows
+          - paragraph [ref=e3059]: Workflow scheduling
+          - generic [ref=e3060]:
+            - generic [ref=e3061]: workflow
+            - generic [ref=e3062]: scheduler
+            - generic [ref=e3063]: timing
+        - generic [ref=e3065]:
+          - heading "WorkflowScheduler" [level=3] [ref=e3066]
+          - paragraph [ref=e3067]: Interactive WorkflowScheduler component
+        - generic [ref=e3068]:
+          - generic [ref=e3069]:
+            - generic [ref=e3070]: "Version: 1.0.0"
+            - generic [ref=e3071]: "Type: config"
+            - generic [ref=e3072]: "Dimension: 2D"
+          - generic [ref=e3073]:
+            - button "Details" [ref=e3074] [cursor=pointer]:
+              - img [ref=e3075]
+              - text: Details
+            - button "Code" [ref=e3078] [cursor=pointer]:
+              - img [ref=e3079]
+              - text: Code
+      - generic [ref=e3082]:
+        - generic [ref=e3083]:
+          - generic [ref=e3084]:
+            - heading "WorkflowTrigger" [level=3] [ref=e3085]
+            - generic [ref=e3086]: workflows
+          - paragraph [ref=e3087]: Workflow trigger conditions
+          - generic [ref=e3088]:
+            - generic [ref=e3089]: workflow
+            - generic [ref=e3090]: trigger
+            - generic [ref=e3091]: conditions
+        - generic [ref=e3093]:
+          - heading "WorkflowTrigger" [level=3] [ref=e3094]
+          - paragraph [ref=e3095]: Interactive WorkflowTrigger component
+        - generic [ref=e3096]:
+          - generic [ref=e3097]:
+            - generic [ref=e3098]: "Version: 1.0.0"
+            - generic [ref=e3099]: "Type: config"
+            - generic [ref=e3100]: "Dimension: 2D"
+          - generic [ref=e3101]:
+            - button "Details" [ref=e3102] [cursor=pointer]:
+              - img [ref=e3103]
+              - text: Details
+            - button "Code" [ref=e3106] [cursor=pointer]:
+              - img [ref=e3107]
+              - text: Code
+      - generic [ref=e3110]:
+        - generic [ref=e3111]:
+          - generic [ref=e3112]:
+            - heading "WorkflowValidator" [level=3] [ref=e3113]
+            - generic [ref=e3114]: workflows
+          - paragraph [ref=e3115]: Workflow validation system
+          - generic [ref=e3116]:
+            - generic [ref=e3117]: workflow
+            - generic [ref=e3118]: validator
+            - generic [ref=e3119]: validation
+        - generic [ref=e3121]:
+          - heading "WorkflowValidator" [level=3] [ref=e3122]
+          - paragraph [ref=e3123]: Interactive WorkflowValidator component
+        - generic [ref=e3124]:
+          - generic [ref=e3125]:
+            - generic [ref=e3126]: "Version: 1.0.0"
+            - generic [ref=e3127]: "Type: config"
+            - generic [ref=e3128]: "Dimension: 2D"
+          - generic [ref=e3129]:
+            - button "Details" [ref=e3130] [cursor=pointer]:
+              - img [ref=e3131]
+              - text: Details
+            - button "Code" [ref=e3134] [cursor=pointer]:
+              - img [ref=e3135]
+              - text: Code
+      - generic [ref=e3138]:
+        - generic [ref=e3139]:
+          - generic [ref=e3140]:
+            - heading "WorkflowOptimizer" [level=3] [ref=e3141]
+            - generic [ref=e3142]: workflows
+          - paragraph [ref=e3143]: Workflow optimization tools
+          - generic [ref=e3144]:
+            - generic [ref=e3145]: workflow
+            - generic [ref=e3146]: optimizer
+            - generic [ref=e3147]: performance
+        - generic [ref=e3149]:
+          - heading "WorkflowOptimizer" [level=3] [ref=e3150]
+          - paragraph [ref=e3151]: Interactive WorkflowOptimizer component
+        - generic [ref=e3152]:
+          - generic [ref=e3153]:
+            - generic [ref=e3154]: "Version: 1.0.0"
+            - generic [ref=e3155]: "Type: config"
+            - generic [ref=e3156]: "Dimension: 2D"
+          - generic [ref=e3157]:
+            - button "Details" [ref=e3158] [cursor=pointer]:
+              - img [ref=e3159]
+              - text: Details
+            - button "Code" [ref=e3162] [cursor=pointer]:
+              - img [ref=e3163]
+              - text: Code
+      - generic [ref=e3166]:
+        - generic [ref=e3167]:
+          - generic [ref=e3168]:
+            - heading "WorkflowAnalytics" [level=3] [ref=e3169]
+            - generic [ref=e3170]: workflows
+          - paragraph [ref=e3171]: Workflow analytics and insights
+          - generic [ref=e3172]:
+            - generic [ref=e3173]: workflow
+            - generic [ref=e3174]: analytics
+            - generic [ref=e3175]: insights
+        - generic [ref=e3177]:
+          - heading "WorkflowAnalytics" [level=3] [ref=e3178]
+          - paragraph [ref=e3179]: Interactive WorkflowAnalytics component
+        - generic [ref=e3180]:
+          - generic [ref=e3181]:
+            - generic [ref=e3182]: "Version: 1.0.0"
+            - generic [ref=e3183]: "Type: config"
+            - generic [ref=e3184]: "Dimension: 2D"
+          - generic [ref=e3185]:
+            - button "Details" [ref=e3186] [cursor=pointer]:
+              - img [ref=e3187]
+              - text: Details
+            - button "Code" [ref=e3190] [cursor=pointer]:
+              - img [ref=e3191]
+              - text: Code
+      - generic [ref=e3194]:
+        - generic [ref=e3195]:
+          - generic [ref=e3196]:
+            - heading "UniversalSearch" [level=3] [ref=e3197]
+            - generic [ref=e3198]: search
+          - paragraph [ref=e3199]: Universal search functionality
+          - generic [ref=e3200]:
+            - generic [ref=e3201]: search
+            - generic [ref=e3202]: universal
+            - generic [ref=e3203]: functionality
+        - generic [ref=e3205]:
+          - heading "UniversalSearch" [level=3] [ref=e3206]
+          - paragraph [ref=e3207]: Interactive UniversalSearch component
+        - generic [ref=e3208]:
+          - generic [ref=e3209]:
+            - generic [ref=e3210]: "Version: 1.0.0"
+            - generic [ref=e3211]: "Type: config"
+            - generic [ref=e3212]: "Dimension: 2D"
+          - generic [ref=e3213]:
+            - button "Details" [ref=e3214] [cursor=pointer]:
+              - img [ref=e3215]
+              - text: Details
+            - button "Code" [ref=e3218] [cursor=pointer]:
+              - img [ref=e3219]
+              - text: Code
+      - generic [ref=e3222]:
+        - generic [ref=e3223]:
+          - generic [ref=e3224]:
+            - heading "Search3D" [level=3] [ref=e3225]
+            - generic [ref=e3226]: search
+          - paragraph [ref=e3227]: 3D search interface
+          - generic [ref=e3228]:
+            - generic [ref=e3229]: search
+            - generic [ref=e3230]: 3d
+            - generic [ref=e3231]: interface
+        - generic [ref=e3233]:
+          - heading "Search3D" [level=3] [ref=e3234]
+          - paragraph [ref=e3235]: Interactive Search3D component
+        - generic [ref=e3236]:
+          - generic [ref=e3237]:
+            - generic [ref=e3238]: "Version: 1.0.0"
+            - generic [ref=e3239]: "Type: config"
+            - generic [ref=e3240]: "Dimension: 3D"
+          - generic [ref=e3241]:
+            - button "Details" [ref=e3242] [cursor=pointer]:
+              - img [ref=e3243]
+              - text: Details
+            - button "Code" [ref=e3246] [cursor=pointer]:
+              - img [ref=e3247]
+              - text: Code
+      - generic [ref=e3250]:
+        - generic [ref=e3251]:
+          - generic [ref=e3252]:
+            - heading "FilterChips" [level=3] [ref=e3253]
+            - generic [ref=e3254]: search
+          - paragraph [ref=e3255]: Filter chips for search
+          - generic [ref=e3256]:
+            - generic [ref=e3257]: search
+            - generic [ref=e3258]: filter
+            - generic [ref=e3259]: chips
+        - generic [ref=e3261]:
+          - heading "FilterChips" [level=3] [ref=e3262]
+          - paragraph [ref=e3263]: Interactive FilterChips component
+        - generic [ref=e3264]:
+          - generic [ref=e3265]:
+            - generic [ref=e3266]: "Version: 1.0.0"
+            - generic [ref=e3267]: "Type: config"
+            - generic [ref=e3268]: "Dimension: 2D"
+          - generic [ref=e3269]:
+            - button "Details" [ref=e3270] [cursor=pointer]:
+              - img [ref=e3271]
+              - text: Details
+            - button "Code" [ref=e3274] [cursor=pointer]:
+              - img [ref=e3275]
+              - text: Code
+      - generic [ref=e3278]:
+        - generic [ref=e3279]:
+          - generic [ref=e3280]:
+            - heading "LogicOperators" [level=3] [ref=e3281]
+            - generic [ref=e3282]: search
+          - paragraph [ref=e3283]: Search logic operators
+          - generic [ref=e3284]:
+            - generic [ref=e3285]: search
+            - generic [ref=e3286]: logic
+            - generic [ref=e3287]: operators
+        - generic [ref=e3289]:
+          - heading "LogicOperators" [level=3] [ref=e3290]
+          - paragraph [ref=e3291]: Interactive LogicOperators component
+        - generic [ref=e3292]:
+          - generic [ref=e3293]:
+            - generic [ref=e3294]: "Version: 1.0.0"
+            - generic [ref=e3295]: "Type: config"
+            - generic [ref=e3296]: "Dimension: 2D"
+          - generic [ref=e3297]:
+            - button "Details" [ref=e3298] [cursor=pointer]:
+              - img [ref=e3299]
+              - text: Details
+            - button "Code" [ref=e3302] [cursor=pointer]:
+              - img [ref=e3303]
+              - text: Code
+      - generic [ref=e3306]:
+        - generic [ref=e3307]:
+          - generic [ref=e3308]:
+            - heading "SearchIntegration" [level=3] [ref=e3309]
+            - generic [ref=e3310]: search
+          - paragraph [ref=e3311]: Search system integration
+          - generic [ref=e3312]:
+            - generic [ref=e3313]: search
+            - generic [ref=e3314]: integration
+            - generic [ref=e3315]: system
+        - generic [ref=e3317]:
+          - heading "SearchIntegration" [level=3] [ref=e3318]
+          - paragraph [ref=e3319]: Interactive SearchIntegration component
+        - generic [ref=e3320]:
+          - generic [ref=e3321]:
+            - generic [ref=e3322]: "Version: 1.0.0"
+            - generic [ref=e3323]: "Type: config"
+            - generic [ref=e3324]: "Dimension: 2D"
+          - generic [ref=e3325]:
+            - button "Details" [ref=e3326] [cursor=pointer]:
+              - img [ref=e3327]
+              - text: Details
+            - button "Code" [ref=e3330] [cursor=pointer]:
+              - img [ref=e3331]
+              - text: Code
+      - generic [ref=e3334]:
+        - generic [ref=e3335]:
+          - generic [ref=e3336]:
+            - heading "Button" [level=3] [ref=e3337]
+            - generic [ref=e3338]: ui
+          - paragraph [ref=e3339]: Primary button component
+          - generic [ref=e3340]:
+            - generic [ref=e3341]: button
+            - generic [ref=e3342]: primary
+            - generic [ref=e3343]: interactive
+        - generic [ref=e3345]:
+          - button "Primary Button" [ref=e3346] [cursor=pointer]
+          - button "Secondary Button" [ref=e3347] [cursor=pointer]
+        - generic [ref=e3348]:
+          - generic [ref=e3349]:
+            - generic [ref=e3350]: "Version: 1.0.0"
+            - generic [ref=e3351]: "Type: config"
+            - generic [ref=e3352]: "Dimension: 2D"
+          - generic [ref=e3353]:
+            - button "Details" [ref=e3354] [cursor=pointer]:
+              - img [ref=e3355]
+              - text: Details
+            - button "Code" [ref=e3358] [cursor=pointer]:
+              - img [ref=e3359]
+              - text: Code
+      - generic [ref=e3362]:
+        - generic [ref=e3363]:
+          - generic [ref=e3364]:
+            - heading "Card" [level=3] [ref=e3365]
+            - generic [ref=e3366]: ui
+          - paragraph [ref=e3367]: Card container component
+          - generic [ref=e3368]:
+            - generic [ref=e3369]: card
+            - generic [ref=e3370]: container
+            - generic [ref=e3371]: layout
+        - generic [ref=e3373]:
+          - heading "Card Title" [level=3] [ref=e3374]
+          - paragraph [ref=e3375]: This is a sample card component with some content.
+        - generic [ref=e3376]:
+          - generic [ref=e3377]:
+            - generic [ref=e3378]: "Version: 1.0.0"
+            - generic [ref=e3379]: "Type: config"
+            - generic [ref=e3380]: "Dimension: 2D"
+          - generic [ref=e3381]:
+            - button "Details" [ref=e3382] [cursor=pointer]:
+              - img [ref=e3383]
+              - text: Details
+            - button "Code" [ref=e3386] [cursor=pointer]:
+              - img [ref=e3387]
+              - text: Code
+      - generic [ref=e3390]:
+        - generic [ref=e3391]:
+          - generic [ref=e3392]:
+            - heading "Input" [level=3] [ref=e3393]
+            - generic [ref=e3394]: ui
+          - paragraph [ref=e3395]: Input field component
+          - generic [ref=e3396]:
+            - generic [ref=e3397]: input
+            - generic [ref=e3398]: field
+            - generic [ref=e3399]: form
+        - generic [ref=e3401]:
+          - textbox "Enter text..." [ref=e3402]
+          - textbox "Enter email..." [ref=e3403]
+        - generic [ref=e3404]:
+          - generic [ref=e3405]:
+            - generic [ref=e3406]: "Version: 1.0.0"
+            - generic [ref=e3407]: "Type: config"
+            - generic [ref=e3408]: "Dimension: 2D"
+          - generic [ref=e3409]:
+            - button "Details" [ref=e3410] [cursor=pointer]:
+              - img [ref=e3411]
+              - text: Details
+            - button "Code" [ref=e3414] [cursor=pointer]:
+              - img [ref=e3415]
+              - text: Code
+      - generic [ref=e3418]:
+        - generic [ref=e3419]:
+          - generic [ref=e3420]:
+            - heading "Badge" [level=3] [ref=e3421]
+            - generic [ref=e3422]: ui
+          - paragraph [ref=e3423]: Badge component
+          - generic [ref=e3424]:
+            - generic [ref=e3425]: badge
+            - generic [ref=e3426]: label
+            - generic [ref=e3427]: status
+        - generic [ref=e3429]:
+          - generic [ref=e3430]: Primary
+          - generic [ref=e3431]: Success
+          - generic [ref=e3432]: Error
+        - generic [ref=e3433]:
+          - generic [ref=e3434]:
+            - generic [ref=e3435]: "Version: 1.0.0"
+            - generic [ref=e3436]: "Type: config"
+            - generic [ref=e3437]: "Dimension: 2D"
+          - generic [ref=e3438]:
+            - button "Details" [ref=e3439] [cursor=pointer]:
+              - img [ref=e3440]
+              - text: Details
+            - button "Code" [ref=e3443] [cursor=pointer]:
+              - img [ref=e3444]
+              - text: Code
+      - generic [ref=e3447]:
+        - generic [ref=e3448]:
+          - generic [ref=e3449]:
+            - heading "Progress" [level=3] [ref=e3450]
+            - generic [ref=e3451]: ui
+          - paragraph [ref=e3452]: Progress bar component
+          - generic [ref=e3453]:
+            - generic [ref=e3454]: progress
+            - generic [ref=e3455]: bar
+            - generic [ref=e3456]: loading
+        - generic [ref=e3463]:
+          - generic [ref=e3464]:
+            - generic [ref=e3465]: "Version: 1.0.0"
+            - generic [ref=e3466]: "Type: config"
+            - generic [ref=e3467]: "Dimension: 2D"
+          - generic [ref=e3468]:
+            - button "Details" [ref=e3469] [cursor=pointer]:
+              - img [ref=e3470]
+              - text: Details
+            - button "Code" [ref=e3473] [cursor=pointer]:
+              - img [ref=e3474]
+              - text: Code
+      - generic [ref=e3477]:
+        - generic [ref=e3478]:
+          - generic [ref=e3479]:
+            - heading "Dropdown" [level=3] [ref=e3480]
+            - generic [ref=e3481]: ui
+          - paragraph [ref=e3482]: Dropdown menu component
+          - generic [ref=e3483]:
+            - generic [ref=e3484]: dropdown
+            - generic [ref=e3485]: menu
+            - generic [ref=e3486]: selection
+        - generic [ref=e3488]:
+          - heading "Dropdown" [level=3] [ref=e3489]
+          - paragraph [ref=e3490]: Interactive Dropdown component
+        - generic [ref=e3491]:
+          - generic [ref=e3492]:
+            - generic [ref=e3493]: "Version: 1.0.0"
+            - generic [ref=e3494]: "Type: config"
+            - generic [ref=e3495]: "Dimension: 2D"
+          - generic [ref=e3496]:
+            - button "Details" [ref=e3497] [cursor=pointer]:
+              - img [ref=e3498]
+              - text: Details
+            - button "Code" [ref=e3501] [cursor=pointer]:
+              - img [ref=e3502]
+              - text: Code
+      - generic [ref=e3505]:
+        - generic [ref=e3506]:
+          - generic [ref=e3507]:
+            - heading "Modal" [level=3] [ref=e3508]
+            - generic [ref=e3509]: ui
+          - paragraph [ref=e3510]: Modal dialog component
+          - generic [ref=e3511]:
+            - generic [ref=e3512]: modal
+            - generic [ref=e3513]: dialog
+            - generic [ref=e3514]: overlay
+        - generic [ref=e3516]:
+          - heading "Modal" [level=3] [ref=e3517]
+          - paragraph [ref=e3518]: Interactive Modal component
+        - generic [ref=e3519]:
+          - generic [ref=e3520]:
+            - generic [ref=e3521]: "Version: 1.0.0"
+            - generic [ref=e3522]: "Type: config"
+            - generic [ref=e3523]: "Dimension: 2D"
+          - generic [ref=e3524]:
+            - button "Details" [ref=e3525] [cursor=pointer]:
+              - img [ref=e3526]
+              - text: Details
+            - button "Code" [ref=e3529] [cursor=pointer]:
+              - img [ref=e3530]
+              - text: Code
+      - generic [ref=e3533]:
+        - generic [ref=e3534]:
+          - generic [ref=e3535]:
+            - heading "Tooltip" [level=3] [ref=e3536]
+            - generic [ref=e3537]: ui
+          - paragraph [ref=e3538]: Tooltip component
+          - generic [ref=e3539]:
+            - generic [ref=e3540]: tooltip
+            - generic [ref=e3541]: hint
+            - generic [ref=e3542]: help
+        - generic [ref=e3544]:
+          - heading "Tooltip" [level=3] [ref=e3545]
+          - paragraph [ref=e3546]: Interactive Tooltip component
+        - generic [ref=e3547]:
+          - generic [ref=e3548]:
+            - generic [ref=e3549]: "Version: 1.0.0"
+            - generic [ref=e3550]: "Type: config"
+            - generic [ref=e3551]: "Dimension: 2D"
+          - generic [ref=e3552]:
+            - button "Details" [ref=e3553] [cursor=pointer]:
+              - img [ref=e3554]
+              - text: Details
+            - button "Code" [ref=e3557] [cursor=pointer]:
+              - img [ref=e3558]
+              - text: Code
+      - generic [ref=e3561]:
+        - generic [ref=e3562]:
+          - generic [ref=e3563]:
+            - heading "Alert" [level=3] [ref=e3564]
+            - generic [ref=e3565]: ui
+          - paragraph [ref=e3566]: Alert notification component
+          - generic [ref=e3567]:
+            - generic [ref=e3568]: alert
+            - generic [ref=e3569]: notification
+            - generic [ref=e3570]: message
+        - generic [ref=e3572]:
+          - heading "Alert" [level=3] [ref=e3573]
+          - paragraph [ref=e3574]: Interactive Alert component
+        - generic [ref=e3575]:
+          - generic [ref=e3576]:
+            - generic [ref=e3577]: "Version: 1.0.0"
+            - generic [ref=e3578]: "Type: config"
+            - generic [ref=e3579]: "Dimension: 2D"
+          - generic [ref=e3580]:
+            - button "Details" [ref=e3581] [cursor=pointer]:
+              - img [ref=e3582]
+              - text: Details
+            - button "Code" [ref=e3585] [cursor=pointer]:
+              - img [ref=e3586]
+              - text: Code
+      - generic [ref=e3589]:
+        - generic [ref=e3590]:
+          - generic [ref=e3591]:
+            - heading "Spinner" [level=3] [ref=e3592]
+            - generic [ref=e3593]: ui
+          - paragraph [ref=e3594]: Loading spinner component
+          - generic [ref=e3595]:
+            - generic [ref=e3596]: spinner
+            - generic [ref=e3597]: loading
+            - generic [ref=e3598]: indicator
+        - generic [ref=e3600]:
+          - heading "Spinner" [level=3] [ref=e3601]
+          - paragraph [ref=e3602]: Interactive Spinner component
+        - generic [ref=e3603]:
+          - generic [ref=e3604]:
+            - generic [ref=e3605]: "Version: 1.0.0"
+            - generic [ref=e3606]: "Type: config"
+            - generic [ref=e3607]: "Dimension: 2D"
+          - generic [ref=e3608]:
+            - button "Details" [ref=e3609] [cursor=pointer]:
+              - img [ref=e3610]
+              - text: Details
+            - button "Code" [ref=e3613] [cursor=pointer]:
+              - img [ref=e3614]
+              - text: Code
+      - generic [ref=e3617]:
+        - generic [ref=e3618]:
+          - generic [ref=e3619]:
+            - heading "Avatar" [level=3] [ref=e3620]
+            - generic [ref=e3621]: ui
+          - paragraph [ref=e3622]: User avatar component
+          - generic [ref=e3623]:
+            - generic [ref=e3624]: avatar
+            - generic [ref=e3625]: user
+            - generic [ref=e3626]: profile
+        - generic [ref=e3628]:
+          - heading "Avatar" [level=3] [ref=e3629]
+          - paragraph [ref=e3630]: Interactive Avatar component
+        - generic [ref=e3631]:
+          - generic [ref=e3632]:
+            - generic [ref=e3633]: "Version: 1.0.0"
+            - generic [ref=e3634]: "Type: config"
+            - generic [ref=e3635]: "Dimension: 2D"
+          - generic [ref=e3636]:
+            - button "Details" [ref=e3637] [cursor=pointer]:
+              - img [ref=e3638]
+              - text: Details
+            - button "Code" [ref=e3641] [cursor=pointer]:
+              - img [ref=e3642]
+              - text: Code
+      - generic [ref=e3645]:
+        - generic [ref=e3646]:
+          - generic [ref=e3647]:
+            - heading "Checkbox" [level=3] [ref=e3648]
+            - generic [ref=e3649]: ui
+          - paragraph [ref=e3650]: Checkbox input component
+          - generic [ref=e3651]:
+            - generic [ref=e3652]: checkbox
+            - generic [ref=e3653]: input
+            - generic [ref=e3654]: form
+        - generic [ref=e3656]:
+          - heading "Checkbox" [level=3] [ref=e3657]
+          - paragraph [ref=e3658]: Interactive Checkbox component
+        - generic [ref=e3659]:
+          - generic [ref=e3660]:
+            - generic [ref=e3661]: "Version: 1.0.0"
+            - generic [ref=e3662]: "Type: config"
+            - generic [ref=e3663]: "Dimension: 2D"
+          - generic [ref=e3664]:
+            - button "Details" [ref=e3665] [cursor=pointer]:
+              - img [ref=e3666]
+              - text: Details
+            - button "Code" [ref=e3669] [cursor=pointer]:
+              - img [ref=e3670]
+              - text: Code
+      - generic [ref=e3673]:
+        - generic [ref=e3674]:
+          - generic [ref=e3675]:
+            - heading "Radio" [level=3] [ref=e3676]
+            - generic [ref=e3677]: ui
+          - paragraph [ref=e3678]: Radio button component
+          - generic [ref=e3679]:
+            - generic [ref=e3680]: radio
+            - generic [ref=e3681]: button
+            - generic [ref=e3682]: form
+        - generic [ref=e3684]:
+          - heading "Radio" [level=3] [ref=e3685]
+          - paragraph [ref=e3686]: Interactive Radio component
+        - generic [ref=e3687]:
+          - generic [ref=e3688]:
+            - generic [ref=e3689]: "Version: 1.0.0"
+            - generic [ref=e3690]: "Type: config"
+            - generic [ref=e3691]: "Dimension: 2D"
+          - generic [ref=e3692]:
+            - button "Details" [ref=e3693] [cursor=pointer]:
+              - img [ref=e3694]
+              - text: Details
+            - button "Code" [ref=e3697] [cursor=pointer]:
+              - img [ref=e3698]
+              - text: Code
+      - generic [ref=e3701]:
+        - generic [ref=e3702]:
+          - generic [ref=e3703]:
+            - heading "Switch" [level=3] [ref=e3704]
+            - generic [ref=e3705]: ui
+          - paragraph [ref=e3706]: Toggle switch component
+          - generic [ref=e3707]:
+            - generic [ref=e3708]: switch
+            - generic [ref=e3709]: toggle
+            - generic [ref=e3710]: form
+        - generic [ref=e3712]:
+          - heading "Switch" [level=3] [ref=e3713]
+          - paragraph [ref=e3714]: Interactive Switch component
+        - generic [ref=e3715]:
+          - generic [ref=e3716]:
+            - generic [ref=e3717]: "Version: 1.0.0"
+            - generic [ref=e3718]: "Type: config"
+            - generic [ref=e3719]: "Dimension: 2D"
+          - generic [ref=e3720]:
+            - button "Details" [ref=e3721] [cursor=pointer]:
+              - img [ref=e3722]
+              - text: Details
+            - button "Code" [ref=e3725] [cursor=pointer]:
+              - img [ref=e3726]
+              - text: Code
+      - generic [ref=e3729]:
+        - generic [ref=e3730]:
+          - generic [ref=e3731]:
+            - heading "Slider" [level=3] [ref=e3732]
+            - generic [ref=e3733]: ui
+          - paragraph [ref=e3734]: Range slider component
+          - generic [ref=e3735]:
+            - generic [ref=e3736]: slider
+            - generic [ref=e3737]: range
+            - generic [ref=e3738]: input
+        - generic [ref=e3740]:
+          - heading "Slider" [level=3] [ref=e3741]
+          - paragraph [ref=e3742]: Interactive Slider component
+        - generic [ref=e3743]:
+          - generic [ref=e3744]:
+            - generic [ref=e3745]: "Version: 1.0.0"
+            - generic [ref=e3746]: "Type: config"
+            - generic [ref=e3747]: "Dimension: 2D"
+          - generic [ref=e3748]:
+            - button "Details" [ref=e3749] [cursor=pointer]:
+              - img [ref=e3750]
+              - text: Details
+            - button "Code" [ref=e3753] [cursor=pointer]:
+              - img [ref=e3754]
+              - text: Code
+      - generic [ref=e3757]:
+        - generic [ref=e3758]:
+          - generic [ref=e3759]:
+            - heading "Tabs" [level=3] [ref=e3760]
+            - generic [ref=e3761]: ui
+          - paragraph [ref=e3762]: Tab navigation component
+          - generic [ref=e3763]:
+            - generic [ref=e3764]: tabs
+            - generic [ref=e3765]: navigation
+            - generic [ref=e3766]: content
+        - generic [ref=e3768]:
+          - heading "Tabs" [level=3] [ref=e3769]
+          - paragraph [ref=e3770]: Interactive Tabs component
+        - generic [ref=e3771]:
+          - generic [ref=e3772]:
+            - generic [ref=e3773]: "Version: 1.0.0"
+            - generic [ref=e3774]: "Type: config"
+            - generic [ref=e3775]: "Dimension: 2D"
+          - generic [ref=e3776]:
+            - button "Details" [ref=e3777] [cursor=pointer]:
+              - img [ref=e3778]
+              - text: Details
+            - button "Code" [ref=e3781] [cursor=pointer]:
+              - img [ref=e3782]
+              - text: Code
+      - generic [ref=e3785]:
+        - generic [ref=e3786]:
+          - generic [ref=e3787]:
+            - heading "Accordion" [level=3] [ref=e3788]
+            - generic [ref=e3789]: ui
+          - paragraph [ref=e3790]: Accordion component
+          - generic [ref=e3791]:
+            - generic [ref=e3792]: accordion
+            - generic [ref=e3793]: collapsible
+            - generic [ref=e3794]: content
+        - generic [ref=e3796]:
+          - heading "Accordion" [level=3] [ref=e3797]
+          - paragraph [ref=e3798]: Interactive Accordion component
+        - generic [ref=e3799]:
+          - generic [ref=e3800]:
+            - generic [ref=e3801]: "Version: 1.0.0"
+            - generic [ref=e3802]: "Type: config"
+            - generic [ref=e3803]: "Dimension: 2D"
+          - generic [ref=e3804]:
+            - button "Details" [ref=e3805] [cursor=pointer]:
+              - img [ref=e3806]
+              - text: Details
+            - button "Code" [ref=e3809] [cursor=pointer]:
+              - img [ref=e3810]
+              - text: Code
+      - generic [ref=e3813]:
+        - generic [ref=e3814]:
+          - generic [ref=e3815]:
+            - heading "Breadcrumb" [level=3] [ref=e3816]
+            - generic [ref=e3817]: ui
+          - paragraph [ref=e3818]: Breadcrumb navigation
+          - generic [ref=e3819]:
+            - generic [ref=e3820]: breadcrumb
+            - generic [ref=e3821]: navigation
+            - generic [ref=e3822]: path
+        - generic [ref=e3824]:
+          - heading "Breadcrumb" [level=3] [ref=e3825]
+          - paragraph [ref=e3826]: Interactive Breadcrumb component
+        - generic [ref=e3827]:
+          - generic [ref=e3828]:
+            - generic [ref=e3829]: "Version: 1.0.0"
+            - generic [ref=e3830]: "Type: config"
+            - generic [ref=e3831]: "Dimension: 2D"
+          - generic [ref=e3832]:
+            - button "Details" [ref=e3833] [cursor=pointer]:
+              - img [ref=e3834]
+              - text: Details
+            - button "Code" [ref=e3837] [cursor=pointer]:
+              - img [ref=e3838]
+              - text: Code
+      - generic [ref=e3841]:
+        - generic [ref=e3842]:
+          - generic [ref=e3843]:
+            - heading "Pagination" [level=3] [ref=e3844]
+            - generic [ref=e3845]: ui
+          - paragraph [ref=e3846]: Pagination component
+          - generic [ref=e3847]:
+            - generic [ref=e3848]: pagination
+            - generic [ref=e3849]: navigation
+            - generic [ref=e3850]: pages
+        - generic [ref=e3852]:
+          - heading "Pagination" [level=3] [ref=e3853]
+          - paragraph [ref=e3854]: Interactive Pagination component
+        - generic [ref=e3855]:
+          - generic [ref=e3856]:
+            - generic [ref=e3857]: "Version: 1.0.0"
+            - generic [ref=e3858]: "Type: config"
+            - generic [ref=e3859]: "Dimension: 2D"
+          - generic [ref=e3860]:
+            - button "Details" [ref=e3861] [cursor=pointer]:
+              - img [ref=e3862]
+              - text: Details
+            - button "Code" [ref=e3865] [cursor=pointer]:
+              - img [ref=e3866]
+              - text: Code
+      - generic [ref=e3869]:
+        - generic [ref=e3870]:
+          - generic [ref=e3871]:
+            - heading "Stepper" [level=3] [ref=e3872]
+            - generic [ref=e3873]: ui
+          - paragraph [ref=e3874]: Step indicator component
+          - generic [ref=e3875]:
+            - generic [ref=e3876]: stepper
+            - generic [ref=e3877]: steps
+            - generic [ref=e3878]: progress
+        - generic [ref=e3880]:
+          - heading "Stepper" [level=3] [ref=e3881]
+          - paragraph [ref=e3882]: Interactive Stepper component
+        - generic [ref=e3883]:
+          - generic [ref=e3884]:
+            - generic [ref=e3885]: "Version: 1.0.0"
+            - generic [ref=e3886]: "Type: config"
+            - generic [ref=e3887]: "Dimension: 2D"
+          - generic [ref=e3888]:
+            - button "Details" [ref=e3889] [cursor=pointer]:
+              - img [ref=e3890]
+              - text: Details
+            - button "Code" [ref=e3893] [cursor=pointer]:
+              - img [ref=e3894]
+              - text: Code
+      - generic [ref=e3897]:
+        - generic [ref=e3898]:
+          - generic [ref=e3899]:
+            - heading "Table" [level=3] [ref=e3900]
+            - generic [ref=e3901]: ui
+          - paragraph [ref=e3902]: Data table component
+          - generic [ref=e3903]:
+            - generic [ref=e3904]: table
+            - generic [ref=e3905]: data
+            - generic [ref=e3906]: grid
+        - generic [ref=e3908]:
+          - heading "Table" [level=3] [ref=e3909]
+          - paragraph [ref=e3910]: Interactive Table component
+        - generic [ref=e3911]:
+          - generic [ref=e3912]:
+            - generic [ref=e3913]: "Version: 1.0.0"
+            - generic [ref=e3914]: "Type: config"
+            - generic [ref=e3915]: "Dimension: 2D"
+          - generic [ref=e3916]:
+            - button "Details" [ref=e3917] [cursor=pointer]:
+              - img [ref=e3918]
+              - text: Details
+            - button "Code" [ref=e3921] [cursor=pointer]:
+              - img [ref=e3922]
+              - text: Code
+      - generic [ref=e3925]:
+        - generic [ref=e3926]:
+          - generic [ref=e3927]:
+            - heading "List" [level=3] [ref=e3928]
+            - generic [ref=e3929]: ui
+          - paragraph [ref=e3930]: List component
+          - generic [ref=e3931]:
+            - generic [ref=e3932]: list
+            - generic [ref=e3933]: items
+            - generic [ref=e3934]: data
+        - generic [ref=e3936]:
+          - heading "List" [level=3] [ref=e3937]
+          - paragraph [ref=e3938]: Interactive List component
+        - generic [ref=e3939]:
+          - generic [ref=e3940]:
+            - generic [ref=e3941]: "Version: 1.0.0"
+            - generic [ref=e3942]: "Type: config"
+            - generic [ref=e3943]: "Dimension: 2D"
+          - generic [ref=e3944]:
+            - button "Details" [ref=e3945] [cursor=pointer]:
+              - img [ref=e3946]
+              - text: Details
+            - button "Code" [ref=e3949] [cursor=pointer]:
+              - img [ref=e3950]
+              - text: Code
+      - generic [ref=e3953]:
+        - generic [ref=e3954]:
+          - generic [ref=e3955]:
+            - heading "Tree" [level=3] [ref=e3956]
+            - generic [ref=e3957]: ui
+          - paragraph [ref=e3958]: Tree view component
+          - generic [ref=e3959]:
+            - generic [ref=e3960]: tree
+            - generic [ref=e3961]: hierarchical
+            - generic [ref=e3962]: data
+        - generic [ref=e3964]:
+          - heading "Tree" [level=3] [ref=e3965]
+          - paragraph [ref=e3966]: Interactive Tree component
+        - generic [ref=e3967]:
+          - generic [ref=e3968]:
+            - generic [ref=e3969]: "Version: 1.0.0"
+            - generic [ref=e3970]: "Type: config"
+            - generic [ref=e3971]: "Dimension: 2D"
+          - generic [ref=e3972]:
+            - button "Details" [ref=e3973] [cursor=pointer]:
+              - img [ref=e3974]
+              - text: Details
+            - button "Code" [ref=e3977] [cursor=pointer]:
+              - img [ref=e3978]
+              - text: Code
+      - generic [ref=e3981]:
+        - generic [ref=e3982]:
+          - generic [ref=e3983]:
+            - heading "Calendar" [level=3] [ref=e3984]
+            - generic [ref=e3985]: ui
+          - paragraph [ref=e3986]: Calendar component
+          - generic [ref=e3987]:
+            - generic [ref=e3988]: calendar
+            - generic [ref=e3989]: date
+            - generic [ref=e3990]: picker
+        - generic [ref=e3992]:
+          - heading "Calendar" [level=3] [ref=e3993]
+          - paragraph [ref=e3994]: Interactive Calendar component
+        - generic [ref=e3995]:
+          - generic [ref=e3996]:
+            - generic [ref=e3997]: "Version: 1.0.0"
+            - generic [ref=e3998]: "Type: config"
+            - generic [ref=e3999]: "Dimension: 2D"
+          - generic [ref=e4000]:
+            - button "Details" [ref=e4001] [cursor=pointer]:
+              - img [ref=e4002]
+              - text: Details
+            - button "Code" [ref=e4005] [cursor=pointer]:
+              - img [ref=e4006]
+              - text: Code
+      - generic [ref=e4009]:
+        - generic [ref=e4010]:
+          - generic [ref=e4011]:
+            - heading "DatePicker" [level=3] [ref=e4012]
+            - generic [ref=e4013]: ui
+          - paragraph [ref=e4014]: Date picker component
+          - generic [ref=e4015]:
+            - generic [ref=e4016]: datepicker
+            - generic [ref=e4017]: date
+            - generic [ref=e4018]: input
+        - generic [ref=e4020]:
+          - heading "DatePicker" [level=3] [ref=e4021]
+          - paragraph [ref=e4022]: Interactive DatePicker component
+        - generic [ref=e4023]:
+          - generic [ref=e4024]:
+            - generic [ref=e4025]: "Version: 1.0.0"
+            - generic [ref=e4026]: "Type: config"
+            - generic [ref=e4027]: "Dimension: 2D"
+          - generic [ref=e4028]:
+            - button "Details" [ref=e4029] [cursor=pointer]:
+              - img [ref=e4030]
+              - text: Details
+            - button "Code" [ref=e4033] [cursor=pointer]:
+              - img [ref=e4034]
+              - text: Code
+      - generic [ref=e4037]:
+        - generic [ref=e4038]:
+          - generic [ref=e4039]:
+            - heading "TimePicker" [level=3] [ref=e4040]
+            - generic [ref=e4041]: ui
+          - paragraph [ref=e4042]: Time picker component
+          - generic [ref=e4043]:
+            - generic [ref=e4044]: timepicker
+            - generic [ref=e4045]: time
+            - generic [ref=e4046]: input
+        - generic [ref=e4048]:
+          - heading "TimePicker" [level=3] [ref=e4049]
+          - paragraph [ref=e4050]: Interactive TimePicker component
+        - generic [ref=e4051]:
+          - generic [ref=e4052]:
+            - generic [ref=e4053]: "Version: 1.0.0"
+            - generic [ref=e4054]: "Type: config"
+            - generic [ref=e4055]: "Dimension: 2D"
+          - generic [ref=e4056]:
+            - button "Details" [ref=e4057] [cursor=pointer]:
+              - img [ref=e4058]
+              - text: Details
+            - button "Code" [ref=e4061] [cursor=pointer]:
+              - img [ref=e4062]
+              - text: Code
+      - generic [ref=e4065]:
+        - generic [ref=e4066]:
+          - generic [ref=e4067]:
+            - heading "ColorPicker" [level=3] [ref=e4068]
+            - generic [ref=e4069]: ui
+          - paragraph [ref=e4070]: Color picker component
+          - generic [ref=e4071]:
+            - generic [ref=e4072]: colorpicker
+            - generic [ref=e4073]: color
+            - generic [ref=e4074]: input
+        - generic [ref=e4076]:
+          - heading "ColorPicker" [level=3] [ref=e4077]
+          - paragraph [ref=e4078]: Interactive ColorPicker component
+        - generic [ref=e4079]:
+          - generic [ref=e4080]:
+            - generic [ref=e4081]: "Version: 1.0.0"
+            - generic [ref=e4082]: "Type: config"
+            - generic [ref=e4083]: "Dimension: 2D"
+          - generic [ref=e4084]:
+            - button "Details" [ref=e4085] [cursor=pointer]:
+              - img [ref=e4086]
+              - text: Details
+            - button "Code" [ref=e4089] [cursor=pointer]:
+              - img [ref=e4090]
+              - text: Code
+      - generic [ref=e4093]:
+        - generic [ref=e4094]:
+          - generic [ref=e4095]:
+            - heading "FileUpload" [level=3] [ref=e4096]
+            - generic [ref=e4097]: ui
+          - paragraph [ref=e4098]: File upload component
+          - generic [ref=e4099]:
+            - generic [ref=e4100]: fileupload
+            - generic [ref=e4101]: file
+            - generic [ref=e4102]: upload
+        - generic [ref=e4104]:
+          - heading "FileUpload" [level=3] [ref=e4105]
+          - paragraph [ref=e4106]: Interactive FileUpload component
+        - generic [ref=e4107]:
+          - generic [ref=e4108]:
+            - generic [ref=e4109]: "Version: 1.0.0"
+            - generic [ref=e4110]: "Type: config"
+            - generic [ref=e4111]: "Dimension: 2D"
+          - generic [ref=e4112]:
+            - button "Details" [ref=e4113] [cursor=pointer]:
+              - img [ref=e4114]
+              - text: Details
+            - button "Code" [ref=e4117] [cursor=pointer]:
+              - img [ref=e4118]
+              - text: Code
+      - generic [ref=e4121]:
+        - generic [ref=e4122]:
+          - generic [ref=e4123]:
+            - heading "Image" [level=3] [ref=e4124]
+            - generic [ref=e4125]: ui
+          - paragraph [ref=e4126]: Image component
+          - generic [ref=e4127]:
+            - generic [ref=e4128]: image
+            - generic [ref=e4129]: media
+            - generic [ref=e4130]: display
+        - generic [ref=e4132]:
+          - heading "Image" [level=3] [ref=e4133]
+          - paragraph [ref=e4134]: Interactive Image component
+        - generic [ref=e4135]:
+          - generic [ref=e4136]:
+            - generic [ref=e4137]: "Version: 1.0.0"
+            - generic [ref=e4138]: "Type: config"
+            - generic [ref=e4139]: "Dimension: 2D"
+          - generic [ref=e4140]:
+            - button "Details" [ref=e4141] [cursor=pointer]:
+              - img [ref=e4142]
+              - text: Details
+            - button "Code" [ref=e4145] [cursor=pointer]:
+              - img [ref=e4146]
+              - text: Code
+      - generic [ref=e4149]:
+        - generic [ref=e4150]:
+          - generic [ref=e4151]:
+            - heading "Video" [level=3] [ref=e4152]
+            - generic [ref=e4153]: ui
+          - paragraph [ref=e4154]: Video component
+          - generic [ref=e4155]:
+            - generic [ref=e4156]: video
+            - generic [ref=e4157]: media
+            - generic [ref=e4158]: player
+        - generic [ref=e4160]:
+          - heading "Video" [level=3] [ref=e4161]
+          - paragraph [ref=e4162]: Interactive Video component
+        - generic [ref=e4163]:
+          - generic [ref=e4164]:
+            - generic [ref=e4165]: "Version: 1.0.0"
+            - generic [ref=e4166]: "Type: config"
+            - generic [ref=e4167]: "Dimension: 2D"
+          - generic [ref=e4168]:
+            - button "Details" [ref=e4169] [cursor=pointer]:
+              - img [ref=e4170]
+              - text: Details
+            - button "Code" [ref=e4173] [cursor=pointer]:
+              - img [ref=e4174]
+              - text: Code
+      - generic [ref=e4177]:
+        - generic [ref=e4178]:
+          - generic [ref=e4179]:
+            - heading "Audio" [level=3] [ref=e4180]
+            - generic [ref=e4181]: ui
+          - paragraph [ref=e4182]: Audio component
+          - generic [ref=e4183]:
+            - generic [ref=e4184]: audio
+            - generic [ref=e4185]: media
+            - generic [ref=e4186]: player
+        - generic [ref=e4188]:
+          - heading "Audio" [level=3] [ref=e4189]
+          - paragraph [ref=e4190]: Interactive Audio component
+        - generic [ref=e4191]:
+          - generic [ref=e4192]:
+            - generic [ref=e4193]: "Version: 1.0.0"
+            - generic [ref=e4194]: "Type: config"
+            - generic [ref=e4195]: "Dimension: 2D"
+          - generic [ref=e4196]:
+            - button "Details" [ref=e4197] [cursor=pointer]:
+              - img [ref=e4198]
+              - text: Details
+            - button "Code" [ref=e4201] [cursor=pointer]:
+              - img [ref=e4202]
+              - text: Code
+      - generic [ref=e4205]:
+        - generic [ref=e4206]:
+          - generic [ref=e4207]:
+            - heading "Map" [level=3] [ref=e4208]
+            - generic [ref=e4209]: ui
+          - paragraph [ref=e4210]: Map component
+          - generic [ref=e4211]:
+            - generic [ref=e4212]: map
+            - generic [ref=e4213]: location
+            - generic [ref=e4214]: geography
+        - generic [ref=e4216]:
+          - heading "Map" [level=3] [ref=e4217]
+          - paragraph [ref=e4218]: Interactive Map component
+        - generic [ref=e4219]:
+          - generic [ref=e4220]:
+            - generic [ref=e4221]: "Version: 1.0.0"
+            - generic [ref=e4222]: "Type: config"
+            - generic [ref=e4223]: "Dimension: 2D"
+          - generic [ref=e4224]:
+            - button "Details" [ref=e4225] [cursor=pointer]:
+              - img [ref=e4226]
+              - text: Details
+            - button "Code" [ref=e4229] [cursor=pointer]:
+              - img [ref=e4230]
+              - text: Code
+      - generic [ref=e4233]:
+        - generic [ref=e4234]:
+          - generic [ref=e4235]:
+            - heading "Chart" [level=3] [ref=e4236]
+            - generic [ref=e4237]: ui
+          - paragraph [ref=e4238]: Chart component
+          - generic [ref=e4239]:
+            - generic [ref=e4240]: chart
+            - generic [ref=e4241]: data
+            - generic [ref=e4242]: visualization
+        - generic [ref=e4244]:
+          - heading "Chart" [level=3] [ref=e4245]
+          - paragraph [ref=e4246]: Interactive Chart component
+        - generic [ref=e4247]:
+          - generic [ref=e4248]:
+            - generic [ref=e4249]: "Version: 1.0.0"
+            - generic [ref=e4250]: "Type: config"
+            - generic [ref=e4251]: "Dimension: 2D"
+          - generic [ref=e4252]:
+            - button "Details" [ref=e4253] [cursor=pointer]:
+              - img [ref=e4254]
+              - text: Details
+            - button "Code" [ref=e4257] [cursor=pointer]:
+              - img [ref=e4258]
+              - text: Code
+      - generic [ref=e4261]:
+        - generic [ref=e4262]:
+          - generic [ref=e4263]:
+            - heading "Gauge" [level=3] [ref=e4264]
+            - generic [ref=e4265]: ui
+          - paragraph [ref=e4266]: Gauge component
+          - generic [ref=e4267]:
+            - generic [ref=e4268]: gauge
+            - generic [ref=e4269]: metrics
+            - generic [ref=e4270]: display
+        - generic [ref=e4272]:
+          - heading "Gauge" [level=3] [ref=e4273]
+          - paragraph [ref=e4274]: Interactive Gauge component
+        - generic [ref=e4275]:
+          - generic [ref=e4276]:
+            - generic [ref=e4277]: "Version: 1.0.0"
+            - generic [ref=e4278]: "Type: config"
+            - generic [ref=e4279]: "Dimension: 2D"
+          - generic [ref=e4280]:
+            - button "Details" [ref=e4281] [cursor=pointer]:
+              - img [ref=e4282]
+              - text: Details
+            - button "Code" [ref=e4285] [cursor=pointer]:
+              - img [ref=e4286]
+              - text: Code
+      - generic [ref=e4289]:
+        - generic [ref=e4290]:
+          - generic [ref=e4291]:
+            - heading "Meter" [level=3] [ref=e4292]
+            - generic [ref=e4293]: ui
+          - paragraph [ref=e4294]: Meter component
+          - generic [ref=e4295]:
+            - generic [ref=e4296]: meter
+            - generic [ref=e4297]: measurement
+            - generic [ref=e4298]: display
+        - generic [ref=e4300]:
+          - heading "Meter" [level=3] [ref=e4301]
+          - paragraph [ref=e4302]: Interactive Meter component
+        - generic [ref=e4303]:
+          - generic [ref=e4304]:
+            - generic [ref=e4305]: "Version: 1.0.0"
+            - generic [ref=e4306]: "Type: config"
+            - generic [ref=e4307]: "Dimension: 2D"
+          - generic [ref=e4308]:
+            - button "Details" [ref=e4309] [cursor=pointer]:
+              - img [ref=e4310]
+              - text: Details
+            - button "Code" [ref=e4313] [cursor=pointer]:
+              - img [ref=e4314]
+              - text: Code
+      - generic [ref=e4317]:
+        - generic [ref=e4318]:
+          - generic [ref=e4319]:
+            - heading "Rating" [level=3] [ref=e4320]
+            - generic [ref=e4321]: ui
+          - paragraph [ref=e4322]: Rating component
+          - generic [ref=e4323]:
+            - generic [ref=e4324]: rating
+            - generic [ref=e4325]: stars
+            - generic [ref=e4326]: evaluation
+        - generic [ref=e4328]:
+          - heading "Rating" [level=3] [ref=e4329]
+          - paragraph [ref=e4330]: Interactive Rating component
+        - generic [ref=e4331]:
+          - generic [ref=e4332]:
+            - generic [ref=e4333]: "Version: 1.0.0"
+            - generic [ref=e4334]: "Type: config"
+            - generic [ref=e4335]: "Dimension: 2D"
+          - generic [ref=e4336]:
+            - button "Details" [ref=e4337] [cursor=pointer]:
+              - img [ref=e4338]
+              - text: Details
+            - button "Code" [ref=e4341] [cursor=pointer]:
+              - img [ref=e4342]
+              - text: Code
+      - generic [ref=e4345]:
+        - generic [ref=e4346]:
+          - generic [ref=e4347]:
+            - heading "Tag" [level=3] [ref=e4348]
+            - generic [ref=e4349]: ui
+          - paragraph [ref=e4350]: Tag component
+          - generic [ref=e4351]:
+            - generic [ref=e4352]: tag
+            - generic [ref=e4353]: label
+            - generic [ref=e4354]: categorization
+        - generic [ref=e4356]:
+          - heading "Tag" [level=3] [ref=e4357]
+          - paragraph [ref=e4358]: Interactive Tag component
+        - generic [ref=e4359]:
+          - generic [ref=e4360]:
+            - generic [ref=e4361]: "Version: 1.0.0"
+            - generic [ref=e4362]: "Type: config"
+            - generic [ref=e4363]: "Dimension: 2D"
+          - generic [ref=e4364]:
+            - button "Details" [ref=e4365] [cursor=pointer]:
+              - img [ref=e4366]
+              - text: Details
+            - button "Code" [ref=e4369] [cursor=pointer]:
+              - img [ref=e4370]
+              - text: Code
+      - generic [ref=e4373]:
+        - generic [ref=e4374]:
+          - generic [ref=e4375]:
+            - heading "Chip" [level=3] [ref=e4376]
+            - generic [ref=e4377]: ui
+          - paragraph [ref=e4378]: Chip component
+          - generic [ref=e4379]:
+            - generic [ref=e4380]: chip
+            - generic [ref=e4381]: label
+            - generic [ref=e4382]: selection
+        - generic [ref=e4384]:
+          - heading "Chip" [level=3] [ref=e4385]
+          - paragraph [ref=e4386]: Interactive Chip component
+        - generic [ref=e4387]:
+          - generic [ref=e4388]:
+            - generic [ref=e4389]: "Version: 1.0.0"
+            - generic [ref=e4390]: "Type: config"
+            - generic [ref=e4391]: "Dimension: 2D"
+          - generic [ref=e4392]:
+            - button "Details" [ref=e4393] [cursor=pointer]:
+              - img [ref=e4394]
+              - text: Details
+            - button "Code" [ref=e4397] [cursor=pointer]:
+              - img [ref=e4398]
+              - text: Code
+      - generic [ref=e4401]:
+        - generic [ref=e4402]:
+          - generic [ref=e4403]:
+            - heading "Divider" [level=3] [ref=e4404]
+            - generic [ref=e4405]: ui
+          - paragraph [ref=e4406]: Divider component
+          - generic [ref=e4407]:
+            - generic [ref=e4408]: divider
+            - generic [ref=e4409]: separator
+            - generic [ref=e4410]: layout
+        - generic [ref=e4412]:
+          - heading "Divider" [level=3] [ref=e4413]
+          - paragraph [ref=e4414]: Interactive Divider component
+        - generic [ref=e4415]:
+          - generic [ref=e4416]:
+            - generic [ref=e4417]: "Version: 1.0.0"
+            - generic [ref=e4418]: "Type: config"
+            - generic [ref=e4419]: "Dimension: 2D"
+          - generic [ref=e4420]:
+            - button "Details" [ref=e4421] [cursor=pointer]:
+              - img [ref=e4422]
+              - text: Details
+            - button "Code" [ref=e4425] [cursor=pointer]:
+              - img [ref=e4426]
+              - text: Code
+      - generic [ref=e4429]:
+        - generic [ref=e4430]:
+          - generic [ref=e4431]:
+            - heading "Spacer" [level=3] [ref=e4432]
+            - generic [ref=e4433]: ui
+          - paragraph [ref=e4434]: Spacer component
+          - generic [ref=e4435]:
+            - generic [ref=e4436]: spacer
+            - generic [ref=e4437]: space
+            - generic [ref=e4438]: layout
+        - generic [ref=e4440]:
+          - heading "Spacer" [level=3] [ref=e4441]
+          - paragraph [ref=e4442]: Interactive Spacer component
+        - generic [ref=e4443]:
+          - generic [ref=e4444]:
+            - generic [ref=e4445]: "Version: 1.0.0"
+            - generic [ref=e4446]: "Type: config"
+            - generic [ref=e4447]: "Dimension: 2D"
+          - generic [ref=e4448]:
+            - button "Details" [ref=e4449] [cursor=pointer]:
+              - img [ref=e4450]
+              - text: Details
+            - button "Code" [ref=e4453] [cursor=pointer]:
+              - img [ref=e4454]
+              - text: Code
+      - generic [ref=e4457]:
+        - generic [ref=e4458]:
+          - generic [ref=e4459]:
+            - heading "Container" [level=3] [ref=e4460]
+            - generic [ref=e4461]: ui
+          - paragraph [ref=e4462]: Container component
+          - generic [ref=e4463]:
+            - generic [ref=e4464]: container
+            - generic [ref=e4465]: wrapper
+            - generic [ref=e4466]: layout
+        - generic [ref=e4468]:
+          - heading "Container" [level=3] [ref=e4469]
+          - paragraph [ref=e4470]: Interactive Container component
+        - generic [ref=e4471]:
+          - generic [ref=e4472]:
+            - generic [ref=e4473]: "Version: 1.0.0"
+            - generic [ref=e4474]: "Type: config"
+            - generic [ref=e4475]: "Dimension: 2D"
+          - generic [ref=e4476]:
+            - button "Details" [ref=e4477] [cursor=pointer]:
+              - img [ref=e4478]
+              - text: Details
+            - button "Code" [ref=e4481] [cursor=pointer]:
+              - img [ref=e4482]
+              - text: Code
+      - generic [ref=e4485]:
+        - generic [ref=e4486]:
+          - generic [ref=e4487]:
+            - heading "Grid" [level=3] [ref=e4488]
+            - generic [ref=e4489]: ui
+          - paragraph [ref=e4490]: Grid layout component
+          - generic [ref=e4491]:
+            - generic [ref=e4492]: grid
+            - generic [ref=e4493]: layout
+            - generic [ref=e4494]: structure
+        - generic [ref=e4496]:
+          - heading "Grid" [level=3] [ref=e4497]
+          - paragraph [ref=e4498]: Interactive Grid component
+        - generic [ref=e4499]:
+          - generic [ref=e4500]:
+            - generic [ref=e4501]: "Version: 1.0.0"
+            - generic [ref=e4502]: "Type: config"
+            - generic [ref=e4503]: "Dimension: 2D"
+          - generic [ref=e4504]:
+            - button "Details" [ref=e4505] [cursor=pointer]:
+              - img [ref=e4506]
+              - text: Details
+            - button "Code" [ref=e4509] [cursor=pointer]:
+              - img [ref=e4510]
+              - text: Code
+      - generic [ref=e4513]:
+        - generic [ref=e4514]:
+          - generic [ref=e4515]:
+            - heading "Flex" [level=3] [ref=e4516]
+            - generic [ref=e4517]: ui
+          - paragraph [ref=e4518]: Flexbox component
+          - generic [ref=e4519]:
+            - generic [ref=e4520]: flex
+            - generic [ref=e4521]: layout
+            - generic [ref=e4522]: alignment
+        - generic [ref=e4524]:
+          - heading "Flex" [level=3] [ref=e4525]
+          - paragraph [ref=e4526]: Interactive Flex component
+        - generic [ref=e4527]:
+          - generic [ref=e4528]:
+            - generic [ref=e4529]: "Version: 1.0.0"
+            - generic [ref=e4530]: "Type: config"
+            - generic [ref=e4531]: "Dimension: 2D"
+          - generic [ref=e4532]:
+            - button "Details" [ref=e4533] [cursor=pointer]:
+              - img [ref=e4534]
+              - text: Details
+            - button "Code" [ref=e4537] [cursor=pointer]:
+              - img [ref=e4538]
+              - text: Code
+      - generic [ref=e4541]:
+        - generic [ref=e4542]:
+          - generic [ref=e4543]:
+            - heading "Stack" [level=3] [ref=e4544]
+            - generic [ref=e4545]: ui
+          - paragraph [ref=e4546]: Stack layout component
+          - generic [ref=e4547]:
+            - generic [ref=e4548]: stack
+            - generic [ref=e4549]: layout
+            - generic [ref=e4550]: vertical
+        - generic [ref=e4552]:
+          - heading "Stack" [level=3] [ref=e4553]
+          - paragraph [ref=e4554]: Interactive Stack component
+        - generic [ref=e4555]:
+          - generic [ref=e4556]:
+            - generic [ref=e4557]: "Version: 1.0.0"
+            - generic [ref=e4558]: "Type: config"
+            - generic [ref=e4559]: "Dimension: 2D"
+          - generic [ref=e4560]:
+            - button "Details" [ref=e4561] [cursor=pointer]:
+              - img [ref=e4562]
+              - text: Details
+            - button "Code" [ref=e4565] [cursor=pointer]:
+              - img [ref=e4566]
+              - text: Code
+      - generic [ref=e4569]:
+        - generic [ref=e4570]:
+          - generic [ref=e4571]:
+            - heading "Box" [level=3] [ref=e4572]
+            - generic [ref=e4573]: ui
+          - paragraph [ref=e4574]: Box container component
+          - generic [ref=e4575]:
+            - generic [ref=e4576]: box
+            - generic [ref=e4577]: container
+            - generic [ref=e4578]: wrapper
+        - generic [ref=e4580]:
+          - heading "Box" [level=3] [ref=e4581]
+          - paragraph [ref=e4582]: Interactive Box component
+        - generic [ref=e4583]:
+          - generic [ref=e4584]:
+            - generic [ref=e4585]: "Version: 1.0.0"
+            - generic [ref=e4586]: "Type: config"
+            - generic [ref=e4587]: "Dimension: 2D"
+          - generic [ref=e4588]:
+            - button "Details" [ref=e4589] [cursor=pointer]:
+              - img [ref=e4590]
+              - text: Details
+            - button "Code" [ref=e4593] [cursor=pointer]:
+              - img [ref=e4594]
+              - text: Code
+      - generic [ref=e4597]:
+        - generic [ref=e4598]:
+          - generic [ref=e4599]:
+            - heading "Section" [level=3] [ref=e4600]
+            - generic [ref=e4601]: ui
+          - paragraph [ref=e4602]: Section component
+          - generic [ref=e4603]:
+            - generic [ref=e4604]: section
+            - generic [ref=e4605]: content
+            - generic [ref=e4606]: layout
+        - generic [ref=e4608]:
+          - heading "Section" [level=3] [ref=e4609]
+          - paragraph [ref=e4610]: Interactive Section component
+        - generic [ref=e4611]:
+          - generic [ref=e4612]:
+            - generic [ref=e4613]: "Version: 1.0.0"
+            - generic [ref=e4614]: "Type: config"
+            - generic [ref=e4615]: "Dimension: 2D"
+          - generic [ref=e4616]:
+            - button "Details" [ref=e4617] [cursor=pointer]:
+              - img [ref=e4618]
+              - text: Details
+            - button "Code" [ref=e4621] [cursor=pointer]:
+              - img [ref=e4622]
+              - text: Code
+      - generic [ref=e4625]:
+        - generic [ref=e4626]:
+          - generic [ref=e4627]:
+            - heading "Article" [level=3] [ref=e4628]
+            - generic [ref=e4629]: ui
+          - paragraph [ref=e4630]: Article component
+          - generic [ref=e4631]:
+            - generic [ref=e4632]: article
+            - generic [ref=e4633]: content
+            - generic [ref=e4634]: text
+        - generic [ref=e4636]:
+          - heading "Article" [level=3] [ref=e4637]
+          - paragraph [ref=e4638]: Interactive Article component
+        - generic [ref=e4639]:
+          - generic [ref=e4640]:
+            - generic [ref=e4641]: "Version: 1.0.0"
+            - generic [ref=e4642]: "Type: config"
+            - generic [ref=e4643]: "Dimension: 2D"
+          - generic [ref=e4644]:
+            - button "Details" [ref=e4645] [cursor=pointer]:
+              - img [ref=e4646]
+              - text: Details
+            - button "Code" [ref=e4649] [cursor=pointer]:
+              - img [ref=e4650]
+              - text: Code
+      - generic [ref=e4653]:
+        - generic [ref=e4654]:
+          - generic [ref=e4655]:
+            - heading "Header" [level=3] [ref=e4656]
+            - generic [ref=e4657]: ui
+          - paragraph [ref=e4658]: Header component
+          - generic [ref=e4659]:
+            - generic [ref=e4660]: header
+            - generic [ref=e4661]: navigation
+            - generic [ref=e4662]: top
+        - generic [ref=e4664]:
+          - heading "Header" [level=3] [ref=e4665]
+          - paragraph [ref=e4666]: Interactive Header component
+        - generic [ref=e4667]:
+          - generic [ref=e4668]:
+            - generic [ref=e4669]: "Version: 1.0.0"
+            - generic [ref=e4670]: "Type: config"
+            - generic [ref=e4671]: "Dimension: 2D"
+          - generic [ref=e4672]:
+            - button "Details" [ref=e4673] [cursor=pointer]:
+              - img [ref=e4674]
+              - text: Details
+            - button "Code" [ref=e4677] [cursor=pointer]:
+              - img [ref=e4678]
+              - text: Code
+      - generic [ref=e4681]:
+        - generic [ref=e4682]:
+          - generic [ref=e4683]:
+            - heading "Footer" [level=3] [ref=e4684]
+            - generic [ref=e4685]: ui
+          - paragraph [ref=e4686]: Footer component
+          - generic [ref=e4687]:
+            - generic [ref=e4688]: footer
+            - generic [ref=e4689]: bottom
+            - generic [ref=e4690]: navigation
+        - generic [ref=e4692]:
+          - heading "Footer" [level=3] [ref=e4693]
+          - paragraph [ref=e4694]: Interactive Footer component
+        - generic [ref=e4695]:
+          - generic [ref=e4696]:
+            - generic [ref=e4697]: "Version: 1.0.0"
+            - generic [ref=e4698]: "Type: config"
+            - generic [ref=e4699]: "Dimension: 2D"
+          - generic [ref=e4700]:
+            - button "Details" [ref=e4701] [cursor=pointer]:
+              - img [ref=e4702]
+              - text: Details
+            - button "Code" [ref=e4705] [cursor=pointer]:
+              - img [ref=e4706]
+              - text: Code
+      - generic [ref=e4709]:
+        - generic [ref=e4710]:
+          - generic [ref=e4711]:
+            - heading "Sidebar" [level=3] [ref=e4712]
+            - generic [ref=e4713]: ui
+          - paragraph [ref=e4714]: Sidebar component
+          - generic [ref=e4715]:
+            - generic [ref=e4716]: sidebar
+            - generic [ref=e4717]: navigation
+            - generic [ref=e4718]: side
+        - generic [ref=e4720]:
+          - heading "Sidebar" [level=3] [ref=e4721]
+          - paragraph [ref=e4722]: Interactive Sidebar component
+        - generic [ref=e4723]:
+          - generic [ref=e4724]:
+            - generic [ref=e4725]: "Version: 1.0.0"
+            - generic [ref=e4726]: "Type: config"
+            - generic [ref=e4727]: "Dimension: 2D"
+          - generic [ref=e4728]:
+            - button "Details" [ref=e4729] [cursor=pointer]:
+              - img [ref=e4730]
+              - text: Details
+            - button "Code" [ref=e4733] [cursor=pointer]:
+              - img [ref=e4734]
+              - text: Code
+      - generic [ref=e4737]:
+        - generic [ref=e4738]:
+          - generic [ref=e4739]:
+            - heading "Navbar" [level=3] [ref=e4740]
+            - generic [ref=e4741]: ui
+          - paragraph [ref=e4742]: Navigation bar component
+          - generic [ref=e4743]:
+            - generic [ref=e4744]: navbar
+            - generic [ref=e4745]: navigation
+            - generic [ref=e4746]: top
+        - generic [ref=e4748]:
+          - heading "Navbar" [level=3] [ref=e4749]
+          - paragraph [ref=e4750]: Interactive Navbar component
+        - generic [ref=e4751]:
+          - generic [ref=e4752]:
+            - generic [ref=e4753]: "Version: 1.0.0"
+            - generic [ref=e4754]: "Type: config"
+            - generic [ref=e4755]: "Dimension: 2D"
+          - generic [ref=e4756]:
+            - button "Details" [ref=e4757] [cursor=pointer]:
+              - img [ref=e4758]
+              - text: Details
+            - button "Code" [ref=e4761] [cursor=pointer]:
+              - img [ref=e4762]
+              - text: Code
+      - generic [ref=e4765]:
+        - generic [ref=e4766]:
+          - generic [ref=e4767]:
+            - heading "Menu" [level=3] [ref=e4768]
+            - generic [ref=e4769]: ui
+          - paragraph [ref=e4770]: Menu component
+          - generic [ref=e4771]:
+            - generic [ref=e4772]: menu
+            - generic [ref=e4773]: navigation
+            - generic [ref=e4774]: list
+        - generic [ref=e4776]:
+          - heading "Menu" [level=3] [ref=e4777]
+          - paragraph [ref=e4778]: Interactive Menu component
+        - generic [ref=e4779]:
+          - generic [ref=e4780]:
+            - generic [ref=e4781]: "Version: 1.0.0"
+            - generic [ref=e4782]: "Type: config"
+            - generic [ref=e4783]: "Dimension: 2D"
+          - generic [ref=e4784]:
+            - button "Details" [ref=e4785] [cursor=pointer]:
+              - img [ref=e4786]
+              - text: Details
+            - button "Code" [ref=e4789] [cursor=pointer]:
+              - img [ref=e4790]
+              - text: Code
+      - generic [ref=e4793]:
+        - generic [ref=e4794]:
+          - generic [ref=e4795]:
+            - heading "MenuItem" [level=3] [ref=e4796]
+            - generic [ref=e4797]: ui
+          - paragraph [ref=e4798]: Menu item component
+          - generic [ref=e4799]:
+            - generic [ref=e4800]: menuitem
+            - generic [ref=e4801]: menu
+            - generic [ref=e4802]: item
+        - generic [ref=e4804]:
+          - heading "MenuItem" [level=3] [ref=e4805]
+          - paragraph [ref=e4806]: Interactive MenuItem component
+        - generic [ref=e4807]:
+          - generic [ref=e4808]:
+            - generic [ref=e4809]: "Version: 1.0.0"
+            - generic [ref=e4810]: "Type: config"
+            - generic [ref=e4811]: "Dimension: 2D"
+          - generic [ref=e4812]:
+            - button "Details" [ref=e4813] [cursor=pointer]:
+              - img [ref=e4814]
+              - text: Details
+            - button "Code" [ref=e4817] [cursor=pointer]:
+              - img [ref=e4818]
+              - text: Code
+      - generic [ref=e4821]:
+        - generic [ref=e4822]:
+          - generic [ref=e4823]:
+            - heading "SubMenu" [level=3] [ref=e4824]
+            - generic [ref=e4825]: ui
+          - paragraph [ref=e4826]: Submenu component
+          - generic [ref=e4827]:
+            - generic [ref=e4828]: submenu
+            - generic [ref=e4829]: menu
+            - generic [ref=e4830]: nested
+        - generic [ref=e4832]:
+          - heading "SubMenu" [level=3] [ref=e4833]
+          - paragraph [ref=e4834]: Interactive SubMenu component
+        - generic [ref=e4835]:
+          - generic [ref=e4836]:
+            - generic [ref=e4837]: "Version: 1.0.0"
+            - generic [ref=e4838]: "Type: config"
+            - generic [ref=e4839]: "Dimension: 2D"
+          - generic [ref=e4840]:
+            - button "Details" [ref=e4841] [cursor=pointer]:
+              - img [ref=e4842]
+              - text: Details
+            - button "Code" [ref=e4845] [cursor=pointer]:
+              - img [ref=e4846]
+              - text: Code
+      - generic [ref=e4849]:
+        - generic [ref=e4850]:
+          - generic [ref=e4851]:
+            - heading "ContextMenu" [level=3] [ref=e4852]
+            - generic [ref=e4853]: ui
+          - paragraph [ref=e4854]: Context menu component
+          - generic [ref=e4855]:
+            - generic [ref=e4856]: contextmenu
+            - generic [ref=e4857]: menu
+            - generic [ref=e4858]: context
+        - generic [ref=e4860]:
+          - heading "ContextMenu" [level=3] [ref=e4861]
+          - paragraph [ref=e4862]: Interactive ContextMenu component
+        - generic [ref=e4863]:
+          - generic [ref=e4864]:
+            - generic [ref=e4865]: "Version: 1.0.0"
+            - generic [ref=e4866]: "Type: config"
+            - generic [ref=e4867]: "Dimension: 2D"
+          - generic [ref=e4868]:
+            - button "Details" [ref=e4869] [cursor=pointer]:
+              - img [ref=e4870]
+              - text: Details
+            - button "Code" [ref=e4873] [cursor=pointer]:
+              - img [ref=e4874]
+              - text: Code
+      - generic [ref=e4877]:
+        - generic [ref=e4878]:
+          - generic [ref=e4879]:
+            - heading "Popover" [level=3] [ref=e4880]
+            - generic [ref=e4881]: ui
+          - paragraph [ref=e4882]: Popover component
+          - generic [ref=e4883]:
+            - generic [ref=e4884]: popover
+            - generic [ref=e4885]: overlay
+            - generic [ref=e4886]: content
+        - generic [ref=e4888]:
+          - heading "Popover" [level=3] [ref=e4889]
+          - paragraph [ref=e4890]: Interactive Popover component
+        - generic [ref=e4891]:
+          - generic [ref=e4892]:
+            - generic [ref=e4893]: "Version: 1.0.0"
+            - generic [ref=e4894]: "Type: config"
+            - generic [ref=e4895]: "Dimension: 2D"
+          - generic [ref=e4896]:
+            - button "Details" [ref=e4897] [cursor=pointer]:
+              - img [ref=e4898]
+              - text: Details
+            - button "Code" [ref=e4901] [cursor=pointer]:
+              - img [ref=e4902]
+              - text: Code
+      - generic [ref=e4905]:
+        - generic [ref=e4906]:
+          - generic [ref=e4907]:
+            - heading "Overlay" [level=3] [ref=e4908]
+            - generic [ref=e4909]: ui
+          - paragraph [ref=e4910]: Overlay component
+          - generic [ref=e4911]:
+            - generic [ref=e4912]: overlay
+            - generic [ref=e4913]: backdrop
+            - generic [ref=e4914]: modal
+        - generic [ref=e4916]:
+          - heading "Overlay" [level=3] [ref=e4917]
+          - paragraph [ref=e4918]: Interactive Overlay component
+        - generic [ref=e4919]:
+          - generic [ref=e4920]:
+            - generic [ref=e4921]: "Version: 1.0.0"
+            - generic [ref=e4922]: "Type: config"
+            - generic [ref=e4923]: "Dimension: 2D"
+          - generic [ref=e4924]:
+            - button "Details" [ref=e4925] [cursor=pointer]:
+              - img [ref=e4926]
+              - text: Details
+            - button "Code" [ref=e4929] [cursor=pointer]:
+              - img [ref=e4930]
+              - text: Code
+      - generic [ref=e4933]:
+        - generic [ref=e4934]:
+          - generic [ref=e4935]:
+            - heading "Backdrop" [level=3] [ref=e4936]
+            - generic [ref=e4937]: ui
+          - paragraph [ref=e4938]: Backdrop component
+          - generic [ref=e4939]:
+            - generic [ref=e4940]: backdrop
+            - generic [ref=e4941]: overlay
+            - generic [ref=e4942]: background
+        - generic [ref=e4944]:
+          - heading "Backdrop" [level=3] [ref=e4945]
+          - paragraph [ref=e4946]: Interactive Backdrop component
+        - generic [ref=e4947]:
+          - generic [ref=e4948]:
+            - generic [ref=e4949]: "Version: 1.0.0"
+            - generic [ref=e4950]: "Type: config"
+            - generic [ref=e4951]: "Dimension: 2D"
+          - generic [ref=e4952]:
+            - button "Details" [ref=e4953] [cursor=pointer]:
+              - img [ref=e4954]
+              - text: Details
+            - button "Code" [ref=e4957] [cursor=pointer]:
+              - img [ref=e4958]
+              - text: Code
+      - generic [ref=e4961]:
+        - generic [ref=e4962]:
+          - generic [ref=e4963]:
+            - heading "Portal" [level=3] [ref=e4964]
+            - generic [ref=e4965]: ui
+          - paragraph [ref=e4966]: Portal component
+          - generic [ref=e4967]:
+            - generic [ref=e4968]: portal
+            - generic [ref=e4969]: rendering
+            - generic [ref=e4970]: dom
+        - generic [ref=e4972]:
+          - heading "Portal" [level=3] [ref=e4973]
+          - paragraph [ref=e4974]: Interactive Portal component
+        - generic [ref=e4975]:
+          - generic [ref=e4976]:
+            - generic [ref=e4977]: "Version: 1.0.0"
+            - generic [ref=e4978]: "Type: config"
+            - generic [ref=e4979]: "Dimension: 2D"
+          - generic [ref=e4980]:
+            - button "Details" [ref=e4981] [cursor=pointer]:
+              - img [ref=e4982]
+              - text: Details
+            - button "Code" [ref=e4985] [cursor=pointer]:
+              - img [ref=e4986]
+              - text: Code
+      - generic [ref=e4989]:
+        - generic [ref=e4990]:
+          - generic [ref=e4991]:
+            - heading "Fragment" [level=3] [ref=e4992]
+            - generic [ref=e4993]: ui
+          - paragraph [ref=e4994]: Fragment component
+          - generic [ref=e4995]:
+            - generic [ref=e4996]: fragment
+            - generic [ref=e4997]: wrapper
+            - generic [ref=e4998]: grouping
+        - generic [ref=e5000]:
+          - heading "Fragment" [level=3] [ref=e5001]
+          - paragraph [ref=e5002]: Interactive Fragment component
+        - generic [ref=e5003]:
+          - generic [ref=e5004]:
+            - generic [ref=e5005]: "Version: 1.0.0"
+            - generic [ref=e5006]: "Type: config"
+            - generic [ref=e5007]: "Dimension: 2D"
+          - generic [ref=e5008]:
+            - button "Details" [ref=e5009] [cursor=pointer]:
+              - img [ref=e5010]
+              - text: Details
+            - button "Code" [ref=e5013] [cursor=pointer]:
+              - img [ref=e5014]
+              - text: Code
+      - generic [ref=e5017]:
+        - generic [ref=e5018]:
+          - generic [ref=e5019]:
+            - heading "ReduxButton" [level=3] [ref=e5020]
+            - generic [ref=e5021]: redux-ui
+          - paragraph [ref=e5022]: Redux-powered button
+          - generic [ref=e5023]:
+            - generic [ref=e5024]: redux
+            - generic [ref=e5025]: button
+            - generic [ref=e5026]: state
+        - generic [ref=e5028]:
+          - heading "ReduxButton" [level=3] [ref=e5029]
+          - paragraph [ref=e5030]: Interactive ReduxButton component
+        - generic [ref=e5031]:
+          - generic [ref=e5032]:
+            - generic [ref=e5033]: "Version: 1.0.0"
+            - generic [ref=e5034]: "Type: config"
+            - generic [ref=e5035]: "Dimension: 2D"
+          - generic [ref=e5036]:
+            - button "Details" [ref=e5037] [cursor=pointer]:
+              - img [ref=e5038]
+              - text: Details
+            - button "Code" [ref=e5041] [cursor=pointer]:
+              - img [ref=e5042]
+              - text: Code
+      - generic [ref=e5045]:
+        - generic [ref=e5046]:
+          - generic [ref=e5047]:
+            - heading "ReduxCard" [level=3] [ref=e5048]
+            - generic [ref=e5049]: redux-ui
+          - paragraph [ref=e5050]: Redux-powered card
+          - generic [ref=e5051]:
+            - generic [ref=e5052]: redux
+            - generic [ref=e5053]: card
+            - generic [ref=e5054]: state
+        - generic [ref=e5056]:
+          - heading "ReduxCard" [level=3] [ref=e5057]
+          - paragraph [ref=e5058]: Interactive ReduxCard component
+        - generic [ref=e5059]:
+          - generic [ref=e5060]:
+            - generic [ref=e5061]: "Version: 1.0.0"
+            - generic [ref=e5062]: "Type: config"
+            - generic [ref=e5063]: "Dimension: 2D"
+          - generic [ref=e5064]:
+            - button "Details" [ref=e5065] [cursor=pointer]:
+              - img [ref=e5066]
+              - text: Details
+            - button "Code" [ref=e5069] [cursor=pointer]:
+              - img [ref=e5070]
+              - text: Code
+      - generic [ref=e5073]:
+        - generic [ref=e5074]:
+          - generic [ref=e5075]:
+            - heading "ReduxInput" [level=3] [ref=e5076]
+            - generic [ref=e5077]: redux-ui
+          - paragraph [ref=e5078]: Redux-powered input
+          - generic [ref=e5079]:
+            - generic [ref=e5080]: redux
+            - generic [ref=e5081]: input
+            - generic [ref=e5082]: state
+        - generic [ref=e5084]:
+          - heading "ReduxInput" [level=3] [ref=e5085]
+          - paragraph [ref=e5086]: Interactive ReduxInput component
+        - generic [ref=e5087]:
+          - generic [ref=e5088]:
+            - generic [ref=e5089]: "Version: 1.0.0"
+            - generic [ref=e5090]: "Type: config"
+            - generic [ref=e5091]: "Dimension: 2D"
+          - generic [ref=e5092]:
+            - button "Details" [ref=e5093] [cursor=pointer]:
+              - img [ref=e5094]
+              - text: Details
+            - button "Code" [ref=e5097] [cursor=pointer]:
+              - img [ref=e5098]
+              - text: Code
+      - generic [ref=e5101]:
+        - generic [ref=e5102]:
+          - generic [ref=e5103]:
+            - heading "ReduxSelect" [level=3] [ref=e5104]
+            - generic [ref=e5105]: redux-ui
+          - paragraph [ref=e5106]: Redux-powered select
+          - generic [ref=e5107]:
+            - generic [ref=e5108]: redux
+            - generic [ref=e5109]: select
+            - generic [ref=e5110]: state
+        - generic [ref=e5112]:
+          - heading "ReduxSelect" [level=3] [ref=e5113]
+          - paragraph [ref=e5114]: Interactive ReduxSelect component
+        - generic [ref=e5115]:
+          - generic [ref=e5116]:
+            - generic [ref=e5117]: "Version: 1.0.0"
+            - generic [ref=e5118]: "Type: config"
+            - generic [ref=e5119]: "Dimension: 2D"
+          - generic [ref=e5120]:
+            - button "Details" [ref=e5121] [cursor=pointer]:
+              - img [ref=e5122]
+              - text: Details
+            - button "Code" [ref=e5125] [cursor=pointer]:
+              - img [ref=e5126]
+              - text: Code
+      - generic [ref=e5129]:
+        - generic [ref=e5130]:
+          - generic [ref=e5131]:
+            - heading "ReduxCheckbox" [level=3] [ref=e5132]
+            - generic [ref=e5133]: redux-ui
+          - paragraph [ref=e5134]: Redux-powered checkbox
+          - generic [ref=e5135]:
+            - generic [ref=e5136]: redux
+            - generic [ref=e5137]: checkbox
+            - generic [ref=e5138]: state
+        - generic [ref=e5140]:
+          - heading "ReduxCheckbox" [level=3] [ref=e5141]
+          - paragraph [ref=e5142]: Interactive ReduxCheckbox component
+        - generic [ref=e5143]:
+          - generic [ref=e5144]:
+            - generic [ref=e5145]: "Version: 1.0.0"
+            - generic [ref=e5146]: "Type: config"
+            - generic [ref=e5147]: "Dimension: 2D"
+          - generic [ref=e5148]:
+            - button "Details" [ref=e5149] [cursor=pointer]:
+              - img [ref=e5150]
+              - text: Details
+            - button "Code" [ref=e5153] [cursor=pointer]:
+              - img [ref=e5154]
+              - text: Code
+      - generic [ref=e5157]:
+        - generic [ref=e5158]:
+          - generic [ref=e5159]:
+            - heading "ReduxRadio" [level=3] [ref=e5160]
+            - generic [ref=e5161]: redux-ui
+          - paragraph [ref=e5162]: Redux-powered radio
+          - generic [ref=e5163]:
+            - generic [ref=e5164]: redux
+            - generic [ref=e5165]: radio
+            - generic [ref=e5166]: state
+        - generic [ref=e5168]:
+          - heading "ReduxRadio" [level=3] [ref=e5169]
+          - paragraph [ref=e5170]: Interactive ReduxRadio component
+        - generic [ref=e5171]:
+          - generic [ref=e5172]:
+            - generic [ref=e5173]: "Version: 1.0.0"
+            - generic [ref=e5174]: "Type: config"
+            - generic [ref=e5175]: "Dimension: 2D"
+          - generic [ref=e5176]:
+            - button "Details" [ref=e5177] [cursor=pointer]:
+              - img [ref=e5178]
+              - text: Details
+            - button "Code" [ref=e5181] [cursor=pointer]:
+              - img [ref=e5182]
+              - text: Code
+      - generic [ref=e5185]:
+        - generic [ref=e5186]:
+          - generic [ref=e5187]:
+            - heading "ReduxSwitch" [level=3] [ref=e5188]
+            - generic [ref=e5189]: redux-ui
+          - paragraph [ref=e5190]: Redux-powered switch
+          - generic [ref=e5191]:
+            - generic [ref=e5192]: redux
+            - generic [ref=e5193]: switch
+            - generic [ref=e5194]: state
+        - generic [ref=e5196]:
+          - heading "ReduxSwitch" [level=3] [ref=e5197]
+          - paragraph [ref=e5198]: Interactive ReduxSwitch component
+        - generic [ref=e5199]:
+          - generic [ref=e5200]:
+            - generic [ref=e5201]: "Version: 1.0.0"
+            - generic [ref=e5202]: "Type: config"
+            - generic [ref=e5203]: "Dimension: 2D"
+          - generic [ref=e5204]:
+            - button "Details" [ref=e5205] [cursor=pointer]:
+              - img [ref=e5206]
+              - text: Details
+            - button "Code" [ref=e5209] [cursor=pointer]:
+              - img [ref=e5210]
+              - text: Code
+      - generic [ref=e5213]:
+        - generic [ref=e5214]:
+          - generic [ref=e5215]:
+            - heading "ReduxSlider" [level=3] [ref=e5216]
+            - generic [ref=e5217]: redux-ui
+          - paragraph [ref=e5218]: Redux-powered slider
+          - generic [ref=e5219]:
+            - generic [ref=e5220]: redux
+            - generic [ref=e5221]: slider
+            - generic [ref=e5222]: state
+        - generic [ref=e5224]:
+          - heading "ReduxSlider" [level=3] [ref=e5225]
+          - paragraph [ref=e5226]: Interactive ReduxSlider component
+        - generic [ref=e5227]:
+          - generic [ref=e5228]:
+            - generic [ref=e5229]: "Version: 1.0.0"
+            - generic [ref=e5230]: "Type: config"
+            - generic [ref=e5231]: "Dimension: 2D"
+          - generic [ref=e5232]:
+            - button "Details" [ref=e5233] [cursor=pointer]:
+              - img [ref=e5234]
+              - text: Details
+            - button "Code" [ref=e5237] [cursor=pointer]:
+              - img [ref=e5238]
+              - text: Code
+      - generic [ref=e5241]:
+        - generic [ref=e5242]:
+          - generic [ref=e5243]:
+            - heading "ReduxTabs" [level=3] [ref=e5244]
+            - generic [ref=e5245]: redux-ui
+          - paragraph [ref=e5246]: Redux-powered tabs
+          - generic [ref=e5247]:
+            - generic [ref=e5248]: redux
+            - generic [ref=e5249]: tabs
+            - generic [ref=e5250]: state
+        - generic [ref=e5252]:
+          - heading "ReduxTabs" [level=3] [ref=e5253]
+          - paragraph [ref=e5254]: Interactive ReduxTabs component
+        - generic [ref=e5255]:
+          - generic [ref=e5256]:
+            - generic [ref=e5257]: "Version: 1.0.0"
+            - generic [ref=e5258]: "Type: config"
+            - generic [ref=e5259]: "Dimension: 2D"
+          - generic [ref=e5260]:
+            - button "Details" [ref=e5261] [cursor=pointer]:
+              - img [ref=e5262]
+              - text: Details
+            - button "Code" [ref=e5265] [cursor=pointer]:
+              - img [ref=e5266]
+              - text: Code
+      - generic [ref=e5269]:
+        - generic [ref=e5270]:
+          - generic [ref=e5271]:
+            - heading "ReduxModal" [level=3] [ref=e5272]
+            - generic [ref=e5273]: redux-ui
+          - paragraph [ref=e5274]: Redux-powered modal
+          - generic [ref=e5275]:
+            - generic [ref=e5276]: redux
+            - generic [ref=e5277]: modal
+            - generic [ref=e5278]: state
+        - generic [ref=e5280]:
+          - heading "ReduxModal" [level=3] [ref=e5281]
+          - paragraph [ref=e5282]: Interactive ReduxModal component
+        - generic [ref=e5283]:
+          - generic [ref=e5284]:
+            - generic [ref=e5285]: "Version: 1.0.0"
+            - generic [ref=e5286]: "Type: config"
+            - generic [ref=e5287]: "Dimension: 2D"
+          - generic [ref=e5288]:
+            - button "Details" [ref=e5289] [cursor=pointer]:
+              - img [ref=e5290]
+              - text: Details
+            - button "Code" [ref=e5293] [cursor=pointer]:
+              - img [ref=e5294]
+              - text: Code
+      - generic [ref=e5297]:
+        - generic [ref=e5298]:
+          - generic [ref=e5299]:
+            - heading "ReduxTooltip" [level=3] [ref=e5300]
+            - generic [ref=e5301]: redux-ui
+          - paragraph [ref=e5302]: Redux-powered tooltip
+          - generic [ref=e5303]:
+            - generic [ref=e5304]: redux
+            - generic [ref=e5305]: tooltip
+            - generic [ref=e5306]: state
+        - generic [ref=e5308]:
+          - heading "ReduxTooltip" [level=3] [ref=e5309]
+          - paragraph [ref=e5310]: Interactive ReduxTooltip component
+        - generic [ref=e5311]:
+          - generic [ref=e5312]:
+            - generic [ref=e5313]: "Version: 1.0.0"
+            - generic [ref=e5314]: "Type: config"
+            - generic [ref=e5315]: "Dimension: 2D"
+          - generic [ref=e5316]:
+            - button "Details" [ref=e5317] [cursor=pointer]:
+              - img [ref=e5318]
+              - text: Details
+            - button "Code" [ref=e5321] [cursor=pointer]:
+              - img [ref=e5322]
+              - text: Code
+      - generic [ref=e5325]:
+        - generic [ref=e5326]:
+          - generic [ref=e5327]:
+            - heading "ReduxAlert" [level=3] [ref=e5328]
+            - generic [ref=e5329]: redux-ui
+          - paragraph [ref=e5330]: Redux-powered alert
+          - generic [ref=e5331]:
+            - generic [ref=e5332]: redux
+            - generic [ref=e5333]: alert
+            - generic [ref=e5334]: state
+        - generic [ref=e5336]:
+          - heading "ReduxAlert" [level=3] [ref=e5337]
+          - paragraph [ref=e5338]: Interactive ReduxAlert component
+        - generic [ref=e5339]:
+          - generic [ref=e5340]:
+            - generic [ref=e5341]: "Version: 1.0.0"
+            - generic [ref=e5342]: "Type: config"
+            - generic [ref=e5343]: "Dimension: 2D"
+          - generic [ref=e5344]:
+            - button "Details" [ref=e5345] [cursor=pointer]:
+              - img [ref=e5346]
+              - text: Details
+            - button "Code" [ref=e5349] [cursor=pointer]:
+              - img [ref=e5350]
+              - text: Code
+      - generic [ref=e5353]:
+        - generic [ref=e5354]:
+          - generic [ref=e5355]:
+            - heading "ReduxProgress" [level=3] [ref=e5356]
+            - generic [ref=e5357]: redux-ui
+          - paragraph [ref=e5358]: Redux-powered progress
+          - generic [ref=e5359]:
+            - generic [ref=e5360]: redux
+            - generic [ref=e5361]: progress
+            - generic [ref=e5362]: state
+        - generic [ref=e5364]:
+          - heading "ReduxProgress" [level=3] [ref=e5365]
+          - paragraph [ref=e5366]: Interactive ReduxProgress component
+        - generic [ref=e5367]:
+          - generic [ref=e5368]:
+            - generic [ref=e5369]: "Version: 1.0.0"
+            - generic [ref=e5370]: "Type: config"
+            - generic [ref=e5371]: "Dimension: 2D"
+          - generic [ref=e5372]:
+            - button "Details" [ref=e5373] [cursor=pointer]:
+              - img [ref=e5374]
+              - text: Details
+            - button "Code" [ref=e5377] [cursor=pointer]:
+              - img [ref=e5378]
+              - text: Code
+      - generic [ref=e5381]:
+        - generic [ref=e5382]:
+          - generic [ref=e5383]:
+            - heading "Pow3rButton" [level=3] [ref=e5384]
+            - generic [ref=e5385]: pow3r
+          - paragraph [ref=e5386]: Pow3r-powered button
+          - generic [ref=e5387]:
+            - generic [ref=e5388]: pow3r
+            - generic [ref=e5389]: button
+            - generic [ref=e5390]: enhanced
+        - generic [ref=e5392]:
+          - heading "Pow3rButton" [level=3] [ref=e5393]
+          - paragraph [ref=e5394]: Interactive Pow3rButton component
+        - generic [ref=e5395]:
+          - generic [ref=e5396]:
+            - generic [ref=e5397]: "Version: 1.0.0"
+            - generic [ref=e5398]: "Type: config"
+            - generic [ref=e5399]: "Dimension: 2D"
+          - generic [ref=e5400]:
+            - button "Details" [ref=e5401] [cursor=pointer]:
+              - img [ref=e5402]
+              - text: Details
+            - button "Code" [ref=e5405] [cursor=pointer]:
+              - img [ref=e5406]
+              - text: Code
+      - generic [ref=e5409]:
+        - generic [ref=e5410]:
+          - generic [ref=e5411]:
+            - heading "Pow3rCard" [level=3] [ref=e5412]
+            - generic [ref=e5413]: pow3r
+          - paragraph [ref=e5414]: Pow3r-powered card
+          - generic [ref=e5415]:
+            - generic [ref=e5416]: pow3r
+            - generic [ref=e5417]: card
+            - generic [ref=e5418]: enhanced
+        - generic [ref=e5420]:
+          - heading "Pow3rCard" [level=3] [ref=e5421]
+          - paragraph [ref=e5422]: Interactive Pow3rCard component
+        - generic [ref=e5423]:
+          - generic [ref=e5424]:
+            - generic [ref=e5425]: "Version: 1.0.0"
+            - generic [ref=e5426]: "Type: config"
+            - generic [ref=e5427]: "Dimension: 2D"
+          - generic [ref=e5428]:
+            - button "Details" [ref=e5429] [cursor=pointer]:
+              - img [ref=e5430]
+              - text: Details
+            - button "Code" [ref=e5433] [cursor=pointer]:
+              - img [ref=e5434]
+              - text: Code
+      - generic [ref=e5437]:
+        - generic [ref=e5438]:
+          - generic [ref=e5439]:
+            - heading "Pow3rInput" [level=3] [ref=e5440]
+            - generic [ref=e5441]: pow3r
+          - paragraph [ref=e5442]: Pow3r-powered input
+          - generic [ref=e5443]:
+            - generic [ref=e5444]: pow3r
+            - generic [ref=e5445]: input
+            - generic [ref=e5446]: enhanced
+        - generic [ref=e5448]:
+          - heading "Pow3rInput" [level=3] [ref=e5449]
+          - paragraph [ref=e5450]: Interactive Pow3rInput component
+        - generic [ref=e5451]:
+          - generic [ref=e5452]:
+            - generic [ref=e5453]: "Version: 1.0.0"
+            - generic [ref=e5454]: "Type: config"
+            - generic [ref=e5455]: "Dimension: 2D"
+          - generic [ref=e5456]:
+            - button "Details" [ref=e5457] [cursor=pointer]:
+              - img [ref=e5458]
+              - text: Details
+            - button "Code" [ref=e5461] [cursor=pointer]:
+              - img [ref=e5462]
+              - text: Code
+      - generic [ref=e5465]:
+        - generic [ref=e5466]:
+          - generic [ref=e5467]:
+            - heading "Pow3rModal" [level=3] [ref=e5468]
+            - generic [ref=e5469]: pow3r
+          - paragraph [ref=e5470]: Pow3r-powered modal
+          - generic [ref=e5471]:
+            - generic [ref=e5472]: pow3r
+            - generic [ref=e5473]: modal
+            - generic [ref=e5474]: enhanced
+        - generic [ref=e5476]:
+          - heading "Pow3rModal" [level=3] [ref=e5477]
+          - paragraph [ref=e5478]: Interactive Pow3rModal component
+        - generic [ref=e5479]:
+          - generic [ref=e5480]:
+            - generic [ref=e5481]: "Version: 1.0.0"
+            - generic [ref=e5482]: "Type: config"
+            - generic [ref=e5483]: "Dimension: 2D"
+          - generic [ref=e5484]:
+            - button "Details" [ref=e5485] [cursor=pointer]:
+              - img [ref=e5486]
+              - text: Details
+            - button "Code" [ref=e5489] [cursor=pointer]:
+              - img [ref=e5490]
+              - text: Code
+      - generic [ref=e5493]:
+        - generic [ref=e5494]:
+          - generic [ref=e5495]:
+            - heading "Pow3rDashboard" [level=3] [ref=e5496]
+            - generic [ref=e5497]: pow3r
+          - paragraph [ref=e5498]: Pow3r-powered dashboard
+          - generic [ref=e5499]:
+            - generic [ref=e5500]: pow3r
+            - generic [ref=e5501]: dashboard
+            - generic [ref=e5502]: enhanced
+        - generic [ref=e5504]:
+          - heading "Pow3rDashboard" [level=3] [ref=e5505]
+          - paragraph [ref=e5506]: Interactive Pow3rDashboard component
+        - generic [ref=e5507]:
+          - generic [ref=e5508]:
+            - generic [ref=e5509]: "Version: 1.0.0"
+            - generic [ref=e5510]: "Type: config"
+            - generic [ref=e5511]: "Dimension: 2D"
+          - generic [ref=e5512]:
+            - button "Details" [ref=e5513] [cursor=pointer]:
+              - img [ref=e5514]
+              - text: Details
+            - button "Code" [ref=e5517] [cursor=pointer]:
+              - img [ref=e5518]
+              - text: Code
+      - generic [ref=e5521]:
+        - generic [ref=e5522]:
+          - generic [ref=e5523]:
+            - heading "AIWorkflows" [level=3] [ref=e5524]
+            - generic [ref=e5525]: features
+          - paragraph [ref=e5526]: AI-powered workflow automation
+          - generic [ref=e5527]:
+            - generic [ref=e5528]: ai
+            - generic [ref=e5529]: workflow
+            - generic [ref=e5530]: automation
+        - generic [ref=e5532]:
+          - heading "AIWorkflows" [level=3] [ref=e5533]
+          - paragraph [ref=e5534]: Interactive AIWorkflows component
+        - generic [ref=e5535]:
+          - generic [ref=e5536]:
+            - generic [ref=e5537]: "Version: 1.0.0"
+            - generic [ref=e5538]: "Type: config"
+            - generic [ref=e5539]: "Dimension: 2D"
+          - generic [ref=e5540]:
+            - button "Details" [ref=e5541] [cursor=pointer]:
+              - img [ref=e5542]
+              - text: Details
+            - button "Code" [ref=e5545] [cursor=pointer]:
+              - img [ref=e5546]
+              - text: Code
+      - generic [ref=e5549]:
+        - generic [ref=e5550]:
+          - generic [ref=e5551]:
+            - heading "PrivacyControls" [level=3] [ref=e5552]
+            - generic [ref=e5553]: features
+          - paragraph [ref=e5554]: Privacy and security controls
+          - generic [ref=e5555]:
+            - generic [ref=e5556]: privacy
+            - generic [ref=e5557]: security
+            - generic [ref=e5558]: controls
+        - generic [ref=e5560]:
+          - heading "PrivacyControls" [level=3] [ref=e5561]
+          - paragraph [ref=e5562]: Interactive PrivacyControls component
+        - generic [ref=e5563]:
+          - generic [ref=e5564]:
+            - generic [ref=e5565]: "Version: 1.0.0"
+            - generic [ref=e5566]: "Type: config"
+            - generic [ref=e5567]: "Dimension: 2D"
+          - generic [ref=e5568]:
+            - button "Details" [ref=e5569] [cursor=pointer]:
+              - img [ref=e5570]
+              - text: Details
+            - button "Code" [ref=e5573] [cursor=pointer]:
+              - img [ref=e5574]
+              - text: Code
+      - generic [ref=e5577]:
+        - generic [ref=e5578]:
+          - generic [ref=e5579]:
+            - heading "ThreeLayerShowcase" [level=3] [ref=e5580]
+            - generic [ref=e5581]: features
+          - paragraph [ref=e5582]: Three-layer architecture showcase
+          - generic [ref=e5583]:
+            - generic [ref=e5584]: showcase
+            - generic [ref=e5585]: architecture
+            - generic [ref=e5586]: layers
+        - generic [ref=e5588]:
+          - heading "ThreeLayerShowcase" [level=3] [ref=e5589]
+          - paragraph [ref=e5590]: Interactive ThreeLayerShowcase component
+        - generic [ref=e5591]:
+          - generic [ref=e5592]:
+            - generic [ref=e5593]: "Version: 1.0.0"
+            - generic [ref=e5594]: "Type: config"
+            - generic [ref=e5595]: "Dimension: 2D"
+          - generic [ref=e5596]:
+            - button "Details" [ref=e5597] [cursor=pointer]:
+              - img [ref=e5598]
+              - text: Details
+            - button "Code" [ref=e5601] [cursor=pointer]:
+              - img [ref=e5602]
+              - text: Code
+      - generic [ref=e5605]:
+        - generic [ref=e5606]:
+          - generic [ref=e5607]:
+            - heading "UniversalComponentContainer" [level=3] [ref=e5608]
+            - generic [ref=e5609]: features
+          - paragraph [ref=e5610]: Universal component container
+          - generic [ref=e5611]:
+            - generic [ref=e5612]: universal
+            - generic [ref=e5613]: container
+            - generic [ref=e5614]: component
+        - generic [ref=e5616]:
+          - heading "UniversalComponentContainer" [level=3] [ref=e5617]
+          - paragraph [ref=e5618]: Interactive UniversalComponentContainer component
+        - generic [ref=e5619]:
+          - generic [ref=e5620]:
+            - generic [ref=e5621]: "Version: 1.0.0"
+            - generic [ref=e5622]: "Type: config"
+            - generic [ref=e5623]: "Dimension: 2D"
+          - generic [ref=e5624]:
+            - button "Details" [ref=e5625] [cursor=pointer]:
+              - img [ref=e5626]
+              - text: Details
+            - button "Code" [ref=e5629] [cursor=pointer]:
+              - img [ref=e5630]
+              - text: Code
+      - generic [ref=e5633]:
+        - generic [ref=e5634]:
+          - generic [ref=e5635]:
+            - heading "ObservabilitySystem" [level=3] [ref=e5636]
+            - generic [ref=e5637]: features
+          - paragraph [ref=e5638]: System observability and monitoring
+          - generic [ref=e5639]:
+            - generic [ref=e5640]: observability
+            - generic [ref=e5641]: monitoring
+            - generic [ref=e5642]: system
+        - generic [ref=e5644]:
+          - heading "ObservabilitySystem" [level=3] [ref=e5645]
+          - paragraph [ref=e5646]: Interactive ObservabilitySystem component
+        - generic [ref=e5647]:
+          - generic [ref=e5648]:
+            - generic [ref=e5649]: "Version: 1.0.0"
+            - generic [ref=e5650]: "Type: config"
+            - generic [ref=e5651]: "Dimension: 2D"
+          - generic [ref=e5652]:
+            - button "Details" [ref=e5653] [cursor=pointer]:
+              - img [ref=e5654]
+              - text: Details
+            - button "Code" [ref=e5657] [cursor=pointer]:
+              - img [ref=e5658]
+              - text: Code
+      - generic [ref=e5661]:
+        - generic [ref=e5662]:
+          - generic [ref=e5663]:
+            - heading "PerformanceMonitor" [level=3] [ref=e5664]
+            - generic [ref=e5665]: features
+          - paragraph [ref=e5666]: Performance monitoring system
+          - generic [ref=e5667]:
+            - generic [ref=e5668]: performance
+            - generic [ref=e5669]: monitoring
+            - generic [ref=e5670]: system
+        - generic [ref=e5672]:
+          - heading "PerformanceMonitor" [level=3] [ref=e5673]
+          - paragraph [ref=e5674]: Interactive PerformanceMonitor component
+        - generic [ref=e5675]:
+          - generic [ref=e5676]:
+            - generic [ref=e5677]: "Version: 1.0.0"
+            - generic [ref=e5678]: "Type: config"
+            - generic [ref=e5679]: "Dimension: 2D"
+          - generic [ref=e5680]:
+            - button "Details" [ref=e5681] [cursor=pointer]:
+              - img [ref=e5682]
+              - text: Details
+            - button "Code" [ref=e5685] [cursor=pointer]:
+              - img [ref=e5686]
+              - text: Code
+      - generic [ref=e5689]:
+        - generic [ref=e5690]:
+          - generic [ref=e5691]:
+            - heading "SearchEngine" [level=3] [ref=e5692]
+            - generic [ref=e5693]: features
+          - paragraph [ref=e5694]: Advanced search engine
+          - generic [ref=e5695]:
+            - generic [ref=e5696]: search
+            - generic [ref=e5697]: engine
+            - generic [ref=e5698]: advanced
+        - generic [ref=e5700]:
+          - heading "SearchEngine" [level=3] [ref=e5701]
+          - paragraph [ref=e5702]: Interactive SearchEngine component
+        - generic [ref=e5703]:
+          - generic [ref=e5704]:
+            - generic [ref=e5705]: "Version: 1.0.0"
+            - generic [ref=e5706]: "Type: config"
+            - generic [ref=e5707]: "Dimension: 2D"
+          - generic [ref=e5708]:
+            - button "Details" [ref=e5709] [cursor=pointer]:
+              - img [ref=e5710]
+              - text: Details
+            - button "Code" [ref=e5713] [cursor=pointer]:
+              - img [ref=e5714]
+              - text: Code
+      - generic [ref=e5717]:
+        - generic [ref=e5718]:
+          - generic [ref=e5719]:
+            - heading "AIAssistant" [level=3] [ref=e5720]
+            - generic [ref=e5721]: features
+          - paragraph [ref=e5722]: AI-powered assistant
+          - generic [ref=e5723]:
+            - generic [ref=e5724]: ai
+            - generic [ref=e5725]: assistant
+            - generic [ref=e5726]: intelligent
+        - generic [ref=e5728]:
+          - heading "AIAssistant" [level=3] [ref=e5729]
+          - paragraph [ref=e5730]: Interactive AIAssistant component
+        - generic [ref=e5731]:
+          - generic [ref=e5732]:
+            - generic [ref=e5733]: "Version: 1.0.0"
+            - generic [ref=e5734]: "Type: config"
+            - generic [ref=e5735]: "Dimension: 2D"
+          - generic [ref=e5736]:
+            - button "Details" [ref=e5737] [cursor=pointer]:
+              - img [ref=e5738]
+              - text: Details
+            - button "Code" [ref=e5741] [cursor=pointer]:
+              - img [ref=e5742]
+              - text: Code
+      - generic [ref=e5745]:
+        - generic [ref=e5746]:
+          - generic [ref=e5747]:
+            - heading "DataAnalytics" [level=3] [ref=e5748]
+            - generic [ref=e5749]: features
+          - paragraph [ref=e5750]: Advanced data analytics
+          - generic [ref=e5751]:
+            - generic [ref=e5752]: data
+            - generic [ref=e5753]: analytics
+            - generic [ref=e5754]: advanced
+        - generic [ref=e5756]:
+          - heading "DataAnalytics" [level=3] [ref=e5757]
+          - paragraph [ref=e5758]: Interactive DataAnalytics component
+        - generic [ref=e5759]:
+          - generic [ref=e5760]:
+            - generic [ref=e5761]: "Version: 1.0.0"
+            - generic [ref=e5762]: "Type: config"
+            - generic [ref=e5763]: "Dimension: 2D"
+          - generic [ref=e5764]:
+            - button "Details" [ref=e5765] [cursor=pointer]:
+              - img [ref=e5766]
+              - text: Details
+            - button "Code" [ref=e5769] [cursor=pointer]:
+              - img [ref=e5770]
+              - text: Code
+      - generic [ref=e5773]:
+        - generic [ref=e5774]:
+          - generic [ref=e5775]:
+            - heading "MachineLearning" [level=3] [ref=e5776]
+            - generic [ref=e5777]: features
+          - paragraph [ref=e5778]: Machine learning integration
+          - generic [ref=e5779]:
+            - generic [ref=e5780]: ml
+            - generic [ref=e5781]: learning
+            - generic [ref=e5782]: intelligence
+        - generic [ref=e5784]:
+          - heading "MachineLearning" [level=3] [ref=e5785]
+          - paragraph [ref=e5786]: Interactive MachineLearning component
+        - generic [ref=e5787]:
+          - generic [ref=e5788]:
+            - generic [ref=e5789]: "Version: 1.0.0"
+            - generic [ref=e5790]: "Type: config"
+            - generic [ref=e5791]: "Dimension: 2D"
+          - generic [ref=e5792]:
+            - button "Details" [ref=e5793] [cursor=pointer]:
+              - img [ref=e5794]
+              - text: Details
+            - button "Code" [ref=e5797] [cursor=pointer]:
+              - img [ref=e5798]
+              - text: Code
+      - generic [ref=e5801]:
+        - generic [ref=e5802]:
+          - generic [ref=e5803]:
+            - heading "BlockchainIntegration" [level=3] [ref=e5804]
+            - generic [ref=e5805]: features
+          - paragraph [ref=e5806]: Blockchain technology integration
+          - generic [ref=e5807]:
+            - generic [ref=e5808]: blockchain
+            - generic [ref=e5809]: integration
+            - generic [ref=e5810]: technology
+        - generic [ref=e5812]:
+          - heading "BlockchainIntegration" [level=3] [ref=e5813]
+          - paragraph [ref=e5814]: Interactive BlockchainIntegration component
+        - generic [ref=e5815]:
+          - generic [ref=e5816]:
+            - generic [ref=e5817]: "Version: 1.0.0"
+            - generic [ref=e5818]: "Type: config"
+            - generic [ref=e5819]: "Dimension: 2D"
+          - generic [ref=e5820]:
+            - button "Details" [ref=e5821] [cursor=pointer]:
+              - img [ref=e5822]
+              - text: Details
+            - button "Code" [ref=e5825] [cursor=pointer]:
+              - img [ref=e5826]
+              - text: Code
+      - generic [ref=e5829]:
+        - generic [ref=e5830]:
+          - generic [ref=e5831]:
+            - heading "IoTConnectivity" [level=3] [ref=e5832]
+            - generic [ref=e5833]: features
+          - paragraph [ref=e5834]: IoT device connectivity
+          - generic [ref=e5835]:
+            - generic [ref=e5836]: iot
+            - generic [ref=e5837]: connectivity
+            - generic [ref=e5838]: devices
+        - generic [ref=e5840]:
+          - heading "IoTConnectivity" [level=3] [ref=e5841]
+          - paragraph [ref=e5842]: Interactive IoTConnectivity component
+        - generic [ref=e5843]:
+          - generic [ref=e5844]:
+            - generic [ref=e5845]: "Version: 1.0.0"
+            - generic [ref=e5846]: "Type: config"
+            - generic [ref=e5847]: "Dimension: 2D"
+          - generic [ref=e5848]:
+            - button "Details" [ref=e5849] [cursor=pointer]:
+              - img [ref=e5850]
+              - text: Details
+            - button "Code" [ref=e5853] [cursor=pointer]:
+              - img [ref=e5854]
+              - text: Code
+      - generic [ref=e5857]:
+        - generic [ref=e5858]:
+          - generic [ref=e5859]:
+            - heading "CloudSync" [level=3] [ref=e5860]
+            - generic [ref=e5861]: features
+          - paragraph [ref=e5862]: Cloud synchronization
+          - generic [ref=e5863]:
+            - generic [ref=e5864]: cloud
+            - generic [ref=e5865]: sync
+            - generic [ref=e5866]: synchronization
+        - generic [ref=e5868]:
+          - heading "CloudSync" [level=3] [ref=e5869]
+          - paragraph [ref=e5870]: Interactive CloudSync component
+        - generic [ref=e5871]:
+          - generic [ref=e5872]:
+            - generic [ref=e5873]: "Version: 1.0.0"
+            - generic [ref=e5874]: "Type: config"
+            - generic [ref=e5875]: "Dimension: 2D"
+          - generic [ref=e5876]:
+            - button "Details" [ref=e5877] [cursor=pointer]:
+              - img [ref=e5878]
+              - text: Details
+            - button "Code" [ref=e5881] [cursor=pointer]:
+              - img [ref=e5882]
+              - text: Code
+      - generic [ref=e5885]:
+        - generic [ref=e5886]:
+          - generic [ref=e5887]:
+            - heading "SimpleButton" [level=3] [ref=e5888]
+            - generic [ref=e5889]: legacy
+          - paragraph [ref=e5890]: Simple button component
+          - generic [ref=e5891]:
+            - generic [ref=e5892]: simple
+            - generic [ref=e5893]: button
+            - generic [ref=e5894]: basic
+        - generic [ref=e5896]:
+          - heading "SimpleButton" [level=3] [ref=e5897]
+          - paragraph [ref=e5898]: Interactive SimpleButton component
+        - generic [ref=e5899]:
+          - generic [ref=e5900]:
+            - generic [ref=e5901]: "Version: 1.0.0"
+            - generic [ref=e5902]: "Type: config"
+            - generic [ref=e5903]: "Dimension: 2D"
+          - generic [ref=e5904]:
+            - button "Details" [ref=e5905] [cursor=pointer]:
+              - img [ref=e5906]
+              - text: Details
+            - button "Code" [ref=e5909] [cursor=pointer]:
+              - img [ref=e5910]
+              - text: Code
+      - generic [ref=e5913]:
+        - generic [ref=e5914]:
+          - generic [ref=e5915]:
+            - heading "SimpleCard" [level=3] [ref=e5916]
+            - generic [ref=e5917]: legacy
+          - paragraph [ref=e5918]: Simple card component
+          - generic [ref=e5919]:
+            - generic [ref=e5920]: simple
+            - generic [ref=e5921]: card
+            - generic [ref=e5922]: basic
+        - generic [ref=e5924]:
+          - heading "SimpleCard" [level=3] [ref=e5925]
+          - paragraph [ref=e5926]: Interactive SimpleCard component
+        - generic [ref=e5927]:
+          - generic [ref=e5928]:
+            - generic [ref=e5929]: "Version: 1.0.0"
+            - generic [ref=e5930]: "Type: config"
+            - generic [ref=e5931]: "Dimension: 2D"
+          - generic [ref=e5932]:
+            - button "Details" [ref=e5933] [cursor=pointer]:
+              - img [ref=e5934]
+              - text: Details
+            - button "Code" [ref=e5937] [cursor=pointer]:
+              - img [ref=e5938]
+              - text: Code
+      - generic [ref=e5941]:
+        - generic [ref=e5942]:
+          - generic [ref=e5943]:
+            - heading "SimpleInput" [level=3] [ref=e5944]
+            - generic [ref=e5945]: legacy
+          - paragraph [ref=e5946]: Simple input component
+          - generic [ref=e5947]:
+            - generic [ref=e5948]: simple
+            - generic [ref=e5949]: input
+            - generic [ref=e5950]: basic
+        - generic [ref=e5952]:
+          - heading "SimpleInput" [level=3] [ref=e5953]
+          - paragraph [ref=e5954]: Interactive SimpleInput component
+        - generic [ref=e5955]:
+          - generic [ref=e5956]:
+            - generic [ref=e5957]: "Version: 1.0.0"
+            - generic [ref=e5958]: "Type: config"
+            - generic [ref=e5959]: "Dimension: 2D"
+          - generic [ref=e5960]:
+            - button "Details" [ref=e5961] [cursor=pointer]:
+              - img [ref=e5962]
+              - text: Details
+            - button "Code" [ref=e5965] [cursor=pointer]:
+              - img [ref=e5966]
+              - text: Code
+      - generic [ref=e5969]:
+        - generic [ref=e5970]:
+          - generic [ref=e5971]:
+            - heading "SimpleBadge" [level=3] [ref=e5972]
+            - generic [ref=e5973]: legacy
+          - paragraph [ref=e5974]: Simple badge component
+          - generic [ref=e5975]:
+            - generic [ref=e5976]: simple
+            - generic [ref=e5977]: badge
+            - generic [ref=e5978]: basic
+        - generic [ref=e5980]:
+          - heading "SimpleBadge" [level=3] [ref=e5981]
+          - paragraph [ref=e5982]: Interactive SimpleBadge component
+        - generic [ref=e5983]:
+          - generic [ref=e5984]:
+            - generic [ref=e5985]: "Version: 1.0.0"
+            - generic [ref=e5986]: "Type: config"
+            - generic [ref=e5987]: "Dimension: 2D"
+          - generic [ref=e5988]:
+            - button "Details" [ref=e5989] [cursor=pointer]:
+              - img [ref=e5990]
+              - text: Details
+            - button "Code" [ref=e5993] [cursor=pointer]:
+              - img [ref=e5994]
+              - text: Code
+      - generic [ref=e5997]:
+        - generic [ref=e5998]:
+          - generic [ref=e5999]:
+            - heading "SimpleProgress" [level=3] [ref=e6000]
+            - generic [ref=e6001]: legacy
+          - paragraph [ref=e6002]: Simple progress component
+          - generic [ref=e6003]:
+            - generic [ref=e6004]: simple
+            - generic [ref=e6005]: progress
+            - generic [ref=e6006]: basic
+        - generic [ref=e6008]:
+          - heading "SimpleProgress" [level=3] [ref=e6009]
+          - paragraph [ref=e6010]: Interactive SimpleProgress component
+        - generic [ref=e6011]:
+          - generic [ref=e6012]:
+            - generic [ref=e6013]: "Version: 1.0.0"
+            - generic [ref=e6014]: "Type: config"
+            - generic [ref=e6015]: "Dimension: 2D"
+          - generic [ref=e6016]:
+            - button "Details" [ref=e6017] [cursor=pointer]:
+              - img [ref=e6018]
+              - text: Details
+            - button "Code" [ref=e6021] [cursor=pointer]:
+              - img [ref=e6022]
+              - text: Code
+      - generic [ref=e6025]:
+        - generic [ref=e6026]:
+          - generic [ref=e6027]:
+            - heading "UniversalComponent" [level=3] [ref=e6028]
+            - generic [ref=e6029]: universal
+          - paragraph [ref=e6030]: Universal component wrapper
+          - generic [ref=e6031]:
+            - generic [ref=e6032]: universal
+            - generic [ref=e6033]: wrapper
+            - generic [ref=e6034]: component
+        - generic [ref=e6036]:
+          - heading "UniversalComponent" [level=3] [ref=e6037]
+          - paragraph [ref=e6038]: Interactive UniversalComponent component
+        - generic [ref=e6039]:
+          - generic [ref=e6040]:
+            - generic [ref=e6041]: "Version: 1.0.0"
+            - generic [ref=e6042]: "Type: config"
+            - generic [ref=e6043]: "Dimension: 2D"
+          - generic [ref=e6044]:
+            - button "Details" [ref=e6045] [cursor=pointer]:
+              - img [ref=e6046]
+              - text: Details
+            - button "Code" [ref=e6049] [cursor=pointer]:
+              - img [ref=e6050]
+              - text: Code
+```
