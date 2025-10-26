@@ -390,6 +390,7 @@ const InteractiveLibraryPage: React.FC = () => {
   const currentTheme = themes[theme];
 
   const filteredComponents = useMemo(() => {
+    console.log(`🔍 Filtering components with ${componentData.length} total components`);
     let filtered = componentData;
 
     // Category filter
@@ -431,6 +432,7 @@ const InteractiveLibraryPage: React.FC = () => {
       filtered = filtered.filter(c => c.date === componentDate);
     }
 
+    console.log(`✅ Filtered to ${filtered.length} components`);
     return filtered;
   }, [selectedCategory, searchQuery, configVersion, configType, componentVersion, componentTag, componentType, componentDimension, componentDate]);
 
@@ -660,13 +662,18 @@ const InteractiveLibraryPage: React.FC = () => {
 
               {/* ACTUAL COMPONENT RENDERING */}
               <div className="p-4">
-                <ComponentRenderer
-                  componentId={component.id}
-                  componentName={component.name}
-                  category={component.category}
-                  width={viewMode === 'list' ? 400 : 300}
-                  height={200}
-                />
+                {(() => {
+                  console.log(`🎯 Rendering component: ${component.name} (${component.category})`);
+                  return (
+                    <ComponentRenderer
+                      componentId={component.id}
+                      componentName={component.name}
+                      category={component.category}
+                      width={viewMode === 'list' ? 400 : 300}
+                      height={200}
+                    />
+                  );
+                })()}
               </div>
 
               {/* Component Footer */}
