@@ -8,6 +8,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Search, Sun, Moon, Palette, Grid3x3, List, Filter, Settings, Eye, Code, Play, X, ExternalLink } from 'lucide-react';
+import ComponentRenderer from './ComponentRenderer';
 
 // Complete component data - 129 components
 const componentData = [
@@ -321,22 +322,24 @@ const ComponentDetailModal: React.FC<{ component: any; isOpen: boolean; onClose:
 
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Interactive Demo</h3>
-              <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center">
-                <div className="text-6xl mb-4">🎯</div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{component.name} Demo</h4>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Interactive component preview would load here
-                </p>
-                <div className="flex gap-2 justify-center">
-                  <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-                    <Play size={16} className="inline mr-2" />
-                    Run Demo
-                  </button>
-                  <button className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                    <Code size={16} className="inline mr-2" />
-                    View Code
-                  </button>
-                </div>
+              <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+                <ComponentRenderer
+                  componentId={component.id}
+                  componentName={component.name}
+                  category={component.category}
+                  width={400}
+                  height={300}
+                />
+              </div>
+              <div className="flex gap-2 justify-center mt-4">
+                <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                  <Play size={16} className="inline mr-2" />
+                  Run Demo
+                </button>
+                <button className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                  <Code size={16} className="inline mr-2" />
+                  View Code
+                </button>
               </div>
             </div>
           </div>
@@ -614,7 +617,7 @@ const InteractiveLibraryPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Component Grid/List */}
+        {/* Component Grid/List - RENDER ACTUAL COMPONENTS */}
         <div className={
           viewMode === 'grid'
             ? `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6`
@@ -623,54 +626,69 @@ const InteractiveLibraryPage: React.FC = () => {
           {filteredComponents.map(component => (
             <div
               key={component.id}
-              className={`p-6 rounded-lg border transition-all duration-200 hover:shadow-lg cursor-pointer ${currentTheme.card} ${viewMode === 'list' ? getComponentWidthClass() : ''}`}
-              onClick={() => handleComponentClick(component)}
+              className={`rounded-lg border transition-all duration-200 hover:shadow-lg ${currentTheme.card} ${viewMode === 'list' ? getComponentWidthClass() : ''}`}
             >
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white break-words pr-2">
-                  {component.name}
-                </h3>
-                <span className="category-badge px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-                  {component.category}
-                </span>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
-                {component.description}
-              </p>
-              <div className="space-y-2 mb-3">
-                <div className="metadata-row text-xs text-gray-500 dark:text-gray-400">
-                  <span className="text-ellipsis">Version: {component.version}</span>
-                  <span className="text-ellipsis">Type: {component.type}</span>
+              {/* Component Header */}
+              <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white break-words pr-2">
+                    {component.name}
+                  </h3>
+                  <span className="category-badge px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                    {component.category}
+                  </span>
                 </div>
-                <div className="metadata-row text-xs text-gray-500 dark:text-gray-400">
-                  <span className="text-ellipsis">Dimension: {component.dimension}</span>
-                  <span className="text-ellipsis">Date: {component.date}</span>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  {component.description}
+                </p>
+                <div className="flex flex-wrap gap-1">
+                  {component.tags.slice(0, 3).map(tag => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded whitespace-nowrap"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                  {component.tags.length > 3 && (
+                    <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded whitespace-nowrap">
+                      +{component.tags.length - 3}
+                    </span>
+                  )}
                 </div>
               </div>
-              <div className="flex flex-wrap gap-1 mb-4">
-                {component.tags.slice(0, 3).map(tag => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded whitespace-nowrap"
+
+              {/* ACTUAL COMPONENT RENDERING */}
+              <div className="p-4">
+                <ComponentRenderer
+                  componentId={component.id}
+                  componentName={component.name}
+                  category={component.category}
+                  width={viewMode === 'list' ? 400 : 300}
+                  height={200}
+                />
+              </div>
+
+              {/* Component Footer */}
+              <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+                <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-3">
+                  <span>Version: {component.version}</span>
+                  <span>Type: {component.type}</span>
+                  <span>Dimension: {component.dimension}</span>
+                </div>
+                <div className="flex gap-2">
+                  <button 
+                    className="flex-1 px-3 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center"
+                    onClick={() => handleComponentClick(component)}
                   >
-                    {tag}
-                  </span>
-                ))}
-                {component.tags.length > 3 && (
-                  <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded whitespace-nowrap">
-                    +{component.tags.length - 3}
-                  </span>
-                )}
-              </div>
-              <div className="flex gap-2">
-                <button className="flex-1 px-3 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center">
-                  <Eye size={14} className="mr-1" />
-                  View
-                </button>
-                <button className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center justify-center">
-                  <Code size={14} className="mr-1" />
-                  Code
-                </button>
+                    <Eye size={14} className="mr-1" />
+                    Details
+                  </button>
+                  <button className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center justify-center">
+                    <Code size={14} className="mr-1" />
+                    Code
+                  </button>
+                </div>
               </div>
             </div>
           ))}
