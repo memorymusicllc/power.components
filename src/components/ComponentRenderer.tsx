@@ -52,8 +52,93 @@ const ComponentRenderer: React.FC<ComponentRendererProps> = ({
       return <HeatmapChart title={`${componentName} Chart`} width={width} height={height} />;
     }
     
-    if (chartName.includes('gauge') || chartName.includes('sparkline') || chartName.includes('line')) {
+    // Line Charts - only for actual line charts
+    if (chartName.includes('line') && !chartName.includes('pie') && !chartName.includes('bar') && !chartName.includes('heatmap')) {
       console.log(`📈 Rendering LineChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Gauge Charts - special handling
+    if (chartName.includes('gauge')) {
+      console.log(`🎯 Rendering GaugeChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Radar Charts
+    if (chartName.includes('radar')) {
+      console.log(`📡 Rendering RadarChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Scatter Plots
+    if (chartName.includes('scatter')) {
+      console.log(`🔵 Rendering ScatterPlot for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Area Charts
+    if (chartName.includes('area')) {
+      console.log(`📈 Rendering AreaChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Bubble Charts
+    if (chartName.includes('bubble')) {
+      console.log(`🫧 Rendering BubbleChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Candlestick Charts
+    if (chartName.includes('candlestick')) {
+      console.log(`🕯️ Rendering CandlestickChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Funnel Charts
+    if (chartName.includes('funnel')) {
+      console.log(`🔻 Rendering FunnelChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Histogram Charts
+    if (chartName.includes('histogram')) {
+      console.log(`📊 Rendering HistogramChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Polar Charts
+    if (chartName.includes('polar')) {
+      console.log(`🧭 Rendering PolarChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Treemap Charts
+    if (chartName.includes('treemap')) {
+      console.log(`🌳 Rendering TreemapChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Sunburst Charts
+    if (chartName.includes('sunburst')) {
+      console.log(`☀️ Rendering SunburstChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Sankey Diagrams
+    if (chartName.includes('sankey')) {
+      console.log(`🌊 Rendering SankeyDiagram for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Confusion Matrix
+    if (chartName.includes('confusion') || chartName.includes('matrix')) {
+      console.log(`🔢 Rendering ConfusionMatrixChart for: ${componentName}`);
+      return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
+    }
+    
+    // Bloom Graph
+    if (chartName.includes('bloom') || chartName.includes('graph')) {
+      console.log(`🌸 Rendering BloomGraphChart for: ${componentName}`);
       return <LineChart title={`${componentName} Chart`} width={width} height={height} />;
     }
     
