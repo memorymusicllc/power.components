@@ -1,0 +1,351 @@
+{
+  "$schema": "https://pow3r.link/schemas/pow3r.v5.config.schema.json",
+  "configId": "pow3r-v5-power.components",
+  "version": "3.0.0",
+  "schemaVersion": {
+    "current": "5.0.0",
+    "minSupported": "5.0.0"
+  },
+  "metadata": {
+    "title": "power.components Config",
+    "description": "Pow3r v3 Component Library with Full Automation System",
+    "ecosystem": "pow3r",
+    "maintainers": [
+      "Power Flow"
+    ],
+    "createdAt": "2025-12-15T01:20:51.821Z",
+    "lastUpdate": "2025-12-15T01:20:51.821Z"
+  },
+  "constitution": {
+    "version": "5.0.0",
+    "enforcement": "strict",
+    "techStackCompliant": true,
+    "issues": []
+  },
+  "techStack": {
+    "hasReact": true,
+    "hasVite": true,
+    "hasTailwind": true,
+    "hasTypeScript": true,
+    "hasZustand": true,
+    "framework": "react",
+    "dependencies": [
+      "@playwright/test",
+      "@vitest/ui",
+      "c8",
+      "class-variance-authority",
+      "cli-table3",
+      "clsx",
+      "commander",
+      "framer-motion",
+      "immer",
+      "lucide-react",
+      "ora",
+      "playwright",
+      "react",
+      "react-dom",
+      "react-flow-renderer",
+      "react-redux",
+      "react-three-fiber",
+      "recharts",
+      "redux",
+      "tailwind-merge",
+      "tailwindcss",
+      "vitest",
+      "zustand",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "@typescript-eslint/eslint-plugin",
+      "@typescript-eslint/parser",
+      "@vitejs/plugin-react",
+      "autoprefixer",
+      "eslint",
+      "eslint-plugin-react-hooks",
+      "eslint-plugin-react-refresh",
+      "postcss",
+      "prettier",
+      "terser",
+      "typescript",
+      "vite",
+      "vite-plugin-dts"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "power.components",
+      "type": "repository.ui",
+      "version": "3.0.0",
+      "metadata": {
+        "title": "power.components",
+        "description": "Pow3r v3 Component Library with Full Automation System",
+        "tags": [
+          "@playwright/test",
+          "@vitest/ui",
+          "c8",
+          "class-variance-authority",
+          "cli-table3"
+        ]
+      },
+      "spatialPosition": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "scale": 2
+      },
+      "developmentStatus": {
+        "phase": "in-progress",
+        "completion": 0.9999999999999999,
+        "healthScore": 1,
+        "lastUpdate": "2025-12-13T06:29:51.000Z"
+      }
+    },
+    {
+      "id": "power.components.ui",
+      "type": "component.ui",
+      "version": "1.0.0",
+      "metadata": {
+        "title": "Ui",
+        "description": "160 ui components",
+        "tags": [
+          "ui"
+        ]
+      },
+      "spatialPosition": {
+        "x": -100,
+        "y": 50,
+        "z": 10
+      },
+      "developmentStatus": {
+        "phase": "complete",
+        "completion": 1,
+        "healthScore": 0.95
+      },
+      "children": [
+        "ComponentRenderer",
+        "InteractiveLibraryPage",
+        "LibraryPage",
+        "MetadataDisplay",
+        "Phase1Dashboard",
+        "Phase2Dashboard",
+        "SimpleLibraryPage",
+        "WorkingLibraryPage",
+        "auto-responder-manager",
+        "BarChart",
+        "ColorChart.v3",
+        "HeatmapChart",
+        "LLMPerformanceChart.v3",
+        "LineChart",
+        "PieChart",
+        "bloom-graph-chart",
+        "bloom-graph-chart.v3",
+        "confusion-matrix-chart",
+        "confusion-matrix-chart.v3",
+        "cost-analysis-chart",
+        "cost-analysis-chart.v3",
+        "error-rate-chart",
+        "error-rate-chart.v3",
+        "gantt-chart",
+        "gantt-chart.v3",
+        "heatmap-chart",
+        "heatmap-chart.v3",
+        "latency-distribution-chart",
+        "latency-distribution-chart.v3",
+        "leads-chart",
+        "leads-chart.v3",
+        "llm-performance-chart",
+        "llm-performance-chart.v3",
+        "model-comparison-chart",
+        "model-comparison-chart.v3",
+        "network-graph-chart",
+        "network-graph-chart.v3",
+        "price-chart",
+        "price-chart.v3",
+        "quadrant-leader-chart",
+        "quadrant-leader-chart.v3",
+        "quality-metrics-chart",
+        "quality-metrics-chart.v3",
+        "request-volume-chart",
+        "request-volume-chart.v3",
+        "roc-curve-chart",
+        "roc-curve-chart.v3",
+        "sankey-diagram-chart",
+        "sankey-diagram-chart.v3",
+        "scatter-plot-chart",
+        "scatter-plot-chart.v3",
+        "timeline-chart",
+        "timeline-chart.v3",
+        "token-usage-chart",
+        "token-usage-chart.v3",
+        "usage-patterns-chart",
+        "usage-patterns-chart.v3",
+        "word-cloud-chart",
+        "word-cloud-chart.v3",
+        "AIResponseSystem",
+        "AIResponseSystem.v3",
+        "AdminPanel",
+        "AdminPanel.v3",
+        "AnalyticsDashboard",
+        "AnalyticsDashboard.v3",
+        "AutoPostingEngine",
+        "AutoPostingEngine.v3",
+        "AutomationEngine",
+        "AutomationEngine.v3",
+        "ContentGenerator",
+        "ContentGenerator.v3",
+        "DataTable",
+        "ItemDetailsCollector",
+        "ItemDetailsCollector.v3",
+        "LLMSwitcher",
+        "LLMSwitcher.v3",
+        "LeadMonitor",
+        "LeadMonitor.v3",
+        "MessageCenter",
+        "MessageCenter.v3",
+        "MetricCard",
+        "NegotiationManager",
+        "NegotiationManager.v3",
+        "PhotoProcessor",
+        "PhotoProcessor.v3",
+        "PlatformSelector",
+        "PlatformSelector.v3",
+        "PostingStrategy",
+        "PostingStrategy.v3",
+        "PriceResearcher",
+        "PriceResearcher.v3",
+        "PromptTemplatesManager",
+        "PromptTemplatesManager.v3",
+        "ResponseTemplatesManager",
+        "ResponseTemplatesManager.v3",
+        "SaleProcessor",
+        "SaleProcessor.v3",
+        "UserManager",
+        "UserManager.v3",
+        "dashboard-layout",
+        "dashboard-overview",
+        "leads-manager",
+        "LegacyShowcase.test",
+        "LegacyShowcase",
+        "SimpleBadge",
+        "SimpleButton",
+        "SimpleCard",
+        "SimpleInput",
+        "SimpleProgress",
+        "index",
+        "listing-generator",
+        "listing-management",
+        "ObservabilityDashboard.v3",
+        "providers",
+        "Badge",
+        "Badge.v3",
+        "Button.phoenix",
+        "Button",
+        "Button.v3",
+        "Card",
+        "Card.v3",
+        "CodeEditor",
+        "CodeEditor.v3",
+        "ConnectionStatus",
+        "ConnectionStatus.v3",
+        "DashboardCard",
+        "DashboardCard.v3",
+        "Input",
+        "Input.v3",
+        "Progress",
+        "Progress.v3",
+        "ResponsiveGrid",
+        "ResponsiveGrid.v3",
+        "Select",
+        "Select.v3",
+        "Separator",
+        "Separator.v3",
+        "Tabs",
+        "Tabs.v3",
+        "UIElementsFilter",
+        "UIElementsFilter.v3",
+        "index",
+        "response-monitor",
+        "FilterChips",
+        "FilterChips.v3",
+        "LogicOperators",
+        "LogicOperators.v3",
+        "Search3D",
+        "Search3D.v3",
+        "SearchIntegration",
+        "SearchIntegration.v3",
+        "UniversalSearch",
+        "UniversalSearch.v3",
+        "ThreeLayerShowcase.v3",
+        "sidebar",
+        "theme-provider",
+        "Dropdown.v3",
+        "UniversalComponentContainer.v3",
+        "VerificationDashboard",
+        "VerificationDashboard.v3"
+      ]
+    },
+    {
+      "id": "power.components.services",
+      "type": "component.services",
+      "version": "1.0.0",
+      "metadata": {
+        "title": "Services",
+        "description": "3 services components",
+        "tags": [
+          "services"
+        ]
+      },
+      "spatialPosition": {
+        "x": -50,
+        "y": 90,
+        "z": 10
+      },
+      "developmentStatus": {
+        "phase": "complete",
+        "completion": 1,
+        "healthScore": 0.95
+      },
+      "children": [
+        "index",
+        "AccessibilityModes",
+        "types"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-power.components-power.components.ui",
+      "from": {
+        "nodeId": "power.components"
+      },
+      "to": {
+        "nodeId": "power.components.ui"
+      },
+      "edgeType": "contains",
+      "metadata": {
+        "label": "Contains",
+        "strength": 1
+      }
+    },
+    {
+      "id": "edge-power.components-power.components.services",
+      "from": {
+        "nodeId": "power.components"
+      },
+      "to": {
+        "nodeId": "power.components.services"
+      },
+      "edgeType": "contains",
+      "metadata": {
+        "label": "Contains",
+        "strength": 1
+      }
+    }
+  ],
+  "statusSummary": {
+    "totalNodes": 3,
+    "totalComponents": 163,
+    "overallCompletion": 1,
+    "issueCount": 0
+  }
+}
